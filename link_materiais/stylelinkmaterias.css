@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+ 
+:root{
+    --cor0:#F4F6FE;
+    --cor1:#E8F1F2;
+    --cor2:#1B98E0;
+    --cor3:#247BA0;
+    --cor4:#006494;
+    --cor5:#13293D;
+    --cor6:#0068B5;
+    --cor7: #0054A6;
+    --corVerde0:#c5ebd6;
+    --corVerde1:#83e1ad;
+    --corVerde2:#3ddc84;
+    --corVerde3:#2fa866;
+    --corVerde4:#1a5c37;
+    --corVerde5:#063d1e;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;  
+}
+  
+body{
+    background-color:#018dde22;
+    font-family: var(--fonte-padrao);
+    }
+header {
+    background-color: var(--cor7);
+    /*background-image: linear-gradient(to bottom, var(--cor4),  var(--cor6) );*/
+    min-height: 150px; 
+}
+
+header > .conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header > div h1 {
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: white;
+    font-size: 3.8em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);
+    margin-left: auto;
+}
+
+header div p {
+
+    
+ 
+    text-align: center;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3em;
+    max-width: 200px;
+ 
+    margin-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    color:darkgoldenrod;
+ 
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);
+    margin: auto;
+    
+}
+
+main > .conteiner{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    
+}
+
+#texto{
+    margin-left: 30px;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+
+
+h2 {
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+    font-size: 18x;
+    margin-top: 30px;
+    background-image: linear-gradient(to right,var(--cor7), transparent);
+    text-indent: 10px;
+    
+
+}
+
+
+main p {
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    color:black;
+   line-height: 2em;
+   background-color: rgba(105, 105, 105, 0.067);
+   margin-bottom: 10px;
+   margin: auto;
+
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.363);
+}
+nav > a {
+    color: var(--cor1);
+    background-color: darkgoldenrod;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+nav > a:hover{
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+
+
+
+main{
+ 
+    min-width: 320px;
+    max-width: 1024px;
+    margin: auto;
+    margin-bottom: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
+    background-color: var(--cor0);
+}
+main > article > h1 {
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--cor5);
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.354);
+    margin-top: 0px;
+
+}
+
+main > article > h1:hover {
+     
+    color: var(--cor2);
+}
+ 
+.conteiner-figuras{
+    display: flex;
+   padding: 10px;
+   padding: 20px;
+}
+#figura-01{
+    margin-left: 190px;
+    
+}
+
+
+div > #figura-01:hover{
+    border:  1px solid black;
+}
+
+#figura-02{
+    margin-left: 10px;
+}
+
+div > #figura-02:hover{
+    border:  1px solid black;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;
+    padding:200px;
+    padding-bottom: 30%;
+    position: relative;
+    width: 664px;
+}
+
+div.video > iframe {
+            position: absolute;
+            top: 5%;
+            left: 3%;
+            width: 1000px;
+            height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+    margin-bottom: 20px;
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    text-align: justify;
+
+}
+aside a {
+    color: white;
+}
+
+aside > ul {
+    padding: 20px;
+       list-style-type: '\2714\00a0\00a0';
+       list-style-position: inside; 
+       columns: 2;
+       line-height: 2em;
+
+
+}
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: var(--cor1);
+}

@@ -1,0 +1,179 @@
+
+.container-cursos{
+    display: flex;
+    margin-top: 20px;   
+    height: auto;
+    width: 900px;
+   margin: auto;
+   margin-bottom: 30px;
+   margin-top: 30px;
+}
+
+
+.container-cursosEsquerda{
+    display: flex; /* Ativa o flexbox */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    align-items: flex-start; /* Alinha os itens ao topo do contêiner */
+    padding: 20px; /* Adiciona espaçamento interno */
+    box-sizing: content-box; 
+ 
+}
+
+.cursos{
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer; /* Mostra a mãozinha */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavidade nos efeitos */
+    /*box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);*/
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 100px;
+    margin: auto;
+    width: 30%;
+    height: 240px;
+    gap: 5px; 
+
+}
+
+
+.cursosEsquerda{
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer; /* Mostra a mãozinha */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavidade nos efeitos */
+    /*box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);*/
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 100px;
+    margin: 0px;
+    width: 31%;
+    height: 240px;
+    gap: 5px; 
+
+   
+   
+
+
+}
+
+  /* Efeito ao passar o mouse */
+  .cursos:hover {
+    transform: scale(1.1); /* Aumenta 10% do tamanho */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+  }
+
+  .cursosEsquerda:hover {
+    transform: scale(1.1); /* Aumenta 10% do tamanho */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+  }
+
+#corBotao{
+    font-size: 20px;
+    margin-top: 11px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height:35px;    
+    padding: 5px 10px;
+  
+}
+
+
+#corBotaoEmProducao{
+    font-size: 20px;
+    margin-top: 11px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height:35px;    
+    padding: 5px 10px;
+            
+            cursor: pointer;
+           
+            animation: pulsar 1.5s infinite ease-in-out;
+        }
+
+        /* Animação de pulsação */
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+                background-color: #007bff; /* Azul mais claro */
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: #007bff; /* Azul mais escuro */
+            }
+        }
+
+        #corBotaoEmProducao:hover {
+            background-color: #007bff;
+        }
+  
+ 
+
+
+
+
+
+
+#corBotao:hover {
+    background-color: #0859bb;
+    border: 2px solid black;
+}
+.resultado-container {
+    margin-top: 20px;
+}
+
+img {
+    border-radius:10px 10px 10px 10px;
+  }
+
+
+.nome_curso{
+   font-family: Arial, Helvetica, sans-serif;
+    /*font-family: "Tomorrow", Arial, Helvetica, sans-serif;*/
+    font-weight: 200;   
+    font-style: normal;
+    color: black;
+    font-size: 1.0em;
+    /*text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);*/
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+
+   
+}
+
+
+
+
+#resultado {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.h1Curso{
+    
+        font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+        font-weight: 700;   
+        font-style: normal;
+        color: black;
+        font-size: 2.0em;
+        /*text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);*/
+        
+    
+}
+

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+    margin:0;
+    padding: 0;
+    /*font-family: "Chakra Petch", Arial, Helvetica, sans-serif;*/
+}
+main{
+    padding: 10px;
+    margin-top: 10px;
+}
+h1, h2{
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    letter-spacing: 3px; /*Espaçamento das letras*/
+    text-align: center;  /*Centralisa o texto*/
+    text-transform: uppercase; /*Transforma o texto em caixa alta*/  
+    color: #e38614;
+    padding-bottom: 20px;
+    background-color: #2E58A2;
+    width: 40%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+ 
+    
+
+
+}
+
+h3{
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    text-align: justify;
+    text-transform: uppercase;
+    font-size: 20px;  
+    margin-bottom: 10px; 
+    margin-top: 15px;
+}
+
+details{
+   margin: auto;
+   background-color: #CCC;
+   padding: .5em;
+   margin-top: 1em;
+   margin-bottom: 1em;   
+   width: 40%;
+   border-radius: 10px;
+   
+
+}
+
+
+details summary{
+    cursor: pointer;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+
+
+}
+
+details[closed] {
+    background-color: #CCC;
+    text-align: left;
+    padding-left: 0px;
+}
+
+details[open] {
+    background-color: #2e58a262;
+    text-align: center;
+}
+
+ 
+
+.conteinerCorpoChefiaLid{
+    background-color: #2e58a26e;
+    width:25%;
+    margin: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border:  2px solid black;
+    padding-left: 50px;
+    padding-top: 30px; 
+    padding-right: 25px;
+    padding-bottom: 30px;    
+    margin: 2px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
+    text-align: justify;
+    line-height: 1.5;
+    
+} 
+ul{
+
+    line-height:1.5;
+    padding-left: 20px; /* Adiciona espaço para deslocar os itens */
+    list-style-position: inside; /* Move o marcador para dentro do conteúdo */
+}
+
+li{
+    line-height:1.8;    
+    list-style-type: square;    
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-left: 10px; /* Move o texto e o marcador */
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+ 
+   
+}
+
+p{
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding-left: 10px; /* Move o texto e o marcador */
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    
+    
+}
+
+summary{
+    text-align: center;
+}

@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+:root{
+    --cor0:#F4F6FE;
+    --cor1:#E8F1F2;
+    --cor2:#1B98E0;
+    --cor3:#247BA0;
+    --cor4:#006494;
+    --cor5:#13293D;
+    --cor6:#0068B5;
+    --cor7:#0068B5; 
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ 
+
+
+body{
+    background-color:#018dde22;
+    margin-top:10px;
+    
+}
+
+header { 
+ 
+    width: 1024px;
+    height: 55px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.475);
+    background-color: #efba32;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header > h1:hover {
+     
+    color: darkgoldenrod;
+}
+
+h3:hover {
+     
+    color: darkgoldenrod;
+}
+
+main > #subtítulo:hover {
+     
+    color: darkgoldenrod;
+}
+
+li:hover {
+     font-weight: bold;
+   
+}
+
+#programa{
+    height: 890px;
+    width: 1024px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.475);
+    background-color: rgb(251, 251, 252);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:-10px;
+    margin-bottom: 10px;
+}
+
+#bibliografia{
+    height: 370px;
+    width: 1024px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.475);
+    background-color: rgb(251, 251, 252);
+    font-family: Arial, Helvetica, sans-serif;
+  
+    margin-bottom: 10px;
+}
+
+
+
+article{
+    column-count: 2;
+    column-gap: 2rem;
+   column-rule:5px dashed #f3d383;
+    text-align: justify;
+}
+
+h1{
+    color:black; 
+    text-align:center;
+    font-size: 25px;
+}
+ 
+
+h2#subtítulo{
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor4) );
+    color:aliceblue; 
+    text-align:center;
+    font-size: 16px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    border-radius: 5px;
+    box-shadow:  4px 5px 2px 0px rgba(0, 0, 0, 0.511);         
+    width: 200px;
+    margin: auto;
+  
+}
+
+ 
+aside{
+    margin-bottom: 10px;
+}
+aside > h3 {
+    background-color: #006494;
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#ogsa {
+    background-color: #247ba019;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+aside > li {
+    margin-top: px;
+    margin-left: 10px;
+    list-style-type: '\1F5F9\00A0\00A0';
+ 
+}
+
+#justiça_disciplina {
+    background-color: #247ba019;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+    height: 160px;
+}
+
+
+#liderança {
+    background-color: #247ba019;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+ 
+
+
+
+footer{
+    background-image: linear-gradient(to right, var(--cor6), var(--cor7));
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+
+footer a{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: var(--cor1);
+
+}

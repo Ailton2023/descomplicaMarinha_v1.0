@@ -1,0 +1,75 @@
+.faixaPreta {
+    background-color: black; /* Fundo preto */
+    padding: 10px;
+    text-align: center; /* Centraliza o texto */
+    border-radius: 20px;
+    height: 120px;
+    width: auto;
+   
+
+}
+
+#titulo-I {
+    color: darkgoldenrod; /* Cor do texto */
+    font-size: 50px; /* Tamanho da fonte */
+    justify-content: center; /* Centraliza verticalmente */
+    letter-spacing: 2px;
+}
+
+ 
+
+/*Efeito na mensagem*/
+.faixaPreta {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    text-align: center; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    position: relative;
+    
+}
+
+#titulo-I {
+    font-size:42px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#titulo-II {
+    position: absolute; /* Movimenta o texto independentemente */
+    top: 75%;
+    left: 50%;
+    margin-bottom: 30px;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 68, 204, 0.5), 0 0 20px rgba(0, 68, 204, 0.7);
+    overflow: hidden;
+    border-right: 3px solid rgba(0, 68, 204, 0.8); /* Cursor efeito */
+    white-space: nowrap;
+    animation: typing 4s steps(30, end) infinite, blink-caret 0.7s step-end infinite;
+    letter-spacing: 3px;
+}
+  
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: rgba(0, 68, 204, 0.8);
+    }
+}
+
+

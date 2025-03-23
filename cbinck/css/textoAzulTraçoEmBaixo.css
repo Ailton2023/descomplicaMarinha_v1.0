@@ -1,0 +1,43 @@
+/*Marcações no texto*/
+ 
+ 
+ul{
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;   
+    line-height: 2.0em;
+    list-style-type: square;
+    padding-left: 80px;    
+    font-size: 16px;
+    margin-bottom: 15px;
+} 
+
+
+.fonteAzul:hover{
+    color: #0057b3c5;
+    font-weight: bold;
+}
+ 
+/* Estilo inicial da palavra */
+.underline-effect {
+    display: inline-block; /* Necessário para alinhar corretamente a barra */
+    position: relative; /* Necessário para posicionar a barra em relação à palavra */
+    cursor: pointer; /* Mostra o ponteiro ao passar o mouse */
+}
+
+/* Barra oculta por padrão */
+.underline-effect::after {
+    content: ''; /* Gera o elemento decorativo */
+    position: absolute; /* Posiciona abaixo da palavra */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Barra ocupará o mesmo tamanho da palavra */
+    height: 2px; /* Espessura da barra */
+    background-color: black; /* Cor da barra */
+    transform: scaleX(0); /* Começa oculta */
+    transform-origin: center; /* A barra se expande a partir do centro */
+    transition: transform 0.3s ease; /* Efeito suave ao aparecer */
+}
+
+/* Mostra a barra ao passar o mouse */
+.underline-effect:hover::after {
+    transform: scaleX(1); /* Expande a barra do centro para as laterais */
+}

@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700&display=swap');
+
+/* Cores e fontes básicas */
+:root {
+    --azul-tabela: #2E58A2; /* Cor do cabeçalho da tabela */
+    --cinza-claro: #fafafa; /* Fundo do main */
+    --fonte-simples: Arial, sans-serif;
+}
+
+/* Remove margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo da página e centralização */
+body {
+    background-color: #018dde22; /* Azul claro com transparência */
+    min-height: 100vh; /* Altura mínima da tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding-top: 5rem; /* Espaço para o cabeçalho fixo */
+}
+
+/* Área principal */
+main {
+    max-width: 1200px;
+    width: 90%; /* Ajusta à largura da tela */
+    padding: 2rem; /* 32px */
+    background-color: var(--cinza-claro);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.475); /* Sombra */
+    min-height: 300px; /* Altura mínima */
+    font-family: "Chakra Petch", var(--fonte-simples);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza conteúdo dentro */
+    align-items: center;
+    margin: 1rem auto; /* Espaço em cima e embaixo */
+    border-radius: 10px;
+
+}
+
+/* Título da tabela */
+h1 {
+    text-align: center;
+    margin-bottom: 1rem; /* 16px */
+    font-size: 1.5rem; /* 24px */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+/* Estilo da tabela inteira */
+table {
+    width: 90%;               /* Largura da tabela */
+    margin: 20px auto;        /* Centraliza com margem acima e abaixo */
+    border-collapse: collapse; /* Remove espaçamento entre bordas */
+    font-family: Arial;       /* Fonte simples */
+    line-height: 2.0;
+}
+
+/* Estilo das células (cabeçalhos e conteúdo) */
+th, td {
+    border: 1px solid #ddd;   /* Borda cinza clara */
+    padding: 12px;            /* Espaçamento interno */
+    color: black;             /* Texto preto */
+}
+
+/* Estilo específico dos cabeçalhos */
+th {
+    background-color: #2E58A2; /* Fundo azul escuro */
+    color: white;             /* Texto branco */
+    text-align: center;       /* Centraliza o texto */
+}
+
+/* Linhas pares com fundo cinza claro */
+tr:nth-child(even) {
+    background-color: rgba(230, 230, 230, 0.277); /* Cinza claro com transparência */
+}
+
+/* Efeito ao passar o mouse */
+tr:hover {
+   /* font-weight: 600; */        /* Texto semi-negrito - comentado no modelo */
+   background-color: rgba(0, 0, 139, 0.151); /* Azul claro (Light Sky Blue) com transparência */
+}
+
+/* Links sem sublinhado */
+a {
+    text-decoration: none;    /* Remove sublinhado */
+}
+
+/* Centraliza a coluna Tópico */
+.topic {
+    text-align: center;
+}
+
+/* Justifica a coluna Detalhes */
+.details {
+    text-align: justify;
+}
+
+/* Fundo amarelo suave */
+.yellow-background {
+    background-color: #ffff0013; /* Amarelo com transparência */
+}
+
+ul{
+    padding-left: 10px;
+}
+
+li{
+    list-style-type: square;
+    padding-left: 10px;
+    
+}
+/* Ajustes para telas menores (responsividade) */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 0.75rem; /* 12px */
+    }
+
+    table {
+        font-size: 0.875rem; /* 14px */
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 98%;
+        padding: 0.5rem; /* 8px */
+    }
+
+    th, td {
+        padding: 0.5rem; /* 8px */
+    }
+}
+
+
+
+ 

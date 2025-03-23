@@ -1,0 +1,44 @@
+ body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: transparent; /* Fundo transparente */
+        }
+
+        .conteiner {
+            display: flex; /* Alinha os itens lado a lado */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: flex-start; /* Alinha os itens à esquerda */
+            height: 40vh; /* Altura total da tela */
+            padding-left: 10px; /* Espaçamento da margem esquerda */
+        }
+
+        .meioCirculo {
+            position: relative; /* Necessário para o posicionamento do texto */
+            width: 405px;
+            height: 200px;
+            background: blue;
+            border-top-left-radius: 100px; /* Forma o meio círculo */
+            border-bottom-left-radius: 100px;
+            transform: rotate(180deg); /* Rotaciona o meio círculo */
+        }
+
+        .meioCirculo p {
+            position: absolute; /* Posiciona o texto dentro da div */
+            top: 50%; /* Centraliza verticalmente */
+            left: 80%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%) rotate(180deg); /* Ajusta posição e rotação do texto */
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .texto {
+            
+            text-indent: 0px;
+            font-size: 18px;
+            font-weight: normal;
+            color: black;
+            margin-left: 5px; /* Espaçamento entre o círculo e o texto */
+        }

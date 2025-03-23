@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container_videoFalaAoAluno {
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.intro {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-right: 2px solid white;
+}
+
+.tab:last-child {
+    border-right: none;
+}
+
+.tab.active {
+    background-color: #0056b3;
+    font-weight: bold;
+}
+
+.tab:hover {
+    background-color: #0056b3;
+}
+
+.conteudo-aba {
+    display: none;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.conteudo-aba.show {
+    display: block;
+}
+
+.conteudo-aba h2 {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.conteudo-aba p {
+    text-align: left;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,27 @@
+.box {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #e3f2fd;
+    border-left: 5px solid #4a90e2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+.box:hover {
+    background-color: #cfe3fc;
+    transform: scale(1.02);
+}
+
+/* Estilo do conteúdo oculto */
+.hidden-content {
+    display: none;
+    padding-top: 10px;
+    border-top: 2px solid #4a90e2;
+    margin-top: 10px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GloboStream</title>
+    <style>
+        /* Reset básico para remover margens e garantir consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            background-color: #0a0a0a; /* Fundo preto escuro */
+            color: #fff; /* Texto branco */
+            line-height: 1.6; /* Espaçamento entre linhas */
+            min-height: 100vh; /* Altura mínima da viewport */
+            overflow-x: hidden; /* Evita rolagem horizontal */
+        }
+
+        /* Conteúdo principal */
+        main {
+            height: 1900px;
+            max-width: 1600px; /* Largura máxima */
+            margin: 20px auto; /* Margem reduzida sem o header fixo */
+            padding: 0 20px; /* Espaçamento lateral */
+        }
+
+        .movie-container {
+            padding: 0 10px; /* Espaçamento interno */
+        }
+
+        /* Seção de categoria */
+        .category {
+            margin-bottom: 50px; /* Espaçamento inferior */
+            position: relative; /* Para posicionamento dos botões de navegação */
+        }
+
+        /* Título da categoria */
+        .category h2 {
+            font-size: 1.9em; /* Tamanho da fonte */
+            font-weight: 700; /* Peso da fonte */
+            margin-bottom: 20px; /* Espaçamento inferior */
+            color: #f0f0f0; /* Cinza claro */
+            text-transform: uppercase; /* Tudo maiúsculo */
+            letter-spacing: 0.5px; /* Espaçamento entre letras */
+        }
+
+        /* Contêiner do slider */
+        .movie-wrapper {
+            position: relative; /* Para os botões de navegação */
+            overflow: hidden; /* Esconde o excesso do slider */
+            padding: 15px 0; /* Espaçamento interno */
+        }
+
+        /* Slider de filmes/vídeos */
+        .movie-slider {
+            display: flex; /* Flexbox para alinhar os cards horizontalmente */
+            gap: 20px; /* Espaço entre os cards */
+            transition: transform 0.5s ease-in-out; /* Animação suave ao deslizar */
+        }
+
+        /* Estilo do card individual */
+        .movie-card {
+            min-width: 220px; /* Largura mínima */
+            width: 220px; /* Largura fixa */
+            position: relative; /* Para efeitos de hover */
+            cursor: pointer; /* Mãozinha ao passar o mouse */
+            transition: all 0.3s ease; /* Transição suave para hover */
+            border-radius: 8px; /* Cantos arredondados */
+            overflow: hidden; /* Esconde excesso */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra */
+            background: #1a1a1a; /* Fundo cinza escuro */
+            display: flex; /* Flexbox para organizar imagem/vídeo e texto */
+            flex-direction: column; /* Coluna vertical */
+        }
+
+        /* Efeito de hover no card */
+        .movie-card:hover {
+            transform: scale(1.05); /* Aumenta ligeiramente */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra mais forte */
+        }
+
+        /* Estilo para imagens */
+        .movie-card img {
+            width: 100%; /* Largura total */
+            height: 330px; /* Altura fixa */
+            object-fit: cover; /* Preenche sem distorcer */
+            transition: opacity 0.3s ease; /* Transição de opacidade */
+        }
+
+        /* Estilo para iframes do YouTube */
+        .movie-card iframe {
+            width: 100%; /* Largura total */
+            height: 165px; /* Proporção 16:9 para 220px */
+            border: none; /* Sem borda */
+            border-top-left-radius: 8px; /* Canto superior esquerdo arredondado */
+            border-top-right-radius: 8px; /* Canto superior direito arredondado */
+            transition: opacity 0.3s ease; /* Transição de opacidade */
+        }
+
+        /* Efeito de hover na imagem ou iframe */
+        .movie-card:hover img,
+        .movie-card:hover iframe {
+            opacity: 0.9; /* Reduz opacidade */
+        }
+
+        /* Informações do filme/vídeo */
+        .movie-info {
+            padding: 15px 10px; /* Espaçamento interno */
+            text-align: center; /* Texto centralizado */
+            background: #1a1a1a; /* Fundo cinza escuro */
+            flex-grow: 1; /* Preenche o espaço restante */
+        }
+
+        /* Título do filme/vídeo */
+        .movie-title {
+            font-size: 1.2em; /* Tamanho da fonte */
+            font-weight: 600; /* Peso da fonte */
+            color: #fff; /* Branco */
+            line-height: 1.3; /* Espaçamento entre linhas */
+            display: -webkit-box; /* Para limite de linhas */
+            -webkit-line-clamp: 2; /* Limita a 2 linhas */
+            -webkit-box-orient: vertical; /* Orientação vertical */
+            overflow: hidden; /* Esconde excesso */
+            text-overflow: ellipsis; /* Adiciona reticências */
+            transition: color 0.3s ease; /* Transição de cor */
+        }
+
+        /* Efeito de hover no título */
+        .movie-card:hover .movie-title {
+            color: #ff0048; /* Vermelho vibrante */
+        }
+
+        /* Plataforma de disponibilidade */
+        .movie-platform {
+            font-size: 0.9em; /* Tamanho da fonte */
+            color: #d0d0d0; /* Cinza claro */
+            margin-top: 5px; /* Espaçamento superior */
+            font-style: italic; /* Itálico */
+            opacity: 0.9; /* Opacidade inicial */
+            transition: opacity 0.3s ease; /* Transição de opacidade */
+        }
+
+        /* Efeito de hover na plataforma */
+        .movie-card:hover .movie-platform {
+            opacity: 1; /* Opacidade total */
+        }
+
+        /* Botões de navegação */
+        .nav-btn {
+            position: absolute; /* Posicionamento absoluto */
+            top: 50%; /* Centralizado verticalmente */
+            transform: translateY(-50%); /* Ajuste fino */
+            background: rgba(0, 0, 0, 0.8); /* Fundo preto semitransparente */
+            color: #fff; /* Texto branco */
+            border: none; /* Sem borda */
+            padding: 12px; /* Espaçamento interno */
+            cursor: pointer; /* Mãozinha */
+            font-size: 1.5em; /* Tamanho da fonte */
+            z-index: 10; /* Acima do slider */
+            border-radius: 50%; /* Formato circular */
+            width: 45px; /* Largura fixa */
+            height: 45px; /* Altura fixa */
+            display: flex; /* Flexbox para centralizar */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            transition: all 0.3s ease; /* Transição suave */
+            opacity: 0.7; /* Opacidade inicial */
+        }
+
+        /* Efeito de hover nos botões */
+        .nav-btn:hover {
+            background: #ff0048; /* Vermelho vibrante */
+            opacity: 1; /* Opacidade total */
+            transform: translateY(-50%) scale(1.1); /* Aumenta ligeiramente */
+        }
+
+        /* Posicionamento dos botões */
+        .prev-btn {
+            left: -20px; /* À esquerda do slider */
+        }
+
+        .next-btn {
+            right: -20px; /* À direita do slider */
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .movie-card {
+                min-width: 200px; /* Reduz a largura */
+                width: 200px;
+            }
+
+            .movie-card img {
+                height: 300px; /* Ajusta altura da imagem */
+            }
+
+            .movie-card iframe {
+                height: 150px; /* Ajusta altura do vídeo */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category h2 {
+                font-size: 1.6em; /* Reduz tamanho do título da categoria */
+            }
+
+            .movie-card {
+                min-width: 160px; /* Reduz a largura */
+                width: 160px;
+            }
+
+            .movie-card img {
+                height: 240px; /* Ajusta altura da imagem */
+            }
+
+            .movie-card iframe {
+                height: 120px; /* Ajusta altura do vídeo */
+            }
+
+            .movie-title {
+                font-size: 1em; /* Reduz tamanho do título */
+            }
+
+            .movie-platform {
+                font-size: 0.8em; /* Reduz tamanho da plataforma */
+            }
+
+            .nav-btn {
+                width: 40px; /* Reduz tamanho do botão */
+                height: 40px;
+                font-size: 1.3em; /* Reduz tamanho do ícone */
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                margin-top: 20px; /* Margem ajustada sem header */
+            }
+
+            .category h2 {
+                font-size: 1.4em; /* Reduz tamanho do título da categoria */
+            }
+
+            .movie-card {
+                min-width: 140px; /* Reduz a largura */
+                width: 140px;
+            }
+
+            .movie-card img {
+                height: 210px; /* Ajusta altura da imagem */
+            }
+
+            .movie-card iframe {
+                height: 105px; /* Ajusta altura do vídeo */
+            }
+
+            .movie-title {
+                font-size: 0.9em; /* Reduz tamanho do título */
+            }
+
+            .movie-platform {
+                font-size: 0.7em; /* Reduz tamanho da plataforma */
+            }
+
+            .nav-btn {
+                width: 35px; /* Reduz tamanho do botão */
+                height: 35px;
+                font-size: 1.2em; /* Reduz tamanho do ícone */
+            }
+
+            .prev-btn {
+                left: -15px; /* Ajusta posição */
+            }
+
+            .next-btn {
+                right: -15px; /* Ajusta posição */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="movie-container">
+            <!-- Seção Sobre a Segunda Guerra Mundial -->
+            <section class="category">
+                <h2>Sugestão de Filmes </h2>
+                <div class="movie-wrapper">
+                    <div class="movie-slider" id="war-slider">
+                        <div class="movie-card">
+                            <img src="imagens/1942 - O BR e sua guerra quase desconhecida.bmp" alt="1942 - O Brasil e sua Guerra Quase Desconhecida">
+                            <div class="movie-info">
+                                <div class="movie-title">1942 - O Brasil e sua Guerra Quase Desconhecida</div>
+                                <div class="movie-platform">Disponível no Globoplay</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="imagens/Inventores do Brasil.jpg" alt="Filme 2">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 2 - Brasil na Guerra</div>
+                                <div class="movie-platform">Disponível no Globoplay</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+3" alt="Filme 3">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 3 - FEB em Ação</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+4" alt="Filme 4">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 4 - História Militar</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+5" alt="Filme 5">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 5 - Combate na Itália</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+6" alt="Filme 6">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 6 - Soldados Brasileiros</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+7" alt="Filme 7">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 7 - Estratégia na Guerra</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+8" alt="Filme 8">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 8 - O Papel do Brasil</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+9" alt="Filme 9">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 9 - Segunda Guerra no BR</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+10" alt="Filme 10">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 10 - Forças Armadas</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+11" alt="Filme 11">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 11 - Batalha no Atlântico</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+12" alt="Filme 12">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 12 - Heróis da FEB</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+13" alt="Filme 13">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 13 - Brasil em 1942</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+14" alt="Filme 14">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 14 - Memórias da Guerra</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <img src="https://via.placeholder.com/240x360?text=Filme+15" alt="Filme 15">
+                            <div class="movie-info">
+                                <div class="movie-title">Filme 15 - Fim da Guerra</div>
+                                <div class="movie-platform">Disponível no GloboStream</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn prev-btn" data-slider="war-slider"><</button>
+                    <button class="nav-btn next-btn" data-slider="war-slider">></button>
+                </div>
+            </section>
+
+              <!-- Seção Vídeos do YouTube com 15 vídeos -->
+              <section class="category">
+                <h2>Vídeos do YouTube - Relacionados ao Mamual de Combate a Incêndio</h2>
+                <div class="movie-wrapper">
+                    <div class="movie-slider" id="youtube-slider">
+                        
+                        <div class="movie-card">                        
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/aV2bjCdqyTY?si=3yExAdEqS0Z4cjSH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 1 - Rollover</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+
+                        <div class="movie-card">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6deovVaA18?si=DEz_gnsFKPPH0OU1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                        
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 2 - FAÇA O QUE TEM QUE SER FEITO | Trabalho duro supera o talento | Mente forte</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>                    
+                   
+                    </div>
+                    <button class="nav-btn prev-btn" data-slider="youtube-slider"><</button>
+                    <button class="nav-btn next-btn" data-slider="youtube-slider">></button>
+                </div>
+            </section>
+
+
+
+
+
+              <!-- Seção Vídeos do YouTube com 15 vídeos -->
+              <section class="category">
+                <h2>Vídeos do YouTube - Motivação para voçê estudar</h2>
+                <div class="movie-wrapper">
+                    <div class="movie-slider" id="youtube-slider">
+                        <div class="movie-card">
+                        
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/EpbVKotl0iw?si=slK6UEqyVnDml-Bu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 1 - Disciplina</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6deovVaA18?si=DEz_gnsFKPPH0OU1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                        
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 2 - FAÇA O QUE TEM QUE SER FEITO | Trabalho duro supera o talento | Mente forte</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/mYWNAvo_5sI?si=lvOdhy-LqOzxyBkD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                           
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 3 - Trabalhe em Silêncio</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Vídeo 5" allowfullscreen></iframe>
+                        
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 4 - História Militar</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Vídeo 5" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 5 - Combate na Itália</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Vídeo 6" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 6 - Soldados Brasileiros</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Vídeo 7" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 7 - Estratégia na Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" title="Vídeo 8" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 8 - O Papel do Brasil</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" title="Vídeo 9" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 9 - Segunda Guerra no BR</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" title="Vídeo 10" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 10 - Forças Armadas</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" title="Vídeo 11" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 11 - Batalha no Atlântico</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_12" title="Vídeo 12" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 12 - Heróis da FEB</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_13" title="Vídeo 13" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 13 - Brasil em 1942</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_14" title="Vídeo 14" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 14 - Memórias da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_15" title="Vídeo 15" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 15 - Fim da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn prev-btn" data-slider="youtube-slider"><</button>
+                    <button class="nav-btn next-btn" data-slider="youtube-slider">></button>
+                </div>
+            </section>
+
+
+            <!-- Seção Vídeos do YouTube com 15 vídeos -->
+            <section class="category">
+                <h2>Vídeos do YouTube - Motivação Espartana</h2>
+                <div class="movie-wrapper">
+                    <div class="movie-slider" id="youtube-slider">
+                        <div class="movie-card">
+                            
+                            
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/03BFfORZFuk?si=5VpEwFnGHAH0_eDh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 1 - Segunda Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/1R4QFFUZvm4?si=3svmpIKptPlzOB4l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 2 - Brasil na Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vídeo 3" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 3 - FEB em Ação</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Vídeo 4" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 4 - História Militar</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Vídeo 5" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 5 - Combate na Itália</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Vídeo 6" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 6 - Soldados Brasileiros</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Vídeo 7" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 7 - Estratégia na Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" title="Vídeo 8" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 8 - O Papel do Brasil</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" title="Vídeo 9" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 9 - Segunda Guerra no BR</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" title="Vídeo 10" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 10 - Forças Armadas</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" title="Vídeo 11" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 11 - Batalha no Atlântico</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_12" title="Vídeo 12" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 12 - Heróis da FEB</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_13" title="Vídeo 13" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 13 - Brasil em 1942</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_14" title="Vídeo 14" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 14 - Memórias da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_15" title="Vídeo 15" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 15 - Fim da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn prev-btn" data-slider="youtube-slider"><</button>
+                    <button class="nav-btn next-btn" data-slider="youtube-slider">></button>
+                </div>
+            </section>
+
+             <!-- Seção Vídeos do YouTube com 15 vídeos -->
+             <section class="category">
+                <h2>Vídeos do YouTube - Motivação Forças Armadas</h2>
+                <div class="movie-wrapper">
+                    <div class="movie-slider" id="youtube-slider">
+                        <div class="movie-card">                      
+                            
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/acOGthN_CJM?si=lOOlk3A-po3mdDi1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 1 - Segunda Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+
+                        </div>
+                        <div class="movie-card">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/orvmxlsg-mk?si=VV4YYmG6Khmymapl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 2 - Brasil na Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+
+                        </div>
+                        <div class="movie-card">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/uWea3l4DWFE?si=ukNypURW20FVzwwf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 3 - Começe arrumando sua cama</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://youtu.be/orvmxlsg-mk?si=VV4YYmG6Khmymapl" title="Vídeo 4" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 4 - História Militar</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Vídeo 5" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 5 - Combate na Itália</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Vídeo 6" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 6 - Soldados Brasileiros</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" title="Vídeo 7" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 7 - Estratégia na Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" title="Vídeo 8" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 8 - O Papel do Brasil</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" title="Vídeo 9" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 9 - Segunda Guerra no BR</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" title="Vídeo 10" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 10 - Forças Armadas</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_11" title="Vídeo 11" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 11 - Batalha no Atlântico</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_12" title="Vídeo 12" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 12 - Heróis da FEB</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_13" title="Vídeo 13" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 13 - Brasil em 1942</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_14" title="Vídeo 14" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 14 - Memórias da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                        <div class="movie-card">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_15" title="Vídeo 15" allowfullscreen></iframe>
+                            <div class="movie-info">
+                                <div class="movie-title">Vídeo 15 - Fim da Guerra</div>
+                                <div class="movie-platform">Disponível no YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn prev-btn" data-slider="youtube-slider"><</button>
+                    <button class="nav-btn next-btn" data-slider="youtube-slider">></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Função para inicializar os sliders
+        function initializeSlider(sliderId) {
+            const slider = document.getElementById(sliderId); // Seleciona o slider pelo ID
+            const wrapper = slider.parentElement; // Seleciona o contêiner pai (movie-wrapper)
+            const cards = slider.querySelectorAll('.movie-card'); // Todos os cards no slider
+            const cardWidth = cards[0].offsetWidth + 20; // Largura de um card + gap (20px)
+            let currentIndex = 0; // Índice atual do slider
+            const cardsPerView = Math.floor(wrapper.offsetWidth / cardWidth); // Quantos cards cabem na tela
+            const maxIndex = cards.length - cardsPerView; // Índice máximo para evitar deslizar além
+
+            // Função para atualizar a posição do slider
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+
+            // Evento para o botão "próximo"
+            wrapper.querySelector('.next-btn').addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++; // Avança para o próximo card
+                } else {
+                    currentIndex = 0; // Volta ao início (loop infinito)
+                }
+                updateSlider();
+            });
+
+            // Evento para o botão "anterior"
+            wrapper.querySelector('.prev-btn').addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--; // Retrocede um card
+                } else {
+                    currentIndex = maxIndex; // Vai para o final (loop infinito)
+                }
+                updateSlider();
+            });
+
+            // Opcional: Auto-slide a cada 5 segundos (descomente para ativar)
+            /*
+            setInterval(() => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateSlider();
+            }, 5000);
+            */
+        }
+
+        // Inicializa todos os sliders da página
+        document.querySelectorAll('.movie-slider').forEach(slider => {
+            const sliderId = slider.id; // Usa o ID existente do slider
+            if (sliderId) {
+                initializeSlider(sliderId); // Inicializa o slider apenas se tiver ID
+            } else {
+                console.error('Slider sem ID detectado:', slider);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liderança - Subitens</title>
+    <link rel="stylesheet" href="cabecalhoFooter/cabecalho.css">
+    <link rel="stylesheet" href="cabecalhoFooter/footer.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            
+           
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        main{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+        .container {
+            width: fit-content; /* Ajusta a largura ao conteúdo */
+            max-width: 90%; /* Limita a largura máxima */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #2E58A2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            width: 100%; /* Ocupa toda a largura do container */
+            white-space: nowrap; /* Evita quebra de linha */
+        }
+
+        .toggle-label:hover {
+            background-color: #1E3A6B;
+        }
+
+        .toggle-label span {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .subitens {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #2E58A2;
+        }
+
+        .subitens label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+            white-space: nowrap; /* Evita quebra de linha */
+            
+        }
+
+        .subitens label input {
+            margin-right: 10px;
+        }
+
+        .subitens label:hover {
+            color: #2E58A2;
+        }
+
+        /* Animação ao expandir/recolher */
+        .subitens.expanded {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+        
+    <header>
+        <div class="conteiner">
+                <div id="logo">
+                    <img src="../imagensFichamentos/ancora_nova-100px.png" alt="">
+                </div>
+                <div id="nome_curso">
+                    <p class="p_Cabacalho">Seu curso on-line</p>
+                    <h1>Descomplica Marinha</h1>
+                    <p class="p_Cabacalho">A ancora dos seus estudos</p>
+                </div>
+         </div>
+    </header>
+
+</head>
+<body>
+    <main><div class="container">
+    
+    <!-- CAPÍTULO 1 -->
+    <button class="toggle-label" id="cap1Toggle" aria-expanded="false">
+    CAPÍTULO 1 - ELEMENTOS CONCEITUAIS DE LIDERANÇA
+    <span id="toggleIcon1">+</span>
+    </button>
+    <div class="subitens" id="subitensCap1">
+    <label><input type="checkbox"> 1.1 - Propósito</label>
+    <label><input type="checkbox" onclick="openPage(this, 'chefia&lideranca.html')"> 1.2 - Chefia e Liderança</label>
+    <label><input type="checkbox"> 1.3 - Aspectos Fundamentais da Liderança</label>
+    <label><input type="checkbox"> 1.4 - Estilos de Liderança</label>
+    <label><input type="checkbox"> 1.5 - Seleção de Estilos de Liderança</label>
+    <label><input type="checkbox"> 1.6 - Fatores da Liderança</label>
+    <label><input type="checkbox"> 1.7 - Atributos de um Líder</label>
+    <label><input type="checkbox"> 1.8 - Níveis de Liderança</label>
+    </div>
+    
+    <!-- CAPÍTULO 2 -->
+    <button class="toggle-label" id="cap2Toggle" aria-expanded="false">
+    CAPÍTULO 2 - O EXERCÍCIO DA LIDERANÇA PELO PESSOAL DA MB
+    <span id="toggleIcon2">+</span>
+    </button>
+    <div class="subitens" id="subitensCap2">
+    <label><input type="checkbox"> 2.1 - Propósito</label>
+    <label><input type="checkbox"> 2.2 - Considerações Gerais</label>
+    <label><input type="checkbox"> 2.3 - A Ética Militar Naval</label>
+    <label><input type="checkbox"> 2.4 - Exercício da Liderança pelos Militares da MB</label>
+    <label><input type="checkbox"> 2.5 - Expedição de Ordens e Delegação de Autoridade</label>
+    <label><input type="checkbox"> 2.6 - Aplicação da Liderança nas Relações Extra-MB</label>
+    <label><input type="checkbox"> 2.7 - Avaliação do Exercício da Liderança</label>
+    <label><input type="checkbox"> 2.8 - Disposições Complementares</label>
+    </div>
+    
+    <!-- ANEXO A - PRINCIPAIS ATRIBUTOS DE UM LÍDER -->
+    <button class="toggle-label" id="anexoAToggle" aria-expanded="false">
+    ANEXO A - PRINCIPAIS ATRIBUTOS DE UM LÍDER
+    <span id="toggleIconA">+</span>
+    </button>
+    <div class="subitens" id="subitensAnexoA">
+    <label><input type="checkbox"> 1 - Exemplo</label>
+    <label><input type="checkbox"> 2 - Integridade Ética</label>
+    <label><input type="checkbox"> 3 - Humildade</label>
+    <label><input type="checkbox"> 4 - Competência Profissional</label>
+    <label><input type="checkbox"> 5 - Determinação</label>
+    <label><input type="checkbox"> 6 - Entusiasmo</label>
+    <label><input type="checkbox"> 7 - Capacidade Decisória</label>
+    <label><input type="checkbox"> 8 - Autoconfiança</label>
+    <label><input type="checkbox"> 9 - Autocontrole</label>
+    <label><input type="checkbox"> 10 - Flexibilidade</label>
+    <label><input type="checkbox"> 11 - Altruísmo</label>
+    <label><input type="checkbox"> 12 - Respeito</label>
+    <label><input type="checkbox"> 13 - Capacidade de Relacionamento Interpessoal</label>
+    <label><input type="checkbox"> 14 - Comunicação</label>
+    <label><input type="checkbox"> 15 - Iniciativa</label>
+    <label><input type="checkbox"> 16 - Senso de Justiça</label>
+    </div>
+    
+    
+    <!-- ANEXO B -->
+    <button class="toggle-label" id="anexoBToggle" aria-expanded="false">
+    ANEXO B - JURAMENTO À BANDEIRA E ROSA DAS VIRTUDES
+    <span id="toggleIconB">+</span>
+    </button>
+    <div class="subitens" id="subitensAnexoB">
+    <label><input type="checkbox"> Honra</label>
+    <label><input type="checkbox"> Lealdade</label>
+    <label><input type="checkbox"> Iniciativa</label>
+    <label><input type="checkbox"> Cooperação</label>
+    <label><input type="checkbox"> Espírito de Sacrifício</label>
+    <label><input type="checkbox"> Zelo</label>
+    <label><input type="checkbox"> Coragem</label>
+    <label><input type="checkbox"> Ordem</label>
+    <label><input type="checkbox"> Fidelidade</label>
+    <label><input type="checkbox"> "Fogo Sagrado"</label>
+    <label><input type="checkbox"> Tenacidade</label>
+    <label><input type="checkbox"> Decisão</label>
+    <label><input type="checkbox"> Abnegação</label>
+    <label><input type="checkbox"> Espírito Militar</label>
+    <label><input type="checkbox"> Disciplina</label>
+    <label><input type="checkbox"> Patriotismo</label>
+    </div>
+    
+    <!-- ANEXO C -->
+    <button class="toggle-label" id="anexoCToggle" aria-expanded="false">
+    ANEXO C - ORIENTAÇÕES SOBRE EXPEDIÇÃO DE ORDENS
+    <span id="toggleIconC">+</span>
+    </button>
+    <div class="subitens" id="subitensAnexoC">
+    <label><input type="checkbox"> Orientações gerais sobre a expedição de ordens</label>
+    </div>
+    </div></main>
+
+    <script>
+        function toggleSection(toggleId, subitensId, iconId) {
+            document.getElementById(toggleId).addEventListener("click", function () {
+                const subitens = document.getElementById(subitensId);
+                const toggleIcon = document.getElementById(iconId);
+                const isExpanded = subitens.classList.toggle("expanded");
+
+                // Atualiza o ícone e o estado ARIA
+                toggleIcon.textContent = isExpanded ? "−" : "+";
+                this.setAttribute("aria-expanded", isExpanded);
+            });
+        }
+        
+        toggleSection("anexoAToggle", "subitensAnexoA", "toggleIconA");
+        toggleSection("cap1Toggle", "subitensCap1", "toggleIcon1");
+        toggleSection("cap2Toggle", "subitensCap2", "toggleIcon2");
+        toggleSection("anexoBToggle", "subitensAnexoB", "toggleIconB");
+        toggleSection("anexoCToggle", "subitensAnexoC", "toggleIconC");
+    </script>
+
+    
+    <script>
+        function openPage(checkbox, url) {
+            if (checkbox.checked) {
+                window.open(url, '_blank'); // Abre o link em uma nova aba
+            }
+        }
+    </script>
+
+    <footer>
+       
+        <div class="conteiner-cards">
+            <section class="conteiner-quatroCards">
+                <article class="card-curso" style="padding-left:10px;">                
+                    <div class="logoTexto">
+                        <div>
+                            <img src="../imagensFichamentos/ancora_nova-100px.png" alt="">
+                        </div>
+                        
+                        <div>
+                            <p class="ptexto-logo">Seu curso on-line</p>
+                            <p class="ptexto-logo" style="font-weight: bold;">Descomplica Marinha</p>
+                            <p class="ptexto-logo">A ancora dos seus estudos</p>
+                        </div>        
+                    </div>
+
+                    <div class="card-curso">
+                        <p class="texto-cards-curso">Estude on-line em qualquer lugar e acesse apostilhas e exercícios eleborados de modo eficiente para você conquistar sua aprovação.</p>
+                    </div>
+                </article>   
+
+                <article class="card-curso" style="padding-left: 30px; width: 300px">  
+
+                    <div>               
+                        <p class="titulo-cards">Institucional</p>
+                              
+                    </div>
+                    <div>
+                        <p class="text-cards">Quem somos</p>
+                        <p class="text-cards">Política de privacidade
+                        </p>
+                        <p class="text-cards">Termos de uso</p>
+    
+                    </div>
+
+                </article>   
+
+                <article class="card-curso" style="padding-left: 30px;">  
+
+                    <div>               
+                        <p class="titulo-cards">Suporte</p>
+                              
+                    </div>
+                    <div>
+                        <p class="text-cards">Fale conoscos</p>
+                        <p class="text-cards">Início</p>
+                        <p class="text-cards">Pacotes e cursos</p>
+                        <p class="text-cards">Embaixadores</p>
+                        <p class="text-cards">Portal</p>
+                        <p class="text-cards">Baixe o app</p>
+                        <p class="text-cards">Ajuda</p>            
+                    </div>
+
+                </article>  
+
+                <article class="card-curso" style="width: 490px;">  
+
+                    <div>               
+                        <p class="titulo-cards">Cursos</p>
+                              
+                    </div>
+                    <div>
+                        <p class="text-cards">Ordenança Geral para o Serviço da Armada</p>
+                        <p class="text-cards">Liderança</p>
+                        <p class="text-cards">Procedimentos Marinheiros</p>
+                        <p class="text-cards">Justiça e Disciplina na MB</p>
+                        <p class="text-cards">Documentação Administratiua na MB</p>
+                        <p class="text-cards">Cerimonial da Marinha do Brasil</p>
+                        <p class="text-cards">Legislação Militar-Naval</p>                              
+                    </div>
+
+                </article> 
+            </section>      
+        </div>
+        </section>   
+     </div>  
+    </footer>
+
+</body>
+</html>

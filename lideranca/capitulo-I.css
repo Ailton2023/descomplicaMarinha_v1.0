@@ -1,0 +1,229 @@
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+:root{
+   
+    --cor0:#F4F6FE;
+    --cor1:#E8F1F2;
+    --cor2:#1B98E0;
+    --cor3:#247BA0;
+    --cor4:#006494;
+    --cor5:#13293D;
+    --cor6:#efba32;
+    --cor7: darkblue;
+    --cor8: black;
+    --cor9: #0068B5
+    --corVerde0:#c5ebd6;
+    --corVerde1:#83e1ad;
+    --corVerde2:#3ddc84;
+    --corVerde3:#2fa866;
+    --corVerde4:#1a5c37;
+    --corVerde5:#063d1e;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;  
+  }
+
+body {
+    margin-top: 10px;
+    background-color: #018dde22;
+    min-height: 100%;
+ 
+   
+
+}
+main{
+    
+    background-color:rgb(255, 255, 255);
+    min-width: 600px;
+    max-width: 1024px;
+    height: auto; /* Altura fixa ajustada */
+    margin: auto;
+    margin-top:10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
+    text-align: justify;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
+    
+}
+   
+
+h1{
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+
+}
+
+h2{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+h3{
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+p {
+   
+    text-indent: 60px; /* Recuo na primeira linha do parágrafo */
+    margin-bottom: 35px; /* Espaço entre parágrafos */
+    font-size: 18px;
+    text-align: justify;
+    word-wrap: pretty;
+    line-height: 3.5em;
+ 
+  
+}
+
+.text-ident-0px{
+    text-indent: 0px;
+}
+
+
+
+
+
+.prova{
+    font-weight: 600;
+    color:#006494;
+ } 
+
+
+.provaAnterior{
+    background-color: #1a5c37bb;
+    color: white;
+    text-decoration: none;
+}
+
+.provaAnterior:hover{
+    background-color: #1a5c3768;
+    color: black;
+}
+
+abbr{
+    text-decoration: dotted;
+}
+
+
+
+.div_colunas{
+    columns: 2; /* Número de colunas */
+    column-gap: 20px; /* Espaço entre as colunas */
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.div_colunas .travessão::before {
+            content: "—"; /* Travessão */
+            text-align: left;
+            margin: 10px 0 20px 40px;
+}
+
+.div_colunas3{
+    column-count: 2;
+    column-gap: 20px;
+    height: 400px; /* Aumente a altura para acomodar mais linhas */
+    font-size: 16px; /* Ajuste o tamanho da fonte para melhorar a legibilidade */
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word; /* Alternativa */  
+}
+
+.destaqueAzul{
+    font-style: italic;
+            background-color: #e8f1f8;
+            padding: 15px;
+            border-left: 4px solid #0288d1;
+            margin: 20px 0;
+            color: #37474f;
+            text-indent: 0; /* Sem recuo na citação */
+}
+
+
+
+#corBlack{
+    display: flexbox;
+    color: black;
+    
+}
+.lista{
+    list-style-type: square;
+    padding-left: 80px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+
+
+.d:hover{
+    color: #0057b3c5;
+    font-weight: bold;
+}
+
+.o:hover{
+    color: #0057b3c5;
+    font-weight: bold;
+}
+
+.e:hover{
+    color: #0057b3c5;
+    font-weight: bold;
+}
+
+/*ALT no texto*/
+.semImportancia{
+    color: rgba(0, 0, 0, 0.48);
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+} 
+
+.importanteTexto:hover{
+    color: black;
+    background-color: rgba(0, 0, 0, 0.071);
+    border-radius: 10px;
+  
+
+}
+
+.importanteAbas:hover{
+   color: #2E58A2;
+    
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.capitulos {
+    border: 2px solid black;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #efba32;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+input{
+    accent-color: #2E58A2;
+}

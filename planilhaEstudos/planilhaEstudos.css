@@ -1,0 +1,244 @@
+/* ======================
+   ESTILOS BÁSICOS DA PÁGINA
+   ====================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8em;
+ 
+}
+
+.container {
+  width: 95%;
+  max-width: 2050px; /* Ajustado para um valor mais comum */
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px; /* Adicionado padding para melhor espaçamento */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #003366;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* ======================
+   ACORDEÃO
+   ====================== */
+.accordion {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-title {
+  background: #e9e9e9;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.accordion-title:hover {
+  background: #d7d7d7;
+}
+
+.accordion-title::after {
+  content: "+";
+  font-size: 1.2em;
+}
+
+.accordion-title.active::after {
+  content: "-";
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px 15px 15px 15px;
+  background: #fafafa;
+  animation: fadeIn 0.3s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Listas internas */
+.subtopics {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style-type: none;
+}
+
+.subtopics li {
+  margin: 5px 0;
+  list-style: none;
+  text-align: left; /* Alterado para alinhar à esquerda */
+}
+
+/* Containers para subdivisões (sub-sub-itens) em Liderança */
+.sub-sub-container {
+  margin-left: 20px;
+  display: none;
+  background: #f0f0f0;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.sub-sub-sub-container {
+  margin-left: 20px;
+  display: none;
+  background: #fefefe;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/* ======================
+   PLANILHA (OPCIONAL)
+   ====================== */
+.sheet-area {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 11px;
+  text-align: center; /* Centralizado para melhor visualização */
+  font-weight: bold;
+  text-transform: uppercase;
+  table-layout: auto; /* As colunas se ajustam automaticamente */
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  vertical-align: top;
+  word-wrap: break-word; /* Quebra o texto longo */
+  overflow-wrap: break-word; /* Suporte adicional para navegadores modernos */
+}
+
+thead th {
+
+  background: #2E58A2; /* exemplo de cor */
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #EEF3FA; /* zebra stripes */
+}
+
+tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+.hour-col {
+  background: #2E58A2;
+  color: #fff;
+  font-weight: bold;
+  width: 80px;
+}
+
+.day-col {
+  min-width: 80px; /* Dimensão mínima reduzida para maior flexibilidade */
+}
+
+/* ======================
+   BOTÕES DE AÇÃO
+   ====================== */
+button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button[onclick="clearAllTableData()"] {
+  background-color: red;
+}
+
+ 
+  /* Estilo para as células da tabela */
+  .day-col {
+    padding: 0 !important; /* Remove o padding padrão das células */
+  }
+
+/* Estilo para os itens inseridos */
+.data-item {
+  background-color: red; /* Fundo vermelho */
+  width: 100%; /* Ocupa 100% da largura da célula */
+  height: 100%; /* Ocupa 100% da altura da célula */
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+  text-align: center; /* Centraliza o texto */
+  position: relative; /* Permite posicionamento absoluto do checkbox */
+}
+
+/* Estilo para o checkbox */
+.data-item input[type="checkbox"] {
+  position: absolute; /* Posiciona o checkbox absolutamente */
+  right: 5px; /* Distância da borda direita */
+}
+
+/* Estilo para o checkbox */
+.data-item input[type="checkbox"] {
+    margin-left: auto; /* Move o checkbox para a direita */
+    
+ 
+}
+   
+
+  /* Checkbox ao lado direito */
+  .data-item input[type="checkbox"] {
+    margin-left: 10px;
+  }
+
+  /* Efeito ao marcar o checkbox */
+  .data-item input[type="checkbox"]:checked + span {
+    text-decoration: line-through; /* Traço no meio do texto */
+    background-color: brown; /* Cor marrom */
+ 
+  }
+ 

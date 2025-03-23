@@ -1,0 +1,29 @@
+/* Estilo para o cabeçalho */
+thead th {
+    background-color:  #2E58A2;
+    text-align: center;
+    color: white;
+}
+
+/* Centralizar texto de todas as colunas */
+td {
+    text-align: center;
+}
+
+/* Exceção para a coluna "Providência" */
+td.providencia {
+    text-align: justify; /* ou "justify" se preferir */
+}
+body {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    
+}
+
+table{
+    justify-content: center; 
+    background-color: #2e58a20c;
+    width: 1200px;
+
+}

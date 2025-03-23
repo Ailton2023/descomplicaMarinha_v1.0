@@ -1,0 +1,80 @@
+/* Contêiner Principal */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Apenas sombra, sem borda */
+font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+/* Títulos */
+h2, h3 {
+    color: black;
+    margin-bottom: 10px;
+    /*border-bottom: 2px solid #0056b3; /* Linha de destaque */
+    padding-bottom: 5px;
+}
+
+/* Abas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: linear-gradient(to right, #0056b3, #003f7f);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #007bff; /* Mantida a borda ao redor do conteúdo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content:not(.hidden) {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Parágrafos */
+p {
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

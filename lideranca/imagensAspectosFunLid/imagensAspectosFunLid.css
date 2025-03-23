@@ -1,0 +1,56 @@
+.imagensTextoAspectosFunLid {
+    display: block; /* Mantém o layout em bloco */
+}
+
+.imagemAspectosFunLid img {
+    width: 210px; /* Define a largura da imagem */
+    height: 210px; /* Torna a altura igual à largura para fazer a imagem circular */
+    border-radius: 50%; /* Torna a imagem circular */
+    margin-right: 15px; /* Cria um espaço entre a imagem e o texto */
+    margin-bottom: 5px; /* Cria um pequeno espaço abaixo da imagem */
+    shape-outside: circle(); /* Faz o texto contornar a forma circular da imagem */
+    float: left; /* Faz a imagem flutuar à esquerda */
+    margin-top: 10px; /* Adiciona um pequeno espaçamento no topo */
+}
+
+.textoAspectosFunLid p {
+    margin: 0; /* Remove a margem padrão do parágrafo */
+    line-height: 2.0em; /* Define a altura da linha */
+    font-size: 18px; /* Tamanho da fonte */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    text-align: justify; /* Justifica o texto */
+}
+
+#textoAspectosFunLid {
+    text-indent: 0px; /* Sem recuo na primeira linha */
+    margin-bottom: 10px; /* Espaço entre parágrafos */
+}
+
+.textoAspectosFunLid::after {
+      
+    content: "";
+    display: block;
+    clear: left; /* Garante que o texto continue abaixo da imagem */
+}
+
+#textoAspectosFunLid {
+    text-indent: 0px; /* Sem recuo na primeira linha */
+    margin-top: 10px;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+#textoAspectosFunLidCentro{
+ font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+}
+
+#pSemImagem{
+    margin-top: 30px;
+}
+
+
+#textoAspectosFunLidCentroLiderLiderados{
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    text-indent: 0px; /* Sem recuo na primeira linha */
+    margin-top: 80px;
+}

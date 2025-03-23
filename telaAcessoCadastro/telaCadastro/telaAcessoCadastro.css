@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #018dde22;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+}
+
+.conteinerAcessoCadastro {
+    border: 2px solid rgba(0, 0, 0, 0.309);
+    width: 450px;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.738);
+    font-size: 18px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px #333;
+    background-color: #2e58a23a;
+}
+
+.cabecalhoCadastro {
+    padding-top: 25px;
+}
+
+.cabecalhoCadastro img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.formularioCadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campoInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.iconeInput {
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.207);
+    border-radius: 5px;
+}
+
+.campoInput input {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    outline: none;
+    border: 2px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.campoInput input:focus {
+    border-bottom-color: forestgreen;
+    background-color: white;
+}
+
+.campoInput input:invalid:focus {
+    border-bottom-color: #ff000d;
+    background-color: papayawhip;
+}
+
+.conteinerCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.conteinerCheckbox p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.conteinerCheckbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.botao {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.botao:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.botao:hover:enabled {
+    background-color: #0056b3;
+    box-shadow: 0px 0px 10px #2e58a28e;
+}
+
+.alinhamentoLados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.alinhamentoLados h1 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.alinhamentoLados a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff000dc0;
+}
+
+.alinhamentoLados a:hover {
+    text-decoration: underline;
+}

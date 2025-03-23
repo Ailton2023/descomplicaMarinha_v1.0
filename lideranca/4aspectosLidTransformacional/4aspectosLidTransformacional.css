@@ -1,0 +1,39 @@
+ 
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.rectangle {
+    background: #dddddd3e; /* Fundo branco */
+    padding: 30px 20px 20px; /* Espaço adicional para o título na borda */
+    border-radius: 8px;
+    border: 2px solid #2E58A2; /* Borda azul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.rectangle-title {
+    position: absolute;
+    top: -12px; /* Posiciona o título levemente acima da borda */
+    left: 20px;
+    background: #2E58A2; /* Fundo azul */
+    color: white; /* Texto branco */
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Garante que o título fique visível */
+    letter-spacing: 2px;
+}
+
+.rectangle p {
+    line-height: 1.8;
+    margin: 10px 0 0 0;
+}

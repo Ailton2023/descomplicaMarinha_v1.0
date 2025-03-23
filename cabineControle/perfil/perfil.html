@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selecione sua imagem</title>
+<link rel="stylesheet" href="perfil.css">
+<link rel="stylesheet" href="perfil_site.css">
+<link rel="stylesheet" href="perfilconteudoLadoCentral.css">
+
+</head>
+<body>
+    <header>
+        <div class="conteiner">
+             
+                <div style="margin-top: 7px;">
+                    <img src="ancora_nova-200px.png" alt="">
+                </div>
+                <div>
+                    <h1>Descomplica CMN</h1>
+                    <p>A ancora dos seus estudos</p>
+                </div>
+                
+          
+          
+           
+        </div>
+
+    </header>
+
+<h1 style="font-size: 16px;">Selecione sua imagem</h1>
+<input type="file" id="imageInput" accept="image/*">
+<br><br>
+<div id="imagePreview">
+<img id="preview" alt="Sua imagem aparecerá aqui" />
+</div>
+
+
+
+<div class="painel">
+            
+    <!-- Div lateral onde ficam os links -->
+    <div class="conteudo">
+      
+    <fieldset id="centralConteudo">
+        <p id="pCentralConteudo">CENTRAL DE CONTEÚDO</p>
+    </fieldset>
+
+
+
+        <fieldset>
+        <legend>Bonos</legend>
+        <div style="display: flex; gap: 10px">
+
+            <div style="margin-top: 10px;">
+                <img src="icons/bono.png" alt="">
+            </div>
+            <a href="#" onclick="showContent('content1')">
+                <p class="conteudo_INF">26/02/24 - Bono nº 187 Abertura das Inscrições</p>
+            </a>
+        </div>
+
+         <!-- Bono de Abertura de Inscrição -->
+    
+         <hr>
+
+         <!-- Bono de ALT data da prova -->
+         <div style="display: flex; gap: 10px">
+         <div style="margin-top: 10px;">
+             <img src="icons/bono.png" alt="">
+         </div>
+         <a href="#" onclick="showContent('content2')">
+             <p class="conteudo_INF">05/03/24 - Bono de ALT data da prova</p>
+         </a>
+     </div>
+ <hr>
+ <!-- Bono 705 ALT vagas CPA -->
+<div style="display: flex; gap: 10px">
+        
+<div style="margin-top: 10px;">
+    <img src="icons/bono.png" alt="">
+</div>
+
+<a href="#" onclick="showContent('content5')">
+    <p class="conteudo_INF">29/04/24 - Bono nº 705 de ALT de vagas CPA</p>
+</a>
+
+</div>
+
+
+
+</fieldset>
+
+<fieldset id="comunicados">
+<legend>Comunicados</legend>
+<div style="display: flex; gap: 5px">
+    <div style="margin-top: 10px;">
+        <img src="icons/comunicado.png" alt="">
+    </div>
+
+    <a href="#" onclick="showContent('content4')">
+        <p class="conteudo_INF">27/03/24 - Comunicado 001</p>
+    </a>    
+</div>      
+
+ <hr>
+
+ <!-- Bono de ALT data da prova -->
+<div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
+    <div style="margin-top: 5px;">
+        <img src="icons/comunicado.png" alt="">
+    </div>
+
+    <a    href="#" onclick="showContent('content7')">
+        <p class="conteudo_INF">14/10/24 - Comunicado aos candidatos nº 002</p>
+    </a>
+</div>
+</fieldset>
+
+
+<fieldset id="programaBibliografia">
+<legend>Programa e Bibliografia</legend>
+ <!-- Programa de bibliografia -->
+    <div style="display: flex; gap: 5px">
+    
+        <div style="margin-top: 10px;">
+            <img src="icons/programa&Bibliografia.png" alt="">
+        </div>
+
+        <a href="#" onclick="showContent('content3')">
+            <p class="conteudo_INF">26/03/2024 - Acesse!</p>
+        </a>
+
+    </div>        
+</fieldset>
+
+
+<fieldset id="distribuiçãoLocalProva">
+<legend>Distribuição por local de prova</legend>
+ <!-- LOCAL DE PROVA -->
+<div style="display: flex; gap: 0px">
+        
+<div style="margin-top: 10px;">
+    <img src="icons/distribuicao.png" alt="">
+</div>
+
+<a href="#" onclick="showContent('content6')">
+    <p id="pDistribuiçãoLocalProva">14/10/24 - Acesse!</p>
+</a>
+
+</div>   
+</fieldset>
+
+<fieldset id="calendarioEventos">
+<legend>Calendário de Eventos</legend>         
+
+<div style="display: flex; gap: 5px">
+        
+    <div style="margin-top: 10px;">
+        <img src="icons/cronograma.png" alt="">
+    </div>
+
+    <a href="calendarioEvenos/calendario.html" target="_blank" onclick="showContent('contentx')">
+        <p id="pCalendarioEventos">Acesse!</p>
+    </a>
+
+</div>   
+</fieldset>
+
+<fieldset id="calendarioEventos">
+<legend>Resumo de INF Relevantes</legend>         
+
+<div style="display: flex; gap: 5px">
+        
+    <div style="margin-top: 10px;">
+        <img src="icons/resumo.png" alt="">
+    </div>
+
+    <a href="calendarioEvenos/calendario.html" target="_blank" onclick="showContent('contentx')">
+        <p id="pResumoInfRelevantes">Acesse!</p>
+    </a>
+
+</div>   
+</fieldset>
+
+<fieldset id="cursos">
+<legend>Cursos</legend>         
+
+<div style="display: flex; gap: 5px">
+        
+    <div style="display: flex; gap: 5px">
+        <div style="margin-top: 10px;">
+            <img src="icons/apostilas.png" alt="">
+        </div>
+        <a href="#" onclick="showContent('content8')">
+            <p id="pCursos">Acesse!</p>
+        </a>
+    </div>
+
+</div>   
+</fieldset>
+
+<fieldset id="motivacional">
+<legend>Motivacional</legend>         
+
+<div style="display: flex; gap: 5px">
+        
+    <div style="display: flex; gap: 5px">
+        <div style="margin-top: 10px;">
+            <img src="icons/motivacional.png" alt="">
+        </div>
+        <a href="#" onclick="showContent('content9')">
+            <p id="pMotivacional">Motivacional</p>
+        </a>
+    </div>
+
+</div>   
+</fieldset>
+
+
+
+<fieldset id="faleConosco">
+<legend>Fale Conosco</legend>         
+
+<div style="display: flex; gap: 5px">
+        
+    <div style="display: flex; gap: 5px">
+        <div style="margin-top: 10px;">
+            <img src="icons/faleConosco.png" alt="">
+        </div>
+        <a href="#" onclick="showContent('content10')">
+            <p id="pfaleConosco">Fale conosco</p>
+        </a>
+    </div>
+
+</div>   
+</fieldset>
+    
+     
+        
+    
+        <div style="display: flex; gap: 10px">
+           
+        </div>
+      
+       
+    </div>
+    
+
+    <!-- Div ao lado que exibe o conteúdo -->
+    <div class="main-content">
+
+        <div id="content0" class="content" style="display: flex; justify-content: center; margin-top: 5px;">
+
+
+            <div class="slider-container">
+                <img src="imagensCabecalho/descomplica-cmm-a-âncora-dos-seus (3).png" alt="Foto 1" class="slider-image">
+                <img src="imagensMuralInformacoes/espartano-faca-a-sua-parte-1050x600.png" alt="Foto 2" class="slider-image">
+                <img src="imagensCabecalho/seja um oficial 2.png" alt="Foto 2" class="slider-image">
+            </div>
+        </div>
+
+
+
+        <div id="content1" class="content" style="display: none;">
+            <iframe src="imagens/BONO 187 AA_AFN.pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Bono de Abertura das Inscrições</h2>
+            <p> No período de 26FEV2024 a 07MAR2024 (CPA - 20 Vagas)</p>
+        </div>
+
+
+        <div id="content2" class="content" style="display: none;">
+            <iframe src="imagens/BONO ALT data da prova.pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Bono de ALT da Data da Prova</h2>
+            <p> Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
+        </div>
+
+        <div id="content3" class="content" style="display: none;">
+            <iframe src="imagens/PROGRAMA E BIBLIOGRAFIA (2) (2).pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Programa e bibliografia</h2>
+            <p> Não houve ALT em relação ao ano anterior REF ao conhecimento militar-naval </p>
+        </div>
+       
+        <div id="content4" class="content" style="display: none;">
+            <iframe src="imagens/Comunicado 001.pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Comunicado 001</h2>
+            <p> Instruções para realização da nova sistemática da prova de Redação </p>
+        </div>
+
+        <div id="content5" class="content" style="display: none;">
+            <iframe src="imagens/BONO705-ALT vagas.pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Comunicado 001</h2>
+            <p> Instruções para realização da nova sistemática da prova de Redação </p>
+        </div>
+
+        <div id="content6" class="content" style="display: none;">
+            <iframe src="imagens/local de prova.pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Comunicado 001</h2>
+            <p> Instruções para realização da nova sistemática da prova de Redação </p>
+        </div>
+
+        
+        <div id="content7" class="content" style="display: none;">
+            <iframe src="imagens/Comunicado 002 (1).pdf" width="100%" height="600px"></iframe>
+           
+            <h2>Comunicado aos candidatos nº 002</h2>
+            <p> Instruções para realização da nova sistemática da prova de Redação </p>
+        </div>
+     
+
+        <div id="content8" class="content" style="display: none;">
+            <h1 class="h1Curso">Acesse seu curso aqui.</h1>
+
+            <div class="container-cursos">
+
+                <div class="cursos">
+                    <img src="imagens/OGSA.png" alt="" width="190px">
+                                
+                      <h1 class="nome_curso">OGSA</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button>
+                  </div>
+                  <div class="cursos">
+                    <img src="imagens/lideranca.png" alt="" width="190px">
+                                
+                      <h1 class="nome_curso" >Liderança</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button>
+                  </div>
+
+                  <div class="cursos">
+                    <img src="imagens/procedimentos.png" alt="" width="190px">
+                               
+                      <h1 class="nome_curso">Procedimentos Marinheiros</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button>
+                  </div>                                              
+               
+            </div>
+
+            
+            <div class="container-cursos">
+                                    
+                <div class="cursos">
+                    <img src="imagens/justica-disciplina.png" alt="" width="190px">
+                               
+                      <h1 style="font-size: 18px;" class="nome_curso">Justiça e Disciplina na MB</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button> 
+                  </div>
+                  <div class="cursos">
+                    <img src="imagens/docAdministrativa.png" alt="" width="190px">
+                               
+                      <h1 style="font-size: 20px;" class="nome_curso">Documentação Administrativa da MB</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button>
+                  </div>
+
+                  <div class="cursos">
+                    <img src="imagens/cerimonialMB-II.png" alt="" width="190px">
+                               
+                      <h1 class="nome_curso">Cerimonial da MB</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button>
+                  </div>                        
+            </div>
+
+            <div class="container-cursosEsquerda">
+
+                <div class="cursosEsquerda">
+                    <img src="imagens/justica-disciplina.png" alt="" width="190px">
+                               
+                      <h1 style="font-size: 18px;" class="nome_curso">Justiça e Disciplina na MB</h1>
+                      <button onclick="" id="corBotao" >Acesse seu curso</button> 
+                </div>
+                                 
+            </div>
+        </div>
+       <br>
+
+
+            <!-- Acesso rápido --> 
+            <div id="outras_informacoes">
+                <hr class="linha"> <!-- Linha preta -->
+                <div class="conteudo-azul" style="background-color: #2E58A2;">
+                    <h2 id="h2_conteudo_ultimas_noticias">Acesso rápido</h2>
+                </div>
+                <hr class="linha"> <!-- Linha preta -->
+            </div> 
+            
+               <strong style="display: flex; flex-wrap: wrap;">
+                   <div class="conteiner_outrasIFN">                              
+                   
+                        <div class="conteiner_outrasIFN">
+                            <div class="outras_inf">
+                        <img class="outras_inf_img" src="imagensAcessoRapido/comunicado-200 px.jpg" alt="">
+                        <p class="p_AcessoRapido">Resumo de IFN</p>
+                        </div>
+                        <div class="outras_inf">
+                        <img class="outras_inf_img" src="imagensAcessoRapido/comunicado-200 px.jpg" alt="">
+                        <p class="p_AcessoRapido">Resumo de IFN</p>
+                        </div>
+                   
+                        <div class="outras_inf">
+                        <img class="outras_inf_img"  src="imagensAcessoRapido/comunicado-200 px.jpg" alt="">
+                        <p class="p_AcessoRapido">Resumo de IFN</p>
+                        </div>
+                   </div>
+               </strong>
+        </div>
+         <br>   
+
+         <div id="outras_informacoes">
+            <hr class="linha"> <!-- Linha preta -->
+            <div class="conteudo-azul" style="background-color: #2E58A2;">
+                <h2 id="h2_conteudo_ultimas_noticias">Mural de Informações</h2>
+            </div>
+            <hr class="linha"> <!-- Linha preta -->
+        </div>         
+<br>
+        
+<div class="carousel-container" >
+            <div class="carousel-slide active">
+                <img src="imagensMuralInformacoes/espartano-faca-a-sua-parte-1050x600.png" alt="Imagem 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="imagensMuralInformacoes/informativo!--período-de-inscrição.png" alt="Imagem 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="imagensMuralInformacoes/informativo!--período-de-inscrição.png" alt="Imagem 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="imagensMuralInformacoes/espartano-faca-a-sua-parte-1050x600.png" alt="Imagem 4">
+            </div>
+    
+            <!-- Botões de navegação -->
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+</div>
+<br>
+
+
+<div id="outras_informacoes">
+<hr class="linha"> <!-- Linha preta -->
+<div class="conteudo-azul" style="background-color: #2E58A2;">
+<h2 id="h2_conteudo_ultimas_noticias">Últimas atualizações do site</h2>
+</div>
+<hr class="linha"> <!-- Linha preta -->
+</div> 
+
+
+<fieldset class="ultimasAtualizacoes" style="width: auto; height: auto;  padding: 10px;">
+
+<p>21/10/2025 - Resultado do Simulado 01/2025</p><hr>
+<p>21/10/2025 - No vídeo motivacional</p><hr>
+<p>21/10/2025 - Bono nº 125 dando orientações para a realização da Prova</p><hr>
+<p>21/10/2025 - Novo exercício de Liderança</p><hr>
+<p>21/10/2025 - Novo exercício de Justiça e Disciplina</p><hr>
+<p>21/10/2025 - Novo exercício de Justiça e Disciplina</p>
+
+</fieldset>
+<br>
+
+<div id="outras_informacoes">
+<hr class="linha"> <!-- Linha preta -->
+<div class="conteudo-azul" style="background-color: #2E58A2;">
+<h2 id="h2_conteudo_ultimas_noticias">Fala ao aluno</h2>
+</div>
+<hr class="linha"> <!-- Linha preta -->
+</div> 
+<div class="video-gallery">
+<!-- Botão de Retroceder -->
+<button class="nav-button left-button" onclick="prevVideo()">◀</button>
+
+<!-- Container para vídeos -->
+<div class="video-container">
+<!-- Vídeo 1 -->
+<iframe class="video" src="https://www.youtube.com/embed/7DUqNu916ZE?si=VJq1y_RI3JpIOH7a"
+    title="Vídeo 1" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+<!-- Vídeo 2 -->
+<iframe class="video" src="https://www.youtube.com/embed/VIDEO_ID_2"
+    title="Vídeo 2" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+<!-- Vídeo 3 -->
+<iframe class="video" src="https://www.youtube.com/embed/VIDEO_ID_3"
+    title="Vídeo 3" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+<!-- Botão de Avançar -->
+<button class="nav-button right-button" onclick="nextVideo()">▶</button>
+</div>
+
+
+<div id="outras_informacoes">
+<hr class="linha"> <!-- Linha preta -->
+<div class="conteudo-azul" style="background-color: #2E58A2;">
+<h2 id="h2_conteudo_ultimas_noticias">Mídias Sociais</h2>
+</div>
+<hr class="linha"> <!-- Linha preta -->
+</div>
+
+
+
+
+<section id="redes-sociais">
+<a href=""><img src="imagensMidiasSociais-II/logo-home.jpg" alt=""></a>
+<a href="https://www.youtube.com/c/CursoemV%C3%ADdeo" target="_blank"><img src="imagensMidiasSociais-II/logo-youtube.jpg" alt=""></a>
+<a href="https://github.com/gustavoguanabara" target="_blank"><img src="imagensMidiasSociais-II/logo-github.jpg" alt=""></a>
+<a href="https://www.instagram.com/cursoemvideo/" target="_blank"><img src="imagensMidiasSociais-II/logo-instagram.jpg" alt=""></a>
+<a href=""><img src="imagensMidiasSociais-II/logo-twitter.jpg" alt=""></a>
+<a href=""><img src="imagensMidiasSociais-II/logo-facebook.jpg" alt=""></a>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<script src="perfil.js"></script>
+<script src="perfilconteudoLado.js"></script>
+</body>
+</html>
+

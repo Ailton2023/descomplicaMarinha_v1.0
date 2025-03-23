@@ -1,0 +1,121 @@
+.slideshow-box-muralINF {
+    margin: 0;
+    padding: 0;
+    width: 770px;
+    position: relative;
+    margin-top: -9px;
+}
+
+.slideshow-content-muralINF {
+    width: 100%;
+    height: 430px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.slideshow-items-muralINF {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slideshow-items-muralINF img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.control-btn-muralINF {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.control-btn-muralINF:hover {
+    background-color: #333;
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.back-btn-muralINF {
+    left: -20px;
+}
+
+.forward-btn-muralINF {
+    right: -20px;
+}
+
+.markers-box-muralINF {
+    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.marker-muralINF {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.marker-muralINF.current-muralINF {
+    background-color: #2E58A2;
+    transform: scale(1.2);
+}
+
+.marker-muralINF:hover {
+    background-color: #4ecdc4;
+}
+
+.start-btn-muralINF, .stop-btn-muralINF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-size: 8px;
+}
+
+.start-btn-muralINF {
+    padding-left: 1.5px;
+    background-color: limegreen;
+}
+
+.stop-btn-muralINF {
+    background-color: rgba(255, 0, 0, 0.809);
+}
+
+.start-btn-muralINF:hover, .stop-btn-muralINF:hover {
+    background-color: #4ecdc4;
+}
+
+.start-btn-muralINF.on-muralINF, .stop-btn-muralINF.on-muralINF {
+    background-color: #2E58A2;
+    transform: scale(1.2);
+}

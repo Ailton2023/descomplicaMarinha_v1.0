@@ -1,0 +1,73 @@
+/*IMAGEM REDONDAS*/
+
+#imagemRedonda{
+    text-indent: 0px; /* Recuo na primeira linha do parágrafo */
+ font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+.container-imagensredondas {
+    position: relative; /* Permite o posicionamento da imagem */
+}
+
+.image-wrapper img {
+    float: left; /* Faz a imagem flutuar à esquerda */
+    border-radius: 50%; /* Torna a imagem redonda */
+    width: 100px; /* Define a largura da imagem */
+    height: 100px; /* Define a altura da imagem */
+    object-fit: cover; /* Ajusta a imagem para caber no contêiner redondo */
+    shape-outside: circle(); /* Faz o texto contornar a imagem */
+    margin-right: 15px; /* Adiciona espaço à direita da imagem */
+}
+
+.image-wrapper img:hover{
+    border:  1px solid black;
+    box-sizing: border-box;
+}
+ 
+
+
+
+.text p {
+    line-height: 2.0em;
+    padding-bottom: 15px;
+    margin: 0; /* Remove a margem padrão do parágrafo */
+    text-align: justify; /* Justifica o texto */
+    text-indent: 30px; /* Indenta a primeira linha do texto */
+}
+
+
+/*IMAGEM QUADRADAS*/
+#imagemQuadrada {
+    text-indent: 0px; /* Remove o recuo na primeira linha do parágrafo */
+}
+
+.container-imagensQuadradas {
+    position: relative; /* Permite o posicionamento da imagem */
+}
+
+.imagem img {
+    float: left; /* Faz a imagem flutuar à esquerda */
+    border-radius: 10%; /* Mantém a imagem quadrada */
+    width: 70px; /* Define a largura da imagem */
+    height: 90px; /* Define a altura da imagem */
+    object-fit: cover; /* Ajusta a imagem para preencher o contêiner */
+    shape-outside: inset(0); /* Ajusta o contorno do texto para imagem quadrada */
+    margin-right: 15px; /* Adiciona espaço à direita da imagem */
+}
+
+.imagem img:hover{
+    border:  1px solid black;
+}
+
+
+
+.text p {
+    line-height: 2.0em;
+    padding-bottom: 15px;
+    margin: 0; /* Remove a margem padrão do parágrafo */
+    text-align: justify; /* Justifica o texto */
+    text-indent: 30px; /* Indenta a primeira linha do texto */
+}
+
+
+
+ 

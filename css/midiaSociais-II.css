@@ -1,0 +1,33 @@
+@charset "UTF-8";
+section#telefone{
+    display: flex; /* Para centralização flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 311px; /* Largura específica */
+    height: 627px; /* Altura específica */
+    margin: 0 auto; /* Garante centralização horizontal */
+ 
+    /*background: url('../imagensMidiasSociais-II/frame-iphone.png') no-repeat center center; /* Fundo centralizado */
+    background-size: cover; /* Faz com que o fundo preencha a seção */
+    position: absolute; /* Necessário para centralização na tela */
+    top: 85%; /* Ponto de referência vertical */
+    left: 58%; /* Ponto de referência horizontal */
+    transform: translate(-50%, -50%); /* Move o elemento para que o centro fique alinhado */
+    
+}
+
+
+section#redes-sociais img{
+    width: 50px;
+    margin: 10px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
+    box-sizing: border-box;    
+}
+
+section#redes-sociais img:hover{
+    border: 2px solid rgba(135, 31, 31, 0.637);
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623);
+    transition: transform .3s, border .5s;
+} 

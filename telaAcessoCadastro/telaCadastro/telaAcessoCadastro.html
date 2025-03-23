@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tela de Cadastro</title>
+    <link rel="stylesheet" href="telaAcessoCadastro.css">
+</head>
+<body>
+    <section class="conteinerAcessoCadastro">
+        <article class="cabecalhoCadastro">
+            <h1>Cadastre-se</h1>
+            <p>Se preferir, use sua rede social</p>
+            <img src="../icons/logoGoogle.png" alt="Logo do Google">
+            <p>Teremos acesso a seu nome e endereço de email apenas para efetuar seu cadastro.</p>
+        </article>
+
+        <hr>
+
+        <form action="#" method="get" autocomplete="on" class="formularioCadastro">
+            <div class="campoInput">
+                <img class="iconeInput" src="../icons/pessoa.png" alt="Ícone de pessoa">
+                <input type="text" id="pessoa" placeholder="Nome Completo" required>
+            </div>
+
+            <div class="campoInput">
+                <img class="iconeInput" src="../icons/telefone.png" alt="Ícone de telefone">
+                <input type="text" id="numero" placeholder="Telefone" required>
+            </div>
+
+            <div class="campoInput">
+                <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
+                <input type="text" id="email" placeholder="E-mail ou CPF" required>
+            </div>
+
+            <div class="campoInput">
+                <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
+                <input type="text" id="emailConfirmacao" placeholder="Confirmar E-mail ou CPF" required>
+            </div>
+
+            <div class="campoInput">
+                <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha">
+                <input type="password" id="senha" placeholder="Senha (mínimo de 6 caracteres)" required>
+            </div>
+
+            <div class="conteinerCheckbox">
+                <input type="checkbox" id="checkboxButtonCadastrar">
+                <p>Eu li e aceito os Termos de Uso</p>
+            </div>
+
+            <button type="submit" class="botao" disabled>CADASTRAR</button>
+        </form>
+
+        <hr>
+
+        <div class="alinhamentoLados">
+            <h1>Já é cadastrado?</h1>
+            <a href="../telaAcessoLogin/telaAcessoLogin.html"><p>É só fazer login!</p></a>
+        </div>
+    </section>
+
+    <script src="telaAcessoCadastro.js"></script>
+</body>
+</html>

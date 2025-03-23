@@ -1,0 +1,80 @@
+:root{
+    --cor0:#F4F6FE;
+    --cor1:#E8F1F2;
+    --cor2:#1B98E0;
+    --cor3:#247BA0;
+    --cor4:#006494;
+    --cor5:#13293D;
+    --cor6:#0068B5;
+    --cor7:#0054A6;
+    --cor8:#2E58A2;
+    --corVerde0:#c5ebd6;
+    --corVerde1:#83e1ad;
+    --corVerde2:#3ddc84;
+    --corVerde3:#2fa866;
+    --corVerde4:#1a5c37;
+    --corVerde5:#063d1e;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+
+html{
+    background-color: #018dde22;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+
+
+form{
+    width: 500px;
+    
+    background-color: #2e58a274;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #333;
+    padding: 1em;
+}
+
+fieldset{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+label{
+ margin-bottom: .50em;   
+}
+
+input{
+    padding: .75em;
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+    border: 1px solid #bbb;
+    font-size: 1em;
+
+}
+
+input, label{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+legend{
+    padding: 1em;
+    text-align: center;
+    font-weight: bold;
+    color: #454e4f;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}

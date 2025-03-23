@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Filmes</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      font-size: 2.5rem;
+    }
+
+    /* Barra de pesquisa */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 300px;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    /* Categorias */
+    .categoria {
+      margin: 20px 0;
+      padding: 0 20px;
+    }
+
+    .categoria h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .filme {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .filme:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .filme img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .filme h3 {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    /* Detalhes do filme */
+    .detalhes-filme {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .detalhes-filme img {
+      width: 300px;
+      border-radius: 8px;
+    }
+
+    .detalhes-filme h2 {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+
+    .detalhes-filme p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .detalhes-filme button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .detalhes-filme button:hover {
+      background-color: #f40612;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .filme {
+        width: 150px;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+
+      .detalhes-filme img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Catálogo de Filmes</h1>
+
+  <!-- Barra de pesquisa -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Pesquisar filmes...">
+  </div>
+
+  <!-- Categorias -->
+  <div class="categoria">
+    <h2>Recomendados</h2>
+    <div class="catalogo" id="catalogoRecomendados">
+      <!-- Filmes recomendados serão inseridos aqui via JavaScript -->
+    </div>
+  </div>
+
+  <div class="categoria">
+    <h2>Séries</h2>
+    <div class="catalogo" id="catalogoSeries">
+      <!-- Séries serão inseridas aqui via JavaScript -->
+    </div>
+  </div>
+
+  <div class="categoria">
+    <h2>Filmes</h2>
+    <div class="catalogo" id="catalogoFilmes">
+      <!-- Filmes serão inseridos aqui via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Detalhes do filme -->
+  <div class="detalhes-filme" id="detalhesFilme">
+    <img id="detalhesImagem" src="" alt="">
+    <h2 id="detalhesTitulo"></h2>
+    <p id="detalhesDescricao"></p>
+    <button onclick="voltarParaCatalogo()">Voltar ao Catálogo</button>
+  </div>
+
+  <script>
+    // Dados dos filmes (simulando um banco de dados)
+    const filmes = [
+      { titulo: "Stranger Things", imagem: "https://via.placeholder.com/200x300?text=Stranger+Things", categoria: "series", descricao: "Uma série de suspense e ficção científica que se passa nos anos 80." },
+      { titulo: "The Witcher", imagem: "https://via.placeholder.com/200x300?text=The+Witcher", categoria: "series", descricao: "Um caçador de monstros luta para encontrar seu lugar num mundo onde as pessoas muitas vezes são mais perversas que as bestas." },
+      { titulo: "Breaking Bad", imagem: "https://via.placeholder.com/200x300?text=Breaking+Bad", categoria: "series", descricao: "Um professor de química transforma-se num fabricante de metanfetamina para garantir o futuro da sua família." },
+      { titulo: "Inception", imagem: "https://via.placeholder.com/200x300?text=Inception", categoria: "filmes", descricao: "Um ladrão que rouba segredos corporativos através do uso da tecnologia de compartilhamento de sonhos é convidado a implantar a ideia de um homem no subconsciente de um CEO." },
+      { titulo: "Interstellar", imagem: "https://via.placeholder.com/200x300?text=Interstellar", categoria: "filmes", descricao: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade." },
+    ];
+
+    // Função para exibir os filmes no catálogo
+    function exibirFilmes(filmes, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = ""; // Limpa o conteúdo anterior
+
+      filmes.forEach(filme => {
+        const filmeDiv = document.createElement("div");
+        filmeDiv.className = "filme";
+        filmeDiv.addEventListener("click", () => mostrarDetalhes(filme));
+
+        const imagem = document.createElement("img");
+        imagem.src = filme.imagem;
+        imagem.alt = filme.titulo;
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = filme.titulo;
+
+        filmeDiv.appendChild(imagem);
+        filmeDiv.appendChild(titulo);
+        container.appendChild(filmeDiv);
+      });
+    }
+
+    // Função para mostrar detalhes do filme
+    function mostrarDetalhes(filme) {
+      document.getElementById("detalhesImagem").src = filme.imagem;
+      document.getElementById("detalhesTitulo").textContent = filme.titulo;
+      document.getElementById("detalhesDescricao").textContent = filme.descricao;
+
+      // Esconde o catálogo e mostra os detalhes
+      document.querySelectorAll(".categoria").forEach(el => el.style.display = "none");
+      document.getElementById("detalhesFilme").style.display = "block";
+    }
+
+    // Função para voltar ao catálogo
+    function voltarParaCatalogo() {
+      document.querySelectorAll(".categoria").forEach(el => el.style.display = "block");
+      document.getElementById("detalhesFilme").style.display = "none";
+    }
+
+    // Filtra e exibe os filmes por categoria
+    const recomendados = filmes.slice(0, 4); // Exibe os 4 primeiros como recomendados
+    const series = filmes.filter(filme => filme.categoria === "series");
+    const filmesCategoria = filmes.filter(filme => filme.categoria === "filmes");
+
+    exibirFilmes(recomendados, "catalogoRecomendados");
+    exibirFilmes(series, "catalogoSeries");
+    exibirFilmes(filmesCategoria, "catalogoFilmes");
+
+    // Barra de pesquisa
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", () => {
+      const termo = searchInput.value.toLowerCase();
+      const resultados = filmes.filter(filme => filme.titulo.toLowerCase().includes(termo));
+      exibirFilmes(resultados, "catalogoRecomendados"); // Exibe resultados na seção de recomendados
+    });
+  </script>
+</body>
+</html>

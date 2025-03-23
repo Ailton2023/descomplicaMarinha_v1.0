@@ -1,0 +1,120 @@
+body{
+    line-height: 2.5;
+}
+#marcacaoFonteAzul{ 
+ color: #2E58A2;  
+ text-transform: uppercase;
+  font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+     
+}
+#maiuscula{
+    text-transform: uppercase; 
+}
+#marcacaoFontePreta{ 
+    background-color: rgba(0, 0, 0, 0.419);
+    color: white;
+    padding: 1px;
+    border-radius: 4px;
+ 
+        
+   }
+
+#circuloPretoTranparente{
+    border: 0.1px dashed black;
+    border-radius:10px; 
+    padding:2px; 
+    
+    
+   
+}
+
+#circuloPretoTranparente {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 0.1px dashed black; /* Mantém o estilo tracejado */
+    overflow: hidden; /* Garante que nada ultrapasse o elemento */
+    style="font-family:'Chakra Petch', Arial, Helvetica, sans-serif; ;"
+}
+
+#circuloPretoTranparente::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Alinha perfeitamente com a borda original */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.1px dashed black; /* Estilo de borda tracejada */
+    border-radius: 10px; /* Mesmo formato da borda principal */
+    box-sizing: border-box; /* Inclui a borda no cálculo de tamanho */
+    animation: dashedSpin 2s linear infinite; /* Animação contínua */
+    pointer-events: none; /* Garante que o pseudo-elemento não interfira no conteúdo */
+}
+
+/* Animação para o traçado */
+@keyframes dashedSpin {
+    0% {
+        border-style: dashed;
+    }
+    50% {
+        border-style: solid;
+    }
+    100% {
+        border-style: dashed;
+    }
+}
+
+
+/*TEXTO COM BORDA*/
+/* Estilo do container */
+#textoComBorda {
+   
+    position: relative;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 600px; /* Limita a largura para melhor leitura */
+    font-family: 'Georgia', serif; /* Fonte elegante e legível */
+    font-size: 18px;
+    line-height: 1.8;
+    color: #2c3e50; /* Cor de texto suave */
+    background: #f9f9f9; /* Fundo claro e neutro */
+    border: 2px solid black; /* Borda azul clara */
+    border-radius: 15px; /* Bordas arredondadas suaves */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo do título */
+.titulo {
+    
+    position: absolute;
+    top: -15px; /* Eleva o título acima da borda */
+    left: 20px; /* Alinha o título à esquerda */
+    background: black; /* Fundo azul harmonioso */
+    color: white; /* Texto branco para contraste */
+    font-size: 14px; /* Tamanho do título */
+    font-weight: bold; /* Destaque no título */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas no título */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para o título */
+    letter-spacing: 0.5px; /* Pequeno espaçamento entre letras */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animação sutil na borda */
+/*#textoComBorda:hover {
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #2E58A2; /* Muda para um azul mais intenso ao passar o mouse */
+   /* transition: border-color 0.3s ease; /* Transição suave */
+/*}*/
+
+
+.provasAnteriores{
+    border: 2px solid rgba(22, 6, 6, 0.402);
+    background-color:rgba(47, 79, 79, 0.274);
+    color: rgba(0, 0, 0, 0.652);
+    padding: 1px;
+    border-radius: 4px;
+}

@@ -1,0 +1,32 @@
+.container-imagem {
+    max-width: 800px;
+    margin: 5px auto;
+    overflow: hidden; /* Limpa o float */
+    display: flex; /* Usa flex para centralizar verticalmente */
+    align-items: center; /* Centraliza verticalmente os itens */
+}
+
+.image-container {
+    float: left; /* Faz a imagem flutuar à esquerda */
+    margin-right: 5px; /* Distância de 2px entre a imagem e o texto */
+}
+
+.image-container img {
+    width: 90px; /* Tamanho fixo para a imagem */
+    height: 90px; /* Mesma altura e largura para ficar redonda */
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    display: block;
+    shape-outside: circle(45px at center); /* Define a área circular para o texto fluir ao redor */
+}
+
+.text-container {
+    flex: 1; /* Ocupa o espaço restante */
+    padding: 0; /* Remove padding extra */
+    line-height: 1.5; /* Melhora a legibilidade */
+}
+
+.text-content {
+    text-align: justify; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
+}

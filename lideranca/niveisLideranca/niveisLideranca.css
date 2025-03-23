@@ -1,0 +1,95 @@
+/*#niveisLiderança{
+    background-color:white; 
+    width: 950px;
+    height:440px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+ }*/
+ 
+
+ .content-niveisLiderança {
+    display: none;
+}
+
+.content-niveisLiderança.show{
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo em uma coluna */
+    gap: 14px; 
+    background-color: #247ba018;
+    border-radius: 0px 0px 8px 8px;
+    padding: 10px;
+}
+
+.content-niveisLiderança.show:hover {
+   background-color: #EAF3F6;
+}
+
+/*Costomizando as ABAS*/
+ 
+ .tab-buttons-niveisLiderança{
+     display: flex;
+     gap: 6px; /*Espaçamento entre os botões*/
+ }
+ 
+ .tab-btn-niveisLiderança {
+     width: 100%;
+     border: none;
+     color: white;/*Cor da fonte das ABAS*/
+     background-color:#2E58A2;
+     border-radius: 8px 8px 0px 0px;
+     font-size: 20px;
+     font-weight: 500;
+     padding: 8px;
+     cursor: pointer;
+     transition: background-color .3s ease;
+ }
+ 
+ .tab-btn-niveisLiderança .active{
+     background-color:#0057b3c5;
+ }
+ 
+ .tab-btn-niveisLiderança :hover{
+     background-color:#0057b3c5;
+ }
+
+ /*EFEITOS DO TEXTO - LIDDERANÇA DIRETA*/
+
+   /* CONTAINER PRINCIPAL COM BORDA AZUL */
+   .mural {
+    background: #FFFFFF;
+    border: 3px solid #2E58A2; /* Apenas a borda azul */
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+  }
+
+  /* BLOCOS DO MURAL */
+  .mural-block {
+    background: #2E58A2; /* Fundo azul */
+    border: 2px solid #FFFFFF; /* Borda branca para destaque */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px; /* Espaço entre os blocos */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra na borda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .mural-block:last-child {
+    margin-bottom: 0; /* Remove a margem do último bloco */
+  }
+
+  .mural-block:hover {
+    transform: translateY(-5px); /* Leve flutuação */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7); /* Destaque no hover */
+  }
+
+  /* TEXTO DOS BLOCOS */
+  .mural-block p {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #FFFFFF; /* Texto branco para contraste */
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 1.2rem;
+  }

@@ -1,0 +1,33 @@
+#p-ultimasAtualicoes{
+    color: rgb(189, 106, 42);
+}
+
+section > #p-ultimasAtualicoes{
+    color: rgb(188, 86, 40);
+
+}
+
+.paragrafo{
+    font-size: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.19);
+    height: 30px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 2px;
+    text-align: left;
+    padding-bottom: 28px;
+    border-left: 5px solid #2E58A2;
+    padding-left: 10px;
+    background-color: #F9F9F9;
+}
+
+.paragrafo:hover{
+    border: 1px solid #2E58A2;
+    border-left: 5px solid #2E58A2;
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623);
+    transition: transform .3s, border .5s;
+    background-color: #e8e8e8;
+
+}

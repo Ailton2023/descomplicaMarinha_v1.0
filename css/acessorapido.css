@@ -1,0 +1,47 @@
+ 
+.conteiner_outrasIFN{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:0px;     
+    font-size: 12px;
+}
+
+.outras_inf{
+    text-align: center;  
+    background-color: white;
+    padding: 0px;
+    border-radius: 10px;    
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 190px;
+    height: 170px;
+    transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para dar efeito de profundidade */
+
+
+}
+
+.outras_inf:hover {
+   
+        border: 0.5px solid rgba(0, 0, 0, 0.417);
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623);
+        transition: transform .3s, border .5s;
+ 
+    
+}
+
+.outras_inf_img{
+    margin-top: 16px;
+    width: 90%; /* Faz com que a imagem se ajuste ao tamanho da div */
+    height: 120px; /* Mantém a proporção da imagem */
+
+}
+
+.p_AcessoRapido{
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    text-shadow: 1px 1px 0  rgba(0, 0, 0, 0.294);
+}

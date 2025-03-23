@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+ 
+ 
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+ 
+:root{
+    --cor0:#F4F6FE;
+    --cor1:#E8F1F2;
+    --cor2:#1B98E0;
+    --cor3:#247BA0;
+    --cor4:#006494;
+    --cor5:#13293D;
+    --cor6:#0068B5;
+    --cor7: #0054A6;
+    --corVerde0:#c5ebd6;
+    --corVerde1:#83e1ad;
+    --corVerde2:#3ddc84;
+    --corVerde3:#2fa866;
+    --corVerde4:#1a5c37;
+    --corVerde5:#063d1e;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;  
+    box-sizing: border-box;
+}
+header {
+    background-color: #2E58A2;  
+}
+.conteiner{
+    display: flex;
+     
+    align-items: center;
+    margin-left: 0px;
+    margin-bottom: 20px;
+}
+ 
+   
+h4{
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-weight:bold;   
+ 
+    color: white;
+    font-size: 20px;
+    /*text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);*/
+    margin-bottom: 0px;
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, .9),
+    -2px 2px 0 rgba(0, 0, 0, .7),
+    -3px 3px 0 rgba(0, 0, 0, .5),
+    -4px 4px 0 rgba(0, 0, 0, .3),
+    -5px 5px 0 rgba(0, 0, 0, .1);
+    
+   
+  
+     
+   
+}
+
+#sub-titulo{
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-weight:bold;   
+    font-style: normal;
+    color: white;
+    font-size: 20px;
+    /*text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);*/
+    margin-bottom: 0px;
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, .9),
+    -2px 2px 0 rgba(0, 0, 0, .7),
+    -3px 3px 0 rgba(0, 0, 0, .5),
+    -4px 4px 0 rgba(0, 0, 0, .3),
+    -5px 5px 0 rgba(0, 0, 0, .1);
+
+}
+.p_Cabacalho{
+  
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 12px;
+    max-width: 500px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    color:white;     
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);
+    text-align: left;
+
+}
+
+
+#logo{
+    margin-top: 10px;
+}
+
+#titulo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  
+    
+}
+ 

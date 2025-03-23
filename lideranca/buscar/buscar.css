@@ -1,0 +1,70 @@
+/* Estilo para a barra de busca */
+/* Estilo para a barra de busca */
+/* Estilo para a barra de busca */
+/* Estilo para a barra de busca */
+#searchBar {
+    display: flex; /* Inicialmente visível */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 43.4%;
+    background-color: #f8f8f8;
+    padding: 10px;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+/* Estilo para o campo de entrada */
+#searchInput {
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para os botões */
+#searchButton, #prevButton, #nextButton {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#searchButton:hover, #prevButton:hover, #nextButton:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o contador */
+#searchCount {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    margin-top: 60px; /* Espaço para a barra de busca fixa */
+    padding: 20px;
+}
+
+/* Estilo para destacar as palavras encontradas */
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+/* Estilo para a palavra atualmente selecionada */
+.current {
+    background-color: blue;
+    color: white;
+}

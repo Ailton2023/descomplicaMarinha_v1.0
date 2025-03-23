@@ -1,0 +1,39 @@
+.imagensTextoRosaVirtudes {
+    display: block; /* Mantém o layout em bloco */
+}
+
+.imagemRosaVirtudes img {
+    margin-top: 10px;
+    float: left; /* Faz a imagem flutuar à esquerda */
+    width: 180px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Torna a imagem circular */
+    shape-outside: circle(); /* Faz o texto contornar a imagem circular */
+    margin-right: 15px; /* Adiciona espaço à direita da imagem */
+    margin-bottom: 5px; /* Adiciona espaço abaixo da imagem */
+}
+
+.textoRosaVirtudes  p {
+    text-align: justify; /* Justifica o texto */
+    margin: 0; /* Remove a margem padrão do parágrafo */
+    line-height: 2.0em; /* Altura da linha */
+    font-size: 18px; /* Tamanho da fonte */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+}
+
+#textoRosaVirtudes {
+    text-indent: 0px; /* Sem recuo na primeira linha */
+    margin-bottom: 10px; /* Espaço entre parágrafos */
+}
+
+.textoRosaVirtudes::after {
+    content: "";
+    display: block;
+    clear: left; /* Garante que o texto continue abaixo da imagem */
+}
+
+#txtRosaVirtudes {
+    text-indent: 0px; /* Sem recuo na primeira linha */
+    margin-top: 30px;
+}
+ 

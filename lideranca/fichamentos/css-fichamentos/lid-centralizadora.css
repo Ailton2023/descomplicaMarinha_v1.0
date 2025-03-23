@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+    margin:0;
+    padding: 0;
+    /*font-family: "Chakra Petch", Arial, Helvetica, sans-serif;*/
+}
+h1, h2{
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+   
+}
+
+h3{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.conteinerCorpo{
+    background-color: #2e58a26e;
+    width:30%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border:  2px solid black;
+    padding-left: 70px;
+    padding-top: 10px; 
+    padding-bottom: 10px;    
+    margin: 2px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
+} 
+ul{
+
+    padding-left: 10px; /* Adiciona espaço para deslocar os itens */
+    list-style-position: inside; /* Move o marcador para dentro do conteúdo */
+}
+li{
+    line-height:20px;
+    
+    list-style-type: square;
+    
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left: 10px; /* Move o texto e o marcador */
+ 
+   
+}
+
+p{
+    font-size: 20px;
+    margin-bottom: 20px;
+}

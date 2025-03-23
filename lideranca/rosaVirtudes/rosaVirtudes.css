@@ -1,0 +1,54 @@
+/*#rosaVirtudes{
+    background-color:white; 
+    width: 950px;
+    height:440px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+ }*/
+ 
+
+.content-rosaVirtudes {
+    display: none;
+}
+
+.content-rosaVirtudes.show{
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo em uma coluna */
+    gap: 14px; 
+    background-color: #247ba018;
+    border-radius: 0px 0px 8px 8px;
+    padding: 10px;
+}
+
+.content-rosaVirtudes.show:hover {
+   background-color: #dddddd75;
+}
+
+/*Costomizando as ABAS*/
+ 
+ .tab-buttons-rosaVirtudes{
+     display: flex;
+     gap: 6px; /*Espaçamento entre os botões*/
+ }
+ 
+ .tab-btn-rosaVirtudes {
+     width: 100%;
+     border: none;
+     color: white;/*Cor da fonte das ABAS*/
+     background-color:#2E58A2;
+     border-radius: 8px 8px 0px 0px;
+     font-size: 20px;
+     font-weight: 500;
+     padding: 8px;
+     cursor: pointer;
+     transition: background-color .3s ease;
+ }
+ 
+ .tab-btn-rosaVirtudes.active{
+     background-color:#0057b3c5;
+ }
+ 
+ .tab-btn-rosaVirtudes:hover{
+     background-color:#0057b3c5;
+ }

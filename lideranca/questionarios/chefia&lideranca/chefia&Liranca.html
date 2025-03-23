@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário - EMA-137</title>
+  <link rel="stylesheet" href="chefia&Lideranca.css">
+</head>
+<header>
+  <div style="display: flex; justify-content: center; align-items: center; text-align: center; background-color: #0068B5; border-radius: 10px; padding: 10px;">
+    <div>
+        <img style="width: 100px;" src="../ancora_nova-150-px.png" alt="">
+    </div>
+    <div style="display: inline-block; flex-direction: column; align-items: center;">
+        <p id="titulo" style="font-size: 30px; color: white; font-weight: bold; margin: 0; margin-top: 0px;">Descomplica Marinha</p>
+        <p id="titulo"  style="font-size: 20px; color: #efba32; font-weight: bold; margin: 0; margin-top: 0px;">A âncora dos seus estudos</p>
+    </div>
+</div><br><br>
+  
+  <!-- Cabeçalho fixo -->
+  <h1>Questionário sobre Chefia e Liderança</h1>
+
+</header>
+<body>
+
+ <main>
+   
+    <div class="container">
+   
+      <!-- Container dinâmico para as questões -->
+      <div id="quiz-container">
+        <!-- As questões serão inseridas via JavaScript -->
+      </div>
+   
+      <!-- Botões de navegação -->
+      <div class="buttons">
+        <button id="back-btn" onclick="previousQuestion()" disabled>Voltar</button>
+        <button id="next-btn" onclick="nextQuestion()" disabled>Próxima</button>
+        <button id="validate-btn" onclick="validateAnswer()" disabled>Validar Resposta</button>
+        <button id="show-solution-btn" onclick="showSolution()" disabled>Mostrar Solução</button>
+      </div>
+   
+      <!-- Área de resultado final -->
+      <div id="result" class="hidden">
+        <h2>Resultado</h2>
+        <p id="score"></p>
+      </div>
+   
+      <!-- Área para exibir a solução detalhada -->
+      <div id="solution" class="hidden">
+          <!--<h2>Resposta(s) correta(s)</h2>-->
+   
+        <p id="correct-answer"></p>
+      </div>
+   
+      <!-- Área para exibir o certificado -->
+      <div id="certificate" class="hidden">
+        <!-- O certificado será gerado via JavaScript -->
+      </div>
+    </div>
+ </main>
+
+  <script src="chefia&Lideranca.js"></script>
+</body>
+</html>
+

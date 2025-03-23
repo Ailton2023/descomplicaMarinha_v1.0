@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário - EMA-137</title>
+  <link rel="stylesheet" href="2024teste.css">
+  <link rel="stylesheet" href="../cabecalho.css">
+  <link rel="stylesheet" href="../footercabineControle.css">
+  <link rel="stylesheet" href="../">
+</head>
+<body>
+
+  <header>
+    <div class="conteiner">
+            <div id="logo">
+                <img src="ancora_nova-150-px.png" alt="">
+            </div>
+            <div id="nome_curso">
+                <p class="p_Cabacalho">Seu curso on-line</p>
+                <h1>Descomplica Marinha</h1>
+                <p class="p_Cabacalho">A ancora dos seus estudos</p>
+            </div>
+     </div>
+</header>
+
+ 
+
+<div class="container">
+  <!-- Cabeçalho fixo -->
+  <h2>(CA-AA-AFN - 2024)</h2>
+  
+  <!-- Container para todas as questões -->
+  <div id="quiz-container">
+    <!-- QUESTÃO 31 -->
+    <div class="question" id="question-0" data-correct-option="D">
+      <h3>
+        QUESTÃO 31<br><br>
+        Com relação à classificação dos documentos administrativos da Marinha do Brasil, é correta afirmar que:
+      </h3>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'q0')">
+          <input type="radio" name="q0" id="q0_0" value="A">
+          <label for="q0_0">(A) é classificado quanto ao acesso em: urgente, especial ou rotina.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q0')">
+          <input type="radio" name="q0" id="q0_1" value="B">
+          <label for="q0_1">(B) a reprodução de parte de um documento administrativo sigiloso terá um grau de sigilo menor que o original.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q0')">
+          <input type="radio" name="q0" id="q0_2" value="C">
+          <label for="q0_2">(C) a elaboração de extratos de documentos administrativos ultrassecretos depende da permissão de autoridade certificadora ou de autoridade hierarquicamente superior.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q0')">
+          <input type="radio" name="q0" id="q0_3" value="D">
+          <label for="q0_3">(D) o documento administrativo de correspondência classificado como sigiloso, unicamente por encaminhar anexo sigiloso, será desclassificado tão logo seja retirado esse anexo.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q0')">
+          <input type="radio" name="q0" id="q0_4" value="E">
+          <label for="q0_4">(E) o Termo de Documentação Sigilosa (TDS) é o formulário que formaliza a decisão de classificação e determina o prazo de sigilo da informação.</label>
+        </div>
+      </div>
+      <button class="show-solution-btn" id="sol-btn-0" disabled onclick="toggleSolution(0, this)">Mostrar Solução</button>
+      <div class="solution" id="solution-0">
+        <fieldset class="solution-box">
+          <legend>Resposta correta</legend>
+
+          <p class="solution-text" id="cinza">
+            Correta: Letra (D)<br>
+         
+          </p>
+
+          <p class="solution-text" >         
+            <strong>Analisando as opções:<br></strong>                 
+          </p>
+
+          <p class="solution-text" id="corazul">
+            Letra (A)<br>
+            <strong>2.1.2. Precedência </strong><br>
+            O <strong>DA</strong> poderá ter um dos seguintes <strong id="vermelho">graus de precedência</strong>:  urgente ,  especial  ou  rotina.<br>
+            <br> a) <strong id="maiuscula">urgente</strong> - o DA exige ação ou conhecimento imediato do recebedor;<br>
+            <br> b) <strong id="maiuscula">especial</strong> - a tramitação do DA especial possui prioridade sobre a tramitação do DA de rotina. Esse grau de precedência somente será atribuído ao DA de âmbito interno; e<br>
+            <br> c) <strong id="maiuscula">rotina</strong> - o DA que não se enquadra nas situações anteriores. É atribuída à maioria dos DA.            
+          </p>
+
+          <p class="solution-text" id="cinza">
+            Letra (B)<br>
+            <strong>2.2. REPRODUÇÃO DE “DA” SIGILOSO </strong><br>
+            A reprodução <strong id="vermelho">do todo </strong> ou de parte de DA sigiloso terá <strong id="vermelho">o mesmo grau de sigilo</strong> do original e dependerá de autorização da autoridade expedidora, em conformidade com as normas em vigor.
+          </p>
+          
+            <p class="solution-text" id="corazul">
+            Letra (C)<br>
+            <strong>2.3. EXTRATOS DE “DA” SIGILOSO</strong><br>
+            Poderão ser elaborados extratos de DA sigiloso, aos quais serão atribuídos graus de sigilo iguais ou inferiores àquele atribuído ao DA sigiloso original, dependendo do conteúdo transcrito. Estes extratos, levando-se em conta a possível reclassificação de sigilo, serão elaborados mediante autorização:<br>
+            <br>   <strong>- Documentos Ultrassecretos</strong><br>
+            <strong id="vermelho">Dependem de permissão da autoridade classificadora;</strong><br>
+            <br>  <strong>- Documentos Secretos</strong><br>
+            Dependem de permissão da autoridade classificadora ou de autoridade hierarquicamente superior; e <br> 
+            <br>  <strong>- Documentos Reservados</strong>
+            Serão elaborados sob responsabilidade das autoridades destinatárias, exceto quando
+            expressamente vedado no próprio documento.</p>
+
+            <p class="solution-text" id="cinza">
+              Letra (D)<br>
+              O DA de Correspondência classificado como sigiloso, unicamente por encaminhar
+              anexo sigiloso, será desclassificado tão logo seja retirado esse anexo, devendo ser registrada
+              a desclassificação no campo específico do TCI.</p> 
+              
+            <p class="solution-text" id="corazul">
+              Letra (E)<br>
+              O <strong id="vermelho">TCI</strong> é o formulário que formaliza a decisão de classificação, desclassificação,
+              reclassificação ou redução do prazo de sigilo de informação classificada em qualquer grau de
+              sigilo.</p>
+
+              <p class="solution-text" id="cinza">
+                SIGLAS:<br>
+                <strong>DA</strong>  - Documento Administrativo; e<br>   
+                <strong>TCI</strong> - Termo de Classificação de Informação.
+              </p><br>
+
+            <div style="text-align: center;">
+            <audio preload="none" controls>
+            <source src="audios/31 - Questão.mp3" type="audio/mpeg">
+           </div><br> 
+
+        </fieldset>
+      </div>
+    </div>
+    
+    <!-- QUESTÃO 32 -->
+    <div class="question" id="question-1" data-correct-option="B">
+      <h3>
+        QUESTÃO 32<br><br>
+        Conforme preconizado no CAAML-703, assinale a opção que NÃO apresenta um tipo de turco.
+      </h3>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'q1')">
+          <input type="radio" name="q1" id="q1_0" value="A">
+          <label for="q1_0">(A) Quadrantal.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q1')">
+          <input type="radio" name="q1" id="q1_1" value="B">
+          <label for="q1_1">(B) Hidráulico.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q1')">
+          <input type="radio" name="q1" id="q1_2" value="C">
+          <label for="q1_2">(C) Comum.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q1')">
+          <input type="radio" name="q1" id="q1_3" value="D">
+          <label for="q1_3">(D) Rolante ou deslizante.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q1')">
+          <input type="radio" name="q1" id="q1_4" value="E">
+          <label for="q1_4">(E) De rebater.</label>
+        </div>
+      </div>
+      <button class="show-solution-btn" id="sol-btn-1" disabled onclick="toggleSolution(1, this)">Mostrar Solução</button>
+      <div class="solution" id="solution-1">
+        <fieldset class="solution-box">
+          <legend>Resposta correta</legend>
+
+          <p class="solution-text" id="cinza">
+            Correta: Letra (B)<br>         
+          </p>
+
+          <p class="solution-text" >         
+            <strong>Analisando a questão:<br></strong>                 
+          </p>
+
+          <p class="solution-text" id="corazul">
+           
+            <strong>1.6.1 – Tipos de turcos</strong><br>
+           
+            <br> a) <strong id="maiuscula">comum</strong><br> - Constituídos por ferro redondo (maciço ou oco) ou por perfis retangulares, podendo ser recurvado na
+            parte superior ou possuir ângulo de 90 graus (no caso de perfis). Gira em torno de seu eixo vertical ou pode ser fixo, dependendo de sua base; <br>
+
+            <br> b) <strong id="maiuscula">de rebater</strong><br> - Semelhante em construção ao tipo comum, mas em vez de girar em torno de seu eixo vertical, é rebatido para dentro, movendo-se em torno de um eixo horizontal na sua base, paralelo ao costado; e<br>
+           
+            <br> c) <strong id="maiuscula">quadrantal</strong><br> - O turco é recolhido ou disparado inclinando-se sobre um setor dentado que constitui seu pé e engraza numa cremalheira sobre o convés.<br>  
+
+            <br> D) <strong id="maiuscula">rolante ou deslizante</strong><br> - É constituído por dois braços montados com rodetes sobre duas calhas (trilhos). Estas são paralelas e dispostas num plano perpendicular ao costado do navio. O turco é disparado por gravidade, sob ação do peso da embarcação. O movimento de disparar é dado por uma alavanca que libera e solta o freio do  sarilho, onde está enrolado o cabo que iça a embarcação. Neste primeiro movimento, o braço e a embarcação descem sobre a calha até ficar totalmente disparada. A seguir, a embarcação desce até ficar ao nível do convés (a meia talha), para embarque dos passageiros ou do material. Um terceiro movimento da alavanca do freio, permite que a embarcação seja arriada até a superfície da água.
+
+          </p><br>
+
+          <div style="text-align: center;">
+            <audio preload="none" controls>
+            <source src="audios/32 - Questão.mp3" type="audio/mpeg">
+           </div><br> 
+
+        </fieldset>
+      </div>
+    </div>
+    
+    <!-- [OUTRAS QUESTÕES...] -->
+    <!-- Para cada questão, copie a estrutura abaixo, atualizando o ID, o atributo data-correct-option, o conteúdo do <h3>, as opções e a solução detalhada conforme necessário. -->
+    
+    <!-- Exemplo: QUESTÃO 33 -->
+    <div class="question" id="question-2" data-correct-option="C">
+      <h3>
+        QUESTÃO 33<br><br>
+        De acordo com a Ordenança Geral para o Serviço da Armada, em relação aos deveres das Praças, conforme suas graduações, é correto afirmar que os:
+      </h3>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'q2')">
+          <input type="radio" name="q2" id="q2_0" value="A">
+          <label for="q2_0">(A) Cabos serão auxiliares diretos dos Suboficiais, ou dos Oficiais, conforme a Organização Militar (OM) em que servirem, em todos os atos de serviço e na execução das fainas que aqueles auxiliarem ou dirigirem.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q2')">
+          <input type="radio" name="q2" id="q2_1" value="B">
+          <label for="q2_1">(B) Sargentos serão auxiliares diretos dos Oficiais em todos os atos de serviço e na execução das fainas que aqueles dirigirem.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q2')">
+          <input type="radio" name="q2" id="q2_2" value="C">
+          <label for="q2_2">(C) Sargentos serão auxiliares diretos dos Suboficiais, ou dos Oficiais, conforme a Organização Militar (OM) em que servirem, em todos os atos de serviço e na execução das fainas que aqueles auxiliarem ou dirigirem.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q2')">
+          <input type="radio" name="q2" id="q2_3" value="D">
+          <label for="q2_3">(D) Suboficiais, quando no exercício do comando, impõem penas disciplinares.</label>
+        </div>
+        <div class="option" onclick="selectOption(this, 'q2')">
+          <input type="radio" name="q2" id="q2_4" value="E">
+          <label for="q2_4">(E) Praças Especiais, quando matriculadas em escola de formação, não têm a obrigação de se impor às Praças mais modernas.</label>
+        </div>
+      </div>
+      <button class="show-solution-btn" id="sol-btn-2" disabled onclick="toggleSolution(2, this)">Mostrar Solução</button>
+      <div class="solution" id="solution-2">
+        <fieldset class="solution-box">
+          <legend>Resposta correta</legend>
+          <p class="solution-text" id="cinza">
+            Correta: Letra (B)<br>         
+          </p>
+
+          <p class="solution-text" >         
+            <strong>Analisando a questão:<br></strong>                 
+          </p>
+
+          <p class="solution-text" id="corazul">
+           
+            <strong>Art. 4-4-3 Deveres de acordo com as graduações</strong><br>
+            Os deveres das Praças, conforme suas graduações, serão, de modo geral, os seguintes:
+            <br> a) os Suboficiais serão auxiliares diretos dos Oficiais
+            em todos os atos de serviços e na execução das
+            fainas que aqueles dirigirem;<br>
+
+            <br> b) os Sargentos serão auxiliares diretos dos Suboficiais, ou dos Oficiais, conforme a OM em que servirem, em todos os atos de serviço e na execução das
+            fainas que aqueles auxiliarem ou dirigirem; e<br>
+           
+            <br> c) os Cabos e Marinheiros executarão qualquer
+            serviço que contribua para o cumprimento de tarefa atribuída
+            à OM a que pertencerem, com responsabilidade
+            pela parte que lhes couber.<br>
+
+            <br><strong>Art. 4-2-3 Autoridade para impor penas disciplinares</strong>
+
+            <br> É responsabilidade dos Oficiais, quando no exercício
+            de Comando, impor penas disciplinares.<br>
+          
+            <br> <strong>Art. 4-3-6 Círculos hierárquicos</strong><br>
+            As Praças Especiais matriculadas em Escolas de Formação de Oficias e no Colégio Naval têm a obrigação de se impor às Praças mais modernas, evitar intimidade e exigir tratamento militar apropriado à sua posição hierárquica.
+          
+          </p><br>
+
+  
+
+          <div style="text-align: center;">
+            <audio preload="none" controls>
+            <source src="audios/33 - Questão.mp3" type="audio/mpeg">
+          </div><br> 
+
+        </fieldset>
+      </div>
+     </div>
+
+  
+           
+
+ 
+      </div>
+
+         <!-- Exemplo: QUESTÃO 34 -->
+         <div class="question" id="question-34" data-correct-option="A">
+            <h3>
+              QUESTÃO 34<br><br>
+              A tenacidade é apresentada como um dos valores que compõe a Rosa das Virtudes. Segundo a Doutrina de Liderança da Marinha, esse valor pode ser definido como:
+            </h3>
+            <div class="options">
+              <div class="option" onclick="selectOption(this, 'q34')">
+                <input type="radio" name="q34" id="q34_0" value="A">
+                <label for="q34_0">(A) a presença de ânimo perante qualquer obstáculo ou dificuldade, a vontade constante de tudo superar e bem desempenhar a tarefa ou função, de caráter operativo ou administrativo.</label>
+              </div>
+              <div class="option" onclick="selectOption(this, 'q34')">
+                <input type="radio" name="q34" id="q34_1" value="B">
+                <label for="q34_1">(B) a disposição para estudar tanto o material em si como também a maneira de utiliza-lo. É a força misteriosa que, dominando a alma do verdadeiro marinheiro, o conduz sempre ao sacrifício com inexcedível vibração e estoica resignação.</label>
+              </div>
+              <div class="option" onclick="selectOption(this, 'q34')">
+                <input type="radio" name="q34" id="q34_2" value="C">
+                <label for="q34_2">(C) o sentimento que induz o individuo à pratica do Bem, da Justiça e da Moral. É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor.</label>
+              </div>
+              <div class="option" onclick="selectOption(this, 'q34')">
+                <input type="radio" name="q34" id="q34_3" value="D">
+                <label for="q34_3">(D) o querer saber longamente, sem desfalecimento e sem trégua. A disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever.</label>
+              </div>
+              <div class="option" onclick="selectOption(this, 'q34')">
+                <input type="radio" name="q34" id="q34_4" value="E">
+                <label for="q34_4">(E) o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas. É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do dever.</label>
+              </div>
+            </div>
+
+            <button class="show-solution-btn" id="sol-btn-34" disabled onclick="toggleSolution(34, this)">Mostrar Solução</button>
+              <div class="solution" id="solution-34">
+              <fieldset class="solution-box">
+                <legend>Resposta correta</legend>
+                <p class="solution-text" id="cinza">
+                  Correta: Letra (A)<br>         
+                </p>
+    
+                <p class="solution-text" >         
+                  <strong>Analisando a questão:<br></strong>                 
+                </p>
+    
+                <p class="solution-text" id="corazul">
+                
+                  <strong>ANEXO A - VIRTUDES DE UM LÍDER</strong><br>
+                
+                  <br> a)  TENACIDADE <br>Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar
+                  tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da
+                  organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer
+                  tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e sem trégua. <strong id="vermelho"> É a presença de ânimo perante qualquer obstáculo ou dificuldade, a vontade constante de tudo superar e bem desempenhar a tarefa ou função, de caráter operativo ou administrativo </strong>. O espírito de tenacidade transmite-se, pois, exatamente, pela continuidade da ação;
+                </p>
+                
+                <p class="solution-text" id="cinza">
+                   <br> b)  <br>TENACIDADE <br> Aplicação é uma forma de dedicação, de amor ao serviço. <strong id="vermelho">É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo</strong>; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. É o saber querer longamente, sem desfalecimento e sem trégua. É a presença de ânimo perante qualquer obstáculo ou dificuldade, a vontade constante de tudo superar e bem desempenhar a tarefa ou função, de caráter operativo ou administrativo. O espírito de tenacidade transmite-se, pois, exatamente, pela continuidade da ação; e<br>
+
+                   <br>FOGO SAGRADO<br>
+                   O Fogo Sagrado é a paixão, a fé, o entusiasmo com que o militar se dedica à sua
+                   carreira; é o seu intenso amor à Marinha, o seu devotamento pela grandeza da sua profissão; é
+                   a larga medida de uma verdadeira vocação e de um sadio patriotismo; é o supremo amor pelo
+                   serviço. É essa crença que anima a ponto de, naturalmente, julgar que os deveres que a lei
+                   marca é o mínimo, e que para bem servir cumpre ir além do próprio dever, fazer tudo quanto é
+                   humanamente possível, à custa, embora, de ingente labor. O “Fogo Sagrado” é essa <strong id="vermelho"> força misteriosa que, dominando a alma do verdadeiro marinheiro, o conduz sempre ao sacrifício com inexcedível vibração e estoica resignação </strong>. O “Fogo Sagrado” transmite-se, mas para tanto é preciso possuí-lo em grande intensidade e demonstrá-lo mais por atitudes e ações do que por ordens e palavras. O “Fogo Sagrado” é a alma da Marinha!
+                </p>
+                
+                <p class="solution-text" id="corazul"> 
+                    <br> C)  <br>HONRA<br> é <strong id="vermelho">o sentimento que induz o indivíduo à prática do Bem, da Justiça e da Moral</strong>. <strong id="vermelho">É a força que o impele a prestigiar sua própria personalidade, como um sentimento de seu patrimônio moral, um misto de brio e valor</strong>.Ela exige a posse do perfeito sentimento do que é justo e respeitável, para a elevação da dignidade e da bravura desse indivíduo, e, assim,afrontar perigos de toda a ordem, na sustentação dos ditames da Verdade e do Direito. É a virtude por excelência, porque em si contém todas as demais. A Honra está acima da vida e de tudo que existe no mundo. Os haveres e demais bens que o indivíduo possui são transitórios, enquanto que a Honra a tudo sobrevive; transmite-se aos filhos, aos netos, ao lar, à profissão escolhida e à terra em que se nasce. A Honra é o patrimônio da alma. Na profissão, ela consiste, principalmente, na dedicação ao serviço, no cumprimento do dever, na intrepidez e na disciplina, tudo inspirado pelo patriotismo. Um navio nunca se entrega ao inimigo e sua bandeira jamais se arria em presença dele. A Honra do Marinheiro o impede! <br>
+                </p>
+              
+                <p class="solution-text" id="cinza">
+                    <br> D)  <br>TENACIDADE <br> Aplicação é uma forma de dedicação, de amor ao serviço. É a disposição para estudar tanto o material em si como também a maneira de utilizá-lo; para estar a par das rotinas, da organização interna de bordo, da ordenança, dos regulamentos e das leis; para bem conhecer tudo referente aos aspectos essenciais da profissão. Na arte de conduzir os homens, o campo é mais profundo: faz-se necessária a tenacidade, o poder da vontade. <strong id="vermelho">É o saber querer longamente, sem desfalecimento e sem trégua</strong>. É a presença de ânimo perante qualquer obstáculo ou dificuldade, a vontade constante de tudo superar e bem desempenhar a tarefa ou função, de caráter operativo ou administrativo. O espírito de tenacidade transmite-se, pois, exatamente, pela continuidade da ação; e<br>
+              
+                <br>ESPÍRITO DE SACRIFÍCIO<br>              
+                O Espírito de Sacrifício  é <strong id="vermelho"> a disposição sincera de realmente oferecer, espontaneamente, interesses, comodidades, vida, tudo, em prol do cumprimento do dever</strong>. O cultivo do Espírito de Sacrifício é praticado vencendo os pequenos incômodos pessoais, os menores percalços do dia a dia. “Quem não é fiel no pouco, certamente não será no muito”: somente percebendo o valor das coisas é que se desenvolve o Espírito de Sacrifício e torna-se capaz de dar um passo a mais na formação do caráter marinheiro.  
+              </p>
+
+              <p class="solution-text" id="corazul"> 
+                    <br> E)  <br>ZELO<br> O Zelo é atributo que não depende, em alto grau, de preparo profissional, de predicados especiais de inteligência e de saber. É, por isso mesmo, virtude que deve ser comum a todos os que servem à Marinha. Essa qualidade é consequência direta do “amor próprio”, do amor à Marinha e à Nação. <strong id="vermelho">É o sentimento que leva a não poupar esforços para o bom desempenho das funções que lhes são atribuídas</strong>. <strong id="vermelho">É o sentimento que conduz à dedicação ao serviço, como autêntica expressão do Dever</strong>. No Zelo está implícita a aceitação de que se serve à Nação e não a pessoas. Ninguém tem o direito de deixar de zelar por suas obrigações, por motivos circunstanciais, alheios ou não à sua vontade. O Zelo está intimamente ligado à probidade, vista como a capacidade de bem administrar os bens, fundos e recursos que nos foram confiados.
+                    Faz-se presente, assim, no exato cumprimento de orçamentos e planos financeiros e no
+                    atento cuidado com o patrimônio da Marinha.<br>
+                </p><br>
+
+              <div style="text-align: center;">
+                <audio preload="none" controls>
+                <source src="audios/34 - Questão.mp3" type="audio/mpeg">
+              </div><br> 
+          </div>
+    
+    <!-- Continue adicionando as demais questões (QUESTÃO 34 até QUESTÃO 50) usando o mesmo padrão -->
+<!-- Exemplo: QUESTÃO 35 -->
+<div class="question" id="question-35" data-correct-option="E">
+  <h3>
+    QUESTÃO 35<br><br>
+    Conforme CAAML-1202, assinale a opção correta sobre os extintores classe “K".
+  </h3>
+  <div class="options">
+    <div class="option" onclick="selectOption(this, 'q35')">
+      <input type="radio" name="q35" id="q35_0" value="A">
+      <label for="q35_0">(A) O extintor de agente Umido classe K contém uma solução especial de acetato de célcio, diluida em agua que, quando acionado, é descarregado com um
+        jato tipo neblina (pulverizagéo), como em um sistema fixo, e são identificados por meio de um quadrado preto contendo a letra K.</label>
+    </div>
+    <div class="option" onclick="selectOption(this, 'q35')">
+      <input type="radio" name="q35" id="q35_1" value="B">
+      <label for="q35_1">(B) Em relação a extinção e a seguranga do pessoal é o melhor exintor portátil para cozinhas comerciais/industriais e praças de máquinas devido à presença
+        de óleos, e são identificados por meio de um triangulo verde contendo a letra K.</label>
+    </div>
+    <div class="option" onclick="selectOption(this, 'q35')">
+      <input type="radio" name="q35" id="q35_2" value="C">
+      <label for="q35_2">(C) Este equipamento é dotado de um aplicador, que permite ao operador se posicionar de forma segura da superficie em chamas, não espalhando óleo
+        quente ou gordura, e são identificados por meio de um quadrado branco contendo a letra K.</label>
+    </div>
+    <div class="option" onclick="selectOption(this, 'q35')">
+      <input type="radio" name="q35" id="q35_3" value="D">
+      <label for="q35_3">(D) O fogo é extinto por resfriamento e pelo efeito do abafamento da espuma (saponificação) e os extintores são identificados por meio de um guadrado
+        contendo a letra K.</label>
+    </div>
+    <div class="option" onclick="selectOption(this, 'q35')">
+      <input type="radio" name="q35" id="q35_4" value="E">
+      <label for="q35_4">(E) O fogo é extinto por resfriamento e pelo efeito asfixiante da espuma (saponificagao), e os extintores são identificados por meio de um quadrado preto
+      contendo a letra K.</label>
+    </div>
+  </div>
+
+  <button class="show-solution-btn" id="sol-btn-35" disabled onclick="toggleSolution(35, this)">Mostrar Solução</button>
+    <div class="solution" id="solution-35">
+    <fieldset class="solution-box">
+      <legend>Resposta correta</legend>
+      <p class="solution-text" id="cinza">
+        Correta: Letra (E)<br>         
+      </p>
+
+      <p class="solution-text" >         
+        <strong>Analisando a questão:<br></strong>                 
+      </p>
+
+      <p class="solution-text" id="corazul">
+      
+        <strong>4.8 - EXTINTORES CLASSE “K”</strong><br>
+      
+        A)  Os extintores de agente úmido Classe K, contém uma solução especial de <strong id="vermelho">Acetato de Potássio</strong>, diluída em água que, quando acionado, é descarregada com um jato tipo neblina (pulverização) como em um sistema fixo. O fogo é extinto por resfriamento e pelo efeito asfixiante da espuma (saponificação). <br>
+        Extintores utilizados em incêndios classe “K” são identificados por meio de um <strong id="vermelho">quadrado preto contendo a letra K</strong>.
+      </p>
+      <p class="solution-text" id="cinza">
+        B)  Em relação a extinção e a segurança do pessoal é o melhor extintor portátil para cozinhas <strong id="vermelho">comerciais/industriais</strong>. Equipamentos típicos a serem protegidos: fritadeiras, frigideiras, grelhas, assadeiras etc.<br>
+      
+      </p>
+      
+      <p class="solution-text" id="corazul">  
+        C) Este equipamento é dotado de um aplicador, que permite ao operador se posicionar de forma segura da superfície em chamas, não espalhando óleo quente ou gordura.<br>
+      </p>
+    
+      <p class="solution-text" id="cinza">
+        D) Fogo é extinto por resfriamento e pelo efeito <strong id="vermelho">asfixiante da espuma</strong> (saponificação)
+      </p>
+
+    <p class="solution-text" id="corazul"> 
+        E) O fogo é extinto por resfriamento e pelo efeito asfixiante da espuma (saponificação). Extintores utilizados em incêndios classe “K” são identificados por meio de um
+      quadrado preto contendo a letra K.
+    </p><br>
+
+    <div style="text-align: center;">
+      <audio preload="none" controls>
+      <source src="audios/35 - Questão.mp3" type="audio/mpeg">
+    </div><br> 
+</div>
+    
+    
+  </div>
+  
+  <!-- Botão para submeter o quiz -->
+  <div class="buttons">
+    <button id="submit-btn" onclick="submitQuiz()">Submeter</button>
+  </div>
+  
+  <!-- Área para exibir o certificado (resultado final) -->
+  <div id="certificate" class="hidden"></div>
+</div>
+
+
+
+
+  <script src="2024teste.js"></script>
+                      
+</div>   
+<footer>
+       
+  <div class="conteiner-cards">
+    <section class="conteiner-quatroCards">
+        <article class="card-curso" style="padding-left:10px;">                
+            <div class="logoTexto">
+                <div>
+                    <img src="ancora_nova-150-px.png" alt="" style="width: 80px;">
+                </div>
+                
+                <div>
+                    <p class="ptexto-logo">Seu curso on-line</p>
+                    <p class="ptexto-logo" style="font-weight: bold;">Descomplica Marinha</p>
+                    <p class="ptexto-logo">A ancora dos seus estudos</p>
+                </div>        
+            </div>
+
+            <div class="card-curso">
+                <p class="texto-cards-curso">Estude on-line em qualquer lugar e acesse apostilhas e exercícios eleborados de modo eficiente para você conquistar sua aprovação.</p>
+            </div>
+        </article>   
+
+        <article class="card-curso" style="padding-left: 30px; width: 300px">  
+
+            <div>               
+                <p class="titulo-cards">Institucional</p>
+                      
+            </div>
+            <div>
+                <p class="text-cards">Quem somos</p>
+                <p class="text-cards">Política de privacidade
+                </p>
+                <p class="text-cards">Termos de uso</p>
+
+            </div>
+
+        </article>   
+
+        <article class="card-curso" style="padding-left: 30px;">  
+
+            <div>               
+                <p class="titulo-cards">Suporte</p>
+                      
+            </div>
+            <div>
+                <p class="text-cards">Fale conoscos</p>
+                <p class="text-cards">Início</p>
+                <p class="text-cards">Pacotes e cursos</p>
+                <p class="text-cards">Embaixadores</p>
+                <p class="text-cards">Portal</p>
+                <p class="text-cards">Baixe o app</p>
+                <p class="text-cards">Ajuda</p>            
+            </div>
+
+        </article>  
+
+        <article class="card-curso" style="width: 490px;">  
+
+            <div>               
+                <p class="titulo-cards">Cursos</p>
+                      
+            </div>
+            <div>
+                <p class="text-cards">Ordenança Geral para o Serviço da Armada</p>
+                <p class="text-cards">Liderança</p>
+                <p class="text-cards">Procedimentos Marinheiros</p>
+                <p class="text-cards">Justiça e Disciplina na MB</p>
+                <p class="text-cards">Documentação Adm. na MB</p>
+                <p class="text-cards">Cerimonial da Marinha do Brasil</p>
+                <p class="text-cards">Legislação Militar-Naval</p>                              
+            </div>
+        </article>  
+    </section>
+  </footer>  
+</body>
+
+</html>

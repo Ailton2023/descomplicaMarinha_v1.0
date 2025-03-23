@@ -1,0 +1,187 @@
+/* Estilo geral */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Container fixo geral */
+.container-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Cabeçalho */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #2E58A2; /* Azul institucional */
+    color: #fff;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+.course-info {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 5px 0;
+    font-size: 16px;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.title {
+    margin: 10px 0;
+    font-size: 28px;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Subcabeçalho */
+.subheader {
+    background-color: #f4f4f4; /* Fundo cinza claro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 100px; /* Espaço para o cabeçalho fixo */
+}
+
+.subheader-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaço entre mensagem e área do candidato */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.candidate-message {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+.upperCase {
+    font-weight: 700;
+    color: #2E58A2; /* Azul para destacar */
+}
+
+/* Área do Candidato */
+.candidate-area {
+    display: flexed;
+    align-items: center;
+    text-decoration: none;
+    background-color: #2E58A2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.candidate-access-text {
+    margin: 0 10px 0 0;
+    font-size: 16px;
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.candidate-access-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.candidate-area:hover {
+    background-color: #1d3b6d; /* Azul mais escuro no hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .course-info {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .subheader {
+        margin-top: 90px; /* Ajuste para o cabeçalho menor */
+        padding: 10px;
+    }
+
+    .subheader-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .candidate-area {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .subheader {
+        margin-top: 70px;
+    }
+
+    .candidate-message {
+        font-size: 14px;
+    }
+
+    .candidate-access-text {
+        font-size: 14px;
+    }
+
+    .candidate-access-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

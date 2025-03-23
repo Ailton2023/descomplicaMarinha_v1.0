@@ -1,0 +1,109 @@
+/*CONTEÚDO QUE VAI APARECER AO LADO DA CENTRAL DE CONTÚDO*/
+
+.painel {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+     
+}
+
+.conteudo {
+    width: 300px;
+    padding-right: 5px;
+}
+
+.conteudo2 {
+    margin-top: 15px;
+    width: 942px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+/*altura do site -- cor cinza*/
+.main-content {
+    flex: 1;
+    padding: 5px;
+    border-left: 0px;
+    /*border-left: 2px solid #ccc;*/
+    height: auto;
+    
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.conteudo_INF {
+    justify-content: center; /* Alinhamento horizontal */
+    align-items: center;    /* Alinhamento vertical */
+  
+    font-size: 20px;
+    color: black;
+    margin: 5px;
+}
+
+.conteudo_INF:hover{
+    color: rgba(0, 0, 0, 0.448);
+}
+
+
+
+/*CONTEÚDO QUE VAI APARECER AO LADO DA CENTRAL DE CONTÚDO*/
+
+
+
+#h2_conteudo{
+    color: var(--cor0);
+    font-size: 20px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+
+#h2_conteudo:hover{
+    font-weight:bolder;
+
+} 
+
+#cor{
+    margin-top: 1px;
+    background-color: #2E58A2;
+}
+
+.conteudo_INF{
+
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+/*COFIGURAÇÕES DO MENU CENTRAL DE CONDEÚDO*/
+
+.título-CentralConteudo{
+   font-weight: bold; 
+   font-size: 16px; 
+   margin-top: 25px; 
+   margin-bottom: 10px; 
+   margin-left: 10px;
+  
+    
+}
+
+/*
+conteiner-scroll:hover{
+    overflow-y:  scroll;
+    max-width: 800px;
+    max-height: 9600px;
+}*/

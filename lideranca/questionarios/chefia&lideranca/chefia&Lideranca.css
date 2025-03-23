@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+  }
+  
+
+  
+  .container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    
+  }
+  
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #2E58A2;
+    text-align: center;
+  }
+  
+  /* Estilo para as questões */
+  .question {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+  
+  .question h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .option:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .option.selected {
+    background-color: #2E58A2;
+    color: #fff;
+    border-color: #2E58A2;
+  }
+  
+  .option input[type="radio"] {
+    cursor: pointer;
+  }
+  
+  /* Botões */
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  #back-btn,
+  #next-btn,
+  #validate-btn,
+  #show-solution-btn {
+    background-color: #2E58A2;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  #back-btn:hover,
+  #next-btn:hover,
+  #validate-btn:hover,
+  #show-solution-btn:hover {
+    background-color: #1a3a6b;
+  }
+  
+  #back-btn:disabled,
+  #next-btn:disabled,
+  #validate-btn:disabled,
+  #show-solution-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Validação de resposta */
+  #validate-btn.correct {
+    border: 2px solid white;
+    background-color: #2E58A2;
+    color: white;
+  }
+  
+  #validate-btn.incorrect {
+    border: 2px solid #000000; /* Borda preta */
+    background-color: red;      /* Fundo vermelho */
+    color: #fff;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #result, #solution {
+    margin-top: 1.5rem;
+  }
+  
+  #score, #correct-answer {
+    font-size: 1.5rem;
+    color: #2E58A2;
+    font-weight: bold;
+  }
+  
+  /* Área de solução detalhada */
+  .solution-box {
+    border: 2px solid #000000;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+  }
+  
+  .solution-box legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+  }
+  
+  /* Diminuir a fonte do texto detalhado da solução */
+  .solution-text {
+    font-size: 0.8rem;
+  }
+  
+  /* Estilo para o certificado */
+  #certificate {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 5px double #2E58A2;
+    border-radius: 15px;
+    background: #fdfdfd;
+    text-align: center;
+    font-family: 'Georgia', serif;
+  }
+  
+  #certificate h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2E58A2;
+  }
+  
+  #certificate p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+  }
+  

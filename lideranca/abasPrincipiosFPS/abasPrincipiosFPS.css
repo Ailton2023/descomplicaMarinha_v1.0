@@ -1,0 +1,66 @@
+ 
+
+/*Contém todo o conteúdo*/
+/*#TiposAspectosFundLid{
+    background-color:white; 
+    width: 1000px;
+    height: 7300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+ }*/
+ 
+
+ .content-AspectosFundLid{
+    display: none;
+}
+
+.content-AspectosFundLid.show{
+    display: flex;
+    gap: 14px; 
+    background-color:#247ba018;
+    border-radius: 0px 0px 8px 8px;
+    padding: 10px;
+  
+}
+
+ 
+/*Costomizando as ABAS*/
+ 
+ .tab-buttons-AspectosFundLid{
+     display: flex;
+     gap: 6px; /*Espaçamento entre os botões*/
+ }
+ 
+ .tab-btn-AspectosFundLid{
+     width: 100%;
+     letter-spacing: 2px;
+     border: none;
+     color: white;/*Cor da fonte das ABAS*/
+     background-color:#2E58A2;
+     border-radius: 8px 8px 0px 0px;
+     font-size: 20px;
+     font-weight: 500;
+     padding: 8px;
+     cursor: pointer;
+     transition: background-color .3s ease;
+     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+ }
+ 
+ .tab-btn-AspectosFundLid.active{
+     background-color:#0057b3c5;
+ }
+ 
+ .tab-btn-AspectosFundLid:hover{
+     background-color:#0057b3c5;
+
+ }
+
+
+/**/
+
+/*CONFIGURANDO OS TIPOS DE ASPECTOS*/
+
+/*configurando o texto destacado*/
+
+ 

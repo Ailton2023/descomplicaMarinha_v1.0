@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Ajustado para português, como sugerido antes -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descomplica Marinha</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/cabineControle.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+
+    <link rel="stylesheet" href="css/footercabineControle.css">
+    <link rel="stylesheet" href="css/cursos.css">
+    
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="conteiner header-conteiner">
+            <div id="logo">
+                <img src="imagens/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
+            </div>
+            <div id="nome_curso">
+                <p class="p_Cabacalho">Seu curso on-line</p>
+                <h1>Descomplica Marinha</h1>
+                <p class="p_Cabacalho">A âncora dos seus estudos</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="painel">
+            <!-- Central de Conteúdo (Sidebar) -->
+            <div class="conteudo">
+                <div class="conteiner-CentralConteudo">
+                    <h2>Central de Conteúdo</h2>
+                    <nav class="sidebar-nav">
+                        <ul class="sidebar-list">
+                            <li class="conteiner-Dados">                                   
+                                <div class="icon-wrapper">
+                                    <img src="icons/controleCronograma.png" alt="Cronograma">
+                                </div>
+                                <a href="#" onclick="showContent('content1')">
+                                    <p class="p_texto">Seu Progresso nas Matérias</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">                                   
+                                <div class="icon-wrapper">
+                                    <img src="icons/programaBibliografia.png" alt="Programa e Bibliografia">
+                                </div>
+                                <a href="#" onclick="showContent('content2')">
+                                    <p class="p_texto">Acesse seu Programa e Bibliografia</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/distribuicao.png" alt="Fichamentos">
+                                </div>
+                                <a href="#" onclick="showContent('content3')">
+                                    <p class="p_texto">Fichamentos</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/audio.png" alt="Áudios">
+                                </div>
+                                <a href="#" onclick="showContent('content4')">
+                                    <p class="p_texto">Áudios</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/audio.png" alt="Provas por Ano">
+                                </div>
+                                <a href="#" onclick="showContent('content5')">
+                                    <p class="p_texto">Provas CA-AA-AFN por Ano</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/audio.png" alt="Provas por Matéria">
+                                </div>
+                                <a href="#" onclick="showContent('content6')">
+                                    <p class="p_texto">Provas CA-AA-AFN por Matéria</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/cronograma.png" alt="Planilha de Estudos">
+                                </div>
+                                <a href="#" onclick="showContent('content7')">
+                                    <p class="p_texto">Planilha de Estudos</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/audio.png" alt="Progresso Automático">
+                                </div>
+                                <a href="#" onclick="showContent('content8')">
+                                    <p class="p_texto">Progresso Automático</p>
+                                </a>
+                            </li> 
+                            <li class="conteiner-Dados">  
+                                <div class="icon-wrapper">
+                                    <img src="../icons/audio.png" alt="Catálogo">
+                                </div>
+                                <a href="#" onclick="showContent('catalogo')">
+                                    <p class="p_texto">Catálogo</p>
+                                </a>
+                            </li> 
+                        </ul>
+                    </nav>
+                </div> 
+            </div>
+            
+            <!-- Main Content -->
+            <div class="main-content"> 
+                <div id="content1" class="content active"> <!-- Ajustado para usar .active -->
+                    <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img src="../imagens/OGSA.png" alt="OGSA" width="210px">                                        
+                            <h1 class="nome_curso">OGSA</h1>
+                            <button id="corBotaoEmProducao">Acesse</button>
+                        </div>
+                        <div class="cursos">
+                            <img src="../imagens/lideranca.png" alt="Liderança" width="190px">
+                            <h1 class="nome_curso">Liderança</h1>
+                            <button id="corBotaoEmProducao"><a href="controleProgramaLiderança.html" target="_blank">Acesse</a></button>
+                        </div>
+                        <div class="cursos">
+                            <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros" width="190px">
+                            <h1 class="nome_curso">Procedimentos Marinheiros</h1>
+                            <button id="corBotaoEmProducao">Acesse</button>
+                        </div>    
+                    </div>
+                </div>  
+                <div id="content2" class="content"> <!-- Sem style inline -->
+                    <iframe src="../programaBibliografia/programacao&bibliografia.html" width="100%" height="930px"></iframe>
+                    <h2>Bono de ALT da Data da Prova</h2>
+                    <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
+                </div>
+                <div id="content3" class="content">
+                    <h1 class="h1Curso">Escolha o curso e acesse seu fichamento!</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img src="../imagens/lideranca.png" alt="Liderança" width="190px">
+                            <h1 class="nome_curso">Liderança</h1>
+                            <button id="corBotaoEmProducao"><a href="../lideranca/fichamentos/lideranca/fichamentosPaginaAcesso.html">Acesse</a></button>
+                        </div>
+                    </div>
+                </div>  
+                <div id="content4" class="content">
+                    <h1 class="h1Curso">Escolha o curso e acesse o áudio!</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img src="../imagens/lideranca.png" alt="Liderança" width="190px">
+                            <h1 class="nome_curso">Liderança</h1>
+                            <button id="corBotaoEmProducao"><a href="../audios/audios.html">Acesse</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="content5" class="content">
+                    <iframe src="../escolhaAno/escolhaAno.html" width="100%" height="930px"></iframe>
+                    <h2>Bono de ALT da Data da Prova</h2>
+                    <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
+                </div>
+                <div id="content6" class="content">
+                    <h1 class="h1Curso">Escolha a matéria e acesse as questões de prova!</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img src="../imagens/lideranca.png" alt="Liderança" width="190px">
+                            <h1 class="nome_curso">Liderança</h1>
+                            <button id="corBotaoEmProducao"><a href="../escolhaAnoMateria/escolhaAnoMateria.html">Acesse</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="content7" class="content">
+                    <iframe src="../planilhaEstudos/planilhaEstudos.html" width="100%" height="1000px"></iframe>   
+                </div>
+                <div id="content8" class="content">
+                    <iframe src="../cabineControle-II/graficos.html" width="100%" height="1000px"></iframe>   
+                </div>
+                <div id="catalogo" class="content">
+                    <iframe src="../catalogo/catalogo.html" width="100%" height="1000px"></iframe>   
+                </div>
+            </div>
+        </div>
+    </main>
+                 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="conteiner-cards footer-conteiner">
+            <section class="conteiner-quatroCards">
+                <article class="card-curso footer-card" style="padding-right: 100px;">
+                    <div class="logoTexto">
+                        <img src="../imagensFooter/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
+                        <div class="footer-text">
+                            <p class="ptexto-logo">Seu curso on-line</p>
+                            <h3 class="footer-title">Descomplica Marinha</h3>
+                            <p class="ptexto-logo">A âncora dos seus estudos</p>
+                        </div>        
+                    </div>
+                    <p class="texto-cards-curso">Estude on-line em qualquer lugar e acesse apostilhas e exercícios elaborados de modo eficiente para você conquistar sua aprovação.</p>
+                </article> 
+                <article class="card-curso footer-card">  
+                    <h3 class="titulo-cards">Institucional</h3>
+                    <ul class="footer-list">
+                        <li class="text-cards">Quem somos</li>
+                        <li class="text-cards">Política de privacidade</li>
+                        <li class="text-cards">Termos de uso</li>
+                    </ul>
+                </article> 
+                <article class="card-curso footer-card">  
+                    <h3 class="titulo-cards">Suporte</h3>
+                    <ul class="footer-list">
+                        <li class="text-cards">Fale conosco</li>
+                        <li class="text-cards">Início</li>
+                        <li class="text-cards">Pacotes e cursos</li>
+                        <li class="text-cards">Embaixadores</li>
+                        <li class="text-cards">Portal</li>
+                        <li class="text-cards">Baixe o app</li>
+                        <li class="text-cards">Ajuda</li>            
+                    </ul>
+                </article>  
+                <article class="card-curso footer-card">  
+                    <h3 class="titulo-cards">Cursos</h3>
+                    <ul class="footer-list">
+                        <li class="text-cards">Ordenança Geral para o Serviço da Armada</li>
+                        <li class="text-cards">Liderança</li>
+                        <li class="text-cards">Procedimentos Marinheiros</li>
+                        <li class="text-cards">Justiça e Disciplina na MB</li>
+                        <li class="text-cards">Documentação Administrativa na MB</li>
+                        <li class="text-cards">Cerimonial da Marinha do Brasil</li>
+                        <li class="text-cards">Legislação Militar-Naval</li>                              
+                    </ul>
+                </article> 
+            </section>      
+        </div>
+    </footer>
+    
+    <script src="js/conteudoLado.js"></script>
+</body>
+</html>

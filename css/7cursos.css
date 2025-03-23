@@ -1,0 +1,33 @@
+/* Container principal */
+.cursos7 {
+    display: grid; /* Ativa layout em grade */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Divs ajustáveis */
+    gap: 10px; /* Espaçamento entre as divs */
+    padding: 20px; /* Espaçamento interno */
+    height: 100vh; /* Altura da página inteira */
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
+    flex-grow: 1;
+  }
+
+  /* Estilização das caixas */
+  .cursos7.box {
+    background-color: #007BFF; /* Fundo azul */
+    color: #fff; /* Texto branco */
+    text-align: center; /* Centraliza texto */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex; /* Alinhamento flexível */
+    align-items: center; /* Centraliza conteúdo verticalmente */
+    justify-content: center; /* Centraliza conteúdo horizontalmente */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavidade nos efeitos */
+    cursor: pointer; /* Mostra a mãozinha */
+ 
+  }
+
+  /* Efeito ao passar o mouse */
+  .cursos7.box:hover {
+    transform: scale(1.1); /* Aumenta 10% do tamanho */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+  }

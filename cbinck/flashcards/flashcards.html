@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Detalhados - Capítulo 2: Incêndio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #3a2e2e);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            color: #ff7043;
+        }
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .section-btn {
+            padding: 8px 16px;
+            background: #444;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .section-btn.active, .section-btn:hover {
+            background: #ff4500;
+        }
+        .flashcard-container {
+            position: relative;
+            height: 350px;
+            perspective: 1000px;
+        }
+        .flashcard {
+            width: 450px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .flashcard.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .flashcard-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.1em;
+            color: #fff;
+            overflow-y: auto;
+        }
+        .flashcard-front {
+            background: linear-gradient(45deg, #d32f2f, #ff7043);
+        }
+        .flashcard-back {
+            background: linear-gradient(45deg, #1976d2, #64b5f6);
+            transform: rotateY(180deg);
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .controls button {
+            padding: 10px 20px;
+            background: #555;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .controls button:hover {
+            background: #ff4500;
+        }
+        .controls button:disabled {
+            background: #777;
+            cursor: not-allowed;
+        }
+        .progress {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flashcards Detalhados: Capítulo 2 - Incêndio</h1>
+        <div class="section-nav" id="section-nav"></div>
+        <div class="flashcard-container" id="flashcard-container"></div>
+        <div class="controls">
+            <button id="prev">Anterior</button>
+            <button id="next">Próximo</button>
+        </div>
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <script>
+        const sections = {
+            '2.1 - Conceitos Básicos': [
+                { front: 'Como o texto define "fogo"?', back: 'Fogo é o desenvolvimento simultâneo de calor e luz, produto da combustão de matérias inflamáveis, como madeira, carvão e gás.' },
+                { front: 'O que é um incêndio segundo o texto?', back: 'Incêndio é o fogo que lavra com intensidade, causando destruição e, às vezes, prejuízos.' }
+            ],
+            '2.2 - Estágios do Incêndio': [
+                { front: 'Quais são os quatro estágios de um incêndio?', back: 'Fase inicial, fase de desenvolvimento, incêndio desenvolvido e fase de queda de intensidade.' },
+                { front: 'O que caracteriza a fase inicial?', back: 'Temperatura média do compartimento ainda não muito elevada, fogo localizado próximo ao foco.' },
+                { front: 'O que é o "rollover" na fase inicial?', back: 'Fenômeno onde gases não queimados se misturam ao ar e inflamam-se na parte superior do compartimento, formando bolas de fogo.' },
+                { front: 'O que causa o "rollover"?', back: 'Alta temperatura na parte superior do compartimento, com fumaça quente acumulada.' },
+                { front: 'O que marca a fase de desenvolvimento?', back: 'Transição curta entre a fase inicial e o incêndio desenvolvido, com combustão súbita generalizada.' },
+                { front: 'Qual a temperatura da fumaça no "flashover"?', back: 'Cerca de 600ºC na camada superior de fumaça.' },
+                { front: 'O que é o "flashover"?', back: 'Repentino espalhamento das chamas a todo o material combustível no compartimento.' },
+                { front: 'Quem elaborou a teoria do "flashover"?', back: 'P.H. Thomas, cientista britânico, nos anos 60.' },
+                { front: 'O que ocorre no incêndio desenvolvido?', back: 'Todo o material queima, limitado pelo oxigênio remanescente; sobrevivência é improvável.' },
+                { front: 'Como os gases se comportam no incêndio desenvolvido?', back: 'Queimam ao encontrar ar fresco fora das aberturas.' },
+                { front: 'Por que o acesso é difícil no incêndio desenvolvido?', back: 'Chamas saem por aberturas, exigindo ataque indireto.' },
+                { front: 'O que acontece na fase de queda de intensidade?', back: 'Quase todo o material combustível foi consumido, e o incêndio começa a se extinguir.' },
+                { front: 'O que pode ocorrer após a extinção na fase de queda?', back: 'Reaparecimento do fogo, como o "backdraft".' },
+                { front: 'O que é o "backdraft"?', back: 'Ignição explosiva quando ar fresco entra em um compartimento estanque com vapores combustíveis.' },
+                { front: 'Quais condições favorecem o "backdraft"?', back: 'Ausência de oxigênio prévia, vapores combustíveis e temperatura próxima à ignição.' },
+                { front: 'Qual o primeiro sinal de "backdraft"?', back: 'Fumaça sob pressão em ambiente fechado.' },
+                { front: 'Como a fumaça indica "backdraft"?', back: 'Torna-se escura, densa, cinza/amarelada, saindo em lufadas.' },
+                { front: 'Qual o sinal térmico de "backdraft"?', back: 'Calor excessivo, notado pela temperatura na porta.' },
+                { front: 'O que as chamas indicam sobre "backdraft"?', back: 'Pequenas chamas ou inexistência em ambientes fechados.' },
+                { front: 'Qual o sinal nos vidros em "backdraft"?', back: 'Resíduos da fumaça impregnados nas janelas.' },
+                { front: 'Qual o som típico de "backdraft"?', back: 'Pouco ruído em ambientes fechados onde houve incêndio.' },
+                { front: 'O que o ar faz ao abrir um ambiente com "backdraft"?', back: 'Move-se para dentro, às vezes assoviando pelas frestas.' }
+            ],
+            '2.3 - Causas de Incêndios': [
+                { front: 'Qual o método mais eficiente contra incêndios?', back: 'Evitar que tenham início.' },
+                { front: 'O que causa a maioria dos incêndios?', back: 'Falhas humanas, exceto incêndios por danos em combate.' },
+                { front: 'Quais falhas humanas levam a incêndios?', back: 'Não observância de cuidados, manutenção deficiente e desconhecimento de segurança.' },
+                { front: 'Cite uma causa de incêndio com cigarros.', back: 'Cigarros e fósforos atirados em locais impróprios.' },
+                { front: 'Como trapos contribuem para incêndios?', back: 'Trapos e estopas embebidos em óleo ou graxa.' },
+                { front: 'O que na cozinha causa incêndios?', back: 'Acúmulo de gordura nas telas e dutos de extração.' },
+                { front: 'Como a solda provoca incêndios?', back: 'Serviços com solda elétrica ou oxiacetileno sem cuidado.' },
+                { front: 'O que nos compartimentos adjacentes causa incêndios?', back: 'Não observância de compartimentos próximos a cortes ou soldas.' },
+                { front: 'Como equipamentos elétricos iniciam incêndios?', back: 'Equipamentos ligados desnecessariamente por longo tempo.' },
+                { front: 'O que no porão pode causar incêndios?', back: 'Acúmulo de óleo ou lixo.' },
+                { front: 'Como vasilhames contribuem para incêndios?', back: 'Vasilhames destampados com combustíveis voláteis.' },
+                { front: 'O que o uso de materiais combustíveis provoca?', back: 'Uso desnecessário de materiais combustíveis.' },
+                { front: 'Como instalações elétricas causam incêndios?', back: 'Instalações e equipamentos elétricos deficientes.' },
+                { front: 'O que o armazenamento inadequado faz?', back: 'Materiais inflamáveis (óleos, tintas) armazenados indevidamente.' },
+                { front: 'Como vazamentos iniciam incêndios?', back: 'Vazamentos em sistemas de óleo combustível e lubrificante.' },
+                { front: 'O que no isolamento térmico causa incêndios?', back: 'Óleo em contato com isolamento de descargas de motores.' },
+                { front: 'Como partes aquecidas provocam incêndios?', back: 'Partes aquecidas de máquinas próximas a redes de óleo.' },
+                { front: 'O que ferramentas manuais causam?', back: 'Uso em tanques não desgaseificados ou compartimentos adjacentes.' },
+                { front: 'Como fritadores elétricos iniciam incêndios?', back: 'Fritadores elétricos superaquecidos.' },
+                { front: 'O que lâmpadas sem proteção fazem?', back: 'Lâmpadas sem proteção podem iniciar incêndios.' }
+            ],
+            '2.4 - Métodos de Extinção': [
+                { front: 'O que é abafamento?', back: 'Reduz o oxigênio abaixo de 13% para extinguir o fogo.' },
+                { front: 'Quais materiais são usados no abafamento?', back: 'Areia, terra, cobertores, vapor, espumas, pós, gases especiais.' },
+                { front: 'Quais materiais não são extintos por abafamento?', back: 'Peróxidos orgânicos e fósforo branco, que têm oxigênio próprio.' },
+                { front: 'Qual o limite de oxigênio para a combustão parar?', back: 'Próximo de 8%, a combustão cessa.' },
+                { front: 'Cite um exemplo prático de abafamento.', back: 'Colocar uma tampa sobre álcool em chamas ou um copo sobre uma vela.' },
+                { front: 'O que é resfriamento?', back: 'Reduz a temperatura do combustível abaixo do ponto de ignição com água.' },
+                { front: 'Por que a água é o agente universal?', back: 'É o método mais antigo e eficaz para resfriamento.' },
+                { front: 'Quais combustíveis exigem resfriamento?', back: 'Pólvora e celulóide, que têm comburente em sua estrutura.' },
+                { front: 'O que é isolamento?', back: 'Retira o combustível, como fechar uma válvula ou remover inflamáveis.' },
+                { front: 'Como a quebra da reação em cadeia funciona?', back: 'Substâncias inibem a combustão molecularmente até o resfriamento.' },
+                { front: 'O que é halon?', back: 'Agente extintor com halogênios (flúor, cloro, bromo, iodo).' },
+                { front: 'Por que o halon foi banido?', back: 'Por ser nocivo à camada de ozônio, mas permitido em navios militares.' }
+            ],
+            '2.5 - Tipos de Incêndios': [
+                { front: 'Quem classifica os incêndios?', back: 'ABNT, pela NBR 12693, conforme os materiais envolvidos.' },
+                { front: 'O que é incêndio classe A?', back: 'Materiais fibrosos ou sólidos que formam brasas (madeira, papel, borracha).' },
+                { front: 'Como extinguir a classe A?', back: 'Resfriamento com água ou soluções aquosas.' },
+                { front: 'O que é incêndio classe B?', back: 'Líquidos inflamáveis (óleo, gasolina) e gases.' },
+                { front: 'Como apagar a classe B?', back: 'Abafamento ou quebra de reação; resfriamento se aquecidos.' },
+                { front: 'O que é incêndio classe C?', back: 'Equipamentos elétricos energizados (ex.: motor ligado).' },
+                { front: 'Qual o método para classe C?', back: 'Abafamento ou quebra de reação.' },
+                { front: 'Quais metais estão na classe D?', back: 'Lítio, magnésio, sódio, alumínio fragmentado, etc.' },
+                { front: 'Como extinguir a classe D?', back: 'Pós químicos especiais que formam uma capa isolante.' },
+                { front: 'O que é incêndio classe K?', back: 'Gorduras animal e vegetal, comuns em cozinhas.' },
+                { front: 'Qual a temperatura de autoignição da classe K?', back: 'Entre 288ºC e 385ºC, reduzida após a queima.' },
+                { front: 'Qual o agente ideal para classe K?', back: 'Pó químico umedecido com acetato, carbonato ou citrato de potássio.' }
+            ],
+            '2.6 - Prevenção': [
+                { front: 'Por que a prevenção é essencial?', back: 'Incêndios a bordo, especialmente em guerra, são difíceis de impedir.' },
+                { front: 'Quem supervisiona o Controle de Avarias?', back: 'Encarregado do CAv, com apoio dos Encarregados das Divisões e Fiéis.' },
+                { front: 'O que é eliminação de material desnecessário?', back: 'Remover combustíveis não essenciais com uma Tabela de Inflamáveis.' },
+                { front: 'Como especificar materiais no projeto?', back: 'Minimizar o uso de equipamentos combustíveis.' },
+                { front: 'Onde não armazenar combustíveis?', back: 'Acima da linha d’água ou no convés principal, se evitável.' },
+                { front: 'Como acondicionar combustíveis no convés?', back: 'De forma que possam ser jogados ao mar, a ré, para evitar interferência.' },
+                { front: 'Onde armazenar combustíveis com segurança?', back: 'Abaixo da linha d’água, junto ao casco, afastado de anteparas.' },
+                { front: 'Como guardar líquidos inflamáveis?', back: 'Em recipientes herméticos, em locais ventilados.' },
+                { front: 'O que evitar nos dutos de descarga?', back: 'Armazenagem de materiais nos dutos de praças de máquinas.' },
+                { front: 'Como limitar inflamáveis?', back: 'Restringir ao mínimo necessário, mais fácil em tempos de paz.' },
+                { front: 'Como manter resistência ao fogo?', back: 'Inspeções frequentes e adestramento da tripulação.' }
+            ],
+            '2.7 - Segurança nas Praças de Máquinas': [
+                { front: 'O que inspecionar nas praças de máquinas?', back: 'Sistemas de óleo (flanges, válvulas) quanto a vazamentos.' },
+                { front: 'O que fazer com óleos combustíveis?', back: 'Estabelecer normas de segurança para manuseio.' },
+                { front: 'O que testar após reparos?', back: 'Sistemas que envolvem inflamáveis.' },
+                { front: 'Como treinar o pessoal?', back: 'Adestramentos para vazamentos e combate a incêndios.' },
+                { front: 'Cite uma prática de prevenção.', back: 'Inspeção visual antes de acender sistemas.' }
+            ],
+            '2.8 - Riscos em Reparos': [
+                { front: 'O que aumenta riscos durante reparos?', back: 'Soldas simultâneas sem controle, cabos expostos, acessórios de CAv retirados.' },
+                { front: 'Como a guarnição afeta os reparos?', back: 'Guarnição reduzida e comunicações interrompidas atrasam alarmes.' }
+            ],
+            '2.9 - Riscos em Combate': [
+                { front: 'O que provoca incêndios em combate?', back: 'Ondas de calor, estilhaços, alagamentos com óleo, centelhas.' },
+                { front: 'Como baixas afetam o combate a incêndios?', back: 'Prejudicam o guarnecimento dos Reparos de CAv.' }
+            ]
+        };
+
+        const container = document.getElementById('flashcard-container');
+        const sectionNav = document.getElementById('section-nav');
+        const progress = document.getElementById('progress');
+        let currentSection = Object.keys(sections)[0];
+        let currentIndex = 0;
+
+        function renderFlashcards(section) {
+            container.innerHTML = '';
+            sections[section].forEach((card, index) => {
+                const div = document.createElement('div');
+                div.className = `flashcard`;
+                div.innerHTML = `
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">${card.front}</div>
+                        <div class="flashcard-back">${card.back}</div>
+                    </div>
+                `;
+                div.onclick = () => div.classList.toggle('flipped');
+                container.appendChild(div);
+            });
+            showFlashcard(currentIndex);
+        }
+
+        function renderSectionNav() {
+            Object.keys(sections).forEach(section => {
+                const btn = document.createElement('button');
+                btn.className = 'section-btn';
+                btn.textContent = section;
+                btn.onclick = () => {
+                    currentSection = section;
+                    currentIndex = 0;
+                    renderFlashcards(section);
+                    updateSectionNav();
+                    updateProgress();
+                };
+                sectionNav.appendChild(btn);
+            });
+            updateSectionNav();
+        }
+
+        function showFlashcard(index) {
+            const flashcards = container.querySelectorAll('.flashcard');
+            flashcards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
+            updateButtons(flashcards.length);
+            updateProgress();
+        }
+
+        function updateSectionNav() {
+            const buttons = sectionNav.querySelectorAll('.section-btn');
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === currentSection);
+            });
+        }
+
+        function updateButtons(total) {
+            const prevButton = document.getElementById('prev');
+            const nextButton = document.getElementById('next');
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === total - 1;
+        }
+
+        function updateProgress() {
+            const total = sections[currentSection].length;
+            progress.textContent = `Flashcard ${currentIndex + 1} de ${total}`;
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showFlashcard(currentIndex);
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            const total = sections[currentSection].length;
+            if (currentIndex < total - 1) {
+                currentIndex++;
+                showFlashcard(currentIndex);
+            }
+        });
+
+        // Inicialização
+        renderSectionNav();
+        renderFlashcards(currentSection);
+    </script>
+</body>
+</html>
