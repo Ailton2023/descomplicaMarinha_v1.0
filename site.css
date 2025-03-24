@@ -28,31 +28,62 @@
     padding: 0px;  
     box-sizing: border-box;
 }
-  
-body{
-    background-color:#018dde22;
-    font-family: var(--fonte-padrao);
-    }
 
+/* Garantir que o body use toda a largura da viewport */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #018dde22;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+}
 
+/* Estilo base do main */
 main {
     min-width: 320px;
     max-width: 1150px;
-    margin: auto;
+    width: 100%; /* Usa a largura disponível até o max-width */
+    margin: 0 auto; /* Centraliza horizontalmente em todas as telas */
     margin-bottom: 1px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    padding: 0px; /* Aumenta o espaçamento interno */
-    padding-top:10px;
+    padding: 0;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
     background-color: #fafafa;
     height: auto;
-    min-height: 100vh; /* Garante que o main ocupe pelo menos 100% da altura da janela */
+    min-height: 100vh;
     position: relative;
-   
+    box-sizing: border-box;
 }
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    main {
+        min-width: 280px; /* Largura mínima para tablets */
+        width: 90%; /* Reduz a largura para caber com margens */
+        margin: 0 auto; /* Mantém centralizado */
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        min-width: 0; /* Remove o limite mínimo para se ajustar completamente */
+        width: 95%; /* Usa quase toda a largura, mas com pequenas margens */
+        margin: 0 auto; /* Mantém centralizado */
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+ 
 
 
 p {
