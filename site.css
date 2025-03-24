@@ -35,24 +35,45 @@ body{
     }
 
 
-main {
-    min-width: 320px;
-    max-width: 1150px;
-    margin: auto;
-    margin-bottom: 1px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    padding: 0px; /* Aumenta o espaçamento interno */
-    padding-top:10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
-    background-color: #fafafa;
-    height: auto;
-    min-height: 100vh; /* Garante que o main ocupe pelo menos 100% da altura da janela */
-    position: relative;
-   
-}
+    main {
+        min-width: 320px; /* Largura mínima para evitar colapso em telas pequenas */
+        max-width: 1150px; /* Largura máxima mantida */
+        width: 100%; /* Faz o main ocupar a largura disponível até o max-width */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        margin-bottom: 1px; /* Mantido como no original */
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding: 0; /* Valor base para padding */
+        padding-top: clamp(5px, 1vw, 10px); /* Ajuste relativo para o topo */
+        padding-left: clamp(5px, 1.5vw, 10px); /* Ajuste relativo para a esquerda */
+        padding-right: clamp(5px, 1.5vw, 10px); /* Ajuste relativo para a direita */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475); /* Sombra mantida */
+        background-color: #fafafa; /* Cor de fundo mantida */
+        height: auto; /* Altura automática */
+        min-height: 100vh; /* Garante que ocupe pelo menos a altura da janela */
+        position: relative;
+        box-sizing: border-box; /* Inclui padding na largura/altura */
+    }
+    
+    /* Media Queries para ajustes responsivos */
+    @media (max-width: 768px) { /* Tablets e telas menores */
+        main {
+            min-width: 280px; /* Reduz a largura mínima para telas menores */
+            padding-left: clamp(3px, 1vw, 8px); /* Menos padding em telas menores */
+            padding-right: clamp(3px, 1vw, 8px);
+            padding-top: clamp(3px, 0.8vw, 8px);
+        }
+    }
+    
+    @media (max-width: 480px) { /* Celulares */
+        main {
+            min-width: 100%; /* Ocupa toda a largura disponível */
+            padding-left: 5px; /* Padding fixo pequeno para celulares */
+            padding-right: 5px;
+            padding-top: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Sombra mais leve */
+        }
+    }
 
 
 p {
