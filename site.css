@@ -41,7 +41,7 @@ body {
 
 /* Estilo base do main */
 main {
-    min-width: 320px;
+    min-width: 520px;
     max-width: 1150px;
     width: 100%; /* Usa a largura disponível até o max-width */
     margin: 0 auto; /* Centraliza horizontalmente em todas as telas */
