@@ -1,122 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-.conteiner-CentralConteudo {
-    border: 1px solid rgba(0, 0, 0, 0.193);
-    background-color: #2e58a218;
-    margin: 0;
-    padding: 10px; /* Aumentei o padding para melhor espaçamento interno */
-    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    height: auto; /* Alterado de 100% para auto para se ajustar ao conteúdo */
-    width: 100%; /* Garante que ocupe toda a largura disponível */
-    box-sizing: border-box; /* Inclui padding e border na largura total */
-}
 
-.cabecalhoPrincipal {
-    width: 100%; /* Alterado de max-width: 100vh para width: 100% */
-    height: 50px;
+footer{
     background-color: #2E58A2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
-    font-weight: bold;
-    font-size: 18px; /* Tamanho base da fonte */
+    
     text-align: center;
-    padding: 0 10px; /* Adicionado padding lateral para evitar corte em telas pequenas */
-    box-sizing: border-box;
+    padding: 0px;
+ 
 }
 
-.conteiner-Dados {
+ 
+.conteiner-quatroCards{
+     
+ 
+    width: 1150px;  
+    margin: 0 auto; 
     display: flex;
-    align-items: center; /* Removido justify-content: center para maior controle */
-    gap: 10px;
-    text-align: justify;
-    padding: 5px 10px; /* Padding ajustado para consistência */
-    width: 100%; /* Garante que ocupe toda a largura disponível */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
-    box-sizing: border-box;
+    gap: 40px;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    padding: 10px;
 }
 
-.p_texto {
-    font-size: 15px;
-    text-align: justify;
-    line-height: 1.5em;
-    margin: 0; /* Remove margens padrão para melhor controle */
-    flex: 1 1 auto; /* Permite que o texto se ajuste ao espaço disponível */
+.card-curso{
+ 
+    width: 250px;
+  
 }
 
-.p_texto:hover {
-    background-color: #2e58a23c;
-    border-radius: 5px;
+.logoTexto{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+ 
+} 
+
+.ptexto-logo{
+     color: white;
+     font-size: 10px;
+     align-items: center;
+
+}
+
+.texto-cards-curso{
+    font-size: 18px;
+    text-align: justify; 
+         
+}
+
+.texto-cards-curso:hover{
+   font-weight: 500;
+}
+
+.titulo-cards{
+    color: white;
+    font-size: 25px;
     font-weight: bold;
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 1024px) {
-    .conteiner-CentralConteudo {
-        padding: 8px; /* Reduz padding em telas menores */
-    }
+.text-cards{
+    font-size: 18px;
 
-    .cabecalhoPrincipal {
-        font-size: 16px; /* Reduz a fonte para telas intermediárias */
-        height: 45px; /* Altura ajustada */
-    }
-
-    .conteiner-Dados {
-        gap: 8px; /* Reduz o espaçamento entre itens */
-        padding: 5px 8px;
-    }
-
-    .p_texto {
-        font-size: 14px; /* Fonte ligeiramente menor */
-    }
 }
 
-@media (max-width: 768px) {
-    .conteiner-CentralConteudo {
-        padding: 6px;
-    }
+.text-cards:hover{
+    font-weight: 500;
 
-    .cabecalhoPrincipal {
-        font-size: 14px; /* Reduz ainda mais a fonte */
-        height: 40px;
-    }
-
-    .conteiner-Dados {
-        flex-direction: column; /* Empilha os itens verticalmente em tablets */
-        align-items: flex-start; /* Alinha à esquerda */
-        padding: 5px;
-    }
-
-    .p_texto {
-        font-size: 13px;
-        width: 100%; /* Garante que o texto ocupe a largura total */
-    }
 }
 
-@media (max-width: 480px) {
-    .conteiner-CentralConteudo {
-        padding: 5px;
-    }
 
-    .cabecalhoPrincipal {
-        font-size: 12px; /* Tamanho mínimo para legibilidade */
-        height: 35px;
-        padding: 0 5px;
-    }
 
-    .conteiner-Dados {
-        gap: 5px; /* Menor espaçamento em mobile */
-        padding: 3px 5px;
-    }
-
-    .p_texto {
-        font-size: 12px; /* Tamanho reduzido para mobile */
-        line-height: 1.3em; /* Ajusta o espaçamento entre linhas */
-    }
-}
 
 
 
