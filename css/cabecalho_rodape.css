@@ -1,0 +1,385 @@
+/* ========================================================================= */
+/* General Styles */
+/* ========================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    box-sizing: border-box; /* Inclui padding e borda nas dimensões dos elementos */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
+}
+
+/* Estilo base do body para garantir que ocupe toda a tela */
+body {
+    margin: 0; /* Sem margens externas */
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif; /* Fonte padrão */
+}
+
+/* ========================================================================= */
+/* Header (Cabeçalho) */
+/* ========================================================================= */
+
+/* Container fixo para o cabeçalho, mantendo-o no topo */
+.container-fixed {
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Alinha ao topo da página */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Ocupa toda a largura da tela */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Estilo do cabeçalho principal */
+.container {
+    display: flex; /* Usa flexbox para alinhar logo e informações */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #2E58A2; /* Cor azul institucional */
+    color: #fff; /* Texto branco */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Estilo da logo no cabeçalho */
+.logo img {
+    width: 100px; /* Largura padrão da logo */
+    height: auto; /* Mantém proporção */
+    display: block; /* Remove espaçamento indesejado */
+}
+
+/* Informações do curso no cabeçalho */
+.course-info {
+    margin-left: 20px; /* Espaço à esquerda da logo */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Subtítulo no cabeçalho */
+.subtitle {
+    margin: 5px 0; /* Margens verticais */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif; /* Fonte padrão */
+    font-weight: 300; /* Peso leve */
+    opacity: 0.9; /* Leve transparência */
+}
+
+/* Título principal no cabeçalho */
+.title {
+    margin: 10px 0; /* Margens verticais */
+    font-size: 28px; /* Tamanho da fonte */
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif; /* Fonte destacada */
+    font-weight: 700; /* Peso bold */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* ========================================================================= */
+/* Subheader (Subcabeçalho) */
+/* ========================================================================= */
+
+/* Estilo do subcabeçalho */
+.subheader {
+    background-color: #f4f4f4; /* Fundo cinza claro */
+    padding: 10px 20px; /* Espaçamento interno */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 100px; /* Espaço para o cabeçalho fixo */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+/* Conteúdo do subcabeçalho */
+.subheader-content {
+    display: flex; /* Usa flexbox para alinhar mensagem e área do candidato */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Espaço entre os elementos */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 10px; /* Espaçamento lateral interno */
+}
+
+/* Mensagem do candidato no subcabeçalho */
+.candidate-message {
+    margin: 0; /* Remove margens padrão */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif; /* Fonte padrão */
+    color: #333; /* Cor do texto */
+}
+
+/* Texto em maiúsculas destacado */
+.upperCase {
+    font-weight: 700; /* Peso bold */
+    color: #2E58A2; /* Azul para destaque */
+}
+
+/* Área do candidato no subcabeçalho */
+.candidate-area {
+    display: flex; /* Flexbox para alinhar texto e ícone */
+    align-items: center; /* Alinha verticalmente ao centro */
+    text-decoration: none; /* Remove sublinhado do link */
+    background-color: #2E58A2; /* Fundo azul */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    color: #fff; /* Texto branco */
+    transition: background-color 0.3s ease; /* Transição suave no hover */
+}
+
+/* Texto da área do candidato */
+.candidate-access-text {
+    margin: 0 10px 0 0; /* Margem à direita para separar do ícone */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: "Chakra Petch", Arial, Helvetica, sans-serif; /* Fonte destacada */
+    font-weight: 500; /* Peso médio */
+}
+
+/* Ícone da área do candidato */
+.candidate-access-icon {
+    width: 24px; /* Largura padrão */
+    height: 24px; /* Altura padrão */
+    vertical-align: middle; /* Alinha com o texto */
+}
+
+/* Efeito hover na área do candidato */
+.candidate-area:hover {
+    background-color: #1d3b6d; /* Azul mais escuro no hover */
+}
+
+/* ========================================================================= */
+/* Footer (Rodapé) */
+/* ========================================================================= */
+
+/* Estilo do rodapé */
+footer {
+    background-color: #2E58A2; /* Cor azul institucional */
+    color: white; /* Texto branco */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px 10px; /* Espaçamento interno */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+/* Container dos quatro cards no rodapé */
+.conteiner-quatroCards {
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 1150px; /* Largura máxima para desktop */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: flex; /* Usa flexbox para alinhar os cards */
+    gap: 20px; /* Espaçamento entre os cards */
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif; /* Fonte padrão */
+    padding: 10px; /* Espaçamento interno */
+    flex-wrap: wrap; /* Permite que os cards quebrem linha em telas menores */
+}
+
+/* Estilo de cada card no rodapé */
+.card-curso {
+    width: 250px; /* Largura padrão */
+    flex: 1 1 250px; /* Flexível com largura mínima de 250px */
+    min-width: 200px; /* Tamanho mínimo para evitar colapso */
+}
+
+/* Container do logo e texto no card */
+.logoTexto {
+    display: flex; /* Usa flexbox para alinhar logo e texto */
+    justify-content: left; /* Alinha à esquerda */
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 10px; /* Espaçamento entre logo e texto */
+}
+
+/* Texto ao lado do logo no card */
+.ptexto-logo {
+    color: white; /* Texto branco */
+    font-size: 10px; /* Tamanho da fonte */
+    margin: 0; /* Remove margens padrão */
+}
+
+/* Texto descritivo do card */
+.texto-cards-curso {
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: justify; /* Texto justificado */
+    margin-top: 10px; /* Espaço superior */
+}
+
+/* Efeito hover no texto descritivo */
+.texto-cards-curso:hover {
+    font-weight: 500; /* Peso médio no hover */
+}
+
+/* Título dos cards */
+.titulo-cards {
+    color: white; /* Texto branco */
+    font-size: 25px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso bold */
+    margin-bottom: 10px; /* Espaço inferior */
+}
+
+/* Itens de texto nos cards */
+.text-cards {
+    font-size: 18px; /* Tamanho da fonte */
+    margin: 5px 0; /* Margens verticais */
+}
+
+/* Efeito hover nos itens de texto */
+.text-cards:hover {
+    font-weight: 500; /* Peso médio no hover */
+}
+
+/* ========================================================================= */
+/* Media Queries para Responsividade */
+/* ========================================================================= */
+
+/* Tablets grandes e pequenos desktops (até 1024px) */
+@media (max-width: 1024px) {
+    /* Ajustes no rodapé */
+    .conteiner-quatroCards {
+        max-width: 90%; /* Reduz a largura máxima */
+        gap: 15px; /* Reduz o espaçamento entre cards */
+    }
+
+    .card-curso {
+        flex: 1 1 45%; /* Dois cards por linha */
+    }
+
+    /* Ajustes no subcabeçalho */
+    .subheader {
+        margin-top: 90px; /* Ajusta o espaço para o cabeçalho fixo */
+    }
+
+    .subheader-content {
+        padding: 0 5px; /* Reduz o padding lateral */
+    }
+}
+
+/* Tablets (até 768px) */
+@media (max-width: 768px) {
+    /* Ajustes no rodapé */
+    footer {
+        padding: 15px 5px; /* Reduz o padding */
+    }
+
+    .conteiner-quatroCards {
+        flex-direction: column; /* Empilha os cards verticalmente */
+        align-items: center; /* Centraliza os cards */
+        gap: 10px; /* Reduz o espaçamento */
+        padding: 5px; /* Reduz o padding interno */
+    }
+
+    .card-curso {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 400px; /* Limite máximo para cards */
+        flex: none; /* Remove flexibilidade para largura total */
+    }
+
+    .titulo-cards {
+        font-size: 22px; /* Reduz o tamanho da fonte */
+    }
+
+    .texto-cards-curso,
+    .text-cards {
+        font-size: 16px; /* Reduz o tamanho da fonte */
+    }
+
+    /* Ajustes no cabeçalho */
+    .container {
+        flex-direction: column; /* Empilha logo e texto verticalmente */
+        padding: 15px; /* Reduz o padding */
+    }
+
+    .course-info {
+        margin-left: 0; /* Remove margem à esquerda */
+        margin-top: 15px; /* Adiciona margem superior */
+    }
+
+    .logo img {
+        width: 80px; /* Reduz a largura da logo */
+    }
+
+    .title {
+        font-size: 24px; /* Reduz o tamanho da fonte */
+    }
+
+    .subtitle {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    /* Ajustes no subcabeçalho */
+    .subheader {
+        margin-top: 90px; /* Ajusta o espaço para o cabeçalho fixo */
+        padding: 10px; /* Reduz o padding */
+    }
+
+    .subheader-content {
+        flex-direction: column; /* Empilha mensagem e área do candidato */
+        text-align: center; /* Centraliza o texto */
+        gap: 10px; /* Espaçamento entre os elementos */
+    }
+
+    .candidate-area {
+        padding: 8px 15px; /* Reduz o padding */
+    }
+}
+
+/* Mobile (até 480px) */
+@media (max-width: 480px) {
+    /* Ajustes no rodapé */
+    footer {
+        padding: 10px 5px; /* Reduz ainda mais o padding */
+    }
+
+    .conteiner-quatroCards {
+        padding: 5px; /* Padding mínimo */
+    }
+
+    .card-curso {
+        max-width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    .logoTexto {
+        gap: 5px; /* Reduz o espaçamento entre logo e texto */
+    }
+
+    .ptexto-logo {
+        font-size: 9px; /* Reduz o tamanho da fonte */
+    }
+
+    .titulo-cards {
+        font-size: 20px; /* Reduz o tamanho da fonte */
+    }
+
+    .texto-cards-curso,
+    .text-cards {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    /* Ajustes no cabeçalho */
+    .container {
+        padding: 10px; /* Padding mínimo */
+    }
+
+    .logo img {
+        width: 60px; /* Reduz ainda mais a largura da logo */
+    }
+
+    .title {
+        font-size: 20px; /* Reduz o tamanho da fonte */
+    }
+
+    .subtitle {
+        font-size: 12px; /* Reduz o tamanho da fonte */
+    }
+
+    /* Ajustes no subcabeçalho */
+    .subheader {
+        margin-top: 70px; /* Ajusta o espaço para o cabeçalho menor */
+        padding: 5px; /* Padding mínimo */
+    }
+
+    .candidate-message {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    .candidate-access-text {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    .candidate-access-icon {
+        width: 20px; /* Reduz a largura do ícone */
+        height: 20px; /* Reduz a altura do ícone */
+    }
+}
