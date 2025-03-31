@@ -53,7 +53,7 @@ section{
     margin-top:5px;
     margin-bottom: 5px;
     border-radius: 10px;
-    padding: 18px 90px;     
+    padding: 18px 50px;     
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
     text-align: justify;
     font-size: 18px;
@@ -89,6 +89,7 @@ h1{
 h2{
     margin-top: 20px;
     font-size: 22px;
+    margin-bottom: 20px;
 }
 
 /*.div_colunas{
@@ -102,28 +103,28 @@ h2{
 
 p{
     text-indent: 60px; /* Recuo na primeira linha do parágrafo */
-    line-height: 2.0em;
+    line-height: 2.0em; 
+    margin: 20px; 
+    margin-bottom: 22px;
 }
-img{
-  
+img{  
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: center;
-
+    margin-top: 15px;
+    border-radius: 5px;
 }
-
- 
 
 audio{
     margin-top: 20px;
     
 }
-
  
 .descriçãoImagens{
     text-align: center;
     margin-bottom: 15px;
+    margin-top: 0px;
 }
 
 li{
@@ -150,3 +151,119 @@ strong{
     display: none; /* Esconde o vídeo inicialmente */
 }
 
+
+
+ 
+
+/*CONTAINER TEXTO FUNDO AZUL*/
+.containerTextoFundo{   
+    background-color: #1b98e01c;
+    border: 0.5px solid #000;
+    border-radius: 10px;    
+    padding-left: 15px;
+    margin-bottom: 10px
+    
+    
+}
+
+.bordaTexto{
+    margin-top: 30px ;
+    margin-left: 20px;
+    border: .1px solid #000;
+    border-radius: 10px;
+    width: 850px;
+}
+
+/*IMAGEM DA CLASSE ROLLOVER*/
+
+.imgRedondaGrande{
+    margin-top: 15px;
+    float: left; /* Faz a imagem flutuar à esquerda */
+    border-radius: 50%; /* Torna a imagem redonda */
+    width: 150px; /* Define a largura da imagem */
+    height: 150px; /* Define a altura da imagem */
+    object-fit: cover; /* Ajusta a imagem para caber no contêiner redondo */
+    shape-outside: circle(); /* Faz o texto contornar a imagem */
+    margin-right: 15px; /* Adiciona espaço à direita da imagem */
+    
+}
+
+.imgRedondaGrande:hover{
+    border:  3px solid transparent;
+    box-sizing: border-box;
+}
+
+
+.rollover:hover{
+    border:  2px solid transparent;
+    box-sizing: border-box;
+}
+
+.textoLadodioreitoImagem{
+    text-indent: 0;
+    padding-top: 0px;
+    margin-bottom: 28px;
+}
+
+/*IMAGEM DA CLASSE REDONDA PEQUENA*/
+
+ 
+.imgRedonda{
+    margin-top: 15px;
+    float: left; /* Faz a imagem flutuar à esquerda */
+    border-radius: 50%; /* Torna a imagem redonda */
+    width: 100px; /* Define a largura da imagem */
+    height: 100px; /* Define a altura da imagem */
+    object-fit: cover; /* Ajusta a imagem para caber no contêiner redondo */
+    shape-outside: circle(); /* Faz o texto contornar a imagem */
+    margin-right: 0px; /* Adiciona espaço à direita da imagem */
+}
+
+.imgRedonda:hover{
+    border:  2px solid transparent;
+    box-sizing: border-box;
+}
+
+/*ul{
+    
+    width: 85%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px dashed #000;
+    border-radius: 10px;
+    padding-left: 0px;
+    padding-right: 50px;
+    background-color: #1b98e01c;
+   
+}*/
+li{
+    list-style-type: square;
+    font-size: 18px;
+    margin-right: 60px;
+}
+
+.audioSemBotaoTabelaAbaixo{
+    margin-bottom: 20px;
+    
+}
+
+.bolaRedonda{
+    border: 1px solid black;
+    border-radius: 50%; 
+    padding: 4px;
+    background-color:darkred;
+    color: white;
+    font-weight: bold;
+    
+    
+}
+
+
+.imgQuadrada{ 
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px; 
+
+}
