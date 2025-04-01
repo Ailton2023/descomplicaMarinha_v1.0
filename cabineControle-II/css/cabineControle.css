@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Estiliza o container principal da Central de Conteúdo (sidebar) */
-.conteiner-CentralConteudo {
+.container-central-conteudo {
     border: 2px solid rgba(0, 0, 0, 0.193);
     background-color: #2e58a217;
     margin: 0;
@@ -29,7 +29,7 @@
 }
 
 /* Estiliza os itens da lista na sidebar */
-.conteiner-Dados {
+.container-dados {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -68,7 +68,6 @@
 /* Define o conteúdo como oculto por padrão */
 .content {
     display: none;
- 
 }
 
 /* Exibe o conteúdo quando a classe "active" é aplicada */
@@ -227,7 +226,6 @@ body {
     margin-top: 12px;
     transition: padding 0.3s ease;
     position: relative;
-    
 }
 
 /* Estiliza o botão de ação */
@@ -318,6 +316,29 @@ button#corBotaoEmProducao a {
 /* Efeito hover nos itens da lista do rodapé */
 .text-cards:hover {
     color: #3498db;
+}
+
+/* Novas regras para suportar as alterações no HTML */
+.cursos img {
+    width: 200px; /* Tamanho padronizado para as imagens dos cursos */
+    height: auto;
+}
+
+.botao {
+    padding: 10px;
+    background-color: #003087;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #002366;
 }
 
 /* ========================================================================= */
