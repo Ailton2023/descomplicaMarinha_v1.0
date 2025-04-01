@@ -2,7 +2,7 @@
 /* CSS da Cabine de Controle (Central de Conteúdo - Sidebar)                */
 /* ========================================================================= */
 
-/* Importa a fonte "Tomorrow" do Google Fonts com vários pesos e estilos (normal e itálico) */
+/* Importa a fonte "Tomorrow" do Google Fonts com vários pesos e estilos */
 @import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Estiliza o container principal da Central de Conteúdo (sidebar) */
@@ -54,7 +54,6 @@
     align-items: center;
     background-color: #2e58a23c;
     border-radius: 5px;
-    /*font-weight: bold;*/
     height: 40px;
 }
 
@@ -62,7 +61,7 @@
 /* CSS da Central ao Lado (Header, Main Content, Footer, etc.)              */
 /* ========================================================================= */
 
-/* Importa a fonte "Tomorrow" do Google Fonts com vários pesos e estilos (normal e itálico) */
+/* Importa a fonte "Tomorrow" do Google Fonts com vários pesos e estilos */
 @import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Define o conteúdo como oculto por padrão */
@@ -164,7 +163,6 @@ body {
 
 /* Define a altura da Central de Conteúdo com rolagem */
 .conteiner-CentralConteudo {
-    /*max-height: calc(100vh - 473px);*/
     height: 100vh;
     overflow-y: auto;
     position: fixed;
@@ -228,6 +226,38 @@ body {
     position: relative;
 }
 
+/* Estiliza o container dos cursos */
+.container-cursos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: 20px; /* Espaço entre os cursos */
+    justify-content: center; /* Centraliza os cursos em telas grandes */
+    padding: 15px;
+}
+
+/* Estiliza cada item de curso */
+.cursos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 250px; /* Limita a largura máxima em telas grandes */
+}
+
+/* Estiliza as imagens dos cursos */
+.cursos img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px; /* Espaço entre a imagem e o título */
+}
+
+/* Estiliza o título do curso */
+.nome_curso {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
 /* Estiliza o botão de ação */
 button#corBotaoEmProducao {
     padding: 10px;
@@ -249,6 +279,24 @@ button#corBotaoEmProducao a {
     color: white;
     text-decoration: none;
     display: block;
+}
+
+/* Estiliza o link como botão */
+.botao {
+    padding: 10px;
+    background-color: #003087;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #002366;
 }
 
 /* Estiliza o rodapé */
@@ -318,34 +366,11 @@ button#corBotaoEmProducao a {
     color: #3498db;
 }
 
-/* Novas regras para suportar as alterações no HTML */
-.cursos img {
-    width: 200px; /* Tamanho padronizado para as imagens dos cursos */
-    height: auto;
-}
-
-.botao {
-    padding: 10px;
-    background-color: #003087;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    width: 150px;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.botao:hover {
-    background-color: #002366;
-}
-
 /* ========================================================================= */
 /* Media Queries para Responsividade                                        */
 /* ========================================================================= */
 
-/* Telas até 1024px */
+/* Telas até 1024px (tablets e laptops menores) */
 @media (max-width: 1024px) {
     .conteudo {
         width: 25%;
@@ -357,9 +382,15 @@ button#corBotaoEmProducao a {
     .main-content {
         padding: 15px;
     }
+    .cursos img {
+        width: 180px; /* Reduz um pouco as imagens */
+    }
+    button#corBotaoEmProducao, .botao {
+        width: 130px; /* Reduz os botões */
+    }
 }
 
-/* Telas até 768px */
+/* Telas até 768px (tablets e celulares maiores) */
 @media (max-width: 768px) {
     .painel {
         flex-direction: column;
@@ -400,14 +431,22 @@ button#corBotaoEmProducao a {
         align-items: center;
         text-align: center;
     }
-    button#corBotaoEmProducao {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
+    .container-cursos {
+        flex-direction: column; /* Empilha os cursos verticalmente */
+        align-items: center;
+    }
+    .cursos {
+        max-width: 100%; /* Ocupa a largura total disponível */
+    }
+    .cursos img {
+        width: 160px; /* Reduz mais as imagens */
+    }
+    button#corBotaoEmProducao, .botao {
+        width: 120px; /* Reduz os botões ainda mais */
     }
 }
 
-/* Telas até 480px */
+/* Telas até 480px (celulares) */
 @media (max-width: 480px) {
     body {
         padding-top: 100px;
@@ -427,23 +466,19 @@ button#corBotaoEmProducao a {
     .main-content {
         padding: 10px;
     }
-    button#corBotaoEmProducao {
+    .container-cursos {
+        padding: 10px;
+    }
+    .cursos img {
+        width: 140px; /* Tamanho ainda menor para celulares */
+    }
+    button#corBotaoEmProducao, .botao {
         padding: 8px;
         font-size: 14px;
+        width: 100%; /* Ocupa a largura total do container do curso */
+        max-width: 150px; /* Limite máximo para não ficar muito largo */
     }
-    .footer {
-        padding: 15px;
-    }
-    .footer-title {
-        font-size: 18px;
-    }
-    .ptexto-logo,
-    .texto-cards-curso,
-    .titulo-cards,
-    .text-cards {
-        font-size: 13px;
-    }
-    .logoTexto img {
-        width: 60px;
+    .nome_curso {
+        font-size: 16px; /* Reduz o título para caber bem */
     }
 }
