@@ -114,6 +114,8 @@ img{
     justify-content: center;
     margin-top: 15px;
     border-radius: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 audio{
@@ -123,8 +125,9 @@ audio{
  
 .descriçãoImagens{
     text-align: center;
-    margin-bottom: 15px;
-    margin-top: 0px;
+    margin-top: 0%;
+    margin-bottom: 10px;
+    margin-right: 85px;
 }
 
 li{
@@ -169,7 +172,7 @@ strong{
 .bordaTexto{
     margin-top: 30px ;
     margin-left: 20px;
-    border: .1px solid #000;
+    border: 1.0px dashed #000;
     border-radius: 10px;
     width: 850px;
 }
@@ -202,7 +205,8 @@ strong{
 .textoLadodioreitoImagem{
     text-indent: 0;
     padding-top: 0px;
-    margin-bottom: 28px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 /*IMAGEM DA CLASSE REDONDA PEQUENA*/

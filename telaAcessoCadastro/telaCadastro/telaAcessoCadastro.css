@@ -81,12 +81,14 @@ hr {
     background-color: papayawhip;
 }
 
-.conteinerCheckbox {
+.containerCheckbox {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 0 20px;
-    margin-top: 20px;
+    gap: 5px; 
+    padding: 0px;
+    margin-left: 32px;
+    
+    
 }
 
 .conteinerCheckbox p {
@@ -143,4 +145,51 @@ hr {
 
 .alinhamentoLados a:hover {
     text-decoration: underline;
+}
+
+.iconePDF{
+    width: 40px;
+   /* float: left;*/ /* Faz a imagem flutuar à esquerda */
+   margin: 0;
+   padding: 0;
+    margin-left: 25px;
+}
+ 
+
+/*a[href$=".pdf"]::before{
+    content: url(imagens/pdf.png);
+    margin-right: .5em;
+}*/
+
+.containerPDF{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-top: 18px;
+    
+}
+
+
+a{
+    font-size: 16px;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    
+}
+
+input[type="checkbox"]:checked+p{
+    color: #0056b3;    
+}
+ 
+
+
+input[type="checkbox"]+p{
+    color:#333333b7;    
+}
+
+p{
+    margin: 0;
+    padding: 0;
 }
