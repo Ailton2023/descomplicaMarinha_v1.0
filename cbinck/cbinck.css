@@ -47,7 +47,7 @@ header {
 section {
     width: 100%;
     min-width: 300px; /* Reduzido para caber em telas menores */
-    max-width: 1024px;
+    max-width: 900px;
     height: auto;
     margin: 5px auto;
     background-color: rgb(246, 243, 243);
@@ -94,7 +94,7 @@ p {
     text-indent: 30px; /* Reduzido para telas menores */
     line-height: 1.8em; /* Reduzido ligeiramente */
     margin: 15px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 img {
