@@ -130,6 +130,7 @@ strong {
     padding: 1px 5px;
     background-color: #efb9323a;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .containerTextoFundo {
@@ -164,6 +165,7 @@ strong {
 .textoLadodioreitoImagem {
     text-indent: 0;
     margin: 10px 0; /* Ajustado */
+    font-size: 12px;
 }
 
 .imgRedonda {
