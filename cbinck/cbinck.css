@@ -94,6 +94,7 @@ p {
     text-indent: 30px; /* Reduzido para telas menores */
     line-height: 1.8em; /* Reduzido ligeiramente */
     margin: 15px;
+    font-size: 12px;
 }
 
 img {
