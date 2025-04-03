@@ -56,6 +56,7 @@ section {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
     text-align: justify;
     /*font-size: 1rem; /* Ajustável com media queries */
+    
 }
 
 .ostensivo_CAAML-1202_REV2 {
@@ -98,12 +99,9 @@ p {
 }
 
 p{
-    font-size: 18px;
-}
+    font-size: 16px;}
 
-.containerTextoFundo{
-    font-size: 16px;
-}
+ 
 
 img {
     width: 100%; /* Imagens ocupam toda a largura disponível */
@@ -192,6 +190,7 @@ li {
     list-style-type: square;
    /* font-size: 1rem; /* Ajustável */
     margin: 5px 0;
+    font-size: 16px;
     
 }
 
@@ -226,7 +225,7 @@ li {
 
     section {
         padding: 10px;
-        font-size: 0.2rem; /* Reduz fonte para telas menores */
+        font-size: 0.9rem; /* Reduz fonte para telas menores */
     }
 
     h1 {
@@ -242,7 +241,6 @@ li {
         text-indent: 20px;
         margin: 10px;
         line-height: 1.6em;
-
     }
 
     .imgRedondaGrande, .imgRedonda {
