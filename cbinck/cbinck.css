@@ -98,7 +98,7 @@ p {
 }
 
 p{
-    font-size: 20px
+    font-size: 30px
 }
 
 img {
@@ -222,7 +222,7 @@ li {
 
     section {
         padding: 10px;
-        font-size: 1.9rem; /* Reduz fonte para telas menores */
+        font-size: 0.9rem; /* Reduz fonte para telas menores */
     }
 
     h1 {
@@ -238,7 +238,6 @@ li {
         text-indent: 20px;
         margin: 10px;
         line-height: 1.6em;
-        font-size: 18px;
     }
 
     .imgRedondaGrande, .imgRedonda {
@@ -267,13 +266,12 @@ li {
 
 @media (max-width: 480px) {
     html {
-        font-size: 18px; /* Reduz ainda mais a base da fonte */
+        font-size: 14px; /* Reduz ainda mais a base da fonte */
     }
 
     section {
         min-width: 280px;
         padding: 8px;
-        font-size: 30px;
     }
 
     h1 {
@@ -287,7 +285,6 @@ li {
     p {
         text-indent: 15px;
         margin: 8px;
-        font-size: 30px;
     }
 
     img {
