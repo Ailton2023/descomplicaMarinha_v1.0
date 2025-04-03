@@ -2,11 +2,11 @@
  
  
 ul{
-    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;   
+    /*font-family: "Chakra Petch", Arial, Helvetica, sans-serif;   */
     line-height: 2.0em;
     list-style-type: square;
     padding-left: 80px;    
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 15px;
 } 
 

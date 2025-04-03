@@ -94,7 +94,7 @@ p {
     text-indent: 30px; /* Reduzido para telas menores */
     line-height: 1.8em; /* Reduzido ligeiramente */
     margin: 15px;
-    font-size: 13px;
+   
 }
 
 img {
@@ -108,7 +108,7 @@ img {
 
 audio {
     margin-top: 15px;
-    width: 100%; /* Garante que o controle de áudio se ajuste à tela */
+    width: 25%; /* Garante que o controle de áudio se ajuste à tela */
 }
 
 .descriçãoImagens {
@@ -116,21 +116,18 @@ audio {
     margin: 5px 0 10px;
 }
 
-li {
-    list-style-type: none;
-}
 
 strong {
     color: rgba(0, 0, 0, 0.717);
 }
 
 .círculo {
-    border: 1.2px solid black;
+   /* border: 0.5px dashed black;*/
     border-radius: 5px;
-    padding: 1px 5px;
-    background-color: #efb9323a;
-    font-weight: bold;
-    font-size: 12px;
+   /* padding: 1px 5px;*/
+    /*background-color: #006594eb;*/
+    font-weight: bolder;  
+    text-transform: uppercase;
 }
 
 .containerTextoFundo {
@@ -165,14 +162,14 @@ strong {
 .textoLadodioreitoImagem {
     text-indent: 0;
     margin: 10px 0; /* Ajustado */
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .imgRedonda {
     float: left;
     border-radius: 50%;
-    width: 80px; /* Reduzido */
-    height: 80px;
+    width: 100px; /* Reduzido */
+    height: 100px;
     object-fit: cover;
     shape-outside: circle();
     margin: 10px 10px 10px 0;
@@ -182,11 +179,16 @@ strong {
     border: 2px solid transparent;
 }
 
+ 
 li {
     list-style-type: square;
-    font-size: 1rem; /* Ajustável */
+   /* font-size: 1rem; /* Ajustável */
     margin: 5px 0;
+    font-size: 16px;
 }
+
+ 
+
 
 .audioSemBotaoTabelaAbaixo {
     margin-bottom: 15px;
@@ -235,7 +237,7 @@ li {
     }
 
     .imgRedondaGrande, .imgRedonda {
-        float: none; /* Remove flutuação em telas menores */
+        float: left; 
         display: block;
         margin: 10px auto;
     }
