@@ -273,6 +273,7 @@ li {
     section {
         min-width: 280px;
         padding: 8px;
+        font-size: 30px;
     }
 
     h1 {
