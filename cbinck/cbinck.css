@@ -168,7 +168,8 @@ strong {
 }
 
 .textoLadodireitoImagem {
-    text-indent: 20;
+    text-indent: 2px;
+    color: #2fa866;
     /*margin: 10px; /* Ajustado */
     /*padding: 10px;
    /* font-size: 16px;*/
