@@ -98,7 +98,7 @@ p {
 }
 
 p{
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .containerTextoFundo{
@@ -270,7 +270,7 @@ li {
 
 @media (max-width: 480px) {
     html {
-        font-size: 14px; /* Reduz ainda mais a base da fonte */
+        font-size: 1px; /* Reduz ainda mais a base da fonte */
     }
 
     section {
