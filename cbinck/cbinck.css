@@ -97,6 +97,10 @@ p {
    
 }
 
+p{
+    font-size: 18px
+}
+
 img {
     width: 100%; /* Imagens ocupam toda a largura disponível */
     max-width: 100%;
@@ -134,8 +138,8 @@ strong {
     background-color: #1b98e01c;
     border: 0.5px solid #000;
     border-radius: 10px;
-    padding: 10px; /* Reduzido */
-    margin-bottom: 10px;
+    padding: 0px; /* Reduzido */
+    margin-bottom: px;
 }
 
 .bordaTexto {
@@ -165,14 +169,14 @@ strong {
    /* font-size: 16px;*/
 }
 
-.imgRedonda {
+.imgRedonda { 
     float: left;
     border-radius: 50%;
-    width: 100px; /* Reduzido */
-    height: 100px;
+    width: 110px; /* Reduzido */
+    height: 110px;
     object-fit: cover;
     shape-outside: circle();
-    margin: 10px 10px 10px 0;
+    margin: 10px 10px 10px 10px;
 }
 
 .imgRedonda:hover {
