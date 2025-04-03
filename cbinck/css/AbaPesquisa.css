@@ -5,9 +5,10 @@
     transform: translateX(-50%);
     width: 100%;
     margin-top: 2.4px;
-    
-    max-width: 988px;
-    padding: 18px;
+     
+    max-width: 870px;
+    padding-top: 20px;
+    height: 70px;
     background-color: #f1f1f1;
     text-align: center;
     border-bottom: 2px solid #ccc;
@@ -24,14 +25,14 @@
 
 .search-bar input[type="text"] {
     width: 60%;
-    padding: 10px;
+    padding: 7px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .search-bar button {
-    padding: 10px 20px;
+    padding: 7px 17px;
     font-size: 16px;
     background-color: #007BFF;
     color: white;
@@ -47,7 +48,7 @@
 }
 
 main {
-    margin-top: 80px;
+    margin-top: 75px;
 }
 
 .highlight {
