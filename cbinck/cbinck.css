@@ -226,7 +226,7 @@ li {
 
     section {
         padding: 10px;
-        font-size: 0.9rem; /* Reduz fonte para telas menores */
+        font-size: 0.2rem; /* Reduz fonte para telas menores */
     }
 
     h1 {
@@ -242,6 +242,7 @@ li {
         text-indent: 20px;
         margin: 10px;
         line-height: 1.6em;
+
     }
 
     .imgRedondaGrande, .imgRedonda {
@@ -270,7 +271,7 @@ li {
 
 @media (max-width: 480px) {
     html {
-        font-size: 1px; /* Reduz ainda mais a base da fonte */
+        font-size: 14px; /* Reduz ainda mais a base da fonte */
     }
 
     section {
