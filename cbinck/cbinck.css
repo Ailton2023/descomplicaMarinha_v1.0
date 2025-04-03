@@ -97,7 +97,11 @@ p {
    
 }
 
-p, .containerTextoFundo{
+p{
+    font-size: 16px;
+}
+
+.containerTextoFundo{
     font-size: 16px;
 }
 
