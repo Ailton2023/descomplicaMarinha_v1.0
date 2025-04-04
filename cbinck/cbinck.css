@@ -92,7 +92,7 @@ h2 {
 }
 
 p {
-    text-indent: 30px; /* Reduzido para telas menores */
+    text-indent: 45px; /* Reduzido para telas menores */
     line-height: 1.8em; /* Reduzido ligeiramente */
     margin: 15px;
    
@@ -130,6 +130,7 @@ strong {
 }
 
 .círculo {
+  
    /* border: 0.5px dashed black;*/
     border-radius: 5px;
    /* padding: 1px 5px;*/
@@ -160,7 +161,7 @@ strong {
     height: 120px;
     object-fit: cover;
     shape-outside: circle();
-    margin: 10px 10px 10px 0;
+    margin: 10px 10px 10px 10px;
 }
 
 .imgRedondaGrande:hover {
@@ -168,8 +169,7 @@ strong {
 }
 
 .textoLadodireitoImagem {
-    text-indent: 2px;
-    color: #2fa866;
+    text-indent: 0px;    
     /*margin: 10px; /* Ajustado */
     /*padding: 10px;
    /* font-size: 16px;*/
@@ -179,11 +179,11 @@ strong {
 
 .imgRedonda { 
     float: left;
-    border-radius: 50%;
-    width: 110px; /* Reduzido */
-    height: 110px;
-    object-fit: cover;
-    shape-outside: circle();
+    border-radius: 100%;
+    width: 120px; /* Reduzido */
+    height: 120px;
+    /*object-fit: cover;*/
+    /*shape-outside: circle();*/
     margin: 10px 10px 10px 10px;
 }
 
