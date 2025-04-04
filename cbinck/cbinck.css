@@ -128,16 +128,7 @@ audio {
 strong {
     color: rgba(0, 0, 0, 0.717);
 }
-
-.círculo {
-  
-   /* border: 0.5px dashed black;*/
-    border-radius: 5px;
-   /* padding: 1px 5px;*/
-    /*background-color: #006594eb;*/
-    font-weight: bolder;  
-    text-transform: uppercase;
-}
+ 
 
 .containerTextoFundo {
     background-color: #1b98e01c;
@@ -221,6 +212,10 @@ li {
     float: left;
     margin: 10px;
     border-radius: 10px;
+}
+
+.caixa-alta{
+    text-transform: uppercase;
 }
 
 /* Media Queries para telas menores */

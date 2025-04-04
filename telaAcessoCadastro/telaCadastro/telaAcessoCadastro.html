@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Cadastro</title>
     <link rel="stylesheet" href="telaAcessoCadastro.css">
 </head>
@@ -10,49 +11,65 @@
         <article class="cabecalhoCadastro">
             <h1>Cadastre-se</h1>
             <p>Se preferir, use sua rede social</p>
-            <img src="../icons/logoGoogle.png" alt="Logo do Google">
-            <p>Teremos acesso a seu nome e endereço de email apenas para efetuar seu cadastro.</p>
+            
+            <button type="button" class="botaoGoogle">
+                <img src="../icons/logoGoogle.png" alt="Logo do Google"> 
+            </button>
+
+            <p>Teremos acesso a seu nome e endereço de e-mail apenas para efetuar seu cadastro.</p>
         </article>
-
         <hr>
+        <form name="cadastro" method="POST" action="conexao.php" autocomplete="on" class="formularioCadastro">
 
-        <form action="#" method="get" autocomplete="on" class="formularioCadastro">
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/pessoa.png" alt="Ícone de pessoa">
-                <input type="text" id="pessoa" placeholder="Nome Completo" required>
+                <label for="pessoa">
+                    <img class="iconeInput" src="../icons/pessoa.png" alt="Ícone de pessoa">
+                </label>
+                <input type="text" name="nome" id="pessoa" placeholder="Nome Completo" required>
             </div>
 
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/telefone.png" alt="Ícone de telefone">
-                <input type="text" id="numero" placeholder="Telefone" required>
+                <label for="numero">
+                    <img class="iconeInput" src="../icons/telefone.png" alt="Ícone de telefone">
+                </label>
+                <input type="tel" name="telefone" id="numero" placeholder="Telefone" pattern="[0-9]{10,11}" required>
             </div>
 
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
-                <input type="text" id="email" placeholder="E-mail ou CPF" required>
+                <label for="email">
+                    <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de e-mail">
+                </label>
+                <input type="email" name="email" id="email" placeholder="E-mail" required>
             </div>
 
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
-                <input type="text" id="emailConfirmacao" placeholder="Confirmar E-mail ou CPF" required>
+                <label for="emailConfirmacao">
+                    <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de e-mail">
+                </label>
+                <input type="email" name="confEmail" id="emailConfirmacao" placeholder="Confirmar E-mail" required>
             </div>
 
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha">
-                <input type="password" id="senha" placeholder="Senha (mínimo de 6 caracteres)" required>
+                <label for="senha">
+                    <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha">
+                </label>
+                <input type="password" name="senha" id="senha" placeholder="Senha (mínimo de 6 caracteres)" minlength="6" required>
             </div>
 
             <div class="containerPDF">
-                <img class="iconePDF" src="imagens/pdf.png" alt="Ícon">
+                <img class="iconePDF" src="imagens/pdf.png" alt="Ícone PDF">
                 <a href="termoUso/017973000101011.pdf" download>Termos de Uso</a>
             </div>
 
             <div class="containerCheckbox">
-                <input type="checkbox" id="checkboxButtonCadastrar">
-                <p>Eu li e aceito os Termos de Uso</p>
+                <input type="checkbox" id="checkboxButtonCadastrar" onclick="toggleCadastroButton()">
+                <label for="checkboxButtonCadastrar">Eu li e aceito os Termos de Uso</label>
             </div>
+        
+            <input type="submit" value="Enviar">
 
-            <button type="submit" class="botao" disabled>CADASTRAR</button>
+            <button type="submit" class="botao" id="botaoCadastro" disabled>CADASTRAR</button>
+
         </form>
 
         <hr>
@@ -63,6 +80,12 @@
         </div>
     </section>
 
-    <script src="telaAcessoCadastro.js"></script>
+    <script>
+        function toggleCadastroButton() {
+            const checkbox = document.getElementById('checkboxButtonCadastrar');
+            const botaoCadastro = document.getElementById('botaoCadastro');
+            botaoCadastro.disabled = !checkbox.checked;
+        }
+    </script>
 </body>
 </html>
