@@ -1,6 +1,9 @@
 @charset "UTF-8";
+
+/* Importação de fontes externas do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+/* Definição de variáveis CSS para cores e fontes */
 :root {
     --cor0: #F4F6FE;
     --cor1: #E8F1F2;
@@ -22,43 +25,46 @@
     --fonte-destaque: 'Bebas Neue', cursive;
 }
 
+/* Reset geral e box-sizing consistente */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e borda sejam incluídos nas dimensões */
+    box-sizing: border-box;
 }
 
+/* Fonte base do documento */
 html {
     font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
-  
 }
 
+/* Estilização do body com cor de fundo e margem */
 body {
     background-color: #018dde22;
-    margin-top: 60px; /* Reduzido para telas menores */
+    margin-top: 60px;
 }
 
+/* Centraliza o header */
 header {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Estilo padrão das seções */
 section {
     width: 100%;
-    min-width: 300px; /* Reduzido para caber em telas menores */
+    min-width: 300px;
     max-width: 900px;
     height: auto;
     margin: 5px auto;
     background-color: rgb(246, 243, 243);
     border-radius: 10px;
-    padding: 15px; /* Reduzido para telas menores */
+    padding: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
     text-align: justify;
-    /*font-size: 1rem; /* Ajustável com media queries */
-    
 }
 
+/* Layout com dois blocos espaçados */
 .ostensivo_CAAML-1202_REV2 {
     display: flex;
     justify-content: space-between;
@@ -68,76 +74,73 @@ section {
     margin: 0 auto;
 }
 
+/* Estilização de blocos como capítulos */
 .capitulos_cbinck {
     border: 2px solid black;
     border-radius: 10px;
     background-color: #efba32;
-    /*font-size: 1rem; /* Ajustável */
     width: 100%;
     margin: 0 auto;
     text-align: center;
     padding: 5px;
 }
 
+/* Título principal */
 h1 {
-    letter-spacing: 1px; /* Reduzido para melhor legibilidade em telas menores */
+    letter-spacing: 1px;
     font-weight: bold;
-    /*font-size: 1.5rem; /* Ajustável */
 }
 
+/* Título secundário */
 h2 {
     margin-top: 15px;
-   /* font-size: 1.25rem; /* Ajustável */
     margin-bottom: 15px;
 }
 
+/* Estilo base dos parágrafos */
 p {
-    text-indent: 45px; /* Reduzido para telas menores */
-    line-height: 1.8em; /* Reduzido ligeiramente */
+    text-indent: 45px;
+    line-height: 1.8em;
     margin: 15px;
-   
-}
-
-p{
     font-size: 16px;
-   
 }
 
- 
-
+/* Imagens com largura total e centralizadas */
 img {
-    width: 100%; /* Imagens ocupam toda a largura disponível */
+    width: 100%;
     max-width: 100%;
-    height: auto; /* Mantém proporção */
+    height: auto;
     margin: 10px auto;
-    display: block; /* Centraliza imagens */
+    display: block;
     border-radius: 5px;
 }
 
+/* Controle de áudio com largura reduzida */
 audio {
     margin-top: 15px;
-    width: 25%; /* Garante que o controle de áudio se ajuste à tela */
+    width: 25%;
 }
 
+/* Centraliza descrições de imagens */
 .descriçãoImagens {
     text-align: center;
     margin: 5px 0 10px;
 }
 
-
+/* Destaque em negrito */
 strong {
     color: rgba(0, 0, 0, 0.717);
 }
- 
 
+/* Texto com fundo diferenciado */
 .containerTextoFundo {
     background-color: #1b98e01c;
     border: 0.5px solid #000;
     border-radius: 10px;
-    padding: 10px; /* Reduzido */
-    margin-bottom: px;
+    padding: 10px;
 }
 
+/* Caixa de texto com borda tracejada */
 .bordaTexto {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -145,70 +148,63 @@ strong {
     border-radius: 10px;
     width: 90%;
     padding-right: 20px;
-   
-     
 }
 
-
+/* Centralização com Flexbox */
 .centralizarContainer {
     display: flex;
     justify-content: center;
-    align-items: center;    
- }
+    align-items: center;
+}
 
+/* Imagem redonda grande com efeito flutuante */
 .imgRedondaGrande {
     float: left;
     border-radius: 50%;
-    width: 120px; /* Reduzido para telas menores */
+    width: 120px;
     height: 120px;
     object-fit: cover;
     shape-outside: circle();
-    margin: 10px 10px 10px 10px;
+    margin: 10px;
 }
 
+/* Efeito ao passar o mouse na imagem grande */
 .imgRedondaGrande:hover {
     border: 3px solid transparent;
 }
 
+/* Texto ao lado da imagem */
 .textoLadodireitoImagem {
-    text-indent: 0px;    
-    /*margin: 10px; /* Ajustado */
-    /*padding: 10px;
-   /* font-size: 16px;*/
-
-   
+    text-indent: 0px;
 }
 
-.imgRedonda { 
+/* Imagem redonda padrão */
+.imgRedonda {
     float: left;
     border-radius: 100%;
-    width: 120px; /* Reduzido */
+    width: 120px;
     height: 120px;
-    /*object-fit: cover;*/
-    /*shape-outside: circle();*/
-    margin: 10px 10px 10px 10px;
+    margin: 10px;
 }
 
+/* Efeito hover */
 .imgRedonda:hover {
     border: 2px solid transparent;
 }
 
- 
+/* Estilo para listas */
 li {
     list-style-type: square;
-   /* font-size: 1rem; /* Ajustável */
-    margin: 5px 0;
     font-size: 16px;
-    
+    margin: 5px 0;
 }
 
- 
-
-
+/* Margem inferior para áudios com tabela abaixo */
 .audioSemBotaoTabelaAbaixo {
     margin-bottom: 15px;
 }
 
+/* Bolinha destacada com fundo */
 .bolaRedonda {
     border: 1px solid black;
     border-radius: 50%;
@@ -218,69 +214,69 @@ li {
     font-weight: bold;
 }
 
+/* Imagem quadrada */
 .imgQuadrada {
-    width: 120px; /* Reduzido */
+    width: 120px;
     float: left;
     margin: 10px;
     border-radius: 10px;
 }
 
-.caixa-alta{
+/* Texto em caixa alta */
+.caixa-alta {
     text-transform: uppercase;
 }
 
-
-.img-quadrada{
- 
-    width: 150px; 
-    height: 130px; 
-    border-radius: 15px; 
-    margin-right: 15px; 
-    margin-left: 15px;
+/* Imagem com formato quadrado personalizado */
+.img-quadrada {
+    width: 150px;
+    height: 130px;
+    border-radius: 15px;
+    margin: 0 15px;
 }
 
-
-
-.textoImagem{
+/* Container com texto ao lado da imagem */
+.textoImagem {
     display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
-.liEfeito:hover{
+/* Efeito ao passar o mouse nos itens da lista */
+.liEfeito:hover {
     background-color: #0067b5dd;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     padding-left: 2px;
     padding-right: 2px;
-
 }
 
-
+/* Lista dentro da caixa de fundo */
 .containerTextoFundo > li {
-    margin-top: px;
     margin-left: 25px;
-    /*list-style-type: '\1F5F9\00A0\00A0';*/
- 
 }
 
-.imgExemplo{
+/* Imagem usada para exemplo */
+.imgExemplo {
     margin-top: 80px;
     width: 200px;
     height: 200px;
 }
 
+/* ========================== */
+/* MEDIA QUERIES - RESPONSIVO */
+/* ========================== */
 
-/* Media Queries para telas menores */
+/* Para telas até 768px */
 @media (max-width: 768px) {
     body {
-        margin-top: 40px; /* Ainda mais reduzido */
+        margin-top: 40px;
     }
 
     section {
         padding: 10px;
-        font-size: 0.9rem; /* Reduz fonte para telas menores */
+        font-size: 0.9rem;
     }
 
     h1 {
@@ -293,13 +289,13 @@ li {
     }
 
     p {
-        text-indent: 20px;
+        text-indent: 20px; /* ALTERAÇÃO: Reduziu recuo para melhor leitura */
         margin: 10px;
-        line-height: 1.6em;
+        line-height: 1.6em; /* ALTERAÇÃO: Reduziu altura da linha */
     }
 
     .imgRedondaGrande, .imgRedonda {
-        float: left; 
+        float: none; /* ALTERAÇÃO: Remove flutuação em telas pequenas */
         display: block;
         margin: 10px auto;
     }
@@ -318,13 +314,14 @@ li {
     }
 
     audio {
-        width: 100%;
+        width: 100%; /* ALTERAÇÃO: Ajuste total para responsividade */
     }
 }
 
+/* Para telas até 480px */
 @media (max-width: 480px) {
     html {
-        font-size: 30px; /* Reduz ainda mais a base da fonte */
+        font-size: 30px;
     }
 
     section {
@@ -341,7 +338,7 @@ li {
     }
 
     p {
-        text-indent: 15px;
+        text-indent: 15px; /* ALTERAÇÃO: Mais recuo reduzido */
         margin: 8px;
     }
 
