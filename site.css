@@ -39,35 +39,35 @@ body {
 /* Estilo base do main */
 main {
     width: 100%;
-    max-width: 1150px; /* Limite máximo para desktop */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    padding: 10px; /* Padding uniforme */
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 10px;
     background-color: #fafafa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.475);
-    min-height: 100vh; /* Garante que o main ocupe a tela inteira */
+    min-height: 100vh;
     position: relative;
 }
 
 /* Media Queries para responsividade */
 @media (max-width: 1024px) {
     main {
-        max-width: 90%; /* Reduz a largura máxima em telas menores que desktop */
+        max-width: 90%;
         padding: 8px;
     }
 }
 
 @media (max-width: 768px) {
     main {
-        max-width: 95%; /* Usa quase toda a largura disponível */
+        max-width: 95%;
         padding: 6px;
     }
 }
 
 @media (max-width: 480px) {
     main {
-        max-width: 100%; /* Usa toda a largura em telas pequenas */
+        max-width: 100%;
         padding: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra mais leve em mobile */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -84,14 +84,14 @@ p {
 
 @media (max-width: 768px) {
     p {
-        font-size: 18px; /* Reduz o tamanho da fonte em tablets */
-        max-width: 100%; /* Remove limite de largura */
+        font-size: 18px;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     p {
-        font-size: 16px; /* Ainda menor em celulares */
+        font-size: 16px;
     }
 }
 
@@ -137,15 +137,13 @@ fieldset {
 
 @media (max-width: 768px) {
     fieldset {
-        width: 100%; /* Ajusta para ocupar a largura total */
-        height: auto; /* Altura automática para se adaptar ao conteúdo */
+        width: 100%;
+        height: auto;
     }
 
     .ultimasAtualizacoes {
-        max-width: 100%; /* Remove limite máximo em telas menores */
+        max-width: 100%;
     }
- 
-
 }
 
 legend {
@@ -170,11 +168,9 @@ legend {
 
 @media (max-width: 480px) {
     #centralConteudo {
-        font-size: 16px; /* Reduz o tamanho da fonte em mobile */
+        font-size: 16px;
         height: 35px;
     }
-
-   
 }
 
 /* Ajustes para os parágrafos específicos */
@@ -212,4 +208,32 @@ legend {
 #pfaleConosco:hover {
     color: rgba(0, 0, 0, 0.448);
 }
+
+/* --- ALTERAÇÃO ADICIONADA --- */
+/* Estilo para descrições de imagens, com responsividade melhorada */
+.descricaoImagens {
+    text-align: center;
+    margin: 5px 0 10px;
+    font-size: 18px;
+    line-height: 1.4;
+    padding: 0 10px;
+    word-wrap: break-word;
+    font-family: "Chakra Petch", var(--fonte-padrao);
+}
+
+@media (max-width: 768px) {
+    .descricaoImagens {
+        font-size: 16px;
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .descricaoImagens {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+}
+/* --- FIM DA ALTERAÇÃO --- */
+
  
