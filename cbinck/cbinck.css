@@ -134,16 +134,27 @@ strong {
     background-color: #1b98e01c;
     border: 0.5px solid #000;
     border-radius: 10px;
-    padding: 0px; /* Reduzido */
+    padding: 10px; /* Reduzido */
     margin-bottom: px;
 }
 
 .bordaTexto {
-    margin: 20px 0 0;
-    border: 1.0px dashed #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px dashed #000;
     border-radius: 10px;
-    width: 100%; /* Ajusta à largura disponível */
+    width: 90%;
+    padding-right: 20px;
+   
+     
 }
+
+
+.centralizarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+ }
 
 .imgRedondaGrande {
     float: left;
@@ -220,7 +231,7 @@ li {
 
 
 .img-quadrada{
-   float: left;
+ 
     width: 150px; 
     height: 130px; 
     border-radius: 15px; 
@@ -236,6 +247,29 @@ li {
     align-items: center;  
 }
 
+.liEfeito:hover{
+    background-color: #0067b5dd;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+
+.containerTextoFundo > li {
+    margin-top: px;
+    margin-left: 25px;
+    /*list-style-type: '\1F5F9\00A0\00A0';*/
+ 
+}
+
+.imgExemplo{
+    margin-top: 80px;
+    width: 200px;
+    height: 200px;
+}
 
 
 /* Media Queries para telas menores */
