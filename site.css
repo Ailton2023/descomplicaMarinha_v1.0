@@ -144,11 +144,7 @@ fieldset {
     .ultimasAtualizacoes {
         max-width: 100%; /* Remove limite máximo em telas menores */
     }
-
-    main{
-        width: 700px;
-    }
-
+ 
 
 }
 
@@ -178,9 +174,7 @@ legend {
         height: 35px;
     }
 
-    main{
-        width: 700px;
-    }
+   
 }
 
 /* Ajustes para os parágrafos específicos */
