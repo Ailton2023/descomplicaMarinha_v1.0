@@ -36,7 +36,6 @@ body {
     font-family: var(--fonte-padrao);
 }
 
-/* Estilo base do main */
 main {
     width: 100%;
     max-width: 1150px;
@@ -48,7 +47,6 @@ main {
     position: relative;
 }
 
-/* Media Queries para responsividade */
 @media (max-width: 1024px) {
     main {
         max-width: 90%;
@@ -71,7 +69,6 @@ main {
     }
 }
 
-/* Ajuste de parágrafos para responsividade */
 p {
     text-align: left;
     font-family: "Chakra Petch", var(--fonte-padrao);
@@ -95,7 +92,6 @@ p {
     }
 }
 
-/* Acesso Rápido - Configuração da Barra */
 #outras_informacoes {
     text-align: center;
     position: relative;
@@ -118,7 +114,6 @@ p {
     margin: 10px 0;
 }
 
-/* Ajustes para fieldset e legendas */
 fieldset {
     background-color: #fafafa;
     width: 290px;
@@ -153,7 +148,6 @@ legend {
     font-size: 15px;
 }
 
-/* Outros elementos ajustados */
 #centralConteudo {
     font-family: "Tomorrow", var(--fonte-padrao);
     display: flex;
@@ -173,7 +167,6 @@ legend {
     }
 }
 
-/* Ajustes para os parágrafos específicos */
 #pDistribuiçãoLocalProva,
 #pCalendarioEventos,
 #pResumoInfRelevantes,
@@ -210,28 +203,38 @@ legend {
 }
 
 /* --- ALTERAÇÃO ADICIONADA --- */
-/* Estilo para descrições de imagens, com responsividade melhorada */
+/* Estilo para descrições de imagens, com responsividade melhorada e estética refinada */
 .descricaoImagens {
     text-align: center;
-    margin: 5px 0 10px;
+    margin: 5px auto 10px;
     font-size: 18px;
     line-height: 1.4;
-    padding: 0 10px;
+    padding: 10px;
     word-wrap: break-word;
     font-family: "Chakra Petch", var(--fonte-padrao);
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    max-width: 700px;
+    transition: color 0.3s ease;
+}
+
+.descricaoImagens:hover {
+    color: #333;
 }
 
 @media (max-width: 768px) {
     .descricaoImagens {
         font-size: 16px;
-        padding: 0 8px;
+        padding: 8px;
+        max-width: 90%;
     }
 }
 
 @media (max-width: 480px) {
     .descricaoImagens {
         font-size: 14px;
-        padding: 0 5px;
+        padding: 6px;
+        max-width: 100%;
     }
 }
 /* --- FIM DA ALTERAÇÃO --- */
