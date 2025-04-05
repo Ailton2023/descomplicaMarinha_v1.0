@@ -324,7 +324,7 @@ li {
     }
 
     .descriçãoImagens {
-        font-size: 0.5rem;          /* ALTERAÇÃO: Reduz levemente o tamanho da fonte em telas pequenas */
+        font-size: 0.3rem;          /* ALTERAÇÃO: Reduz levemente o tamanho da fonte em telas pequenas */
         text-align: justify;        /* ALTERAÇÃO: Alinha o texto justificado para facilitar leitura */
     }
 }
