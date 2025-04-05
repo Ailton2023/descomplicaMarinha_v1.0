@@ -76,7 +76,7 @@ body {
 }
 
 .conteudo {
-    width: 18%;
+    width: 25%;
     min-width: 250px;    
     padding: 1.2px 1.5px;
     padding-top: 10.5px;
@@ -90,6 +90,8 @@ body {
     max-height: calc(100vh - 473px);
    
     overflow-y: auto;
+
+    
 }
 
 .cabecalhoPrincipal {

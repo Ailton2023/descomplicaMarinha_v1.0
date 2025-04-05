@@ -1,9 +1,10 @@
+
 .gallery-wrapper {
     margin: 0;
     padding: 0;
-    width: 770px;
+    width: 650px;
     position: relative;
-    margin-top: -9px
+    margin-top: -9px;
 }
 
 .gallery-container {
@@ -105,13 +106,11 @@
 .play-btn { 
     padding-left: 1.5px;   
     background-color: limegreen;
-   
 }
 
 .pause-btn {    
     background-color: rgba(255, 0, 0, 0.809);   
 }
-
 
 .play-btn:hover, .pause-btn:hover {
     background-color: #4ecdc4;
