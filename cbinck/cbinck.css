@@ -125,6 +125,12 @@ audio {
 .descriçãoImagens {
     text-align: center;
     margin: 5px 0 10px;
+    word-wrap: break-word;          /* Permite quebrar palavras longas */
+    overflow-wrap: break-word;      /* Garante quebra em navegadores modernos */
+    hyphens: auto;                  /* Hifeniza automaticamente se o idioma permitir */
+    max-width: 100%;                /* Garante que o texto não ultrapasse a largura do container */
+    font-size: 1rem;                /* Tamanho padrão confortável */
+    padding: 0 10px;                /* Espaçamento lateral para evitar texto encostado */
 }
 
 /* Destaque em negrito */
@@ -359,4 +365,9 @@ li {
     .imgQuadrada {
         width: 100px;
     }
+    .descriçãoImagens {
+        font-size: 0.9rem;          /* ALTERAÇÃO: Reduz levemente o tamanho da fonte em telas pequenas */
+        text-align: justify;        /* ALTERAÇÃO: Alinha o texto justificado para facilitar leitura */
+    }
+    
 }
