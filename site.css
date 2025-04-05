@@ -177,6 +177,10 @@ legend {
         font-size: 16px; /* Reduz o tamanho da fonte em mobile */
         height: 35px;
     }
+
+    main{
+        width: 700px;
+    }
 }
 
 /* Ajustes para os parágrafos específicos */
