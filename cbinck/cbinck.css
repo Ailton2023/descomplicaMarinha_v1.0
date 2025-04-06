@@ -310,12 +310,13 @@ li {
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px; 
-    
-    
 }
 
 th{
     border: 1px solid black;
+    padding-top: 5px;
+padding-bottom: 5px;
+   
  
 }
 
@@ -370,6 +371,10 @@ td{
  
 .fig-4-4-4-5:hover{
    border: 1px solid black; 
+}
+
+article{
+    margin-bottom: 10px;
 }
 
 /* ========================== */
