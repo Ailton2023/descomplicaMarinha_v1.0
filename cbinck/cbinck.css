@@ -135,7 +135,7 @@ audio {
 
 /* Destaque em negrito */
 strong {
-    color: rgba(0, 0, 0, 0.717);
+ 
 }
 
 /* Texto com fundo diferenciado */
@@ -238,9 +238,13 @@ li {
     width: 150px;
     height: 130px;
     border-radius: 15px;
-    margin: 0 15px;
+    margin-left: 55px;
+    padding: 0;
 }
 
+.img-quadrada:hover{
+  border: 1px solid black;
+}
 /* Container com texto ao lado da imagem */
 .textoImagem {
     display: flex;
@@ -270,6 +274,80 @@ li {
     height: 200px;
 }
 
+
+.icone-prova {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif; 
+    gap: 10px;
+  }
+  
+  .circulo {
+    background-color: red;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  table{
+    text-align: center;
+    font-weight: bold;
+    border-collapse: collapse;
+    
+
+  }
+
+.topoTb-Mod-I{
+    background-color: #0068B5;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    
+    
+}
+
+th{
+    border: 1px solid black;
+ 
+}
+
+td{
+    border: 2px solid black;
+    padding: 5px;
+    letter-spacing: 1px; 
+    
+ 
+}
+
+.explicação{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+     
+}
+
+.container-fig-4-2-4-3{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.fig-4-2-4-3{
+    width: 200px;
+    height: 300px;
+}
+ 
 /* ========================== */
 /* MEDIA QUERIES - RESPONSIVO */
 /* ========================== */
