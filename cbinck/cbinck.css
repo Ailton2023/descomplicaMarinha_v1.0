@@ -346,8 +346,26 @@ td{
 .fig-4-2-4-3{
     width: 200px;
     height: 300px;
+    margin: 0;
+}
+
+.container-fig-4-4-4-5{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
  
+
+.fig-4-4-4-5{
+    width: 300px;
+    height: 250px;
+    margin: 0;
+   
+}
+ 
+
 /* ========================== */
 /* MEDIA QUERIES - RESPONSIVO */
 /* ========================== */
