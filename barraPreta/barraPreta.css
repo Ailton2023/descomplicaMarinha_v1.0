@@ -1,6 +1,6 @@
 /* Estilo base da faixa preta */
 .faixaPreta {
-    background-color: #b33232; /* Fundo preto */
+    background-color: #000; /* Fundo preto */
     padding: clamp(10px, 2vw, 20px); /* Espaçamento interno controlado */
     text-align: center; /* Centraliza horizontalmente */
     border-radius: 20px;
@@ -66,6 +66,7 @@
     .faixaPreta {
         padding: clamp(8px, 1.5vw, 15px); /* Padding reduzido */
         min-height: 15vh; /* Altura ajustada */
+        background-color: rgba(255, 0, 0, 0.5);
     }
     #titulo-I {
         margin-bottom: 0.75rem; /* Margem fixa para consistência */
@@ -88,3 +89,10 @@
         max-width: 85%; /* Mais controle sobre largura */
     }
 }
+
+
+/*@media (min-width: 600px) {
+    .faixaPreta {
+        background-color: rgba(255, 0, 0, 0.5); /* Fundo preto */
+   /* }*/
+/*}*/
