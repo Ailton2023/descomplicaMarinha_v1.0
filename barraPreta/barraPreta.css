@@ -1,40 +1,42 @@
 /* Estilo base da faixa preta */
 .faixaPreta {
     background-color: #000; /* Fundo preto */
-    padding: 2vw; /* Espaçamento interno relativo */
+    padding: clamp(10px, 2vw, 20px); /* Espaçamento interno controlado */
     text-align: center; /* Centraliza horizontalmente */
     border-radius: 20px;
     position: relative;
     min-height: 20vh; /* Altura mínima relativa */
-    width: 100%; /* Largura relativa */
+    width: 100%; /* Largura total */
     margin: 0 auto; /* Centraliza na página */
     box-sizing: border-box; /* Inclui padding na largura/altura */
+    overflow: hidden; /* Evita vazamento de conteúdo animado */
 }
 
 /* Estilo do título principal */
 #titulo-I {
     color: darkgoldenrod; /* Cor do texto */
-    font-size: clamp(18px, 5vw, 35px); /* Tamanho ajustável entre 24px e 50px */
+    font-size: clamp(18px, 4vw, 35px); /* Ajuste leve para melhor escalabilidade */
     font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 1rem; /* Espaço relativo */
+    letter-spacing: 1.5px; /* Reduzido para legibilidade */
+    margin-bottom: clamp(0.5rem, 1vw, 1rem); /* Margem relativa controlada */
 }
 
 /* Estilo do título secundário com animação */
 #titulo-II {
     position: absolute;
-    top: 70%; /* Ajustado para evitar sobreposição */
+    top: 70%; /* Mantido, mas ajustável via media query */
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(16px, 3vw, 24px); /* Tamanho ajustável entre 16px e 24px */
+    transform: translateX(-50%); /* Apenas X, já que Y é menos crítico aqui */
+    font-size: clamp(16px, 2.5vw, 24px); /* Ajuste para telas menores */
     font-weight: bold;
     color: white;
     text-shadow: 0 0 10px rgba(0, 68, 204, 0.5), 0 0 20px rgba(0, 68, 204, 0.7);
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid rgba(0, 68, 204, 0.8); /* Cursor do efeito */
-    animation: typing 4s steps(30, end) infinite, blink-caret 0.7s step-end infinite;
-    letter-spacing: 2px;
+    animation: typing 4s steps(30, end) 1s infinite, blink-caret 0.7s step-end infinite;
+    letter-spacing: 1.5px; /* Reduzido para harmonia */
+    max-width: 90%; /* Evita transbordo em telas pequenas */
 }
 
 /* Animações */
@@ -51,7 +53,7 @@
 }
 
 @keyframes blink-caret {
-    from, to {
+    0%, 100% {
         border-color: transparent;
     }
     50% {
@@ -62,24 +64,27 @@
 /* Media Queries para ajustes específicos */
 @media (max-width: 768px) { /* Tablets e celulares */
     .faixaPreta {
-        padding: 1.5vw;
-        min-height: 15vh;
+        padding: clamp(8px, 1.5vw, 15px); /* Padding reduzido */
+        min-height: 15vh; /* Altura ajustada */
     }
     #titulo-I {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem; /* Margem fixa para consistência */
     }
     #titulo-II {
-        top: 65%; /* Ajusta posição em telas menores */
+        top: 65%; /* Ajuste para evitar sobreposição */
+        font-size: clamp(14px, 2vw, 20px); /* Reduzido para telas médias */
     }
 }
 
 @media (max-width: 480px) { /* Celulares */
     .faixaPreta {
-        padding: 1vw;
-        min-height: 12vh;
-        border-radius: 10px; /* Reduz borda em telas pequenas */
+        padding: clamp(5px, 1vw, 10px); /* Padding mínimo */
+        min-height: 12vh; /* Altura reduzida */
+        border-radius: 10px; /* Bordas menores */
     }
     #titulo-II {
-        top: 60%; /* Ajusta ainda mais para evitar corte */
+        top: 60%; /* Mais espaço em telas pequenas */
+        font-size: clamp(12px, 2vw, 18px); /* Ainda menor */
+        max-width: 85%; /* Mais controle sobre largura */
     }
 }

@@ -1,0 +1,25 @@
+ 
+    .only-print {
+        background-color: #de2a0122; 
+        color: red;
+    }
+ 
+    a::after{
+    content: "( link href )" ;
+    display: inline-block;
+    margin-left: .5em;
+}
+
+body{
+
+    color: blue;
+    font-family: sans-serif;
+
+}
+
+@media screen {
+    body{
+        background-color: aqua;
+        
+    }
+}
