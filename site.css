@@ -115,8 +115,7 @@ legend {
 
 /* Container central */
 .conteiner-CentralConteudo {
-    font-family: "Tomorrow", var(--fonte-padrao);
-    
+    font-family: "Tomorrow", var(--fonte-padrao);    
     justify-content: center;
     align-items: center;
     height: 40px;

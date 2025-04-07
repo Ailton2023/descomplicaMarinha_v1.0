@@ -1,75 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
+/* Importação única de fontes, incluindo Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-
-footer{
+/* Footer */
+footer {
     background-color: #2E58A2;
     color: white;
-    
     text-align: center;
-    padding: 0px;
- 
+    padding: clamp(10px, 2vw, 20px); /* Padding ajustável */
+    width: 100%;
 }
 
- 
-.conteiner-quatroCards{
-     
- 
-    width: 1150px;  
-    margin: 0 auto; 
+/* Container dos quatro cards */
+.conteiner-quatroCards {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
     display: flex;
-    gap: 40px;
+    gap: clamp(20px, 3vw, 40px); /* Gap responsivo */
     font-family: "Tomorrow", Arial, Helvetica, sans-serif;
-    padding: 10px;
+    padding: clamp(5px, 1vw, 10px);
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
 }
 
-.card-curso{
- 
-    width: 250px;
-  
+/* Card individual */
+.card-curso {
+    width: clamp(200px, 22%, 250px); /* Largura responsiva */
+    min-width: 200px; /* Evita colapso em telas muito pequenas */
 }
 
-.logoTexto{
+/* Logo e texto */
+.logoTexto {
     display: flex;
-    justify-content:left;
+    justify-content: flex-start; /* Corrigido de 'left' para 'flex-start' */
     align-items: center;
- 
-} 
-
-.ptexto-logo{
-     color: white;
-     font-size: 10px;
-     align-items: center;
-
 }
 
-.texto-cards-curso{
-    font-size: 18px;
-    text-align: justify; 
-         
-}
-
-.texto-cards-curso:hover{
-   font-weight: 500;
-}
-
-.titulo-cards{
+/* Texto do logo */
+.ptexto-logo {
     color: white;
-    font-size: 25px;
+    font-size: clamp(10px, 1.5vw, 14px); /* Tamanho ajustável */
+    align-items: center; /* Não tem efeito aqui, movido para o container se necessário */
+}
+
+/* Texto dos cards de curso */
+.texto-cards-curso {
+    font-size: clamp(16px, 2vw, 18px);
+    text-align: justify;
+    transition: font-weight 0.3s ease; /* Suaviza a transição */
+}
+
+.texto-cards-curso:hover {
+    font-weight: 500;
+}
+
+/* Título dos cards */
+.titulo-cards {
+    color: white;
+    font-size: clamp(20px, 3vw, 25px);
     font-weight: bold;
 }
 
-.text-cards{
-    font-size: 18px;
-
+/* Texto genérico dos cards */
+.text-cards {
+    font-size: clamp(16px, 2vw, 18px);
+    transition: font-weight 0.3s ease; /* Suaviza a transição */
 }
 
-.text-cards:hover{
+.text-cards:hover {
     font-weight: 500;
-
 }
 
+/* Media Queries para responsividade */
+@media (max-width: 1024px) {
+    .conteiner-quatroCards {
+        max-width: 90%;
+        gap: 30px;
+    }
+    .card-curso {
+        width: clamp(180px, 25%, 230px);
+    }
+}
+
+@media (max-width: 768px) {
+    .conteiner-quatroCards {
+        justify-content: center; /* Centraliza os cards */
+        gap: 20px;
+    }
+    .card-curso {
+        width: clamp(160px, 45%, 250px); /* Aumenta a largura relativa */
+    }
+    .titulo-cards {
+        font-size: 22px;
+    }
+    .texto-cards-curso, .text-cards {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteiner-quatroCards {
+        flex-direction: column; /* Empilha os cards verticalmente */
+        align-items: center;
+        gap: 15px;
+        padding: 5px;
+    }
+    .card-curso {
+        width: 100%; /* Ocupa toda a largura disponível */
+        max-width: 300px;
+    }
+    .titulo-cards {
+        font-size: 20px;
+    }
+    .ptexto-logo {
+        font-size: 12px;
+    }
+}
 
 
 
