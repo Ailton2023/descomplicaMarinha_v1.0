@@ -134,7 +134,7 @@ fieldset {
     max-height: 300px;
     
 }
-
+/*
 @media (max-width: 768px) {
     fieldset {
         width: 100%;
@@ -152,7 +152,7 @@ legend {
     margin-left: 15px;
     font-size: 15px;
 }
-
+*/
 .conteiner-CentralConteudo {
     font-family: "Tomorrow", var(--fonte-padrao);    
     justify-content: center;
@@ -164,14 +164,14 @@ legend {
     color: #a41616;
     
 }
-
+/*
 @media (max-width: 480px) {
     #centralConteudo {
         font-size: 16px;
         height: 35px;
     }
 }
-
+*//*
 #pDistribuiçãoLocalProva,
 #pCalendarioEventos,
 #pResumoInfRelevantes,
@@ -183,7 +183,7 @@ legend {
     font-size: 16px;
     margin-top: 20px;
 }
-
+*//*
 @media (max-width: 480px) {
     #pDistribuiçãoLocalProva,
     #pCalendarioEventos,
@@ -195,8 +195,8 @@ legend {
         font-size: 14px;
         margin-top: 15px;
     }
-}
-
+}*/
+/*
 #pDistribuiçãoLocalProva:hover,
 #pCalendarioEventos:hover,
 #pResumoInfRelevantes:hover,
@@ -206,7 +206,7 @@ legend {
 #pfaleConosco:hover {
     color: rgba(0, 0, 0, 0.448);
 }
-
+*/
 /* --- ALTERAÇÃO ADICIONADA --- */
 /* Estilo para descrições de imagens, com responsividade melhorada e estética refinada */
 .descricaoImagens {
@@ -226,7 +226,7 @@ legend {
 .descricaoImagens:hover {
     color: #333;
 }
-
+/*
 @media (max-width: 768px) {
     .descricaoImagens {
         font-size: 16px;
@@ -241,7 +241,7 @@ legend {
         padding: 6px;
         max-width: 100%;
     }
-}
+}*/
 /* --- FIM DA ALTERAÇÃO --- */
 
  
