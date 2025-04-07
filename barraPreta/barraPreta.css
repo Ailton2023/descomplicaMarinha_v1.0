@@ -1,6 +1,6 @@
 /* Estilo base da faixa preta */
 .faixaPreta {
-    background-color: #000; /* Fundo preto */
+    background-color: #b33232; /* Fundo preto */
     padding: clamp(10px, 2vw, 20px); /* Espaçamento interno controlado */
     text-align: center; /* Centraliza horizontalmente */
     border-radius: 20px;
