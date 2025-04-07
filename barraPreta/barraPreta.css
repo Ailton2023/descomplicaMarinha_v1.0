@@ -66,7 +66,7 @@
     .faixaPreta {
         padding: clamp(8px, 1.5vw, 15px); /* Padding reduzido */
         min-height: 15vh; /* Altura ajustada */
-        background-color: rgba(255, 0, 0, 0.5);
+        background-color: rgba(29, 155, 9, 0.5);
     }
     #titulo-I {
         margin-bottom: 0.75rem; /* Margem fixa para consistência */
@@ -82,6 +82,7 @@
         padding: clamp(5px, 1vw, 10px); /* Padding mínimo */
         min-height: 12vh; /* Altura reduzida */
         border-radius: 10px; /* Bordas menores */
+        background-color: rgba(155, 123, 9, 0.5);
     }
     #titulo-II {
         top: 60%; /* Mais espaço em telas pequenas */
@@ -91,8 +92,4 @@
 }
 
 
-/*@media (min-width: 600px) {
-    .faixaPreta {
-        background-color: rgba(255, 0, 0, 0.5); /* Fundo preto */
-   /* }*/
-/*}*/
+ 
