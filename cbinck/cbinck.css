@@ -59,7 +59,7 @@ section {
     margin: 5px auto;
     background-color: rgb(246, 243, 243);
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
     text-align: justify;
 }
@@ -102,7 +102,7 @@ p {
     text-indent: 45px;
     line-height: 1.8em;
     margin: 15px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* Imagens com largura total e centralizadas */
@@ -299,6 +299,7 @@ li {
     text-align: center;
     font-weight: bold;
     border-collapse: collapse;
+    margin-top: 20px;
     
 
   }
@@ -313,25 +314,25 @@ li {
 }
 
 th{
-    border: 1px solid black;
+    border: 1.5px solid black;
     padding-top: 5px;
-padding-bottom: 5px;
-   
+    padding-bottom: 5px;
+   box-sizing: border-box;
  
 }
 
 td{
-    border: 2px solid black;
+    border: 1.5px solid black;
     padding: 5px;
     letter-spacing: 1px; 
-    
+    box-sizing: border-box;
  
 }
 
 .explicação{
     display: block;
     font-size: 14px;
-    text-align: center;
+    text-align:left;
     margin: 0;
     padding: 0;
      
@@ -435,6 +436,11 @@ article{
         text-align: justify;        /* ALTERAÇÃO: Alinha o texto justificado para facilitar leitura */
     }
 }
+
+.figCentralizada{
+    text-align: center;
+}
+
 
 /* Para telas até 480px */
 @media (max-width: 480px) {
