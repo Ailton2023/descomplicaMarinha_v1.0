@@ -164,7 +164,7 @@ body {
     }
 
     .logo img {
-        width: 100px; /*60 para 100px*/
+        width: 400px; /*60 para 100px*/
     }
 
     .title {
@@ -172,7 +172,7 @@ body {
     }
 
     .subtitle {
-        font-size: 34px;
+        font-size: 24px;
     }
 
     .subheader {
@@ -193,6 +193,6 @@ body {
     }
 
     .p_areaCandidato{
-        font-size: 34px;
+        font-size: 24px;
     }
 }
