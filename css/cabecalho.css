@@ -126,14 +126,14 @@ body {
     }
 
     .logo img {
-        width: 120px; /*80 para 120px*/
+        width: 400px; /*80 para 400px*/
 
     .title {
         font-size: 38px;
     }
 
     .subtitle {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .subheader {
