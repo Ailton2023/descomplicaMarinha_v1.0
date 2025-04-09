@@ -114,7 +114,8 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
+        display: flex;
+       /* flex-direction: column;*/
         padding: 15px;
     }
 
