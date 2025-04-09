@@ -73,7 +73,7 @@
     }
     #titulo-II {
         top: 65%; /* Ajuste para evitar sobreposição */
-        font-size: clamp(14px, 2vw, 20px); /* Reduzido para telas médias */
+        font-size: clamp(20px, 2vw, 20px); /* Reduzido para telas médias */
     }
 }
 
