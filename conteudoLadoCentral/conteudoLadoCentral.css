@@ -111,9 +111,9 @@ conteiner-scroll:hover{
 
 @media (max-width: 480px) { /* Celulares */
     .título-CentralConteudo{
-        font-size: 34px;
+        font-size: 26px;
     }
      .p_texto {
-      font-size: 18px;
+      font-size: 22px;
     }
 }
