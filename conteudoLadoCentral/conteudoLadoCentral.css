@@ -113,7 +113,11 @@ conteiner-scroll:hover{
     .título-CentralConteudo{
         font-size: 26px;
     }
-     .p_texto {
-      font-size: 28px;
+    .conteiner-Dados > .p_texto {
+      font-size: 40px;
     }
+
+    .p_texto {
+        font-size: 60px;
+      }
 }
