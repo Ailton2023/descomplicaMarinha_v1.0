@@ -64,9 +64,10 @@
 /* Media Queries para ajustes específicos */
 @media (max-width: 768px) { /* Tablets e celulares */
     .faixaPreta {
+        margin-top: 20px;
         padding: clamp(8px, 1.5vw, 15px); /* Padding reduzido */
         min-height: 15vh; /* Altura ajustada */
-        background-color: rgba(29, 155, 9, 0.5);
+        background-color: rgba(28, 155, 9, 0.322);
     }
     #titulo-I {
         margin-bottom: 0.75rem; /* Margem fixa para consistência */
@@ -79,10 +80,11 @@
 
 @media (max-width: 480px) { /* Celulares */
     .faixaPreta {
+        margin-top: 20px;
         padding: clamp(5px, 1vw, 10px); /* Padding mínimo */
         min-height: 12vh; /* Altura reduzida */
         border-radius: 10px; /* Bordas menores */
-        background-color: rgba(40, 4, 242, 0.5);
+        background-color: rgba(226, 242, 4, 0.274);
     }
     #titulo-II {
         top: 60%; /* Mais espaço em telas pequenas */
