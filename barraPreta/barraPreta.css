@@ -82,7 +82,7 @@
         padding: clamp(5px, 1vw, 10px); /* Padding mínimo */
         min-height: 12vh; /* Altura reduzida */
         border-radius: 10px; /* Bordas menores */
-        background-color: rgba(155, 26, 9, 0.5);
+        background-color: rgba(40, 4, 242, 0.5);
     }
     #titulo-II {
         top: 60%; /* Mais espaço em telas pequenas */

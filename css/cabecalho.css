@@ -114,8 +114,9 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
+
         display: flex;
-       /* flex-direction: column;*/
+        /*flex-direction: column;*/
         padding: 15px;
     }
 
@@ -125,8 +126,7 @@ body {
     }
 
     .logo img {
-        width: 80px;
-    }
+        width: 120px; /*80 para 120px*/
 
     .title {
         font-size: 38px;
@@ -155,15 +155,16 @@ body {
         font-size: 34px;
     }
 }
-
+}
 
 @media (max-width: 480px) {
     .container {
+        display: flex;
         padding: 10px;
     }
 
     .logo img {
-        width: 60px;
+        width: 100px; /*60 para 100px*/
     }
 
     .title {
