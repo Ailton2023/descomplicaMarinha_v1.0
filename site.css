@@ -146,47 +146,14 @@ legend {
 }
 
 /* Media Queries para responsividade */
-@media (max-width: 1024px) {
-    main {
-        max-width: 90%;
-        padding: 8px;
-    }
-    #outras_informacoes {
-        width: 90%;
-    }
-    .ultimasAtualizacoes {
-        max-height: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    main {
-        max-width: 95%;
-        padding: 6px;
-    }
-    p {
-        font-size: 18px;
-        max-width: 100%;
-    }
-    fieldset {
-        width: 100%;
-        min-height: 200px;
-    }
-    .ultimasAtualizacoes {
-        max-width: 100%;
-        max-height: 200px;
-    }
-    .conteiner-CentralConteudo {
-        height: 35px;
-    }
-    .descricaoImagens {
-        font-size: 16px;
-        padding: 8px;
-        max-width: 90%;
-    }
-}
-
 @media (max-width: 480px) {
+    body {
+        transform: scale(0.30);
+        transform-origin: top left; /* Define o ponto de origem da escala como topo esquerdo */
+        width: 285.71%; /* Ajusta a largura para compensar a escala (100% / 0.35 ≈ 285.71%) */
+        height: 285.71%; /* Ajusta a altura para compensar a escala */
+        overflow-x: hidden; /* Evita barras de rolagem horizontal indesejadas */
+    }
     main {
         max-width: 100%;
         padding: 5px;
