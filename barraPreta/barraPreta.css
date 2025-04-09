@@ -73,7 +73,7 @@
     }
     #titulo-II {
         top: 65%; /* Ajuste para evitar sobreposição */
-        font-size: clamp(20px, 2vw, 20px); /* Reduzido para telas médias */
+        font-size: clamp(34px, 2vw, 34px); /* Reduzido para telas médias */
     }
 }
 
@@ -86,7 +86,7 @@
     }
     #titulo-II {
         top: 60%; /* Mais espaço em telas pequenas */
-        font-size: clamp(12px, 2vw, 18px); /* Ainda menor */
+        font-size: clamp(28px, 2vw, 28px); /* Ainda menor */
         max-width: 85%; /* Mais controle sobre largura */
     }
 }
