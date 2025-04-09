@@ -148,7 +148,7 @@ legend {
 /* Media Queries para responsividade */
 @media (max-width: 480px) {
     body {
-        transform: scale(0.33);
+        transform: scale(0.35);
         transform-origin: top left; /* Define o ponto de origem da escala como topo esquerdo */
         width: 285.71%; /* Ajusta a largura para compensar a escala (100% / 0.35 ≈ 285.71%) */
         height: 285.71%; /* Ajusta a altura para compensar a escala */
@@ -160,7 +160,11 @@ legend {
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
     p {
-        font-size: 16px;
+        font-size: 18px;
+    }
+
+    h2{
+        font-size: 22px;
     }
     #h2_conteudo_ultimas_noticias {
         top: -10px;
@@ -181,4 +185,5 @@ legend {
         padding: 6px;
         max-width: 100%;
     }
+
 }
