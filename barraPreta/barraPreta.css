@@ -84,7 +84,7 @@
         padding: clamp(5px, 1vw, 10px); /* Padding mínimo */
         min-height: 12vh; /* Altura reduzida */
         border-radius: 10px; /* Bordas menores */
-        background-color: rgb(12, 4, 242);
+        background-color: rgb(242, 226, 4);
     }
 
     #titulo-I {
