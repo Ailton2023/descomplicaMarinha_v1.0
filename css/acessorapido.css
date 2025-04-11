@@ -1,137 +1,120 @@
-português brasileiro para explicar cada parte do CSS. O objetivo é preservar sua estética (cartões com sombra, efeitos de foco, imagens circulares) e garantir que o layout seja adaptável a diferentes tamanhos de tela, usando Flexbox, unidades relativas e consultas de mídia. Vou usar o CSS que você apareceu como base e integrá-lo com as melhorias já discutidas.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-Aqui está o código atualizado com comentários em português:
+/* Container principal que organiza os cartões */
+.conteiner_outrasIFN {
+    display: flex; /* Usa Flexbox para alinhar os cartões */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    justify-content: center; /* Centraliza os cartões */
+    gap: 15px; /* Espaçamento entre cartões */
+    font-size: 12px; /* Tamanho base da fonte */
+    padding: 15px; /* Preenchimento interno */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza na página */
+}
 
-HTML
+/* Estilo de cada cartão individual */
+.outras_inf {
+    display: flex; /* Flexbox para centralizar conteúdo */
+    flex-direction: column; /* Alinha verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center; /* Texto centralizado */
+    background-color: white; /* Fundo branco */
+    padding: 0; /* Sem preenchimento */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin: 10px 0; /* Margem vertical */
+    width: 160px; /* Largura base */
+    height: 140px; /* Altura base */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.5s ease; /* Transições suaves */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
 
-Pré-visualizar
+/* Efeito de hover para o cartão */
+.outras_inf:hover {
+    border: 0.5px solid rgba(0, 0, 0, 0.417); /* Borda no hover */
+    transform: translate(-3px, -3px); /* Levanta o cartão */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623); /* Sombra mais forte */
+}
 
-Recolher
+/* Estilo das imagens nos cartões */
+.outras_inf_img {
+    margin-top: 10px; /* Espaço acima da imagem */
+    width: 80%; /* Largura ajustada */
+    height: 80px; /* Altura para caber no cartão */
+    border-radius: 50%; /* Imagem circular */
+    object-fit: cover; /* Evita distorção */
+}
 
-Encapsular
+/* Estilo do texto abaixo das imagens */
+.p_AcessoRapido {
+    color: black; /* Cor do texto */
+    text-align: center; /* Centraliza */
+    font-size: 14px; /* Tamanho ajustado */
+    margin-top: 8px; /* Espaço acima */
+    text-decoration: none; /* Sem sublinhado */
+}
 
-Copiar
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outras IFN Responsivo</title>
-    <style>
-        /* Reseta margens e preenchimentos padrão para consistência */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Estilo dos links no texto */
+.p_AcessoRapido a {
+    color: #0066cc; /* Cor azul para links */
+    text-decoration: none; /* Sem sublinhado */
+}
 
-        /* Container principal que organiza os cartões */
-        .conteiner_outrasIFN {
-            display: flex; /* Usa Flexbox para alinhar os cartões */
-            flex-wrap: wrap; /* Permite que os cartões quebrem para a próxima linha */
-            justify-content: center; /* Centraliza os cartões horizontalmente */
-            gap: 15px; /* Espaçamento entre os cartões, ajustado de 0.1px */
-            font-size: 12px; /* Tamanho base da fonte */
-            padding: 15px; /* Preenchimento interno do container */
-            max-width: 1200px; /* Largura máxima para telas grandes */
-            margin: 0 auto; /* Centraliza o container na página */
-        }
+/* Efeito de hover nos links */
+.p_AcessoRapido a:hover {
+    text-decoration: underline; /* Sublinha no hover */
+}
 
-        /* Estilo de cada cartão individual */
-        .outras_inf {
-            display: flex; /* Flexbox para centralizar conteúdo dentro do cartão */
-            flex-direction: column; /* Alinha imagem e texto verticalmente */
-            align-items: center; /* Centraliza horizontalmente */
-            justify-content: center; /* Centraliza verticalmente */
-            text-align: center; /* Texto centralizado */
-            background-color: white; /* Fundo branco, conforme seu estilo */
-            padding: 0; /* Sem preenchimento interno, conforme original */
-            border-radius: 10px; /* Bordas arredondadas do cartão */
-            margin: 10px 0; /* Margem ajustada para consistência */
-            width: 160px; /* Largura base do cartão */
-            height: 140px; /* Altura base do cartão */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.5s ease; /* Transições suaves para hover */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve padrão */
-        }
+/* Media query para tablets (telas até 768px) */
+@media (max-width: 768px) {
+    .conteiner_outrasIFN {
+        gap: 10px; /* Reduz espaçamento */
+        padding: 10px; /* Reduz preenchimento */
+        justify-content: space-around; /* Distribui para 4 por linha */
+    }
 
-        /* Efeito de hover para o cartão */
-        .outras_inf:hover {
-            border: 0.5px solid rgba(0, 0, 0, 0.417); /* Borda ao passar o mouse */
-            transform: translate(-3px, -3px); /* Levanta o cartão levemente */
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623); /* Sombra mais forte no hover */
-        }
+    .outras_inf {
+        width: calc(25% - 8px); /* 25% da largura menos o gap para 4 cartões */
+        height: 120px; /* Altura reduzida */
+        min-width: 100px; /* Evita cartões muito pequenos */
+    }
 
-        /* Estilo das imagens dentro dos cartões */
-        .outras_inf_img {
-            margin-top: 10px; /* Espaço acima da imagem, ajustado de 16px */
-            width: 80%; /* Largura ajustada para evitar estouro */
-            height: 80px; /* Altura reduzida para caber no cartão */
-            border-radius: 50%; /* Mantém a imagem circular */
-            object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
-        }
+    .outras_inf_img {
+        width: 70%; /* Imagem menor */
+        height: 60px; /* Altura ajustada */
+    }
 
-        /* Estilo do texto abaixo das imagens */
-        .p_AcessoRapido {
-            color: black; /* Cor do texto */
-            text-align: center; /* Centraliza o texto */
-            font-size: 14px; /* Tamanho ajustado de 18px para melhor escalabilidade */
-            margin-top: 8px; /* Espaço acima do texto */
-            text-decoration: none; /* Remove sublinhado padrão */
-        }
+    .p_AcessoRapido {
+        font-size: 12px; /* Fonte menor */
+    }
+}
 
-        /* Estilo dos links dentro do texto */
-        .p_AcessoRapido a {
-            color: #0066cc; /* Cor azul para links */
-            text-decoration: none; /* Remove sublinhado padrão */
-        }
+/* Media query para celulares (telas até 480px) */
+@media (max-width: 480px) {
+    .conteiner_outrasIFN {
+        gap: 8px; /* Espaçamento menor */
+        padding: 8px; /* Preenchimento reduzido */
+        justify-content: space-around; /* Garante 4 por linha */
+    }
 
-        /* Efeito de hover nos links */
-        .p_AcessoRapido a:hover {
-            text-decoration: underline; /* Sublinha ao passar o mouse */
-        }
+    .outras_inf {
+        width: calc(25% - 6px); /* 25% da largura menos o gap */
+        height: 100px; /* Altura ainda menor */
+        min-width: 80px; /* Tamanho mínimo */
+    }
 
-        /* Media query para tablets (telas até 768px) */
-        @media (max-width: 768px) {
-            .conteiner_outrasIFN {
-                gap: 10px; /* Reduz o espaçamento entre cartões */
-                padding: 10px; /* Reduz o preenchimento do container */
-            }
+    .outras_inf_img {
+        width: 65%; /* Imagem compacta */
+        height: 50px; /* Altura reduzida */
+        margin-top: 8px; /* Margem ajustada */
+    }
 
-            .outras_inf {
-                width: 130px; /* Reduz a largura do cartão */
-                height: 120px; /* Reduz a altura do cartão */
-            }
-
-            .outras_inf_img {
-                width: 75%; /* Reduz a largura da imagem */
-                height: 65px; /* Reduz a altura da imagem */
-            }
-
-            .p_AcessoRapido {
-                font-size: 12px; /* Reduz o tamanho da fonte */
-            }
-        }
-
-        /* Media query para celulares (telas até 480px) */
-        @media (max-width: 480px) {
-            .conteiner_outrasIFN {
-                gap: 8px; /* Espaçamento ainda menor */
-                padding: 8px; /* Preenchimento reduzido */
-            }
-
-            .outras_inf {
-                width: 110px; /* Cartão menor para telas pequenas */
-                height: 100px; /* Altura reduzida */
-            }
-
-            .outras_inf_img {
-                width: 70%; /* Imagem ainda menor */
-                height: 55px; /* Altura ajustada */
-                margin-top: 8px; /* Margem ajustada */
-            }
-
-            .p_AcessoRapido {
-                font-size: 11px; /* Fonte menor para caber */
-                margin-top: 6px; /* Espaço reduzido */
-            }
-        }
+    .p_AcessoRapido {
+        font-size: 10px; /* Fonte pequena */
+        margin-top: 6px; /* Espaço reduzido */
+    }
+}
