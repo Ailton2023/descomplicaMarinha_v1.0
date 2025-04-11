@@ -118,6 +118,7 @@ legend {
     font-family: "Tomorrow", var(--fonte-padrao);    
     justify-content: center;
     align-items: center;
+   
     height: 40px;
     margin: 10px 0;
     background-color: var(--cor8);

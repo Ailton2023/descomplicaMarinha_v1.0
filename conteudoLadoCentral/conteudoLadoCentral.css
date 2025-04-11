@@ -90,6 +90,14 @@ a {
     text-align: justify;
 }
 
+.cabecalhoPrincipalSite {
+    font-size: 20px;
+    margin: 0 0 20px;
+    text-align: center;
+    color: white;
+    background-color: #003087;
+    padding: 10px;
+}
 /*COFIGURAÇÕES DO MENU CENTRAL DE CONDEÚDO*/
 
 .título-CentralConteudo{
@@ -116,4 +124,6 @@ conteiner-scroll:hover{
     .p_texto_Site {
         font-size: 20px;
       }
+
+      
 }
