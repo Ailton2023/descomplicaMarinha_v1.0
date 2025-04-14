@@ -1,0 +1,49 @@
+
+.cards-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap; /* Allows wrapping to the next line */
+    justify-content: center; /* Centers cards horizontally */
+    gap: 10px; /* Adds spacing between cards */
+    
+}
+
+.card{
+    width: 250px;
+    margin: auto;
+    background-color: #2e58a2;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    text-align: center; /* Centers text */
+ 
+}
+
+.card img{
+    width: 200px;
+}
+ 
+
+@media screen and (max-width: 500px) and (orientation: portrait){ /*landscape*/
+main{
+    background-color: yellowgreen;
+    display: flex;
+   }
+
+   .cards-container{
+    flex-direction: column;
+}
+} 
+
+
+
+
+@media  screen and (min-width: 501px) { /* > de 600px de largura muda de cor*/
+ 
+ }
+ 

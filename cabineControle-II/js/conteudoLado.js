@@ -19,5 +19,5 @@ function showContent(contentId) {
 
 // Executa ao carregar a página: mostra o 'content1' por padrão
 document.addEventListener('DOMContentLoaded', () => {
-    showContent('content1');
+    showContent('dashboard');
 });

@@ -1,24 +1,25 @@
-
 .gallery-wrapper {
-    margin: 0;
+    margin: 0 auto; /* Centers the wrapper horizontally */
     padding: 0;
-    width: 650px;
+    width: 100%; /* Full width for responsiveness */
+    max-width: 1000px; /* Matches container width */
     position: relative;
     margin-top: -9px;
 }
 
 .gallery-container {
     width: 100%;
+    max-width: 1000px; /* Fixed width for larger screens */
     height: 430px;
     position: relative;
     overflow: hidden;
-    border-radius: 2px;
-
+    margin: 0 auto; /* Centers container */
+    border-radius: 10px;
 }
 
 .gallery {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Use full container height for consistency */
     display: flex;
     transition: transform 0.5s ease;
 }
@@ -35,12 +36,15 @@
     top: 50%;
     transform: translateY(-50%);
     width: 40px;
-    height: 20px;
+    height: 40px; /* Increased height for better usability */
     border-radius: 5px;
     border: 2px solid #333;
     background-color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px; /* Slightly larger for visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
@@ -51,11 +55,11 @@
 }
 
 .prev-btn {
-    left: -20px;
+    left: -10px; /* Moved inside container for visibility */
 }
 
 .next-btn {
-    right: -20px;
+    right: -10px; /* Consistent positioning */
 }
 
 .dots-container {
@@ -76,11 +80,11 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dot.active {
-    background-color: #2E58A2;
+    background-color: #2e58a2;
     transform: scale(1.2);
 }
 
@@ -92,24 +96,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 14px;
-    height: 14px;   
+    width: 24px; /* Increased for better clickability */
+    height: 24px;
     border-radius: 50%;
     margin: 0 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    font-size: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 12px; /* Adjusted for visibility */
 }
 
-.play-btn { 
-    padding-left: 1.5px;   
+.play-btn {
+    padding-left: 2px; /* Slight adjustment for icon centering */
     background-color: limegreen;
 }
 
-.pause-btn {    
-    background-color: rgba(255, 0, 0, 0.809);   
+.pause-btn {
+    background-color: rgba(255, 0, 0, 0.809);
 }
 
 .play-btn:hover, .pause-btn:hover {
@@ -117,6 +121,28 @@
 }
 
 .play-btn.active, .pause-btn.active {
-    background-color: #2E58A2;
+    background-color: #2e58a2;
     transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .gallery-container {
+        max-width: 90%; /* Scales down for smaller screens */
+        height: 350px; /* Adjust height for responsiveness */
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+
+    .next-btn {
+        right: 5px;
+    }
 }

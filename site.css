@@ -40,23 +40,24 @@ body {
 /* Estrutura principal */
 main {
     width: 100%;
-    max-width: 1100px;
+    max-width: 68.75em; /* 1100px / 16 = 68.75em */
     margin: 0 auto;
-    padding: clamp(5px, 1vw, 10px);
+    padding: clamp(0.3125em, 1vw, 0.625em); /* 5px = 0.3125em, 10px = 0.625em */
     background-color: #fafafa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.475);
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.475); /* 10px = 0.625em */
     min-height: 100vh;
     position: relative;
+    margin-top: 130px;
 }
 
 /* Parágrafos */
 p {
     text-align: left;
     font-family: "Chakra Petch", var(--fonte-padrao);
-    font-weight: 300;
-    font-size: clamp(16px, 2vw, 20px);
-    max-width: 800px;
-    margin: 5px 0;
+    font-weight: bold;
+    font-size: clamp(1em, 2vw, 1.0em); /* 16px = 1em, 20px = 1.25em */
+    max-width: 50em; /* 800px = 50em */
+    margin: 0.3125em 0; /* 5px = 0.3125em */
     color: black;
 }
 
@@ -64,7 +65,7 @@ p {
 #outras_informacoes {
     text-align: center;
     max-width: 100%;
-    width: clamp(300px, 70%, 700px);
+    /*width: clamp(18.75em, 70%, 43.75em);*/ /* 300px = 18.75em, 700px = 43.75em */
     margin: 0 auto;
 }
 
@@ -72,45 +73,45 @@ p {
 #h2_conteudo_ultimas_noticias {
     display: inline-block;
     background-color: #fafafa;
-    padding: 0 10px;
+    padding: 0 0.625em; /* 10px = 0.625em */
     position: relative;
-    top: -15px;
-    border-radius: 10px;
-    font-size: clamp(16px, 2vw, 18px);
+    top: -0.9375em; /* 15px = 0.9375em */
+    border-radius: 0.625em; /* 10px = 0.625em */
+    font-size: clamp(1em, 2vw, 1.125em); /* 16px = 1em, 18px = 1.125em */
 }
 
 /* Linha divisória */
 .linha {
     border: none;
-    border-top: 1px solid black;
-    margin: 10px 0;
+    border-top: 0.0625em solid black; /* 1px = 0.0625em */
+    margin: 0.625em 0; /* 10px = 0.625em */
 }
 
 /* Fieldset */
 fieldset {
     background-color: #fafafa;
-    width: clamp(250px, 30%, 290px);
+    width: clamp(15.625em, 30%, 18.125em); /* 250px = 15.625em, 290px = 18.125em */
     height: auto;
-    min-height: 235px;
+    min-height: 14.6875em; /* 235px = 14.6875em */
     margin: 0;
-    padding: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.259);
-    border-radius: 10px;
+    padding: 0.3125em; /* 5px = 0.3125em */
+    border: 0.125em solid rgba(0, 0, 0, 0.259); /* 2px = 0.125em */
+    border-radius: 0.625em; /* 10px = 0.625em */
 }
 
 legend {
     text-align: left;
-    padding: 0 5px;
-    margin-left: 15px;
-    font-size: clamp(14px, 1.5vw, 15px);
+    padding: 0 0.3125em; /* 5px = 0.3125em */
+    margin-left: 0.9375em; /* 15px = 0.9375em */
+    font-size: clamp(0.875em, 1.5vw, 0.9375em); /* 14px = 0.875em, 15px = 0.9375em */
 }
 
 /* Últimas atualizações */
 .ultimasAtualizacoes {
     overflow-y: auto;
     max-width: 100%;
-    width: clamp(300px, 80%, 800px);
-    max-height: 300px;
+    width: clamp(18.75em, 80%, 50em); /* 300px = 18.75em, 800px = 50em */
+    max-height: 18.75em; /* 300px = 18.75em */
 }
 
 /* Container central */
@@ -118,27 +119,26 @@ legend {
     font-family: "Tomorrow", var(--fonte-padrao);    
     justify-content: center;
     align-items: center;
-   
-    height: 40px;
-    margin: 10px 0;
+    height: 2.5em; /* 40px = 2.5em */
+    margin: 0.625em 0; /* 10px = 0.625em */
     background-color: var(--cor8);
     font-weight: bold;
     color: #a41616;
-    font-size: clamp(14px, 2vw, 18px);
+    font-size: clamp(0.875em, 2vw, 1.125em); /* 14px = 0.875em, 18px = 1.125em */
 }
 
 /* Descrição de imagens */
 .descricaoImagens {
     text-align: center;
-    margin: 5px auto 10px;
-    font-size: clamp(14px, 2vw, 18px);
+    margin: 0.3125em auto 0.625em; /* 5px = 0.3125em, 10px = 0.625em */
+    font-size: clamp(0.875em, 2vw, 1.125em); /* 14px = 0.875em, 18px = 1.125em */
     line-height: 1.4;
-    padding: 10px;
+    padding: 0.625em; /* 10px = 0.625em */
     word-wrap: break-word;
     font-family: "Chakra Petch", var(--fonte-padrao);
     background-color: #f0f8ff;
-    border-radius: 8px;
-    max-width: clamp(300px, 90%, 700px);
+    border-radius: 0.5em; /* 8px = 0.5em */
+    max-width: clamp(18.75em, 90%, 43.75em); /* 300px = 18.75em, 700px = 43.75em */
     transition: color 0.3s ease;
 }
 
@@ -146,45 +146,136 @@ legend {
     color: #333;
 }
 
+.imagemCiaw {
+    margin-top: 1.25em; /* 20px = 1.25em */
+}
+
+.imagemCiaw h1 {
+    text-align: center;
+}
+    
+.imagemCiaw img {
+    margin-top: 1.25em; /* 20px = 1.25em */
+    width: 31.25em; /* 500px = 31.25em */
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+  
+h1 {
+    font-size: 1.25em; /* 20px = 1.25em */
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); /* 8px = 0.5em, 16px = 1em */
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); /* 8px = 0.5em, 16px = 1em */
+    cursor: pointer;
+    background-color: #042B3D;
+    opacity: 0.9;
+}
+
+ 
+.areaAluno {
+    border: 2px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Mantém o texto à esquerda e o container à direita */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 25px;
+    background-color: darkgoldenrod;
+    margin-top: 0;
+    box-sizing: border-box;
+    padding: 10px; /* Adiciona um pouco de padding para melhor aparência */
+}
+
+.texto {
+    display: flex;
+    align-items: center; /* Garante que o texto dentro da div esteja centralizado verticalmente */
+    padding-left: 10px; /* Pequeno espaçamento à esquerda */
+}
+
+.texto p {
+    margin: 0; /* Remove margens padrão do parágrafo */
+    color: black; /* Cor do texto para contraste com o fundo */
+    font-size: 22px;
+}
+
+.container_areaCandidato {
+    display: flex;
+    justify-content: center; /* Centraliza o texto e o ícone horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 31%; /* Mantém a largura de 50% */
+    background-color: #2e58a258;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 2px; /* Pequeno padding interno */
+    margin: 0; /* Remove margens desnecessárias */
+}
+
+.p_areaCandidatoAcesso {
+    font-size: 18px;
+    color: black; /* Cor para contraste com o fundo */
+    margin: 0 10px 0 0; /* Margem à direita para separar do ícone */
+}
+
+.container_areaCandidato:hover{
+    border: 2px solid white;
+}
+.areaCandidatoAcesso {
+    width: 40px; /* Tamanho do ícone */
+    height: auto; /* Mantém proporção */
+}
 /* Media Queries para responsividade */
-@media (max-width: 480px) {
+@media (max-width: 30em) { /* 480px = 30em */
     body {
         transform: scale(0.35);
-        transform-origin: top left; /* Define o ponto de origem da escala como topo esquerdo */
-        width: 285.71%; /* Ajusta a largura para compensar a escala (100% / 0.35 ≈ 285.71%) */
-        height: 285.71%; /* Ajusta a altura para compensar a escala */
-        overflow-x: hidden; /* Evita barras de rolagem horizontal indesejadas */
+        transform-origin: top left;
+        width: 285.71%;
+        height: 285.71%;
+        overflow-x: hidden;
     }
     main {
         max-width: 100%;
-        padding: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        padding: 0.3125em; /* 5px = 0.3125em */
+        box-shadow: 0 0 0.3125em rgba(0, 0, 0, 0.3); /* 5px = 0.3125em */
     }
     p {
-        font-size: 24px;
+        font-size: 1.5em; /* 24px = 1.5em */
     }
 
-    h2{
-        font-size: 28px;
+    h2 {
+        font-size: 1.75em; /* 28px = 1.75em */
     }
     #h2_conteudo_ultimas_noticias {
-        top: -10px;
+        top: -0.625em; /* 10px = 0.625em */
     }
     fieldset {
         width: 100%;
-        min-height: 180px;
+        min-height: 11.25em; /* 180px = 11.25em */
     }
     .ultimasAtualizacoes {
-        max-height: 150px;
+        max-height: 9.375em; /* 150px = 9.375em */
     }
     .conteiner-CentralConteudo {
-        height: 30px;
-        font-size: 24px;
+        height: 1.875em; /* 30px = 1.875em */
+        font-size: 1.5em; /* 24px = 1.5em */
     }
     .descricaoImagens {
-        font-size: 16px;
-        padding: 6px;
+        font-size: 1em; /* 16px = 1em */
+        padding: 0.375em; /* 6px = 0.375em */
         max-width: 100%;
     }
-
 }

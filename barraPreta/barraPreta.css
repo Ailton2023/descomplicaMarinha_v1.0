@@ -3,13 +3,15 @@
     background-color: #000; /* Fundo preto */
     padding: clamp(10px, 2vw, 20px); /* Espaçamento interno controlado */
     text-align: center; /* Centraliza horizontalmente */
-    border-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     position: relative;
     min-height: 20vh; /* Altura mínima relativa */
     width: 100%; /* Largura total */
     margin: 0 auto; /* Centraliza na página */
     box-sizing: border-box; /* Inclui padding na largura/altura */
     overflow: hidden; /* Evita vazamento de conteúdo animado */
+    margin-bottom: 0px;
 }
 
 /* Estilo do título principal */
@@ -18,16 +20,16 @@
     font-size: clamp(18px, 4vw, 35px); /* Ajuste leve para melhor escalabilidade */
     font-weight: bold;
     letter-spacing: 1.5px; /* Reduzido para legibilidade */
-    margin-bottom: clamp(0.5rem, 1vw, 1rem); /* Margem relativa controlada */
+   /* margin-bottom: clamp(0.5rem, 1vw, 1rem); /* Margem relativa controlada */
 }
 
 /* Estilo do título secundário com animação */
 #titulo-II {
     position: absolute;
-    top: 70%; /* Mantido, mas ajustável via media query */
+    top: 52%; /* Mantido, mas ajustável via media query */
     left: 50%;
     transform: translateX(-50%); /* Apenas X, já que Y é menos crítico aqui */
-    font-size: clamp(16px, 2.5vw, 24px); /* Ajuste para telas menores */
+    font-size: clamp(30px, 2.5vw, 24px); /* Ajuste para telas menores */
     font-weight: bold;
     color: white;
     text-shadow: 0 0 10px rgba(0, 68, 204, 0.5), 0 0 20px rgba(0, 68, 204, 0.7);

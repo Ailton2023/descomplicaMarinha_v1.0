@@ -30,13 +30,18 @@
 
 /* Estiliza os itens da lista na sidebar */
 .container-dados {
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    text-align: justify;
-    padding-left: 5px;
-    padding-right: 10px;
+    text-align: justify; 
+    padding: 10px;
+
+}
+
+a{
+   text-decoration: none;
 }
 
 /* Estiliza o texto dentro dos itens da sidebar */
@@ -45,6 +50,7 @@
     text-align: justify;
     line-height: 1.5em;
     margin-top: 15px;
+    list-style-type: none;
 }
 
 /* Define o efeito ao passar o mouse sobre o texto */
@@ -299,6 +305,10 @@ button#corBotaoEmProducao a {
     background-color: #002366;
 }
 
+.bono{
+    width: 10px;
+    height: 20px;
+}
 /* Estiliza o rodapé */
 .footer {
     background-color: #071d41;
@@ -446,6 +456,21 @@ button#corBotaoEmProducao a {
     }
 }
 
+ 
+
+.dashboard h1{
+text-align: center;
+
+}
+
+
+.dashboard img {
+    width: 500px;
+    display: block; /* Remove flex, já que é uma imagem única */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+
 /* Telas até 480px (celulares) */
 @media (max-width: 480px) {
     body {
@@ -481,4 +506,6 @@ button#corBotaoEmProducao a {
     .nome_curso {
         font-size: 16px; /* Reduz o título para caber bem */
     }
+
+ 
 }

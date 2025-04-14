@@ -1,0 +1,153 @@
+/* === ESTILOS GERAIS E CABEÇALHO === */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Reserva espaço para o cabeçalho fixo */
+    background-color: #DDF0FB;
+}
+
+.cabeçalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #042B3D;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+
+.cabeçalho-fixo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+img {
+    width: 65px; /* Logo no cabeçalho */
+}
+
+.cabeçalho p {
+    color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.título {
+    color: white;
+    font-size: 28px;
+}
+
+.imgPrincipal {
+    width: 100%;
+    height: 400px;
+}
+
+ 
+ 
+/* Container geral dos cards */
+.container-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px;
+    
+  }
+  
+  .card {
+    width: 200px;
+    height: 260px;
+    perspective: 1000px;
+   
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+    top: -150px;
+   
+    
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+      
+  }
+  
+  /* Frente do card */
+  .card-front {
+    background-color: #000;
+    z-index: 2;
+ 
+  }
+  
+  .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transform: translateY(15px)
+  }
+  
+  .card-front .Disc_Foco_Exec {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  
+  /* Verso do card */
+  .card-back {
+    background-color: #1e1e1e;
+    color: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 0px;
+  }
+  
+  .card-back .Disc_Foco_Exec {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-back .Text_Disciplina {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+
+.Frase-01{
+    text-align: center;
+    margin-top: -150px;
+    font-size: 20px;
+}
+
+.card-apostilha{
+    
+}

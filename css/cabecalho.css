@@ -14,16 +14,22 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
+    
 }
 
 /* Cabeçalho */
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: #2E58A2; /* Azul institucional */
+    background-color: #042b3d; /* Azul institucional */
     color: #fff;
+ 
+
+
+    
 }
 
 .logo img {
@@ -109,6 +115,11 @@ body {
 
 .candidate-area:hover {
     background-color: #1d3b6d; /* Azul mais escuro no hover */
+}
+
+/**/
+.conteinerSubCabecalho {
+     
 }
 
 /* Responsividade */

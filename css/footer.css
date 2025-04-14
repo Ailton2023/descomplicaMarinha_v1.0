@@ -3,50 +3,49 @@
 
 /* Footer */
 footer {
-    background-color: #2E58A2;
+    background-color: #042B3D;
     color: white;
     text-align: center;
-    padding: clamp(10px, 2vw, 20px); /* Padding ajustável */
+    padding: clamp(0.625em, 2vw, 1.25em); /* 10px = 0.625em, 20px = 1.25em */
     width: 100%;
 }
 
 /* Container dos quatro cards */
 .conteiner-quatroCards {
     width: 100%;
-    max-width: 1150px;
+    max-width: 71.875em; /* 1150px = 71.875em */
     margin: 0 auto;
     display: flex;
-    gap: clamp(20px, 3vw, 40px); /* Gap responsivo */
+    gap: clamp(1.25em, 3vw, 2.5em); /* 20px = 1.25em, 40px = 2.5em */
     font-family: "Tomorrow", Arial, Helvetica, sans-serif;
-    padding: clamp(5px, 1vw, 10px);
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    padding: clamp(0.3125em, 1vw, 0.625em); /* 5px = 0.3125em, 10px = 0.625em */
+    flex-wrap: wrap;
 }
 
 /* Card individual */
 .card-curso {
-    width: clamp(200px, 22%, 250px); /* Largura responsiva */
-    min-width: 200px; /* Evita colapso em telas muito pequenas */
+    width: clamp(12.5em, 22%, 15.625em); /* 200px = 12.5em, 250px = 15.625em */
+    min-width: 12.5em; /* 200px = 12.5em */
 }
 
 /* Logo e texto */
 .logoTexto {
     display: flex;
-    justify-content: flex-start; /* Corrigido de 'left' para 'flex-start' */
+    justify-content: flex-start;
     align-items: center;
 }
 
 /* Texto do logo */
 .ptexto-logo {
     color: white;
-    font-size: clamp(10px, 1.5vw, 14px); /* Tamanho ajustável */
-    align-items: center; /* Não tem efeito aqui, movido para o container se necessário */
+    font-size: clamp(0.625em, 1.5vw, 0.875em); /* 10px = 0.625em, 14px = 0.875em */
 }
 
 /* Texto dos cards de curso */
 .texto-cards-curso {
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(1em, 2vw, 1.125em); /* 16px = 1em, 18px = 1.125em */
     text-align: justify;
-    transition: font-weight 0.3s ease; /* Suaviza a transição */
+    transition: font-weight 0.3s ease;
 }
 
 .texto-cards-curso:hover {
@@ -56,14 +55,14 @@ footer {
 /* Título dos cards */
 .titulo-cards {
     color: white;
-    font-size: clamp(20px, 3vw, 25px);
+    font-size: clamp(1.25em, 3vw, 1.5625em); /* 20px = 1.25em, 25px = 1.5625em */
     font-weight: bold;
 }
 
 /* Texto genérico dos cards */
 .text-cards {
-    font-size: clamp(16px, 2vw, 18px);
-    transition: font-weight 0.3s ease; /* Suaviza a transição */
+    font-size: clamp(1em, 2vw, 1.125em); /* 16px = 1em, 18px = 1.125em */
+    transition: font-weight 0.3s ease;
 }
 
 .text-cards:hover {
@@ -71,51 +70,50 @@ footer {
 }
 
 /* Media Queries para responsividade */
-@media (max-width: 1024px) {
+@media (max-width: 64em) { /* 1024px = 64em */
     .conteiner-quatroCards {
         max-width: 90%;
-        gap: 30px;
+        gap: 1.875em; /* 30px = 1.875em */
     }
     .card-curso {
-        width: clamp(180px, 25%, 230px);
+        width: clamp(11.25em, 25%, 14.375em); /* 180px = 11.25em, 230px = 14.375em */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) { /* 768px = 48em */
     .conteiner-quatroCards {
-        justify-content: center; /* Centraliza os cards */
-        gap: 20px;
+        justify-content: center;
+        gap: 1.25em; /* 20px = 1.25em */
     }
     .card-curso {
-        width: clamp(160px, 45%, 250px); /* Aumenta a largura relativa */
+        width: clamp(10em, 45%, 15.625em); /* 160px = 10em, 250px = 15.625em */
     }
     .titulo-cards {
-        font-size: 22px;
+        font-size: 1.375em; /* 22px = 1.375em */
     }
     .texto-cards-curso, .text-cards {
-        font-size: 16px;
+        font-size: 1em; /* 16px = 1em */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30em) { /* 480px = 30em */
     .conteiner-quatroCards {
-        flex-direction: column; /* Empilha os cards verticalmente */
+        flex-direction: column;
         align-items: center;
-        gap: 15px;
-        padding: 5px;
+        gap: 0.9375em; /* 15px = 0.9375em */
+        padding: 0.3125em; /* 5px = 0.3125em */
     }
     .card-curso {
-        width: 100%; /* Ocupa toda a largura disponível */
-        max-width: 300px;
+        width: 100%;
+        max-width: 18.75em; /* 300px = 18.75em */
     }
     .titulo-cards {
-        font-size: 20px;
+        font-size: 1.25em; /* 20px = 1.25em */
     }
     .ptexto-logo {
-        font-size: 12px;
+        font-size: 0.75em; /* 12px = 0.75em */
     }
 }
-
 
 
 
