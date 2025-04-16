@@ -5,20 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site</title>
     <link rel="stylesheet" href="site-II.css">
+     
+    <link rel="stylesheet" href="css/transicaoImagenscabecalho.css">  
 </head>
 <body>
     <header>
         <section>
             <div class="cabeçalho cabeçalho-fixo">
-                <img src="imagens/ancora_nova-150-px.png" alt="Logo">  
+                <img style="width: 90px;" src="imagens/ancora_nova-150-px.png" alt="Logo">  
                 <span class="título">DESCOMPLICA MARINHA</span>
                 <p class="acesso">Área do Candidato</p>
             </div>
-        </section>
+        </section>        
     </header>
-    <main>
-      <img class="imgPrincipal" src="imagens/ciaw-formatura.jpg" alt="">
+ 
+   
 
+    <main>
+        <div class="gallery-wrapper">
+            <div class="gallery-container">
+                <div class="gallery">
+                    <img src="imagens/cbinc.png" alt="Imagem 1">
+                    <img src="imagens/cerimonialMB.jpg" alt="Imagem 2">
+                    <img src="imagens/mb_navios.jpg" alt="Imagem 3">
+                </div>
+            </div>
+            <button class="nav-btn prev-btn" onclick="prevImage()"><</button>
+            <button class="nav-btn next-btn" onclick="nextImage()">></button>
+            <div class="dots-container">
+                <span class="play-btn" onclick="startAutoSlide()">▶</span>
+                <!-- Os pontos serão gerados via JavaScript -->
+                <span class="pause-btn" onclick="pauseAutoSlide()">⏸</span>
+            </div>
+        </div>
+
+        <div id="outras_informacoes">
+            <hr class="linha"> <!-- Linha preta -->
+            <div class="conteudo-azul" style="background-color:  #042B3D;">
+                <h2 id="h2_conteudo_ultimas_noticias">  Tenha essas qualidades, e seja aprovado no CA-AA-AFN/ 2025 </h2>
+            </div>
+            <hr class="linha"> <!-- Linha preta -->
+        </div>
+    
         <div class="container-cards">
             <div class="card">
             <div class="card-inner">
@@ -62,37 +90,128 @@
       </div>
       
       <section class="Frase-01">
-        <p>Tenha essas qualidades, e seja aprovado no CA-AA-AFN/ 2025   </p>
+        
 
       </section>
+ 
 
-      <section>
+      <div id="outras_informacoes">
+        <hr class="linha"> <!-- Linha preta -->
+        <div class="conteudo-azul" style="background-color:  #042B3D;">
+            <h2 id="h2_conteudo_ultimas_noticias">  Estude conosco as materias do CA-AA-AFN/2025</h2>
+        </div>
+        <hr class="linha"> <!-- Linha preta -->
+    </div>
+
+      <section class="container-card-apostilha">
+     
         <div class="card-apostilha">
+            <img src="imagens/OGSA.png" alt="logo Marinha do Brasil">
             <p>OGSA</p>
         </div>
+
         <div class="card-apostilha">
+            <img src="imagens/lideranca.png" alt="logo Marinha do Brasil">
+            <p>LIDERANÇA</p>    
+        </div>
+
+        <div class="card-apostilha">
+            <img src="imagens/procedimentos.png" alt="logo Marinha do Brasil">
+            <p>Proc Marinheiros</p>     
+        </div>
+
+        <div class="card-apostilha">
+            <img src="imagens/justica-disciplina.png" alt="logo Marinha do Brasil">
+            <p>JUSTIÇA E DISCIPLINA NA MB</p>   
+        </div>
+
+          
+        <div class="card-apostilha">
+            <img src="imagens/docAdministrativa.png" alt="logo Marinha do Brasil">
+            <p>DOCUMENTAÇÃO ADMINISTRATIVA NA MB</p>    
+        </div>
+
+        <div class="card-apostilha">
+            <img src="imagens/cerimonialMB-II.png" alt="logo Marinha do Brasil">
             <p>Cerimonial da Marinha</p>    
         </div>
         <div class="card-apostilha">
+            <img src="imagens/cbinc.png" alt="logo Marinha do Brasil">
             <p>Doc Administrativa</p>    
         </div>
-        <div class="card-apostilha">
-            <p>Proc Marinheiros</p>     
-        </div>
-        <div class="card-apostilha">
-            <p>OGSA</p>    
-        </div>
-        <div class="card-apostilha">
-            <p>OGSA</p>   
-        </div>
-        <div class="card-apostilha">
-            <p>OGSA</p>    
-        </div>
-        <div class="card-apostilha">
-            <p>OGSA</p>   
-        </div>
-      </section>
 
+       
+    
+        <div class="card-apostilha">
+            <img src="imagens/cbinc.png" alt="logo Marinha do Brasil">
+            <p>LEGISLAÇÃO MILITAR-NAVAL</p>   
+        </div>
+    </section>
+
+    <div id="outras_informacoes">
+        <hr class="linha"> <!-- Linha preta -->
+        <div class="conteudo-azul" style="background-color:  #042B3D;">
+            <h2 id="h2_conteudo_ultimas_noticias">O candidato terá acesso!</h2>
+        </div>
+        <hr class="linha"> <!-- Linha preta -->
+    </div>
+
+    <div class="carousel-wrapper">
+        <button class="nav-button" id="prevBtn">&#8592;</button>
+      
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="card-carrossel">
+                <img class="icons_carrossel"   style="margin-top: 60px;" src="icons/icon_exer-I.png" alt="">
+                <p class="p_carrossel">MUITOS EXERCÍCIOS</p>
+                <P>
+                    Todo apoio para você praticar bastante e resoluções em vídeo para sanar qualquer dúvida.
+                </P>
+            </div>
+
+            
+            <div class="card-carrossel"> 
+                <img class="icons_carrossel"   style="margin-top: 60px;" src="icons/icon_simulados.png" alt="">
+                <p class="p_carrossel">SIMULADOS</p>
+                <p>
+                    Essenciais para compreender sua evolução e identificar os pontos que podem ser aprimorados.</p>
+            </div>
+
+
+            <div class="card-carrossel">
+                <img class="icons_carrossel"   style="margin-top: 60px;" src="icons/metodo-exclusivo.png" alt="">
+                <p class="p_carrossel">MÉTODO EXCLUSIVO</p>
+                <p>
+                    Desenvolvido por quem já foi candidato e conhece muito bem as provas.</p>
+            </div>
+            <div class="card-carrossel">
+                <img class="icons_carrossel"   style="margin-top: 60px;" src="icons/metodo_DS.png" alt="">
+                <p class="p_carrossel">PLANTÕES DE DÚVIDA</p>
+                <p>
+                    Atendimento via Whatsapp.
+                </p>
+
+            </div>
+            
+          </div>
+        </div>
+      
+        <button class="nav-button" id="nextBtn">&#8594;</button>
+    </div>
+      
+      <div class="dots" id="dotsContainer"></div>
+
+
+      <div id="outras_informacoes">
+        <hr class="linha"> <!-- Linha preta -->
+        <div class="conteudo-azul" style="background-color:  #042B3D;"> 
+            <h2 id="h2_conteudo_ultimas_noticias"> Nossas mídas digitais</h2>
+        </div>
+        <hr class="linha"> <!-- Linha preta -->
+    </div>
     </main>
+
+    
+    <script src="js/transicaoImagenscabecalho.js"></script>
 </body>
 </html>

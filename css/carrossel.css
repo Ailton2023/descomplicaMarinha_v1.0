@@ -1,0 +1,109 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 660px;
+  margin-left: 120px;
+ 
+}
+
+.carousel-container {
+  overflow: hidden;
+  margin: 0;
+  
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  
+}
+
+.card-carrossel {
+  width: 200px;
+  height: 250px;
+  margin: 0 10px;
+  padding: 10px;
+  background-color:#042B3D;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  flex-shrink: 0;
+  overflow: hidden;
+  
+}
+
+.p_carrossel{
+  color: white;
+  font-weight:bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  transform: translateY(-10px);
+  
+}
+
+
+p{
+  color: white;
+  text-align: center;
+  transform: translateY(-22px);
+  font-size: 18px;
+}
+
+.icons_carrossel{
+  transform: translateY(-20px);
+  padding: 0;
+  width: 50px;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#prevBtn {
+  left: -40px;
+}
+
+#nextBtn {
+  right: -40px;
+}
+
+.dots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #007bff;
+}

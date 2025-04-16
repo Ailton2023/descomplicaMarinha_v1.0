@@ -2,15 +2,15 @@
     margin: 0 auto; /* Centers the wrapper horizontally */
     padding: 0;
     width: 100%; /* Full width for responsiveness */
-    max-width: 1000px; /* Matches container width */
+    max-width: 1800px; /* Matches container width */
     position: relative;
-    margin-top: -9px;
+    margin-top: 150px;
 }
 
 .gallery-container {
     width: 100%;
-    max-width: 1000px; /* Fixed width for larger screens */
-    height: 430px;
+    max-width: 1800px; /* Fixed width for larger screens */
+    height: 600px;
     position: relative;
     overflow: hidden;
     margin: 0 auto; /* Centers container */

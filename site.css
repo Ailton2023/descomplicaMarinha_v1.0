@@ -40,14 +40,14 @@ body {
 /* Estrutura principal */
 main {
     width: 100%;
-    max-width: 68.75em; /* 1100px / 16 = 68.75em */
+    /*max-width: 68.75em; /* 1100px / 16 = 68.75em */
     margin: 0 auto;
     padding: clamp(0.3125em, 1vw, 0.625em); /* 5px = 0.3125em, 10px = 0.625em */
     background-color: #fafafa;
     box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.475); /* 10px = 0.625em */
     min-height: 100vh;
     position: relative;
-    margin-top: 130px;
+    margin-top: 0px;
 }
 
 /* Parágrafos */
@@ -238,6 +238,12 @@ h1 {
     width: 40px; /* Tamanho do ícone */
     height: auto; /* Mantém proporção */
 }
+
+/*LINHA*/
+
+
+
+
 /* Media Queries para responsividade */
 @media (max-width: 30em) { /* 480px = 30em */
     body {
