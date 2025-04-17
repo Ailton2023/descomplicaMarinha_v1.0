@@ -178,7 +178,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1800px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -194,7 +194,8 @@ main {
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
-  padding-top: 20px;
+  padding-top: 0px;
+  margin-bottom: 0PX;
 }
 
 .card-apostilha p {
@@ -203,11 +204,12 @@ main {
   color: black;
   text-align: center;
   margin: 0;
-  padding: 40px;
+  padding: 0px;
+  margin-top: 10px;
 }
 
 .card-apostilha img {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 90%;
   height: 60%;
   border-radius: 10px;
@@ -259,7 +261,7 @@ h1 {
 @media (max-width: 768px) {
   .container-card-apostilha {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
@@ -335,11 +337,11 @@ h1 {
   }
 
   .card-front .Disc_Foco_Exec {
-    font-size: 16px; /* Reduz o tamanho da fonte da frente do card para melhor visualização */
+    font-size: 12px; /* Reduz o tamanho da fonte da frente do card para melhor visualização */
   }
 
   .card-back .Disc_Foco_Exec {
-    font-size: 16px; /* Reduz o tamanho da fonte do verso do card também */
+    font-size: 12px; /* Reduz o tamanho da fonte do verso do card também */
   }
 
   .card-back .Text_Disciplina {
@@ -347,12 +349,12 @@ h1 {
   }
 
   .Frase-01 {
-    font-size: 16px; /* Ajusta a fonte da frase destacada */
+    font-size: 14px; /* Ajusta a fonte da frase destacada */
   }
 
   .card-apostilha p {
     font-size: 14px;  /* Reduz o tamanho da fonte dos parágrafos na apostila */
-    padding: 20px;    /* Garante espaço interno (respiro) nos textos */
+    padding: 15px;    /* Garante espaço interno (respiro) nos textos */
   }
 }
 }
