@@ -17,7 +17,7 @@ main {
   padding: 0 10px;
 }
 
-.cabeçalho {
+.cabecalho {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,15 +33,14 @@ main {
 
 .cabeçalho img {
   width: 150px;
-
 }
 
-.cabeçalho .título {
+  .titulo {
   color: white;
   font-size: 50px;
   margin: 0;
   font-weight: bold;
-   white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .cabeçalho p {
@@ -51,42 +50,36 @@ main {
   border-radius: 10px;
   padding: 5px 10px;
   margin: 0 10px 0 0;
-  flex-wrap: nowrap;        /* Impede quebra de linha */
+  flex-wrap: nowrap;
 }
 
-.acesso{
+.acesso {
   font-size: 18px;
   color: white;
-  border: 2px solid white ;
+  border: 2px solid white;
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
-
- 
-
- 
 }
 
 /*SUBCABEÇALHO*/
-.subCabecalho{
+.subCabecalho {
   background-color: #0F4C9C;
   margin-top: 150px;
-  height:60px;
+  height: 60px;
   display: flex;
-  justify-content: flex-end;  /* Centraliza horizontalmente */
-  align-items: center;      /* Centraliza verticalmente */
+  justify-content: flex-end;
+  align-items: center;
   padding: 20px;
-
 }
 /*SUBCABEÇALHO*/
-
 
 .container-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding: 0px;
 }
 
 .card {
@@ -195,7 +188,14 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
   padding-top: 0px;
-  margin-bottom: 0PX;
+  margin-bottom: 0px;
+}
+
+.card-apostilha img {
+  margin-top: 5px; /* REDUZIDO */
+  width: 90%;
+  height: 60%;
+  border-radius: 10px;
 }
 
 .card-apostilha p {
@@ -204,15 +204,8 @@ main {
   color: black;
   text-align: center;
   margin: 0;
-  padding: 0px;
-  margin-top: 10px;
-}
-
-.card-apostilha img {
-  margin-top: 30px;
-  width: 90%;
-  height: 60%;
-  border-radius: 10px;
+  padding: 0;
+  margin-top: 3px; /* MAIS PRÓXIMO DA IMAGEM */
 }
 
 .card-apostilha:hover {
@@ -245,7 +238,7 @@ h1 {
   position: relative;
   top: -0.9375em;
   border-radius: 0.625em;
-  font-size: 28px
+  font-size: 28px;
 }
 
 /* ====== RESPONSIVIDADE ====== */
@@ -259,103 +252,99 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .container-card-apostilha {
+  .container-cards {
+    transform: scale(0.95);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
   }
 
-  .cabeçalho img{
+  .container-card-apostilha {
+    transform: scale(0.95);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 15px;
+  }
+
+  .cabeçalho img {
     width: 85px;
   }
 
-  .cabeçalho {    
+  .cabeçalho {
     height: auto;
     padding: 10px;
     gap: 5px;
   }
+
   .cabeçalho .título {
     font-size: 20px;
-    text-align: center;      
+    text-align: center;
   }
- 
-  .subCabecalho{
+
+  .subCabecalho {
     margin-top: 100px;
   }
 
-  .acesso{
+  .acesso {
     font-size: 15px;
-  
   }
 
-  #h2_texto_barra-azul{
-    font-size: 12px;
+  #h2_texto_barra-azul {
+    font-size: 10px;
   }
 
-  .gallery-container {   
+  .gallery-container {
     height: 500px;
-}
-  
-.card {
-  width: 120px;
-  height: 160px;
- 
-}
-
-
-.container-card-apostilha {
-  gap: 10px;
-  max-width: 800px;
-  
-  padding: 15px;
-} 
-
-.card-apostilha img {
-  
-  width: 70%;
-  height: 40%;
-  
-}
-
-}
-
-@media (max-width: 480px) {
-  /* Quando a tela tiver no máximo 480px, aplicar essas regras: */
-
-
-  .container-card-apostilha {
-    grid-template-columns: 1fr;
- 
-
-  .container-cards {
-    gap: 10px; /* Define um espaçamento menor entre os cards */
   }
 
   .card {
-    width: 90%;     /* Faz os cards ocuparem 90% da largura do contêiner (mais responsivo) */
-    height: 240px;  /* Ajusta a altura dos cards para caber melhor na tela menor */
+    width: 120px;
+    height: 160px;
   }
 
-  .card-front .Disc_Foco_Exec {
-    font-size: 12px; /* Reduz o tamanho da fonte da frente do card para melhor visualização */
+  .card-apostilha img {
+    width: 70%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-card-apostilha {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 15px;
+    max-width: 100%;
   }
 
+  .container-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card {
+    width: 31%;
+    height: 240px;
+    margin-bottom: 10px;
+  }
+
+  .card-front .Disc_Foco_Exec,
   .card-back .Disc_Foco_Exec {
-    font-size: 12px; /* Reduz o tamanho da fonte do verso do card também */
+    font-size: 12px;
   }
 
   .card-back .Text_Disciplina {
-    font-size: 14px; /* Fonte um pouco menor para o texto da disciplina no verso */
+    font-size: 14px;
   }
 
   .Frase-01 {
-    font-size: 14px; /* Ajusta a fonte da frase destacada */
+    font-size: 14px;
   }
 
   .card-apostilha p {
-    font-size: 14px;  /* Reduz o tamanho da fonte dos parágrafos na apostila */
-    padding: 15px;    /* Garante espaço interno (respiro) nos textos */
+    font-size: 14px;
+    padding: 15px;
   }
 }
-}
- 
