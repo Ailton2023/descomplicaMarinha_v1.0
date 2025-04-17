@@ -304,34 +304,41 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  /* Quando a tela tiver no máximo 480px, aplicar essas regras: */
+
   .container-card-apostilha {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colunas de largura igual */
   }
+
   .container-cards {
-    gap: 10px;
+    gap: 10px; /* Define um espaçamento menor entre os cards */
   }
+
   .card {
-    width: 90%;
-    height: 240px;
+    width: 90%;     /* Faz os cards ocuparem 90% da largura do contêiner (mais responsivo) */
+    height: 240px;  /* Ajusta a altura dos cards para caber melhor na tela menor */
   }
+
   .card-front .Disc_Foco_Exec {
-    font-size: 16px;
+    font-size: 16px; /* Reduz o tamanho da fonte da frente do card para melhor visualização */
   }
+
   .card-back .Disc_Foco_Exec {
-    font-size: 16px;
+    font-size: 16px; /* Reduz o tamanho da fonte do verso do card também */
   }
+
   .card-back .Text_Disciplina {
-    font-size: 14px;
+    font-size: 14px; /* Fonte um pouco menor para o texto da disciplina no verso */
   }
+
   .Frase-01 {
-    font-size: 16px;
+    font-size: 16px; /* Ajusta a fonte da frase destacada */
   }
+
   .card-apostilha p {
-    font-size: 14px;
-    padding: 20px;
+    font-size: 14px;  /* Reduz o tamanho da fonte dos parágrafos na apostila */
+    padding: 20px;    /* Garante espaço interno (respiro) nos textos */
   }
-
-
-
 }
 
+ 
