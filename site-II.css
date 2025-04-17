@@ -19,7 +19,7 @@ main {
 
 .cabeçalho {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #042B3D;
   position: fixed;
@@ -27,36 +27,59 @@ main {
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 90px;
+  height: 150px;
   padding: 10px 20px;
 }
 
 .cabeçalho img {
-  width: 50px;
+  width: 150px;
+
 }
 
 .cabeçalho .título {
   color: white;
-  font-size: 32px;
+  font-size: 50px;
   margin: 0;
   font-weight: bold;
+   white-space: nowrap; 
 }
 
 .cabeçalho p {
-  color: #042B3D;
-  font-size: 12px;
+  color: white;
+  font-size: 30px;
   border: 1px solid white;
   border-radius: 10px;
   padding: 5px 10px;
   margin: 0 10px 0 0;
+  flex-wrap: nowrap;        /* Impede quebra de linha */
 }
 
-.imgPrincipal {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-top: 91px;
+.acesso{
+  font-size: 18px;
+  color: white;
+  border: 2px solid white ;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+
+ 
+
+ 
 }
+
+/*SUBCABEÇALHO*/
+.subCabecalho{
+  background-color: #0F4C9C;
+  margin-top: 150px;
+  height:60px;
+  display: flex;
+  justify-content: flex-end;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente */
+  padding: 20px;
+
+}
+/*SUBCABEÇALHO*/
+
 
 .container-cards {
   display: flex;
@@ -67,8 +90,8 @@ main {
 }
 
 .card {
-  width: 200px;
-  height: 260px;
+  width: 250px;
+  height: 300px;
   perspective: 1000px;
 }
 
@@ -213,14 +236,14 @@ h1 {
   margin: 0 auto;
 }
 
-#h2_conteudo_ultimas_noticias {
+#h2_texto_barra-azul {
   display: inline-block;
   background-color: #fafafa;
   padding: 0 0.625em;
   position: relative;
   top: -0.9375em;
   border-radius: 0.625em;
-  font-size: clamp(1em, 2vw, 1.125em);
+  font-size: 28px
 }
 
 /* ====== RESPONSIVIDADE ====== */
@@ -237,19 +260,38 @@ h1 {
   .container-card-apostilha {
     grid-template-columns: repeat(2, 1fr);
   }
-  .cabeçalho {
-    flex-direction: column;
+
+  .cabeçalho img{
+    width: 100px;
+  }
+
+  .cabeçalho {    
     height: auto;
     padding: 10px;
     gap: 5px;
   }
   .cabeçalho .título {
-    font-size: 20px;
-    text-align: center;
+    font-size: 28px;
+    text-align: center;      
   }
-  .imgPrincipal {
-    height: auto;
+ 
+  .subCabecalho{
+    margin-top: 115px;
   }
+
+  .acesso{
+    font-size: 15px;
+  
+  }
+
+  #h2_texto_barra-azul{
+    font-size: 18px;
+  }
+
+  
+
+
+
 }
 
 @media (max-width: 480px) {
@@ -279,5 +321,8 @@ h1 {
     font-size: 14px;
     padding: 20px;
   }
+
+
+
 }
 
