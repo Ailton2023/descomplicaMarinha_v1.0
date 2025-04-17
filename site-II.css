@@ -258,7 +258,9 @@ h1 {
 
 @media (max-width: 768px) {
   .container-card-apostilha {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
   .cabeçalho img{
@@ -293,14 +295,12 @@ h1 {
 }
   
 .card {
-  width: 200px;
-  height: 250px;
-  perspective: 1000px;
+  width: 100px;
+  height: 150px;
+ 
 }
 
-.container-card-apostilha {
-  grid-template-columns: 1fr 1fr 1fr; /* 3 colunas de largura igual */
-}
+ 
 
 
 }
@@ -308,9 +308,10 @@ h1 {
 @media (max-width: 480px) {
   /* Quando a tela tiver no máximo 480px, aplicar essas regras: */
 
+
   .container-card-apostilha {
-    grid-template-columns: 1fr 1fr 1fr; /* 3 colunas de largura igual */
-  }
+    grid-template-columns: 1fr;
+ 
 
   .container-cards {
     gap: 10px; /* Define um espaçamento menor entre os cards */
@@ -342,5 +343,5 @@ h1 {
     padding: 20px;    /* Garante espaço interno (respiro) nos textos */
   }
 }
-
+}
  
