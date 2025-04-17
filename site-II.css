@@ -511,10 +511,10 @@
    .container-card-apostilha {
      display: grid;
      grid-template-columns: repeat(4, 1fr);
-     gap: 20px;
-     max-width: 1500px;
+     gap: 10px;
+     max-width: 1200px;
      margin: 0 auto;
-     padding: 20px;
+     padding: 10px;
    }
    
    /* Cartão de apostila individual.
@@ -523,7 +523,9 @@
       Flex column centraliza conteúdo (imagem, texto) verticalmente e horizontalmente.
       cursor: pointer e transição suportam efeitos de hover. */
    .card-apostilha {
-     aspect-ratio: 1/1;
+     /*aspect-ratio: 1/1;*/
+     width: 300px;
+     height: 260px;
      border-radius: 10px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
      display: flex;
@@ -532,6 +534,7 @@
      justify-content: center;
      transition: all 0.3s ease;
      cursor: pointer;
+      
    }
    
    /* Imagem nos cartões de apostilas.
@@ -860,6 +863,10 @@
    
      /* Cartões flip usam 32% de largura para caber três cartões lado a lado, com altura de 180px.
         min-width: 120px impede que os cartões fiquem muito pequenos. */
+
+       
+        
+        
      .card {
        width: 32%;
        height: 180px;
@@ -1109,10 +1116,11 @@
    
      /* Cartões de apostilas mudam para uma grade de uma coluna para empilhamento vertical.
         Gap de 10px para espaçamento mais apertado. */
-     .container-card-apostilha {
-       grid-template-columns: 1fr;
-       gap: 10px;
-     }
+        .container-card-apostilha {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          padding: 15px;
+        }
    
      /* Imagens dos cartões de apostilas reduzem para 70% de largura e 40% de altura. */
      .card-apostilha img {
