@@ -10,6 +10,11 @@ body {
   font-family: "Chakra Petch", Arial, sans-serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 main {
   width: 100%;
   max-width: 1800px;
@@ -29,13 +34,14 @@ main {
   z-index: 1000;
   height: 150px;
   padding: 10px 20px;
+  gap: 15px;
 }
 
-.cabeçalho img {
+.cabecalho img {
   width: 150px;
 }
 
-  .titulo {
+.titulo {
   color: white;
   font-size: 50px;
   margin: 0;
@@ -43,7 +49,7 @@ main {
   white-space: nowrap;
 }
 
-.cabeçalho p {
+.cabecalho p {
   color: white;
   font-size: 30px;
   border: 1px solid white;
@@ -62,7 +68,7 @@ main {
   cursor: pointer;
 }
 
-/*SUBCABEÇALHO*/
+/* SUBCABEÇALHO */
 .subCabecalho {
   background-color: #0F4C9C;
   margin-top: 150px;
@@ -72,7 +78,7 @@ main {
   align-items: center;
   padding: 20px;
 }
-/*SUBCABEÇALHO*/
+/* FIM SUBCABEÇALHO */
 
 .container-cards {
   display: flex;
@@ -192,7 +198,7 @@ main {
 }
 
 .card-apostilha img {
-  margin-top: 5px; /* REDUZIDO */
+  margin-top: 5px;
   width: 90%;
   height: 60%;
   border-radius: 10px;
@@ -205,7 +211,7 @@ main {
   text-align: center;
   margin: 0;
   padding: 0;
-  margin-top: 3px; /* MAIS PRÓXIMO DA IMAGEM */
+  margin-top: 3px;
 }
 
 .card-apostilha:hover {
@@ -246,8 +252,9 @@ h1 {
   .container-card-apostilha {
     grid-template-columns: repeat(3, 1fr);
   }
-  .cabeçalho .título {
-    font-size: 24px;
+
+  .cabecalho .titulo {
+    font-size: 36px;
   }
 }
 
@@ -268,18 +275,19 @@ h1 {
     padding: 15px;
   }
 
-  .cabeçalho img {
+  .cabecalho img {
     width: 85px;
   }
 
-  .cabeçalho {
+  .cabecalho {
     height: auto;
     padding: 10px;
     gap: 5px;
+    flex-direction: column;
   }
 
-  .cabeçalho .título {
-    font-size: 20px;
+  .titulo {
+    font-size: 24px;
     text-align: center;
   }
 
@@ -292,16 +300,12 @@ h1 {
   }
 
   #h2_texto_barra-azul {
-    font-size: 10px;
-  }
-
-  .gallery-container {
-    height: 500px;
+    font-size: 18px;
   }
 
   .card {
-    width: 120px;
-    height: 160px;
+    width: 150px;
+    height: 200px;
   }
 
   .card-apostilha img {
@@ -313,7 +317,7 @@ h1 {
 @media (max-width: 480px) {
   .container-card-apostilha {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 0px;
     padding: 15px;
     max-width: 100%;
   }
@@ -321,13 +325,14 @@ h1 {
   .container-cards {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 0px;
   }
 
   .card {
-    width: 31%;
-    height: 240px;
-    margin-bottom: 10px;
+    width: 90px;
+    height: auto;
+    min-height: 140px;
+    margin-bottom: 2px;
   }
 
   .card-front .Disc_Foco_Exec,
@@ -346,5 +351,28 @@ h1 {
   .card-apostilha p {
     font-size: 14px;
     padding: 15px;
+  }
+
+  #h2_texto_barra-azul {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    width: 100px;
+    min-height: 160px;
+  }
+
+  .container-card-apostilha {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .cabecalho p {
+    font-size: 18px;
   }
 }
