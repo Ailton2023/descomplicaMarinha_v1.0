@@ -298,7 +298,9 @@ h1 {
   perspective: 1000px;
 }
 
-
+.container-card-apostilha {
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colunas de largura igual */
+}
 
 
 }
