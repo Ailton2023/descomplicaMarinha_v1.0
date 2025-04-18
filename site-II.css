@@ -1,1402 +1,1064 @@
-/* Importa a fonte Chakra Petch do Google Fonts com vários pesos (300–700) e variantes itálicas.
-   O parâmetro &font-display=swap garante que a fonte seja carregada rapidamente, usando uma fonte de fallback
-   durante o carregamento, melhorando a performance e evitando mudanças de layout. */
-   @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap&font-display=swap');
+/* Importa a fonte Chakra Petch do Google Fonts com vários pesos (300–700) e variantes itálicas. */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap&font-display=swap');
 
-   /* Reseta os estilos padrão dos navegadores para consistência.
-      box-sizing: border-box faz com que padding e bordas sejam incluídos nas dimensões dos elementos,
-      evitando cálculos inesperados de tamanho.
-      margin: 0 e padding: 0 removem espaçamentos padrão para controle preciso. */
-   * {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
-   }
-   
-   /* Estilização básica do body.
-      Fundo branco (#FFFFFF) cria uma base limpa.
-      Fonte Chakra Petch com Arial e sans-serif como fallbacks garante tipografia consistente.
-      line-height: 1.6 melhora a legibilidade do texto. */
-   body {
-     background-color: #FFFFFF;
-     font-family: "Chakra Petch", Arial, sans-serif;
-     line-height: 1.6;
-   }
-   
-   /* Garante que as imagens sejam responsivas e se ajustem aos contêineres.
-      max-width: 100% evita que imagens ultrapassem o contêiner.
-      height: auto mantém a proporção durante redimensionamento.
-      display: block elimina espaçamentos indesejados abaixo das imagens. */
-   img {
-     max-width: 100%;
-     height: auto;
-     display: block;
-   }
-   
-   /* Contêiner principal do conteúdo.
-      Largura total com max-width de 1800px para telas grandes, centralizado com margin: 0 auto.
-      Padding de 15px nas laterais adiciona espaçamento em telas menores. */
-   main {
-     width: 100%;
-     max-width: 1800px;
-     margin: 0 auto;
-     padding: 0 15px;
-     border: .5px solid black;
-     border-radius: 0px;
-     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-     background-color: #83c7f235;
-     margin-top: 200px;
-   }
-   
-   /* CABEÇALHO */
-   /* Estiliza o cabeçalho fixo.
-      Flexbox centraliza logo, título e botão horizontalmente e verticalmente.
-      Fundo azul escuro (#042B3D) segue a paleta do site.
-      position: fixed com z-index: 1000 mantém o cabeçalho acima de outros elementos.
-      Altura de 150px com padding de 10px/20px e gap de 15px entre elementos. */
-   .cabecalho {
- 
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: #042B3D;
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     z-index: 1000;
-     height: 150px;
-     padding: 10px 20px;
-     gap: 15px;
+/* Reseta os estilos padrão dos navegadores para consistência. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    
-     
-     
- 
-     
- 
+/* Estilização básica do body. */
+body {
+  background-color: #FFFFFF;
+  font-family: "Chakra Petch", Arial, sans-serif;
+  line-height: 1.6;
+}
 
-     
+/* Garante que as imagens sejam responsivas e se ajustem aos contêineres. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-   }
-   
-   /* Reforça o posicionamento fixo do cabeçalho.
-      Repete position: fixed e width: 100% de .cabecalho.
-      Provavelmente usado como classe redundante no HTML (.cabecalho-fixo); pode ser consolidado para simplificar. */
-   .cabecalho-fixo {
-     position: fixed;
-     width: 100%;
-     top: 0;
-   }
-   
-   /* Estiliza a imagem do logo no cabeçalho.
-      Largura fixa de 150px para tamanho consistente.
-      object-fit: contain preserva a proporção do logo sem cortes. */
-   .cabecalho img {
-     width: 150px;
-     object-fit: contain;
-   }
-   
-   /* Estiliza o título do cabeçalho (ex.: "DESCOMPLICA MARINHA").
-      Texto branco, negrito, 50px para destaque.
-      white-space: nowrap impede que o texto quebre em várias linhas. */
-   .titulo {
-     color: white;
-     font-size: 50px;
-     font-weight: bold;
-     white-space: nowrap;
-   }
-   
-   /* Estiliza o botão "Área do Candidato".
-      Texto branco de 18px com borda branca de 2px e cantos arredondados.
-      Padding de 5px/10px é pequeno; pode ser aumentado para melhor acessibilidade em dispositivos móveis.
-      cursor: pointer indica interatividade.
-      Transição suave no fundo melhora o feedback visual. */
-   .acesso {
-     font-size: 18px;
-     color: white;
-     border: 2px solid white;
-     border-radius: 10px;
-     padding: 8px 15px;
-     cursor: pointer;
-     transition: background-color 0.3s ease;
-     background-color: transparent;
-     
-   }
-   
-   .slogan{
-    color: white;
-    font-weight: bold;
+/* Contêiner principal do conteúdo.
+   Largura total com max-width de 1800px para telas grandes, centralizado com margin: 0 auto.
+   Padding de 15px nas laterais adiciona espaçamento em telas menores.
+   margin-top ajustado para compensar cabeçalho (150px) + subcabeçalho (60px) = 210px. */
+main {
+  width: 100%;
+  max-width: 1800px;
+  margin: 210px auto 0;
+  padding: 0 15px;
+  border: 1px solid black; /* Aumentado de 0.5px para melhor visibilidade */
+  border-radius: 5px; /* Ajustado para um visual mais suave */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suavizada */
+  background-color: #83c7f235;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #042B3D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 150px;
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+.cabecalho-fixo {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.cabecalho img {
+  width: 150px;
+  indicator-fit: contain;
+}
+
+.titulo {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.acesso {
+  font-size: 18px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.slogan {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.acesso:hover {
+  background-color: #000;
+  border: 4px solid white;
+}
+
+/* SUBCABEÇALHO */
+.subCabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0F4C9C;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 900px;
+  height: 60px;
+  margin-top: 150px;
+}
+
+/* GALERIA */
+.gallery-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1800px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 1800px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  indicator-fit: cover;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.dots-container {
+  text-align: center;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dot.active {
+  background-color: #2e58a2;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: #4ecdc4;
+}
+
+.play-btn,
+.pause-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn {
+  padding-left: 2px;
+  background-color: limegreen;
+}
+
+.pause-btn {
+  background-color: rgba(255, 0, 0, 0.809);
+}
+
+.play-btn:hover,
+.pause-btn:hover {
+  background-color: #4ecdc4;
+}
+
+.play-btn.active,
+.pause-btn.active {
+  background-color: #2e58a2;
+  transform: scale(1.2);
+}
+
+/* CARTÕES FLIP */
+.container-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  flex: 0 0 auto;
+}
+
+.card-inner {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner,
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-front {
+  background-color: #000;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(15px);
+}
+
+.card-front .Disc_Foco_Exec {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.card-back {
+  background-color: #1e1e1e;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+}
+
+.card-back .Disc_Foco_Exec {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.card-back .Text_Disciplina {
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+/* CARTÕES INFORMATIVOS */
+.card_wrapper-informativo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.card-informativo {
+  background-color: #042b3dd7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 300px;
+  height: 260px;
+}
+
+.card-informativo:hover {
+  transform: translateY(-5px);
+}
+
+.icons_informativo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.p_informativo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  margin: 10px 0;
+}
+
+.card-informativo p:not(.p_informativo) {
+  font-size: 0.9em;
+  color: white;
+  line-height: 1.5;
+}
+
+/* CARTÕES DE APOSTILAS */
+.card_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.card_apostilha {
+  width: 300px;
+  height: 260px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card_apostilha img {
+  width: 90%;
+  height: 60%;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.card_apostilha p {
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  margin: 5px 0 0;
+}
+
+.card_apostilha:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: rgba(4, 43, 61, 0.6);
+}
+
+/* OUTROS ELEMENTOS */
+.conteudo-azul {
+  background-color: #042B3D;
+  padding: 0px;
+  color: white;
+  text-align: center;
+}
+
+.linha {
+  border: none;
+  border-top: 1px solid black;
+  margin: 10px 0;
+}
+
+#outras_informacoes {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+#h2_texto_barra-azul,
+#h2_conteudo_ultimas_noticias {
+  display: inline-block;
+  background-color: #fafafa;
+  padding: 5px 10px;
+  position: relative;
+  top: -15px;
+  border-radius: 10px;
+  font-size: 25px;
+  color: #042B3D;
+}
+
+/* DESIGN RESPONSIVO */
+@media (max-width: 1200px) {
+  main {
+    margin-top: 210px; /* Mantém 150px (cabeçalho) + 60px (subcabeçalho) */
+    padding: 0 12px; /* Reduz padding para telas menores */
+    max-width: 100%; /* Garante que não exceda a largura da tela */
+    border-radius: 4px; /* Bordas mais suaves */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais leve */
+  }
+
+  .container-cards {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .card {
+    width: 220px;
+    height: 260px;
+  }
+
+  .card-front .Disc_Foco_Exec {
     font-size: 20px;
-    
-   }
+    padding: 4px 8px;
+  }
 
+  .card-back .Disc_Foco_Exec {
+    font-size: 18px;
+  }
 
+  .card-back .Text_Disciplina {
+    font-size: 14px;
+  }
 
-   /* Efeito de hover para o botão .acesso.
-      Adiciona um fundo branco semitransparente (20% de opacidade) para feedback visual sutil. */
-   .acesso:hover {
-     /*background-color: rgba(255, 255, 255, 0.2);*/
-     background-color: #000;
-     border: 4px solid white;
-    
-     
-   }
-   
-   /* SUBCABEÇALHO */
-   /* Estiliza o subcabeçalho abaixo do cabeçalho fixo.
-      Fundo azul (#0F4C9C) o diferencia do cabeçalho.
-      margin-top: 150px compensa a altura do cabeçalho para evitar sobreposição.
-      Altura de 60px com flexbox alinhando o conteúdo (ex.: botão) à direita.
-      Padding de 20px nas laterais evita que o conteúdo toque as bordas. */
-   .subCabecalho {
+  .card_wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-     display: flex;
-     justify-content:space-between;
-     align-items: center;
-     background-color: #0F4C9C;
-     position: fixed;
-     top: 0;
-     left: 0; 
-     z-index: 1000;     
-     padding: 10px 900px;
-     height: 60px;
-     margin-top: 150px;
- 
-   
- 
-   }
-   
-   /* GALERIA */
-   /* Contêiner da seção de galeria de imagens.
-      Centralizado com max-width de 1800px para alinhar com o conteúdo principal.
-      Margin-top de 50px adiciona espaçamento abaixo do subcabeçalho.
-      position: relative suporta o posicionamento absoluto dos botões de navegação. */
-   .gallery-wrapper {
-     margin: 0 auto;
-     width: 100%;
-     max-width: 1800px;
-     position: relative;
-     margin-top: 50px;
-   }
-   
-   /* Contêiner das imagens da galeria.
-      Max-width de 1800px com altura fixa de 600px para consistência.
-      overflow: hidden corta imagens fora da área visível durante a transição.
-      Bordas arredondadas de 10px para um visual moderno.
-      position: relative suporta botões de navegação absolutos. */
-   .gallery-container {
-     width: 100%;
-     max-width: 1800px;
-     height: 600px;
-     position: relative;
-     overflow: hidden;
-     margin: 0 auto;
-     border-radius: 10px;
-   }
-   
-   /* Contêiner flex para as imagens da galeria.
-      Largura e altura totais com flexbox para organizar imagens horizontalmente.
-      Transição de transform de 0.5s cria um efeito de deslizamento suave ao navegar. */
-   .gallery {
-     width: 100%;
-     height: 100%;
-     display: flex;
-     transition: transform 0.5s ease;
-   }
-   
-   /* Estiliza as imagens da galeria.
-      Cada imagem ocupa a largura e altura total do contêiner.
-      object-fit: cover garante que as imagens sejam redimensionadas sem distorção, cortando se necessário.
-      flex-shrink: 0 impede que as imagens encolham durante transições. */
-   .gallery img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     flex-shrink: 0;
-   }
-   
-   /* Botões de navegação da galeria (anterior/próximo).
-      Posicionamento absoluto no centro vertical (top: 50%, com transform para centralizar).
-      Botões quadrados de 40px com bordas arredondadas de 5px, borda escura de 2px e fundo branco semitransparente.
-      Fonte de 16px para setas, centralizada com flexbox.
-      Transição suave para efeitos de hover, z-index alto para ficar acima das imagens.
-      Pode-se adicionar aria-label no HTML para acessibilidade. */
-   .nav-btn {
-     position: absolute;
-     top: 50%;
-     transform: translateY(-50%);
-     width: 40px;
-     height: 40px;
-     border-radius: 5px;
-     border: 2px solid #333;
-     background-color: rgba(255, 255, 255, 0.9);
-     cursor: pointer;
-     font-size: 16px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     transition: all 0.3s ease;
-     z-index: 10;
-   }
-   
-   /* Efeito de hover para botões de navegação.
-      Escurece o fundo para #333, muda o texto para branco e aumenta levemente (1.05x).
-      Mantém centralização vertical com transform. */
-   .nav-btn:hover {
-     background-color: #333;
-     color: white;
-     transform: translateY(-50%) scale(1.05);
-   }
-   
-   /* Posiciona o botão anterior a 10px da borda esquerda. */
-   .prev-btn {
-     left: 10px;
-   }
-   
-   /* Posiciona o botão próximo a 10px da borda direita. */
-   .next-btn {
-     right: 10px;
-   }
-   
-   /* Contêiner para os pontos de navegação e botões play/pause da galeria.
-      Flexbox centraliza o conteúdo horizontalmente com margin-top de 15px para espaçamento abaixo da galeria.
-      text-align: center é redundante devido ao flexbox, mas não prejudica. */
-   .dots-container {
-     text-align: center;
-     margin-top: 15px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   }
-   
-   /* Estiliza os pontos de navegação da galeria.
-      Círculos de 12px com fundo cinza (#bbb), borda branca de 2px e sombra sutil.
-      Margin de 5px horizontal separa os pontos.
-      cursor: pointer e transição suportam estados interativos de hover e ativo. */
-   .dot {
-     width: 12px;
-     height: 12px;
-     background-color: #bbb;
-     border-radius: 50%;
-     margin: 0 5px;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     border: 2px solid #fff;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
-   
-   /* Estado ativo para o ponto da galeria atual.
-      Fundo azul (#2e58a2) com escala de 1.2x para destacar a imagem selecionada. */
-   .dot.active {
-     background-color: #2e58a2;
-     transform: scale(1.2);
-   }
-   
-   /* Efeito de hover para os pontos.
-      Muda para azul-petróleo (#4ecdc4) para feedback visual consistente. */
-   .dot:hover {
-     background-color: #4ecdc4;
-   }
-   
-   /* Estiliza os botões play e pause da galeria.
-      Círculos de 24px com borda branca de 2px, sombra e margin de 10px horizontal.
-      Fonte de 12px para ícones, centralizada com flexbox.
-      cursor: pointer e transição suportam interatividade. */
-   .play-btn,
-   .pause-btn {
-     width: 24px;
-     height: 24px;
-     border-radius: 50%;
-     margin: 0 10px;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     border: 2px solid #fff;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-     font-size: 12px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-   }
-   
-   /* Estiliza o botão play.
-      Fundo verde-lima com padding à esquerda de 2px para centralizar o ícone (▶).
-      Pode-se usar um ícone CSS ou SVG para melhor escalabilidade em vez de texto. */
-   .play-btn {
-     padding-left: 2px;
-     background-color: limegreen;
-   }
-   
-   /* Estiliza o botão pause.
-      Fundo vermelho com 80.9% de opacidade para aparência mais suave.
-      Consistente com o design do botão play para coesão visual. */
-   .pause-btn {
-     background-color: rgba(255, 0, 0, 0.809);
-   }
-   
-   /* Efeito de hover para botões play e pause.
-      Muda para azul-petróleo (#4ecdc4), alinhado com o hover dos pontos para consistência. */
-   .play-btn:hover,
-   .pause-btn:hover {
-     background-color: #4ecdc4;
-   }
-   
-   /* Estado ativo para botões play e pause.
-      Fundo azul (#2e58a2) com escala de 1.2x, alinhado com o estado ativo dos pontos.
-      Indica o estado atual do slideshow da galeria. */
-   .play-btn.active,
-   .pause-btn.active {
-     background-color: #2e58a2;
-     transform: scale(1.2);
-   }
-   
-   /* CARTÕES FLIP */
-   /* Contêiner para os cartões flip (Disciplina, Foco, Execução).
-      Flexbox centraliza três cartões com 15px de espaçamento, max-width de 1200px para alinhamento.
-      Padding vertical de 20px adiciona espaçamento acima e abaixo. */
-   .container-cards {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     gap: 15px;
-     padding: 20px 0;
-     max-width: 1200px;
-     margin: 0 auto;
-   }
-   
-   /* Cartão flip individual.
-      Largura fixa de 250px e altura de 300px para tamanho consistente.
-      perspective: 1000px cria o efeito de virada 3D.
-      flex: 0 0 auto impede que os cartões estiquem ou encolham. */
-   .card {
-     width: 250px;
-     height: 300px;
-     perspective: 1000px;
-     flex: 0 0 auto;
-   }
-   
-   /* Contêiner interno para a animação de virada.
-      Tamanho total do cartão com transição suave de transform de 0.8s.
-      transform-style: preserve-3d garante que as faces frontal e traseira sejam renderizadas em 3D. */
-   .card-inner {
-     position: relative;
-     width: 80%;
-     height: 100%;
-     transition: transform 0.8s ease;
-     transform-style: preserve-3d;
-   }
-   
-   /* Aciona o efeito de virada no hover ou quando a classe .flipped é adicionada (ex.: via JavaScript para toque).
-      Rotaciona o contêiner interno 180 graus no eixo Y para mostrar a face traseira. */
-   .card:hover .card-inner,
-   .card-inner.flipped {
-     transform: rotateY(180deg);
-   }
-   
-   /* Estiliza as faces frontal e traseira do cartão.
-      Posicionamento absoluto preenche as dimensões do cartão.
-      backface-visibility: hidden impede que a face traseira seja visível quando não virada.
-      Bordas arredondadas de 15px para um visual moderno.
-      Flexbox centraliza o conteúdo verticalmente e horizontalmente, com overflow: hidden para cortar conteúdo. */
-      .card-front,
-      .card-back {
-        position: absolute; /* Posiciona os elementos de forma absoluta, permitindo que fiquem sobrepostos no mesmo espaço */
-        width: 100%; /* Define a largura como 100% do contêiner pai, ocupando todo o espaço disponível */
-        height: 100%; /* Define a altura como 100% do contêiner pai, garantindo que cubra toda a área */
-        backface-visibility: hidden; /* Oculta a face traseira do elemento durante animações, como em cartões flip */
-        border-radius: 15px; /* Adiciona bordas arredondadas de 15px para um visual mais suave */
-        display: flex; /* Define o elemento como um contêiner flexível, permitindo alinhamento fácil de conteúdo */
-        flex-direction: column; /* Organiza os itens filhos em uma coluna vertical, empilhando-os de cima para baixo */
-        justify-content: center; /* Centraliza os itens filhos ao longo do eixo principal (vertical, neste caso) */
-        align-items: center; /* Centraliza os itens filhos ao longo do eixo cruzado (horizontal, neste caso) */
-        overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do elemento, mantendo o layout limpo */
-      }
-   
-   /* Face frontal do cartão flip.
-      Fundo preto (#000) oferece contraste para a imagem e texto. */
-   .card-front {
-     background-color: #000;
-   }
-   
-   /* Imagem na face frontal (ex.: leão.png para Disciplina).
-      Preenche o cartão com object-fit: cover para redimensionar sem distorção, cortando se necessário.
-      Posicionamento absoluto com translação de 15px para baixo cria um efeito de deslocamento.
-      Pode ser ajustado em telas menores para evitar cortes. */
-   .card-front img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     position: absolute;
-     top: 0;
-     left: 0;
-     transform: translateY(15px);
-   }
-   
-   /* Texto da face frontal (ex.: "DISCIPLINA").
-      Texto branco, negrito, 22px com fundo preto semitransparente para legibilidade sobre a imagem.
-      Padding de 5px/10px e bordas arredondadas de 10px criam um visual de botão.
-      z-index: 1 garante que o texto fique acima da imagem. */
-   .card-front .Disc_Foco_Exec {
-     color: white;
-     font-size: 22px;
-     font-weight: bold;
-     background: rgba(0, 0, 0, 0.6);
-     padding: 5px 10px;
-     border-radius: 10px;
-     z-index: 1;
-   }
-   
-   /* Face traseira do cartão flip.
-      Fundo cinza escuro (#1e1e1e) com texto branco para alto contraste.
-      Rotacionada 180 graus para alinhamento correto ao virar.
-      Padding de 20px e texto centralizado para layout do conteúdo. */
-   .card-back {
-     background-color: #1e1e1e;
-     color: white;
-     transform: rotateY(180deg);
-     padding: 20px;
-     text-align: center;
-   }
-   
-   /* Texto de título na face traseira (ex.: "DISCIPLINA").
-      Texto branco, negrito, 20px com margem inferior de 10px para espaçamento do texto descritivo. */
-   .card-back .Disc_Foco_Exec {
-     font-size: 20px;
-     font-weight: bold;
-     margin: 0 0 10px;
-   }
-   
-   /* Texto descritivo na face traseira (ex.: "Traça o caminho").
-      Texto branco de 16px com line-height de 1.4 para legibilidade.
-      Reduzido em media queries para caber em cartões menores. */
-   .card-back .Text_Disciplina {
-     font-size: 19px;
-     line-height: 1.4;
-   }
-   
-   /* CARTÕES INFORMATIVOS */
-   /* Contêiner para cartões informativos (ex.: "MUITOS EXERCÍCIOS", "SIMULADOS").
-      Flexbox centraliza quatro cartões com 20px de espaçamento, max-width de 1200px para consistência.
-      Padding vertical de 20px adiciona espaçamento.
-      Sem flex-wrap, garante que os cartões fiquem lado a lado, como solicitado. */
-   .card_wrapper-informativo {
+  .card_wrapper-informativo {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-     display: grid;
-     grid-template-columns: repeat(4, 1fr);
-     gap: 10px;
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 10px;
-   }
-   
-   /* Cartão informativo individual.
-      Largura fixa de 250px com fundo azul escuro (#042B3D), alinhado ao tema do site.
-      Bordas arredondadas de 10px e sombra sutil para profundidade.
-      Flex column centraliza conteúdo (ícone, título, descrição).
-      Padding de 20px com transição de transform para efeito de hover.
-      flex: 0 0 auto impede que os cartões estiquem. */
-   .card-informativo {
-     background-color: #042b3dd7;
-     border-radius: 10px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-     text-align: center;
-     padding: 20px;
-     transition: transform 0.3s ease;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     flex: 0 0 auto;
-     width: 300px;
-     height: 260px;
-   }
-   
-   /* Efeito de hover para cartões informativos.
-      Eleva o cartão 5px para uma dica interativa sutil. */
-   .card-informativo:hover {
-     transform: translateY(-5px);
-   }
-   
-   /* Imagens de ícones nos cartões informativos (ex.: icon_exer-I.png).
-      80px quadrados com object-fit: contain para preservar a proporção sem cortes.
-      Tamanho fixo garante consistência entre os cartões. */
-   .icons_informativo {
-     width: 80px;
-     height: 80px;
-     object-fit: contain;
-   }
-   
-   /* Texto de título nos cartões informativos (ex.: "MUITOS EXERCÍCIOS").
-      Negrito, branco, 1.2em (relativo ao tamanho da fonte pai) para destaque.
-      Margem vertical de 10px separa do ícone e da descrição. */
-   .p_informativo {
-     font-size: 1.2em;
-     font-weight: bold;
-     color: white;
-     margin: 10px 0;
-   }
-   
-   /* Texto descritivo nos cartões informativos.
-      Texto branco menor (0.9em) com line-height de 1.5 para legibilidade.
-      Aplica-se a todos os <p> exceto aqueles com a classe .p_informativo. */
-   .card-informativo p:not(.p_informativo) {
-     font-size: 0.9em;
-     color: white;
-     line-height: 1.5;
-   }
-   
-   /* CARTÕES DE APOSTILAS */
-   /* Contêiner de grade para cartões de apostilas (ex.: "OGSA", "LIDERANÇA").
-      Grade de 4 colunas com 20px de espaçamento, max-width de 1500px para conteúdo mais largo.
-      Padding de 20px adiciona espaçamento ao redor da grade.
-      Layout de grade é ideal para os oito cartões, permitindo adaptação flexível em media queries. */
-   .card_wrapper {
-     display: grid;
-     grid-template-columns: repeat(4, 1fr);
-     gap: 10px;
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 10px;
-   }
-   
-   /* Cartão de apostila individual.
-      Proporção quadrada (1:1) garante forma consistente.
-      Bordas arredondadas de 10px e sombra sutil para profundidade.
-      Flex column centraliza conteúdo (imagem, texto) verticalmente e horizontalmente.
-      cursor: pointer e transição suportam efeitos de hover. */
-   .card_apostilha {
-     width: 300px;
-     height: 260px;
-     border-radius: 10px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     transition: all 0.3s ease;
-     cursor: pointer;
-   }
-   
-   /* Imagem nos cartões de apostilas.
-      90% da largura e 60% da altura do cartão, com bordas arredondadas de 10px.
-      Margem superior de 5px separa a imagem da borda superior.
-      Proporções garantem que a imagem seja predominante, mas deixem espaço para o texto. */
-   .card_apostilha img {
-     width: 90%;
-     height: 60%;
-     border-radius: 10px;
-     margin-top: 5px;
-   }
-   
-   /* Texto nos cartões de apostilas (ex.: "OGSA").
-      16px, peso médio (500), texto preto para contraste.
-      Centralizado com margem superior de 5px para separação da imagem.
-      Reduzido em media queries para telas menores. */
-   .card_apostilha p {
-     font-size: 16px;
-     font-weight: 500;
-     color: black;
-     text-align: center;
-     margin: 5px 0 0;
-   }
-   
-   /* Efeito de hover para cartões de apostilas.
-      Eleva o cartão 5px, aumenta a sombra para profundidade e adiciona fundo azul semitransparente.
-      rgba(4, 43, 61, 0.6) corresponde à paleta do site (#042B3D). */
-   .card_apostilha:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-     background-color: rgba(4, 43, 61, 0.6);
-   }
-   
-   /* OUTROS ELEMENTOS */
-   /* Cabeçalhos de seção azuis (ex.: "Tenha essas qualidades").
-      Fundo azul escuro (#042B3D) com texto branco, centralizado.
-      Padding de 10px é mínimo; pode ser aumentado para cabeçalhos maiores. */
-   .conteudo-azul {
-     background-color: #042B3D;
-     padding: 0px;
-     color: white;
-     text-align: center;
-   }
-   
-   /* Linha horizontal de separação.
-      Linha preta de 1px com margens verticais de 10px.
-      border: none com border-top cria uma linha limpa sem outras bordas. */
-   .linha {
-     border: none;
-     border-top: 1px solid black;
-     margin: 10px 0;
-   }
-   
-   /* Contêiner para conteúdo de seções (ex.: "Qualidades", "Mídias Digitais").
-      Texto centralizado com largura total (max-width: 100%).
-      Padding lateral de 15px corresponde ao contêiner principal para consistência.
-      Provavelmente envolve várias seções; uma classe mais específica pode melhorar a clareza. */
-   #outras_informacoes {
-     text-align: center;
-     max-width: 100%;
-     margin: 0 auto;
-     padding: 0 0px;
-   }
-   
-   /* Estiliza os títulos das seções (ex.: "Tenha essas qualidades", "Estude conosco").
-      Inline-block com fundo cinza claro (#fafafa) e padding de 5px/10px.
-      position: relative com top: -15px cria um efeito de sobreposição sobre a .linha.
-      Texto de 28px em azul escuro (#042B3D) com bordas arredondadas de 10px para um visual moderno. */
-   #h2_texto_barra-azul,
-   #h2_conteudo_ultimas_noticias {
-     display: inline-block;
-     background-color: #fafafa;
-     padding: 5px 10px;
-     position: relative;
-     top: -15px;
-     border-radius: 10px;
-     font-size: 25px;
-     color: #042B3D;
-   }
-   
-   /* DESIGN RESPONSIVO */
-   /* Media query para telas de até 1200px.
-      Ajusta layouts e tamanhos para telas médio-grandes (ex.: tablets, desktops menores). */
-   @media (max-width: 1200px) {
-     /* Contêiner de cartões flip reduz o gap para 12px e o padding para 15px para espaçamento mais apertado. */
-     .container-cards {
-       gap: 12px;
-       padding: 15px;
-     }
-   
-     /* Cartões flip encolhem para 220px de largura e 260px de altura para caber três cartões lado a lado.
-        Mantém perspective e propriedades flex. */
-     .card {
-       width: 220px;
-       height: 260px;
-     }
-   
-     /* Texto de título da face frontal reduz para 20px com padding ajustado para legibilidade. */
-     .card-front .Disc_Foco_Exec {
-       font-size: 20px;
-       padding: 4px 8px;
-     }
-   
-     /* Texto de título da face traseira reduz para 18px. */
-     .card-back .Disc_Foco_Exec {
-       font-size: 18px;
-     }
-   
-     /* Texto descritivo da face traseira reduz para 14px para caber no cartão menor. */
-     .card-back .Text_Disciplina {
-       font-size: 14px;
-     }
-   
-     /* Cartões de apostilas mudam para uma grade de 3 colunas em vez de 4 para caber em telas mais estreitas.
-        Mantém 20px de espaçamento e padding do estilo base. */
-     .card_wrapper {
-     
-       grid-template-columns: repeat(4, 1fr);
-       /*grid-template-columns: repeat(3, 1fr);*/
-     }
-   
-     /* Contêiner de cartões informativos reduz o gap para 15px para layout mais compacto. */
-     .card_wrapper-informativo {
-       grid-template-columns: repeat(3, 1fr);
-     }
-   
-     /* Cartões informativos encolhem para 220px de largura para manter quatro cartões lado a lado. */
-     .card-informativo {
-       width: 220px;
-     }
-   
-     /* Ícones dos cartões informativos reduzem para 70px quadrados para redução proporcional. */
-     .icons_informativo {
-       width: 70px;
-       height: 70px;
-     }
-   
-     /* Texto de título dos cartões informativos reduz para 1.1em. */
-     .p_informativo {
-       font-size: 1.1em;
-     }
-   
-     /* Texto descritivo dos cartões informativos reduz para 0.85em para legibilidade. */
-     .card-informativo p:not(.p_informativo) {
-       font-size: 0.85em;
-     }
-   }
-   
-   /* Media query para telas de até 1024px.
-      Ajustes adicionais para tablets e laptops menores. */
-   @media (max-width: 1024px) {
+  .card-informativo {
+    width: 220px;
+  }
 
-    main {
-      margin-top: 181px;
-       width: 100%;
-      
-     }
-     /* Altura do cabeçalho reduz para 120px com padding de 10px para um visual mais compacto. */
-     .cabecalho {
-       height: 120px;
-       padding: 10px;
-     }
-   
-     /* Logo do cabeçalho reduz para 120px de largura. */
-     .cabecalho img {
-       width: 120px;
-     }
-   
-     /* Título do cabeçalho reduz para 36px para legibilidade. */
-     .titulo {
-       font-size: 36px;
-     }
-   
-     /* Margin-top do subcabeçalho ajusta para 120px para corresponder ao cabeçalho mais curto. */
-     .subCabecalho {
-       margin-top: 120px;
-      
-     }
-   
-     /* Contêiner de cartões flip reduz o gap para 10px e o padding para 10px. */
-     .container-cards {
-       gap: 10px;
-       padding: 10px;
-     }
-   
-     /* Cartões flip encolhem para 180px de largura e 220px de altura para caber na tela mais estreita. */
-     .card {
-       width: 180px;
-       height: 220px;
-     }
-   
-     /* Texto de título da face frontal reduz para 16px com padding menor. */
-     .card-front .Disc_Foco_Exec {
-       font-size: 16px;
-       padding: 3px 6px;
-     }
-   
-     /* Texto de título da face traseira reduz para 14px. */
-     .card-back .Disc_Foco_Exec {
-       font-size: 14px;
-     }
-   
-     /* Texto descritivo da face traseira reduz para 12px. */
-     .card-back .Text_Disciplina {
-       font-size: 12px;
-     }
-   
-     /* Padding da face traseira reduz para 15px para caber o conteúdo. */
-     .card-back {
-       padding: 15px;
-     }
-   
-     /* Contêiner de cartões informativos reduz o gap para 12px. */
-     .card_wrapper-informativo {
-      transform: scale(0.90);
-      grid-template-columns: repeat(4, 1fr);
-     }
-   
-     /* Cartões informativos encolhem para 180px de largura para manter quatro cartões lado a lado. */
-     .card-informativo {
-       width: 180px;
-     }
-   
-     /* Ícones dos cartões informativos reduzem para 60px quadrados. */
-     .icons_informativo {
-       width: 60px;
-       height: 60px;
-     }
-   
-     /* Texto de título dos cartões informativos reduz para 1em. */
-     .p_informativo {
-       font-size: 1em;
-     }
-   
-     /* Texto descritivo dos cartões informativos reduz para 0.8em. */
-     .card-informativo p:not(.p_informativo) {
-       font-size: 0.8em;
-     }
-   
-     /* Cartões de apostilas mudam para uma grade de 2 colunas para melhor ajuste. */
-     .card_wrapper {
-            grid-template-columns: repeat(4, 1fr);
-       /*grid-template-columns: repeat(2, 1fr);*/
-     }
-   
-     /* Contêiner da galeria usa largura total e reduz a altura para 400px. */
-     .gallery-container {
-       max-width: 100%;
-       height: 400px;
-     }
-   
-     /* Botões de navegação da galeria reduzem para 35px quadrados com fonte de 14px. */
-     .nav-btn {
-       width: 35px;
-       height: 35px;
-       font-size: 14px;
-     }
-   
-     /* Botão anterior move-se para 5px da borda esquerda. */
-     .prev-btn {
-       left: 5px;
-     }
-   
-     /* Botão próximo move-se para 5px da borda direita. */
-     .next-btn {
-       right: 5px;
-     }
-   
-     /* Pontos da galeria reduzem para 10px quadrados. */
-     .dot {
-       width: 10px;
-       height: 10px;
-     }
-   
-     /* Botões play/pause reduzem para 22px quadrados com fonte de 11px. */
-     .play-btn,
-     .pause-btn {
-       width: 22px;
-       height: 22px;
-       font-size: 11px;
-     }
-   
-     /* Títulos das seções reduzem para 24px para legibilidade. */
-     #h2_texto_barra-azul,
-     #h2_conteudo_ultimas_noticias {
-       font-size: 18px;
-     }
-   }
-   
-   /* Media query para telas de até 768px.
-      Mudanças significativas no layout para tablets menores e celulares grandes. */
-   @media (max-width: 768px) {
+  .icons_informativo {
+    width: 70px;
+    height: 70px;
+  }
 
-     
+  .p_informativo {
+    font-size: 1.1em;
+  }
 
-     /* Cabeçalho muda para uma coluna flex vertical para empilhar logo, título e botão.
-        height: auto permite que o conteúdo determine o tamanho, com padding de 15px. */
-     .cabecalho {
-       flex-direction: column;
-       height: auto;
-       padding: 15px;
-     }
-   
-     /* Logo do cabeçalho reduz para 100px de largura. */
-     .cabecalho img {
-       width: 100px;
-     }
-   
-     /* Título do cabeçalho reduz para 28px e centraliza para legibilidade. */
-     .titulo {
-       font-size: 25px;
-       text-align: center;
-     }
-   
-     /* Botão acesso reduz para 16px com padding ligeiramente menor. */
-     .acesso {
-       font-size: 16px;
-       padding: 5px 8px;
-     }
-   
-     /* Margin-top do subcabeçalho aumenta para 180px para acomodar o cabeçalho mais alto (devido ao empilhamento).
-        Altura reduz para 50px com padding lateral de 15px. */
-     .subCabecalho {
-       margin-top: 175px;
-       height: 50px;
-       padding: 0 15px;
-       
-     }
-   
-     /* Contêiner de cartões flip reforça o layout flex com gap de 8px e padding de 10px.
-        Garante que os três cartões fiquem lado a lado, como solicitado. */
-     .container-cards {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       gap: 8px;
-       padding: 10px;
-     }
-   
-     /* Cartões flip usam 32% de largura para caber três cartões lado a lado, com altura de 180px.
-        min-width: 120px impede que os cartões fiquem muito pequenos. */
-     .card {
-       width: 32%;
-       height: 180px;
-       min-width: 120px;
-     }
-   
-     /* Texto de título da face frontal reduz para 14px com padding mínimo. */
-     .card-front .Disc_Foco_Exec {
-       font-size: 14px;
-       padding: 3px 6px;
-     }
-   
-     /* Texto de título da face traseira reduz para 13px com margem inferior de 5px. */
-     .card-back .Disc_Foco_Exec {
-       font-size: 13px;
-       margin-bottom: 5px;
-     }
-   
-     /* Texto descritivo da face traseira reduz para 11px com line-height de 1.3 mais apertado. */
-     .card-back .Text_Disciplina {
-       font-size: 11px;
-       line-height: 1.3;
-     }
-   
-     /* Padding da face traseira reduz para 10px para caber o conteúdo. */
-     .card-back {
-       padding: 10px;
-     }
-   
-     /* Contêiner de cartões informativos reduz o gap para 12px. */
-     .card_wrapper-informativo {
-     
-       /*grid-template-columns: repeat(2, 1fr);*/
-       gap: 15px;
-       padding: 15px;
-     }
-   
-     /* Cartões informativos usam 32% de largura para caber quatro cartões lado a lado, com min-width de 140px.
-        Padding de 15px para espaçamento do conteúdo. */
-     .card-informativo {
-       width: 32%;
-       min-width: 140px;
-       padding: 15px;
-     }
-   
-     /* Ícones dos cartões informativos reduzem para 50px quadrados. */
-     .icons_informativo {
-       width: 50px;
-       height: 50px;
-     }
-   
-     /* Texto de título dos cartões informativos reduz para 0.95em. */
-     .p_informativo {
-       font-size: 0.95em;
-     }
-   
-     /* Texto descritivo dos cartões informativos reduz para 0.75em. */
-     .card-informativo p:not(.p_informativo) {
-       font-size: 0.75em;
-     }
-   
-     /* Cartões de apostilas mantêm grade de 2 colunas com gap de 15px e padding para consistência. */
-     .card_wrapper {
-     /* grid-template-columns: repeat(4, 1fr);*/
-      /*grid-template-columns: repeat(2, 1fr);*/
-             
-        grid-template-columns: repeat(2, 1fr);
-        /* grid-template-columns: 1fr;*/
-        gap: 0px;
-        margin-top: 0%;
-        padding: 0%;
-        margin-bottom: 0px;
-       }
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.85em;
+  }
+}
 
-     }
-   
-     /* Imagens dos cartões de apostilas reduzem para 80% de largura e 50% de altura para caber em cartões menores. */
-     .card_apostilha img {
-       width: 80%;
-       height: 50%;
-     }
-   
-     /* Texto dos cartões de apostilas reduz para 14px. */
-     .card_apostilha p {
-       font-size: 14px;
-     }
-   
-     /* Contêiner da galeria reduz margin-top para 30px e adiciona padding lateral de 10px. */
-     .gallery-wrapper {
-       margin-top: 30px;
-       padding: 0 10px;
-     }
-   
-     /* Contêiner da galeria reduz altura para 300px com bordas arredondadas de 8px. */
-     .gallery-container {
-       height: 300px;
-       border-radius: 8px;
-     }
-   
-     /* Botões de navegação da galeria reduzem para 30px quadrados com fonte de 12px. */
-     .nav-btn {
-       width: 30px;
-       height: 30px;
-       font-size: 12px;
-     }
-   
-     /* Pontos da galeria reduzem para 8px quadrados com margem de 4px. */
-     .dot {
-       width: 8px;
-       height: 8px;
-       margin: 0 4px;
-     }
-   
-     /* Botões play/pause reduzem para 20px quadrados com fonte de 10px e margem de 8px. */
-     .play-btn,
-     .pause-btn {
-       width: 20px;
-       height: 20px;
-       font-size: 10px;
-       margin: 0 8px;
-     }
-   
-     /* Títulos das seções reduzem para 20px com padding de 5px/8px. */
-     #h2_texto_barra-azul,
-     #h2_conteudo_ultimas_noticias {
-       font-size: 18px;
-       padding: 5px 8px;
-     }
-   
-   
-   /* Media query para telas de até 480px.
-      Otimiza o layout para celulares pequenos e telas estreitas. */
-   @media (max-width: 480px) {
-     /* Contêiner principal reduz padding lateral para 10px para espaçamento mínimo. */
-     main {
-       width: 100%;
-      margin-top: 132px;
-       padding: 0 10px;
-     }
-   
-     
-     /* Padding do cabeçalho reduz para 10px para compacidade. */
-     .cabecalho {
-       padding: 10px;
-      
-      flex-direction: column;
-     }
-   
-     /* Logo do cabeçalho reduz para 80px de largura. */
-     .cabecalho img {
-       width: 50px;
-     }
-   
-     /* Título do cabeçalho reduz para 22px. */
-     .titulo {
-       font-size: 12px;
-     }
-   
-     /* Botão acesso reduz para 14px com padding mínimo. */
-     .acesso {
-       font-size: 14px;
-     }
-   
-     /* Margin-top do subcabeçalho reduz para 150px para corresponder ao cabeçalho mais curto, com altura de 40px. */
-     .subCabecalho {
-      overflow: hidden;
-       margin-top: 91px;
-       height: 40px;
-     
-     }
-   
-     /* Contêiner de cartões flip mantém layout flex com gap de 6px e padding de 8px. */
-     .container-cards {
-       gap: 6px;
-       padding: 8px;
-     }
-   
-     /* Cartões flip usam 32% de largura com altura de 140px e min-width de 100px para caber três cartões. */
-     .card {
-       width: 32%;
-       height: 140px;
-       min-width: 100px;
-     }
-   
-     /* Texto de título da face frontal reduz para 12px com padding mínimo. */
-     .card-front .Disc_Foco_Exec {
-       font-size: 12px;
-       padding: 2px 5px;
-     }
-   
-     /* Texto de título da face traseira reduz para 11px com margem inferior de 5px. */
-     .card-back .Disc_Foco_Exec {
-       font-size: 11px;
-       margin-bottom: 5px;
-     }
-   
-     /* Texto descritivo da face traseira reduz para 10px com line-height de 1.2. */
-     .card-back .Text_Disciplina {
-       font-size: 10px;
-       line-height: 1.2;
-     }
-   
-     /* Padding da face traseira reduz para 8px. */
-     .card-back {
-       padding: 8px;
-     }
-   
-     /* Contêiner de cartões informativos usa gap e padding de 6px. */
-     .card_wrapper-informativo {
-        transform: scale(0.70);
-      grid-template-columns: repeat(3, 1fr);
-      /* grid-template-columns: 1fr;*/
+@media (max-width: 1024px) {
+  main {
+    margin-top: 180px; /* Ajusta para 120px (cabeçalho) + 60px (subcabeçalho) */
+    padding: 0 10px;
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .cabecalho {
+    height: 120px;
+    padding: 10px;
+  }
+
+  .cabecalho img {
+    width: 120px;
+  }
+
+  .titulo {
+    font-size: 36px;
+  }
+
+  .subCabecalho {
+    margin-top: 120px;
+  }
+
+  .container-cards {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .card {
+    width: 180px;
+    height: 220px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 16px;
+    padding: 3px 6px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 14px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 12px;
+  }
+
+  .card-back {
+    padding: 15px;
+  }
+
+  .card_wrapper-informativo {
+    transform: scale(0.90);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card-informativo {
+    width: 180px;
+  }
+
+  .icons_informativo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .p_informativo {
+    font-size: 1em;
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.8em;
+  }
+
+  .card_wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery-container {
+    max-width: 100%;
+    height: 400px;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .prev-btn {
+    left: 5px;
+  }
+
+  .next-btn {
+    right: 5px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .play-btn,
+  .pause-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: 225px; /* Ajusta para ~175px (cabeçalho empilhado) + 50px (subcabeçalho) */
+    padding: 0 8px;
+    max-width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .cabecalho img {
+    width: 100px;
+  }
+
+  .titulo {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .acesso {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
+
+  .subCabecalho {
+    margin-top: 175px;
+    height: 50px;
+    padding: 0 15px;
+  }
+
+  .container-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .card {
+    width: 32%;
+    height: 180px;
+    min-width: 120px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .card-back {
+    padding: 10px;
+  }
+
+  .card_wrapper-informativo {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card-informativo {
+    width: 32%;
+    min-width: 140px;
+    padding: 15px;
+  }
+
+  .icons_informativo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .p_informativo {
+    font-size: 0.95em;
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.75em;
+  }
+
+  .card_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    margin-top: 0%;
+    padding: 0%;
+    margin-bottom: 0px;
+  }
+
+  .card_apostilha img {
+    width: 80%;
+    height: 50%;
+  }
+
+  .card_apostilha p {
+    font-size: 14px;
+  }
+
+  .gallery-wrapper {
+    margin-top: 30px;
+    padding: 0 10px;
+  }
+
+  .gallery-container {
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .nav-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+  }
+
+  .play-btn,
+  .pause-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    margin: 0 8px;
+  }
+
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    font-size: 18px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    margin-top: 131px; /* Ajusta para ~91px (cabeçalho empilhado) + 40px (subcabeçalho) */
+    padding: 0 5px;
+    max-width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cabecalho {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .cabecalho img {
+    width: 50px;
+  }
+
+  .titulo {
+    font-size: 12px;
+  }
+
+  .acesso {
+    font-size: 8px;
+  }
+
+  .subCabecalho {
+    overflow: hidden;
+    margin-top: 91px;
+    height: 40px;
+  }
+
+  .slogan {
+    font-size: 12px;
+  }
+
+  .container-cards {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .card {
+    width: 32%;
+    height: 140px;
+    min-width: 100px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 12px;
+    padding: 2px 5px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .card-back {
+    padding: 8px;
+  }
+
+  .card_wrapper-informativo {
+    transform: scale(0.70);
+    grid-template-columns: repeat(3, 1fr);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-     }
-   
+  }
 
-     /* Cartões informativos usam 32% de largura com min-width de 120px e padding de 10px. */
-     .card-informativo {
-       width: 32%;
-       min-width: 120px;
-       padding: 10px;
-     }
-   
-     /* Ícones dos cartões informativos reduzem para 40px quadrados. */
-     .icons_informativo {
-       width: 40px;
-       height: 40px;
-     }
-   
-     /* Texto de título dos cartões informativos reduz para 0.9em com margem vertical de 6px. */
-     .p_informativo {
-       font-size: 0.9em;
-       margin: 6px 0;
-     }
-   
-     /* Texto descritivo dos cartões informativos reduz para 0.7em com line-height de 1.4. */
-     .card-informativo p:not(.p_informativo) {
-       font-size: 0.7em;
-       line-height: 1.4;
-     }
-   
-     /* Contêiner de cartões de apostilas reduz gap para 8px. */
-     .card_wrapper {
-    
-      /* grid-template-columns: repeat(3, 1fr);*/
-       /*grid-template-columns: 1fr;*/
-      
-      
+  .card-informativo {
+    width: 32%;
+    min-width: 120px;
+    padding: 10px;
+  }
 
-      transform: scale(0.90);
-      grid-template-columns: repeat(2, 1fr);
-      /* grid-template-columns: 1fr;*/
-      gap: 0px;
-      margin-top: 0%;
-      padding: 0%;
-      margin-bottom: 0px;
-     }
-     .card_apostilha {
-      width: 100%;
-      height: 120%;
-    }
-  
-    .slogan{
-       
-      font-size: 12px;
-      
-     }
+  .icons_informativo {
+    width: 40px;
+    height: 40px;
+  }
 
-     .acesso {
-      font-size: 8px;
-    }
- 
+  .p_informativo {
+    font-size: 0.9em;
+    margin: 6px 0;
+  }
 
-     /* Imagens dos cartões de apostilas reduzem para 70% de largura e 40% de altura. */
-     .card_apostilha img {
-       width: 70%;
-       height: 60%;
-     }
-   
-     /* Texto dos cartões de apostilas reduz para 13px. */
-     .card_apostilha p {
-       font-size: 10px;
-     }
-   
-     /* Contêiner da galeria reduz margin-top para 20px e padding lateral para 5px. */
-     .gallery-wrapper {
-       margin-top: 20px;
-       padding: 0 5px;
-     }
-   
-     /* Contêiner da galeria reduz altura para 200px com bordas arredondadas de 6px. */
-     .gallery-container {
-       height: 200px;
-       border-radius: 6px;
-     }
-   
-     /* Botões de navegação da galeria reduzem para 25px quadrados com fonte de 10px. */
-     .nav-btn {
-       width: 25px;
-       height: 25px;
-       font-size: 10px;
-     }
-   
-     /* Botão anterior move-se para 3px da borda esquerda. */
-     .prev-btn {
-       left: 3px;
-     }
-   
-     /* Botão próximo move-se para 3px da borda direita. */
-     .next-btn {
-       right: 3px;
-     }
-   
-     /* Pontos da galeria reduzem para 6px quadrados com margem de 3px. */
-     .dot {
-       width: 6px;
-       height: 6px;
-       margin: 0 3px;
-     }
-   
-     /* Botões play/pause reduzem para 18px quadrados com fonte de 9px e margem de 6px. */
-     .play-btn,
-     .pause-btn {
-       width: 18px;
-       height: 18px;
-       font-size: 9px;
-       margin: 0 6px;
-     }
-   
-     /* Títulos das seções reduzem para 16px com deslocamento superior ajustado (-10px). */
-     #h2_texto_barra-azul,
-     #h2_conteudo_ultimas_noticias {
-       font-size: 14px;
-       top: -10px;
-     }
-   }
-   
-   /* Media query para telas de até 360px.
-      Ajustes finos para celulares muito pequenos (ex.: dispositivos antigos ou viewports estreitos). */
-   @media (max-width: 360px) {
-     /* Padding do cabeçalho reduz para 8px para espaçamento mínimo. */
-     .cabecalho {
-       padding: 8px;
-     }
-   
-     /* Logo do cabeçalho reduz para 70px de largura. */
-     .cabecalho img {
-       width: 70px;
-     }
-   
-     /* Título do cabeçalho reduz para 20px. */
-     .titulo {
-       font-size: 10px;
-     }
-   
-     /* Botão acesso reduz para 13px com padding de 4px/6px. */
-     .acesso {
-       font-size: 13px;
-       padding: 4px 6px;
-     }
-   
-     /* Margin-top do subcabeçalho reduz para 140px, altura para 36px, com padding lateral de 10px. */
-     .subCabecalho {
-       margin-top: 114px;
-       height: 36px;
-       padding: 0 10px;
-       
-     }
-   
-     /* Contêiner de cartões flip reduz gap para 5px e padding para 6px. */
-     .container-cards {
-       gap: 5px;
-       padding: 6px;
-     }
-   
-     /* Cartões flip usam 32% de largura com altura de 120px e min-width de 90px. */
-     .card {
-       width: 32%;
-       height: 120px;
-       min-width: 90px;
-     }
-   
-     /* Texto de título da face frontal reduz para 10px com padding mínimo. */
-     .card-front .Disc_Foco_Exec {
-       font-size: 10px;
-       padding: 2px 4px;
-     }
-   
-     /* Texto de título da face traseira reduz para 10px com margem inferior de 4px. */
-     .card-back .Disc_Foco_Exec {
-       font-size: 10px;
-       margin-bottom: 4px;
-     }
-   
-     /* Texto descritivo da face traseira reduz para 9px com line-height de 1.2. */
-     .card-back .Text_Disciplina {
-       font-size: 9px;
-       line-height: 1.2;
-     }
-   
-     /* Padding da face traseira reduz para 6px. */
-     .card-back {
-       padding: 6px;
-     }
-   
-     /* Contêiner de cartões informativos usa gap e padding de 6px. */
-     .card_wrapper-informativo {
-       gap: 6px;
-       padding: 6px;
-     }
-   
-     /* Cartões informativos usam 32% de largura com min-width de 100px e padding de 8px. */
-     .card-informativo {
-       width: 32%;
-       min-width: 100px;
-       padding: 8px;
-     }
-   
-     /* Ícones dos cartões informativos reduzem para 35px quadrados. */
-     .icons_informativo {
-       width: 35px;
-       height: 35px;
-     }
-   
-     /* Texto de título dos cartões informativos reduz para 0.85em com margem vertical de 5px. */
-     .p_informativo {
-       font-size: 0.85em;
-       margin: 5px 0;
-     }
-   
-     /* Texto descritivo dos cartões informativos reduz para 0.65em. */
-     .card-informativo p:not(.p_informativo) {
-       font-size: 0.65em;
-     }
-   
-     /* Contêiner de cartões de apostilas reduz gap para 8px. */
-     .card_wrapper {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0px;
-     }
-   
-     /* Texto dos cartões de apostilas reduz para 12px. */
-     .card_apostilha p {
-       font-size: 12px;
-     }
-   
-     /* Contêiner da galeria reduz altura para 180px. */
-     .gallery-container {
-       height: 180px;
-     }
-   
-     /* Botões de navegação da galeria reduzem para 22px quadrados com fonte de 9px. */
-     .nav-btn {
-       width: 22px;
-       height: 22px;
-       font-size: 9px;
-     }
-   
-     /* Pontos da galeria reduzem para 5px quadrados com margem de 2px. */
-     .dot {
-       width: 5px;
-       height: 5px;
-       margin: 0 2px;
-     }
-   
-     /* Botões play/pause reduzem para 16px quadrados com fonte de 8px e margem de 5px. */
-     .play-btn,
-     .pause-btn {
-       width: 16px;
-       height: 16px;
-       font-size: 8px;
-       margin: 0 5px;
-     }
-   
-     /* Títulos das seções reduzem para 14px com padding de 4px/6px. */
-     #h2_texto_barra-azul,
-     #h2_conteudo_ultimas_noticias {
-       font-size: 12px;
-       padding: 4px 6px;
-     }
-   }
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.7em;
+    line-height: 1.4;
+  }
+
+  .card_wrapper {
+    transform: scale(0.90);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    margin-top: 0%;
+    padding: 0%;
+    margin-bottom: 0px;
+  }
+
+  .card_apostilha {
+    width: 100%;
+    height: 120%;
+  }
+
+  .card_apostilha img {
+    width: 70%;
+    height: 60%;
+  }
+
+  .card_apostilha p {
+    font-size: 10px;
+  }
+
+  .gallery-wrapper {
+    margin-top: 20px;
+    padding: 0 5px;
+  }
+
+  .gallery-container {
+    height: 200px;
+    border-radius: 6px;
+  }
+
+  .nav-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+  }
+
+  .prev-btn {
+    left: 3px;
+  }
+
+  .next-btn {
+    right: 3px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+  }
+
+  .play-btn,
+  .pause-btn {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+    margin: 0 6px;
+  }
+
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    font-size: 14px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 360px) {
+  main {
+    margin-top: 150px; /* Ajusta para ~114px (cabeçalho empilhado) + 36px (subcabeçalho) */
+    padding: 0 3px;
+    max-width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .cabecalho {
+    padding: 8px;
+  }
+
+  .cabecalho img {
+    width: 70px;
+  }
+
+  .titulo {
+    font-size: 10px;
+  }
+
+  .acesso {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+
+  .subCabecalho {
+    margin-top: 114px;
+    height: 36px;
+    padding: 0 10px;
+  }
+
+  .container-cards {
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .card {
+    width: 32%;
+    height: 120px;
+    min-width: 90px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+
+  .card-back {
+    padding: 6px;
+  }
+
+  .card_wrapper-informativo {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .card-informativo {
+    width: 32%;
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .icons_informativo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .p_informativo {
+    font-size: 0.85em;
+    margin: 5px 0;
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.65em;
+  }
+
+  .card_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+  }
+
+  .card_apostilha p {
+    font-size: 12px;
+  }
+
+  .gallery-container {
+    height: 180px;
+  }
+
+  .nav-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    margin: 0 2px;
+  }
+
+  .play-btn,
+  .pause-btn {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+    margin: 0 5px;
+  }
+
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+}
