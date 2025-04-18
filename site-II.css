@@ -983,7 +983,7 @@
              
         grid-template-columns: repeat(2, 1fr);
         /* grid-template-columns: 1fr;*/
-        gap: 10px;
+        gap: 0px;
         margin-top: 0%;
         padding: 0%;
         margin-bottom: 0px;
@@ -1169,10 +1169,10 @@
       transform: scale(0.50);
       grid-template-columns: repeat(2, 1fr);
       /* grid-template-columns: 1fr;*/
-      gap: 10px;
+      gap: 0px;
       margin-top: 0%;
       padding: 0%;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
      }
      .card_apostilha {
       width: 100%;
@@ -1354,8 +1354,8 @@
    
      /* Contêiner de cartões de apostilas reduz gap para 8px. */
      .card_wrapper {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0px;
      }
    
      /* Texto dos cartões de apostilas reduz para 12px. */
