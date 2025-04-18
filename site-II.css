@@ -871,15 +871,15 @@ main {
   .card_wrapper {
     transform: scale(0.90);
     grid-template-columns: repeat(2, 1fr);
-    gap: 0px;
+    gap:20px;
     margin-top: 0%;
     padding: 0%;
     margin-bottom: 0px;
   }
 
   .card_apostilha {
-    width: 100%;
-    height: 120%;
+    width: 80%;
+    height: 110%;
   }
 
   .card_apostilha img {
