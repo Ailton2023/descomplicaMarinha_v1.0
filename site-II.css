@@ -1029,6 +1029,8 @@
      /* Padding do cabeçalho reduz para 10px para compacidade. */
      .cabecalho {
        padding: 10px;
+      display: flex;
+      flex-direction: column;
      }
    
      /* Logo do cabeçalho reduz para 80px de largura. */
@@ -1038,7 +1040,7 @@
    
      /* Título do cabeçalho reduz para 22px. */
      .titulo {
-       font-size: 22px;
+       font-size: 15px;
      }
    
      /* Botão acesso reduz para 14px com padding mínimo. */
@@ -1140,17 +1142,22 @@
       margin-top: 0%;
       padding: 0%;
       margin-bottom: 50px;
-
-       
      }
-   
      .card_apostilha {
       width: 100%;
       height: 120%;
-   
     }
   
+    .slogan{
+       
+      font-size: 12px;
+      
+     }
 
+     .acesso {
+      font-size: 8px;
+    }
+ 
 
      /* Imagens dos cartões de apostilas reduzem para 70% de largura e 40% de altura. */
      .card_apostilha img {
@@ -1231,7 +1238,7 @@
    
      /* Título do cabeçalho reduz para 20px. */
      .titulo {
-       font-size: 20px;
+       font-size: 10px;
      }
    
      /* Botão acesso reduz para 13px com padding de 4px/6px. */
