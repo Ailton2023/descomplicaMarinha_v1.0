@@ -55,6 +55,7 @@
       position: fixed com z-index: 1000 mantém o cabeçalho acima de outros elementos.
       Altura de 150px com padding de 10px/20px e gap de 15px entre elementos. */
    .cabecalho {
+ 
      display: flex;
      justify-content: center;
      align-items: center;
@@ -67,6 +68,16 @@
      height: 150px;
      padding: 10px 20px;
      gap: 15px;
+
+    
+     
+     
+ 
+     
+ 
+
+     
+
    }
    
    /* Reforça o posicionamento fixo do cabeçalho.
@@ -141,15 +152,14 @@
    .subCabecalho {
 
      display: flex;
-     justify-content: space-between;
+     justify-content:space-between;
      align-items: center;
      background-color: #0F4C9C;
      position: fixed;
      top: 0;
-     left: 0;
-     width: 100%;
+     left: 0; 
      z-index: 1000;     
-     padding: 10px 920px;
+     padding: 10px 900px;
      height: 60px;
      margin-top: 150px;
  
@@ -735,6 +745,7 @@
      /* Margin-top do subcabeçalho ajusta para 120px para corresponder ao cabeçalho mais curto. */
      .subCabecalho {
        margin-top: 120px;
+      
      }
    
      /* Contêiner de cartões flip reduz o gap para 10px e o padding para 10px. */
@@ -881,6 +892,7 @@
        margin-top: 175px;
        height: 50px;
        padding: 0 15px;
+       
      }
    
      /* Contêiner de cartões flip reforça o layout flex com gap de 8px e padding de 10px.
@@ -1026,6 +1038,7 @@
        padding: 0 10px;
      }
    
+     
      /* Padding do cabeçalho reduz para 10px para compacidade. */
      .cabecalho {
        padding: 10px;
@@ -1035,12 +1048,12 @@
    
      /* Logo do cabeçalho reduz para 80px de largura. */
      .cabecalho img {
-       width: 80px;
+       width: 50px;
      }
    
      /* Título do cabeçalho reduz para 22px. */
      .titulo {
-       font-size: 15px;
+       font-size: 5px;
      }
    
      /* Botão acesso reduz para 14px com padding mínimo. */
@@ -1050,8 +1063,10 @@
    
      /* Margin-top do subcabeçalho reduz para 150px para corresponder ao cabeçalho mais curto, com altura de 40px. */
      .subCabecalho {
-       margin-top: 150px;
+ 
+       margin-top: 91px;
        height: 40px;
+     
      }
    
      /* Contêiner de cartões flip mantém layout flex com gap de 6px e padding de 8px. */
@@ -1249,9 +1264,10 @@
    
      /* Margin-top do subcabeçalho reduz para 140px, altura para 36px, com padding lateral de 10px. */
      .subCabecalho {
-       margin-top: 140px;
+       margin-top: 114px;
        height: 36px;
        padding: 0 10px;
+       
      }
    
      /* Contêiner de cartões flip reduz gap para 5px e padding para 6px. */
