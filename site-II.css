@@ -1043,7 +1043,7 @@
        font-size: 18px;
        padding: 5px 8px;
      }
-   }
+   
    
    /* Media query para telas de até 480px.
       Otimiza o layout para celulares pequenos e telas estreitas. */
@@ -1069,7 +1069,7 @@
    
      /* Título do cabeçalho reduz para 22px. */
      .titulo {
-       font-size: 15px;
+       font-size: 12px;
      }
    
      /* Botão acesso reduz para 14px com padding mínimo. */
