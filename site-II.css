@@ -1118,7 +1118,8 @@
    
      /* Contêiner de cartões de apostilas reduz gap para 8px. */
      .card_wrapper {
-       grid-template-columns: 1fr;
+       grid-template-columns: repeat(3, 1fr);
+       /*grid-template-columns: 1fr;*/
        gap: 10px;
      }
    
