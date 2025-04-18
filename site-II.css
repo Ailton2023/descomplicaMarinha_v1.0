@@ -955,7 +955,12 @@ main {
     font-size: 14px;
     top: -10px;
   }
+
+ 
+    
 }
+
+ 
 
 @media (max-width: 360px) {
   main {

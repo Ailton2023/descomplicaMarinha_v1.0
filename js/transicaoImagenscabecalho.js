@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = document.querySelectorAll('.gallery img');
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
-  const dotsContainer = document.querySelector('.dots-container');
   const playBtn = document.querySelector('.play-btn');
+  const dotsContainer = document.querySelector('.dots-container');
   const pauseBtn = document.querySelector('.pause-btn');
   let currentIndex = 0;
   let intervalId = null;
@@ -19,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     dot.addEventListener('click', () => {
       currentIndex = index;
       updateGallery();
-      stopAutoplay();
+      pauseAutoSlide();
     });
     dot.addEventListener('touchstart', (e) => {
       e.preventDefault();
       currentIndex = index;
       updateGallery();
-      stopAutoplay();
+      pauseAutoSlide();
     });
-    dotsContainer.insertBefore(dot, playBtn);
+    dotsContainer.insertBefore(dot, pauseBtn); // Alterado para inserir antes do pauseBtn
   });
 
   // Função para atualizar a galeria
