@@ -109,11 +109,14 @@
      cursor: pointer;
      transition: background-color 0.3s ease;
      background-color: transparent;
+     
    }
    
    .slogan{
     color: white;
-    font-size: 30px;
+    font-weight: bold;
+    font-size: 22px;
+    
    }
 
 
@@ -141,7 +144,7 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     padding: 0 1825px;
+     padding: 0 920px;
    }
    
    /* GALERIA */
@@ -719,7 +722,7 @@
    
      /* Margin-top do subcabeçalho ajusta para 120px para corresponder ao cabeçalho mais curto. */
      .subCabecalho {
-       margin-top: 118px;
+       margin-top: 120px;
      }
    
      /* Contêiner de cartões flip reduz o gap para 10px e o padding para 10px. */
@@ -837,13 +840,6 @@
    @media (max-width: 768px) {
      /* Cabeçalho muda para uma coluna flex vertical para empilhar logo, título e botão.
         height: auto permite que o conteúdo determine o tamanho, com padding de 15px. */
-
-      
-    .slogan{
-       font-size: 18px;
-    }
-         
-         
      .cabecalho {
        flex-direction: column;
        height: auto;
