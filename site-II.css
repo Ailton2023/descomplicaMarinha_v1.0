@@ -1166,7 +1166,7 @@
       
       
 
-      transform: scale(0.50);
+      transform: scale(0.90);
       grid-template-columns: repeat(2, 1fr);
       /* grid-template-columns: 1fr;*/
       gap: 0px;
