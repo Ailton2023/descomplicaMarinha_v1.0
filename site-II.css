@@ -681,7 +681,8 @@
      /* Cartões de apostilas mudam para uma grade de 3 colunas em vez de 4 para caber em telas mais estreitas.
         Mantém 20px de espaçamento e padding do estilo base. */
      .card_wrapper {
-       grid-template-columns: repeat(3, 1fr);
+       grid-template-columns: repeat(4, 1fr);
+       /*grid-template-columns: repeat(3, 1fr);*/
      }
    
      /* Contêiner de cartões informativos reduz o gap para 15px para layout mais compacto. */
@@ -797,8 +798,8 @@
    
      /* Cartões de apostilas mudam para uma grade de 2 colunas para melhor ajuste. */
      .card_wrapper {
-     
-       grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+       /*grid-template-columns: repeat(2, 1fr);*/
      }
    
      /* Contêiner da galeria usa largura total e reduz a altura para 400px. */
@@ -956,9 +957,10 @@
    
      /* Cartões de apostilas mantêm grade de 2 colunas com gap de 15px e padding para consistência. */
      .card_wrapper {
-       grid-template-columns: repeat(2, 1fr);
-       gap: 15px;
-       padding: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      /*grid-template-columns: repeat(2, 1fr);*/
+      gap: 15px;
+      padding: 15px;
      }
    
      /* Imagens dos cartões de apostilas reduzem para 80% de largura e 50% de altura para caber em cartões menores. */
@@ -1118,7 +1120,8 @@
    
      /* Contêiner de cartões de apostilas reduz gap para 8px. */
      .card_wrapper {
-       grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      /* grid-template-columns: repeat(3, 1fr);*/
        /*grid-template-columns: 1fr;*/
        gap: 10px;
      }
@@ -1286,7 +1289,8 @@
    
      /* Contêiner de cartões de apostilas reduz gap para 8px. */
      .card_wrapper {
-       gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
      }
    
      /* Texto dos cartões de apostilas reduz para 12px. */
