@@ -726,6 +726,11 @@
    /* Media query para telas de até 1024px.
       Ajustes adicionais para tablets e laptops menores. */
    @media (max-width: 1024px) {
+
+    main {
+      margin-top: 181px;
+      
+     }
      /* Altura do cabeçalho reduz para 120px com padding de 10px para um visual mais compacto. */
      .cabecalho {
        height: 120px;
@@ -861,6 +866,9 @@
    /* Media query para telas de até 768px.
       Mudanças significativas no layout para tablets menores e celulares grandes. */
    @media (max-width: 768px) {
+
+     
+
      /* Cabeçalho muda para uma coluna flex vertical para empilhar logo, título e botão.
         height: auto permite que o conteúdo determine o tamanho, com padding de 15px. */
      .cabecalho {
@@ -1035,7 +1043,7 @@
    @media (max-width: 480px) {
      /* Contêiner principal reduz padding lateral para 10px para espaçamento mínimo. */
      main {
-      margin-top: 151px;
+      margin-top: 132px;
        padding: 0 10px;
      }
    
@@ -1043,7 +1051,7 @@
      /* Padding do cabeçalho reduz para 10px para compacidade. */
      .cabecalho {
        padding: 10px;
-      display: flex;
+      
       flex-direction: column;
      }
    
@@ -1054,7 +1062,7 @@
    
      /* Título do cabeçalho reduz para 22px. */
      .titulo {
-       font-size: 18px;
+       font-size: 15px;
      }
    
      /* Botão acesso reduz para 14px com padding mínimo. */
