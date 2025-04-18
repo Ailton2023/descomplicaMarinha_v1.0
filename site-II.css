@@ -368,19 +368,19 @@
       backface-visibility: hidden impede que a face traseira seja visível quando não virada.
       Bordas arredondadas de 15px para um visual moderno.
       Flexbox centraliza o conteúdo verticalmente e horizontalmente, com overflow: hidden para cortar conteúdo. */
-   .card-front,
-   .card-back {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     backface-visibility: hidden;
-     border-radius: 15px;
-     display: flex;
-     Temp: column;
-     justify-content: center;
-     align-items: center;
-     overflow: hidden;
-   }
+      .card-front,
+      .card-back {
+        position: absolute; /* Posiciona os elementos de forma absoluta, permitindo que fiquem sobrepostos no mesmo espaço */
+        width: 100%; /* Define a largura como 100% do contêiner pai, ocupando todo o espaço disponível */
+        height: 100%; /* Define a altura como 100% do contêiner pai, garantindo que cubra toda a área */
+        backface-visibility: hidden; /* Oculta a face traseira do elemento durante animações, como em cartões flip */
+        border-radius: 15px; /* Adiciona bordas arredondadas de 15px para um visual mais suave */
+        display: flex; /* Define o elemento como um contêiner flexível, permitindo alinhamento fácil de conteúdo */
+        flex-direction: column; /* Organiza os itens filhos em uma coluna vertical, empilhando-os de cima para baixo */
+        justify-content: center; /* Centraliza os itens filhos ao longo do eixo principal (vertical, neste caso) */
+        align-items: center; /* Centraliza os itens filhos ao longo do eixo cruzado (horizontal, neste caso) */
+        overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do elemento, mantendo o layout limpo */
+      }
    
    /* Face frontal do cartão flip.
       Fundo preto (#000) oferece contraste para a imagem e texto. */
@@ -440,7 +440,7 @@
       Texto branco de 16px com line-height de 1.4 para legibilidade.
       Reduzido em media queries para caber em cartões menores. */
    .card-back .Text_Disciplina {
-     font-size: 16px;
+     font-size: 19px;
      line-height: 1.4;
    }
    
@@ -621,7 +621,7 @@
      position: relative;
      top: -15px;
      border-radius: 10px;
-     font-size: 25px;
+     font-size: 30px;
      color: #042B3D;
    }
    
