@@ -445,6 +445,7 @@
       Padding vertical de 20px adiciona espaçamento.
       Sem flex-wrap, garante que os cartões fiquem lado a lado, como solicitado. */
    .card_wrapper-informativo {
+
      display: grid;
      grid-template-columns: repeat(4, 1fr);
      gap: 10px;
@@ -744,7 +745,8 @@
    
      /* Contêiner de cartões informativos reduz o gap para 12px. */
      .card_wrapper-informativo {
-       grid-template-columns: repeat(2, 1fr);
+      transform: scale(0.90);
+      grid-template-columns: repeat(4, 1fr);
      }
    
      /* Cartões informativos encolhem para 180px de largura para manter quatro cartões lado a lado. */
@@ -770,6 +772,7 @@
    
      /* Cartões de apostilas mudam para uma grade de 2 colunas para melhor ajuste. */
      .card_wrapper {
+     
        grid-template-columns: repeat(2, 1fr);
      }
    
@@ -896,7 +899,8 @@
    
      /* Contêiner de cartões informativos reduz o gap para 12px. */
      .card_wrapper-informativo {
-       grid-template-columns: repeat(2, 1fr);
+     
+       /*grid-template-columns: repeat(2, 1fr);*/
        gap: 15px;
        padding: 15px;
      }
