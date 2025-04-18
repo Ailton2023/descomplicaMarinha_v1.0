@@ -978,10 +978,19 @@
    
      /* Cartões de apostilas mantêm grade de 2 colunas com gap de 15px e padding para consistência. */
      .card_wrapper {
-      grid-template-columns: repeat(4, 1fr);
+     /* grid-template-columns: repeat(4, 1fr);*/
       /*grid-template-columns: repeat(2, 1fr);*/
-      gap: 15px;
-      padding: 15px;
+      
+     
+        
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: 1fr;*/
+        gap: 10px;
+        margin-top: 0%;
+        padding: 0%;
+        margin-bottom: 10px;
+       }
+
      }
    
      /* Imagens dos cartões de apostilas reduzem para 80% de largura e 50% de altura para caber em cartões menores. */
@@ -1117,7 +1126,7 @@
      /* Contêiner de cartões informativos usa gap e padding de 6px. */
      .card_wrapper-informativo {
         transform: scale(0.70);
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       /* grid-template-columns: 1fr;*/
     display: flex;
     justify-content: center;
@@ -1157,15 +1166,15 @@
       /* grid-template-columns: repeat(3, 1fr);*/
        /*grid-template-columns: 1fr;*/
       
-       justify-content: center;
+      
 
-      transform: scale(0.90);
+      transform: scale(0.50);
       grid-template-columns: repeat(2, 1fr);
       /* grid-template-columns: 1fr;*/
-      gap: 30px;
+      gap: 10px;
       margin-top: 0%;
       padding: 0%;
-      margin-bottom: 50px;
+      margin-bottom: 10px;
      }
      .card_apostilha {
       width: 100%;
