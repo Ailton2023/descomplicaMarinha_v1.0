@@ -32,14 +32,20 @@
           <img src="imagens/mb_navios.jpg" alt="Imagem de navios da Marinha">
         </div>
       </div>
-      <button class="nav-btn prev-btn" onclick="prevImage()" aria-label="Imagem anterior">&lt;</button>
-      <button class="nav-btn next-btn" onclick="nextImage()" aria-label="Próxima imagem">&gt;</button>
+    
+      <button class="nav-btn prev-btn" onclick="prevImage()" aria-label="Imagem anterior">
+        &lt;
+      </button>
+      <button class="nav-btn next-btn" onclick="nextImage()" aria-label="Próxima imagem">
+        &gt;
+      </button>
+    
       <div class="dots-container" role="navigation" aria-label="Controles de navegação da galeria">
-        <span class="dot" onclick="goToImage(0)" aria-label="Ir para a primeira imagem"></span>
-        <span class="dot" onclick="goToImage(1)" aria-label="Ir para a segunda imagem"></span>
-        <span class="dot" onclick="goToImage(2)" aria-label="Ir para a terceira imagem"></span>
-        <span class="play-btn" onclick="startAutoSlide()" aria-label="Iniciar reprodução automática">▶</span>
-        <span class="pause-btn" onclick="pauseAutoSlide()" aria-label="Pausar reprodução automática">⏸</span>
+        <button class="dot" onclick="goToImage(0)" aria-label="Ir para a primeira imagem"></button>
+        <button class="dot" onclick="goToImage(1)" aria-label="Ir para a segunda imagem"></button>
+        <button class="dot" onclick="goToImage(2)" aria-label="Ir para a terceira imagem"></button>
+        <button class="play-btn" onclick="startAutoSlide()" aria-label="Iniciar reprodução automática">▶</button>
+        <button class="pause-btn" onclick="pauseAutoSlide()" aria-label="Pausar reprodução automática">⏸</button>
       </div>
     </section>
 

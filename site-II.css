@@ -1053,7 +1053,7 @@
    
      /* Título do cabeçalho reduz para 22px. */
      .titulo {
-       font-size: 15px;
+       font-size: 18px;
      }
    
      /* Botão acesso reduz para 14px com padding mínimo. */
@@ -1063,7 +1063,7 @@
    
      /* Margin-top do subcabeçalho reduz para 150px para corresponder ao cabeçalho mais curto, com altura de 40px. */
      .subCabecalho {
- 
+      overflow: hidden;
        margin-top: 91px;
        height: 40px;
      
