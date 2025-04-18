@@ -25,29 +25,29 @@
   </div>
 
   <main>
-    <!-- Galeria de imagens -->
-    <section class="gallery-wrapper" aria-label="Galeria de imagens">
-      <div class="gallery-container">
-        <div class="gallery">
-          <img src="imagens/banner-01.png" alt="Imagem de cerimônia militar">
-          <img src="imagens/cerimonialMB.jpg" alt="Imagem de cerimonial da Marinha">
-          <img src="imagens/mb_navios.jpg" alt="Imagem de navios da Marinha">
-        </div>
-      </div>
-    
-      <button class="nav-btn prev-btn" onclick="prevImage()" aria-label="Imagem anterior">
-        &lt;
-      </button>
-      <button class="nav-btn next-btn" onclick="nextImage()" aria-label="Próxima imagem">
-        &gt;
-      </button>
-    
-      <div class="dots-container" role="navigation" aria-label="Controles de navegação da galeria">
-         
-        <button class="play-btn" onclick="startAutoSlide()" aria-label="Iniciar reprodução automática">▶</button>
-        <button class="pause-btn" onclick="pauseAutoSlide()" aria-label="Pausar reprodução automática">⏸</button>
-      </div>
-    </section>
+  
+  <!-- Galeria de imagens -->
+<section class="gallery-wrapper" aria-label="Galeria de imagens">
+  <div class="gallery-container">
+    <div class="gallery">
+      <img src="imagens/banner-01.png" alt="Imagem de cerimônia militar">
+      <img src="imagens/cerimonialMB.jpg" alt="Imagem de cerimonial da Marinha">
+      <img src="imagens/mb_navios.jpg" alt="Imagem de navios da Marinha">
+    </div>
+
+    <!-- Botões de navegação -->
+    <button class="nav-btn prev-btn" onclick="prevImage()" aria-label="Imagem anterior">&lt;</button>
+    <button class="nav-btn next-btn" onclick="nextImage()" aria-label="Próxima imagem">&gt;</button>
+  </div>
+
+  <!-- Controles abaixo da galeria -->
+  <div class="dots-container" role="navigation" aria-label="Controles de navegação da galeria">
+    <!-- Dots serão inseridos via JS -->
+    <button class="play-btn" onclick="startAutoSlide()" aria-label="Iniciar reprodução automática">▶</button>
+    <button class="pause-btn" onclick="pauseAutoSlide()" aria-label="Pausar reprodução automática">⏸</button>
+  </div>
+</section>
+
 
     <!-- Bloco: Qualidades -->
     <section id="outras_informacoes" aria-label="Qualidades para aprovação">

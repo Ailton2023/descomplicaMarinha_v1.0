@@ -70,10 +70,8 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-// Inicia automaticamente
 startAutoSlide();
 
-// Botões de controle
 playBtn.addEventListener('click', startAutoSlide);
 pauseBtn.addEventListener('click', pauseAutoSlide);
 document.querySelector('.prev-btn')?.addEventListener('click', () => {
@@ -84,9 +82,5 @@ document.querySelector('.next-btn')?.addEventListener('click', () => {
   nextImage();
   resetAutoSlide();
 });
-
-// Ajusta a galeria em redimensionamento
 window.addEventListener('resize', updateGallery);
-
-// Atualiza a interface inicialmente
 updateGallery();
