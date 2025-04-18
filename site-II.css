@@ -651,7 +651,7 @@
      position: relative;
      top: -15px;
      border-radius: 10px;
-     font-size: 30px;
+     font-size: 25px;
      color: #042B3D;
    }
    
@@ -1035,6 +1035,7 @@
    @media (max-width: 480px) {
      /* Contêiner principal reduz padding lateral para 10px para espaçamento mínimo. */
      main {
+      margin-top: 151px;
        padding: 0 10px;
      }
    
