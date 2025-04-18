@@ -729,6 +729,7 @@
 
     main {
       margin-top: 181px;
+       width: 100%;
       
      }
      /* Altura do cabeçalho reduz para 120px com padding de 10px para um visual mais compacto. */
@@ -1050,6 +1051,7 @@
    @media (max-width: 480px) {
      /* Contêiner principal reduz padding lateral para 10px para espaçamento mínimo. */
      main {
+       width: 100%;
       margin-top: 132px;
        padding: 0 10px;
      }
