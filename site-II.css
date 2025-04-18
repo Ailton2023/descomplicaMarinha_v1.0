@@ -853,7 +853,7 @@
    
      /* Título do cabeçalho reduz para 28px e centraliza para legibilidade. */
      .titulo {
-       font-size: 28px;
+       font-size: 25px;
        text-align: center;
      }
    
