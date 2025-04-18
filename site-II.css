@@ -113,7 +113,6 @@
    
    .slogan{
     color: white;
-    
     font-size: 30px;
    }
 
@@ -838,6 +837,13 @@
    @media (max-width: 768px) {
      /* Cabeçalho muda para uma coluna flex vertical para empilhar logo, título e botão.
         height: auto permite que o conteúdo determine o tamanho, com padding de 15px. */
+
+      
+    .slogan{
+       font-size: 18px;
+    }
+         
+         
      .cabecalho {
        flex-direction: column;
        height: auto;
