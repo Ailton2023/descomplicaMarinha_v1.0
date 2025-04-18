@@ -681,6 +681,7 @@
      /* Cartões de apostilas mudam para uma grade de 3 colunas em vez de 4 para caber em telas mais estreitas.
         Mantém 20px de espaçamento e padding do estilo base. */
      .card_wrapper {
+     
        grid-template-columns: repeat(4, 1fr);
        /*grid-template-columns: repeat(3, 1fr);*/
      }
@@ -1089,10 +1090,16 @@
    
      /* Contêiner de cartões informativos usa gap e padding de 6px. */
      .card_wrapper-informativo {
-       grid-template-columns: 1fr;
-       gap: 10px;
+        transform: scale(0.70);
+      grid-template-columns: repeat(4, 1fr);
+      /* grid-template-columns: 1fr;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
      }
    
+
      /* Cartões informativos usam 32% de largura com min-width de 120px e padding de 10px. */
      .card-informativo {
        width: 32%;
@@ -1120,16 +1127,37 @@
    
      /* Contêiner de cartões de apostilas reduz gap para 8px. */
      .card_wrapper {
-      grid-template-columns: repeat(4, 1fr);
+    
       /* grid-template-columns: repeat(3, 1fr);*/
        /*grid-template-columns: 1fr;*/
-       gap: 10px;
+      
+       justify-content: center;
+
+      transform: scale(0.90);
+      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-columns: 1fr;*/
+      gap: 0px;
+      margin-top: 0%;
+      padding: 0%;
+      margin-bottom: 50px;
+     
+
+      
+       
      }
    
+     .card_apostilha {
+      width: 70%;
+      height: 90%;
+   
+    }
+  
+
+
      /* Imagens dos cartões de apostilas reduzem para 70% de largura e 40% de altura. */
      .card_apostilha img {
        width: 70%;
-       height: 40%;
+       height: 60%;
      }
    
      /* Texto dos cartões de apostilas reduz para 13px. */
