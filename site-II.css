@@ -105,15 +105,20 @@
      color: white;
      border: 2px solid white;
      border-radius: 10px;
-     padding: 5px 10px;
+     padding: 8px 15px;
      cursor: pointer;
      transition: background-color 0.3s ease;
+     background-color: transparent;
    }
    
    /* Efeito de hover para o botão .acesso.
       Adiciona um fundo branco semitransparente (20% de opacidade) para feedback visual sutil. */
    .acesso:hover {
-     background-color: rgba(255, 255, 255, 0.2);
+     /*background-color: rgba(255, 255, 255, 0.2);*/
+     background-color: #000;
+     border: 4px solid white;
+     
+     
    }
    
    /* SUBCABEÇALHO */
@@ -616,7 +621,7 @@
      position: relative;
      top: -15px;
      border-radius: 10px;
-     font-size: 28px;
+     font-size: 25px;
      color: #042B3D;
    }
    
@@ -816,7 +821,7 @@
      /* Títulos das seções reduzem para 24px para legibilidade. */
      #h2_texto_barra-azul,
      #h2_conteudo_ultimas_noticias {
-       font-size: 24px;
+       font-size: 18px;
      }
    }
    
@@ -985,7 +990,7 @@
      /* Títulos das seções reduzem para 20px com padding de 5px/8px. */
      #h2_texto_barra-azul,
      #h2_conteudo_ultimas_noticias {
-       font-size: 20px;
+       font-size: 18px;
        padding: 5px 8px;
      }
    }
@@ -1156,7 +1161,7 @@
      /* Títulos das seções reduzem para 16px com deslocamento superior ajustado (-10px). */
      #h2_texto_barra-azul,
      #h2_conteudo_ultimas_noticias {
-       font-size: 16px;
+       font-size: 14px;
        top: -10px;
      }
    }
@@ -1299,7 +1304,7 @@
      /* Títulos das seções reduzem para 14px com padding de 4px/6px. */
      #h2_texto_barra-azul,
      #h2_conteudo_ultimas_noticias {
-       font-size: 14px;
+       font-size: 12px;
        padding: 4px 6px;
      }
    }
