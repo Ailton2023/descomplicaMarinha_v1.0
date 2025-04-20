@@ -10,13 +10,14 @@ main {
   width: 100%;
   max-width: 1800px;
   margin: 210px auto 0; /* Mantém margem superior fixa, mas ajustável abaixo */
+   height: 2460px ;
   padding: 0 15px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   background-color: #83c7f235;
   overflow: visible; /* Garante que a galeria não seja cortada */
-  transform: translateY(-2%);
+  transform: translateY(-1%);
   box-sizing: border-box; /* Garante que padding não aumente a largura */
 }
 
@@ -30,7 +31,7 @@ main {
 
 @media screen and (max-width: 768px) {
   main {
-    margin-top: 100px; /* Margem ainda menor para dispositivos móveis */
+    margin-top: 88px; /* Margem ainda menor para dispositivos móveis */
     max-width: 95%; /* Usa quase toda a largura da tela */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
     transform: translateY(0); /* Remove transformação para simplificar */

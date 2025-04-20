@@ -39,13 +39,14 @@
   align-items: center; /* Centraliza verticalmente */
   justify-content: space-between; /* Espaça slogan e botão */
   background-color: #005c99; /* Azul mais claro para diferenciar */
-  padding: 8px 600px; /* Espaçamento interno */
+  padding: 8px 20px; /* Espaçamento interno */
   width: 100%; /* Ocupa toda a largura */
   box-sizing: border-box; /* Inclui padding na largura total */
   position: fixed; /* Fixa o subcabeçalho */
   top: 154px; /* Colado ao cabeçalho principal - você pode subir ou baixar o subcabeçalho ajustando este valor */
   left: 0; /* Alinha à esquerda */
   z-index: 999; /* Um pouco abaixo do cabeçalho principal */
+ 
 }
 
 /* Estilização do slogan */
