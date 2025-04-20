@@ -1,0 +1,160 @@
+/* Estilização do contêiner principal dos cartões */
+.container-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+}
+
+/* Estilização do cartão */
+.card {
+  width: 250px;
+  height: 300px;
+  perspective: 1000px; /* Profundidade para efeito 3D */
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+/* Contêiner interno para o efeito flip */
+.card-inner {
+  position: relative;
+  width: 100%; /* Ajustado para ocupar toda a largura do cartão */
+  height: 100%;
+  transition: transform 0.8s ease; /* Transição suave para o flip */
+  transform-style: preserve-3d; /* Habilita 3D */
+}
+
+/* Efeito de flip ao passar o mouse ou clicar */
+.card:hover .card-inner,
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Estilização da frente e verso do cartão */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Esconde o verso quando não visível */
+  border-radius: 15px; /* Bordas arredondadas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Estilização da frente do cartão */
+.card-front {
+  background-color: #000; /* Fundo preto */
+}
+
+/* Estilização da imagem na frente do cartão */
+.card-front img {
+  width: 88%;
+  height: 100%;
+  object-fit: cover; /* Mantém proporção e cobre o espaço */
+  position: absolute;
+  top: 0;
+  left: 1;
+  transform: translateY(15px); /* Deslocamento vertical da imagem */
+}
+
+/* Estilização do texto na frente do cartão */
+.card-front .Disc_Foco_Exec {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+  padding: 5px 10px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Estilização do verso do cartão */
+.card-back {
+  background-color: #1e1e1e; /* Cinza escuro */
+  color: white;
+  transform: rotateY(180deg); /* Rotacionado para o efeito flip */
+  padding: 0px;
+  text-align: center;
+}
+
+/* Estilização do título no verso do cartão */
+.card-back .Disc_Foco_Exec {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+/* Estilização do texto descritivo no verso */
+.card-back .Text_Disciplina {
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+/* Responsividade para tablets */
+@media screen and (max-width: 768px) {
+  .container-cards {
+    gap: 10px; /* Reduz espaço entre cartões */
+    padding: 15px 0;
+  }
+
+  .card {
+    width: 200px; /* Reduz tamanho do cartão */
+    height: 240px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 18px; /* Reduz tamanho da fonte */
+    padding: 4px 8px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 16px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 15px;
+  }
+
+  .card-front img {
+    transform: translateY(10px); /* Ajusta deslocamento da imagem */
+  }
+}
+
+/* Responsividade para celulares */
+@media screen and (max-width: 480px) {
+  .container-cards {
+    flex-direction: column; /* Empilha os cartões */
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .card {
+    width: 180px; /* Tamanho ainda menor */
+    height: 220px;
+  }
+
+  .card-front .Disc_Foco_Exec {
+    font-size: 16px;
+    padding: 3px 6px;
+  }
+
+  .card-back .Disc_Foco_Exec {
+    font-size: 14px;
+  }
+
+  .card-back .Text_Disciplina {
+    font-size: 13px;
+  }
+
+  .card-front img {
+    transform: translateY(8px); /* Ajusta deslocamento da imagem */
+  }
+}

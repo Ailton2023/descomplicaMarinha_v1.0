@@ -1,0 +1,14 @@
+ 
+
+/* Estilização do footer */
+footer {
+  background-color: #042B3D; /* Azul característico */
+  color: white; /* Texto branco */
+  width: 100%; /* Ocupa toda a largura */
+  padding: 10px;
+  transform: translateY(-17%);
+}
+
+a{
+  text-decoration: none
+}

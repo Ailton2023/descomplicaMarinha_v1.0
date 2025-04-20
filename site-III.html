@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site</title>
+    <link rel="stylesheet" href="css/site-III.css">
+    <link rel="stylesheet" href="css/cabecalhoNovo.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="css/linhaEntreSecoes.css">
+    <link rel="stylesheet" href="css/cards_DiscFocaExec.css">
+    <link rel="stylesheet" href="css/cards_Materias.css">
+    <link rel="stylesheet" href="css/cards_Informativos.css">
+    <link rel="stylesheet" href="css/midiaSociais-II.css">
+    <link rel="stylesheet" href="css/footerSite-III.css">
+</head>
+<body>
+    <header>
+        <div class="cabecalho cabecalho-fixo">
+          <img class="logoMarinha" src="imagens/ancora_nova-150-px.png" alt="Logo da Marinha">
+          <span class="titulo">DESCOMPLICA MARINHA</span >
+    
+        </div>
+      
+      </header>
+    
+      <div class="subCabecalho cabecalho-fixo">
+        <p class="slogan">A âncora dos seu estudos!</p>
+        <button class="acesso" aria-label="Acessar área do candidato">Área do Candidato</button>
+      </div>
+
+      <main>
+         <!-- Controles abaixo da galeria -->
+        <section class="gallery-wrapper" aria-label="Galeria de imagens">
+            <div class="gallery-container">
+              <div class="gallery">
+                <img src="imagens/banner-01.png" alt="Imagem de cerimônia militar">
+                <img src="imagens/cerimonialMB.jpg" alt="Imagem de cerimonial da Marinha">
+                <img src="imagens/mb_navios.jpg" alt="Imagem de navios da Marinha">
+              </div>
+          
+              <!-- Botões de navegação -->
+              <button class="nav-btn prev-btn" aria-label="Imagem anterior">&lt;</button>
+              <button class="nav-btn next-btn" aria-label="Próxima imagem">&gt;</button>
+            </div>
+          
+            <!-- Dots e controles separados -->
+            <div class="dots-container" id="dotsWrapper" role="navigation" aria-label="Indicadores da galeria">
+              <!-- Dots serão inseridos via JS -->
+            </div>
+          
+            <div class="dots-container" role="navigation" aria-label="Controles de reprodução">
+              <button class="play-btn" aria-label="Iniciar reprodução automática">▶</button>
+              <button class="pause-btn" aria-label="Pausar reprodução automática">⏸</button>
+            </div>
+          </section>
+          
+    <!-- Bloco: Qualidades -->
+    <section class="linhaEntreSeções" aria-label="Qualidades para aprovação">
+        <hr class="linha">
+        <div class="conteudo-azul">
+          <h2 id="h2_texto_barra-azul">Nosso lema:</h2>
+        </div>
+        <hr class="linha">
+      </section>
+ 
+  
+      <!-- Cartões: Disciplina, Foco, Execução -->
+      <section class="container-cards" aria-label="Valores principais">
+        <div class="card" role="button" tabindex="0" aria-label="Cartão sobre Disciplina">
+          <div class="card-inner">
+            <div class="card-front">
+              <img style="margin: auto;" src="imagens/leão.png" alt="Imagem representando Disciplina">
+              <p class="Disc_Foco_Exec">DISCIPLINA</p>
+            </div>
+            <div class="card-back">
+              <p class="Disc_Foco_Exec">DISCIPLINA</p>
+              <p class="Text_Disciplina">Traça o caminho</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card" role="button" tabindex="0" aria-label="Cartão sobre Foco">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="imagens/aguia.png" alt="Imagem representando Foco">
+              <p class="Disc_Foco_Exec">FOCO</p>
+            </div>
+            <div class="card-back">
+              <p class="Disc_Foco_Exec">FOCO</p>
+              <p class="Text_Disciplina">Mantém a direção</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card" role="button" tabindex="0" aria-label="Cartão sobre Execução">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="imagens/lobo.png" alt="Imagem representando Execução">
+              <p class="Disc_Foco_Exec">EXECUÇÃO</p>
+            </div>
+            <div class="card-back">
+              <p class="Disc_Foco_Exec">EXECUÇÃO</p>
+              <p class="Text_Disciplina">Transforma metas em conquistas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+                
+    <!-- Matérias de estudo -->
+    <section class="linhaEntreSeções" aria-label="Qualidades para aprovação">
+        <hr class="linha">
+        <div class="conteudo-azul">
+          <h2 id="h2_texto_barra-azul">Estude conosco as matérias do CA-AA-AFN/2025</h2>
+        </div>
+        <hr class="linha">
+      </section>
+
+      <section class="cards_container">
+        <div class="card_wrapper">
+          <div class="card_apostilha">
+            <img src="imagens/OGSA.png" alt="Apostila OGSA">
+            <p>OGSA</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/lideranca.png" alt="Apostila Liderança">
+            <p>LIDERANÇA</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/procedimentos.png" alt="Apostila Procedimentos Marinheiros">
+            <p>PROC MARINHEIROS</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/justica-disciplina.png" alt="Apostila Justiça e Disciplina">
+            <p>JUSTIÇA E DISCIPLINA NA MB</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/docAdministrativa.png" alt="Apostila Documentação Administrativa">
+            <p>DOCUMENTAÇÃO ADM NA MB</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/cerimonialMB-II.png" alt="Apostila Cerimonial da Marinha">
+            <p>CERIMONIAL DA MARINHA</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/cbinc.png" alt="Apostila Legislação Militar-Naval">
+            <p>LEGISLAÇÃO MILITAR-NAVAL</p>
+          </div>
+  
+          <div class="card_apostilha">
+            <img src="imagens/cbinc.png" alt="Apostila Legislação Militar-Naval">
+            <p>LEGISLAÇÃO MILITAR-NAVAL</p>
+          </div>
+        </div>
+      </section>
+  
+<!-- Recursos ao Candidato -->
+    <section class="linhaEntreSeções" aria-label="Qualidades para aprovação">
+        <hr class="linha">
+        <div class="conteudo-azul">
+          <h2 id="h2_texto_barra-azul">O candidato terá acesso!</h2>
+        </div>
+        <hr class="linha">
+      </section>
+
+      <section class="cards_container">
+        <div class="card_wrapper-informativo">
+          <div class="card-informativo">
+            <img class="icons_informativo" src="icons/icon_exer-I.png" alt="Ícone de exercícios">
+            <p class="p_informativo">MUITOS EXERCÍCIOS</p>
+            <p>Todo apoio para você praticar bastante e resoluções em vídeo para sanar qualquer dúvida.</p>
+          </div>
+  
+          <div class="card-informativo">
+            <img class="icons_informativo" src="icons/metodo-exclusivo.png" alt="Ícone de método exclusivo">
+            <p class="p_informativo">MÉTODO EXCLUSIVO</p>
+            <p>Desenvolvido por quem já foi candidato e conhece muito bem as provas.</p>
+          </div>
+  
+          <div class="card-informativo">
+            <img class="icons_informativo" src="icons/icon_simulados.png" alt="Ícone de simulados">
+            <p class="p_informativo">SIMULADOS</p>
+            <p>Essenciais para compreender sua evolução e identificar os pontos que podem ser aprimorados.</p>
+          </div>
+  
+          <div class="card-informativo">
+            <img class="icons_informativo" src="icons/metodo_DS.png" alt="Ícone de plantões de dúvida">
+            <p class="p_informativo">PLANTÕES DE DÚVIDA</p>
+            <p>Atendimento via Whatsapp.</p>
+          </div>
+        </div>
+      </section>
+
+               
+    <!-- Matérias de estudo -->
+    <section class="linhaEntreSeções" aria-label="Qualidades para aprovação">
+      <hr class="linha">
+      <div class="conteudo-azul">
+        <h2 id="h2_texto_barra-azul">Nossas mídias digitais</h2>
+      </div>
+      <hr class="linha">
+    </section>
+
+    <section class="midiaSociais-II">
+      <div class="conteinerMidiaSociais-II">
+        <a href="#"><img src="imagensMidiasSociais-II/logo-home.jpg" alt="Link para página inicial"></a>
+        <a href="https://www.youtube.com/c/CursoemV%C3%ADdeo" target="_blank"><img src="imagensMidiasSociais-II/logo-youtube.jpg" alt="Canal do YouTube"></a>
+        <a href="https://github.com/gustavoguanabara" target="_blank"><img src="imagensMidiasSociais-II/logo-github.jpg" alt="Perfil no GitHub"></a>
+        <a href="https://www.instagram.com/cursoemvideo/" target="_blank"><img src="imagensMidiasSociais-II/logo-instagram.jpg" alt="Perfil no Instagram"></a>
+        <a href="#"><img src="imagensMidiasSociais-II/logo-twitter.jpg" alt="Perfil no Twitter"></a>
+        <a href="#"><img src="imagensMidiasSociais-II/logo-facebook.jpg" alt="Página no Facebook"></a>
+      </div>
+    </section>
+
+
+      </main>
+
+    <footer>
+      <div style="display: flex; gap:100px; justify-content: center; height: 300px;">
+           <div>
+               <p style="font-size:50px; width: 650px; font-weight: bold;">
+                 ESTÁ COM ALGUMA DÚVIDA OU PRECISA DE AJUDA?
+               </p>
+           </div>
+     
+           <div>
+           
+             	<p style="font-size: 30px; margin-top: 60px;">
+                 Fale com o time do Teorema Militar imediatamente.
+               </p>
+               <p style="font-size: 30px;">
+                  Atendimento por Whatsapp.
+               </p> 
+
+               <div style="background-color: #52DA89; font-size: 40px; color: white; padding: 10px; border-radius: 10px; ">
+                <a href="https://wa.link/lwcsc8" target="_blank" >Clique aqui para iniciar uma conversa</a>
+               </div>
+
+           </div>
+      </div>
+
+    
+
+    </footer>
+      <script src="js/galeria.js"></script>
+</body>
+</html>

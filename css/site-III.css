@@ -1,0 +1,21 @@
+/* Importa a fonte Chakra Petch do Google Fonts com vários pesos (300–700) e variantes itálicas. */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap&font-display=swap');
+body{
+  font-family: "Chakra Petch", Arial, sans-serif;
+}
+
+
+main {
+    width: 100%;
+    max-width: 1800px;
+    margin: 210px auto 0;
+    padding: 0 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #83c7f235;
+    overflow: visible; /* Garante que a galeria não seja cortada */
+    transform: translateY(-2%);
+ 
+  }
+  

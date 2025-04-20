@@ -1,0 +1,155 @@
+/* Estilização do cabeçalho principal */
+.cabecalho {
+  display: flex; /* Usa flexbox para alinhar logo e título */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  background-color: #042B3D; /* Azul-marinho característico */
+  padding: 10px 20px; /* Espaçamento interno */
+  width: 100%; /* Ocupa toda a largura */
+  box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* Classe para fixar o cabeçalho no topo */
+.cabecalho-fixo {
+  position: fixed; /* Fixa o elemento na tela */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Estilização do logo */
+.logoMarinha {
+  width: 140px; /* Tamanho inicial do logo */
+  height: auto; /* Mantém proporção */
+  margin-right: 15px; /* Espaço entre logo e título */
+}
+
+/* Estilização do título */
+.titulo {
+  font-size: 2.8rem; /* Tamanho inicial da fonte */
+  color: #ffffff; /* Cor branca para contraste */
+  font-family: Arial, Helvetica, sans-serif; /* Fonte limpa e profissional */
+  font-weight: bold; /* Negrito para destaque */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilização do subcabeçalho */
+.subCabecalho {
+  display: flex; /* Usa flexbox para alinhar slogan e botão */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Espaça slogan e botão */
+  background-color: #005c99; /* Azul mais claro para diferenciar */
+  padding: 8px 600px; /* Espaçamento interno */
+  width: 100%; /* Ocupa toda a largura */
+  box-sizing: border-box; /* Inclui padding na largura total */
+  position: fixed; /* Fixa o subcabeçalho */
+  top: 154px; /* Colado ao cabeçalho principal - você pode subir ou baixar o subcabeçalho ajustando este valor */
+  left: 0; /* Alinha à esquerda */
+  z-index: 999; /* Um pouco abaixo do cabeçalho principal */
+}
+
+/* Estilização do slogan */
+.slogan {
+  font-size: 1.8rem; /* Tamanho da fonte */
+  color: #ffffff; /* Cor branca */
+  font-family: Arial, Helvetica, sans-serif; /* Mesma fonte para consistência */
+  margin: 0; /* Remove margens padrão */
+}
+
+/* Estilização do botão */
+.acesso {
+  background-color: #ffffff; /* Fundo branco */
+  color: #003087; /* Texto azul-marinho */
+  border: none; /* Sem borda */
+  padding: 8px 15px; /* Espaçamento interno */
+  font-size: 0.9rem; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito para destaque */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Mãozinha ao passar o mouse */
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+/* Efeito hover no botão */
+.acesso:hover {
+  background-color: black; /* Cinza claro ao passar o mouse */
+  color: white;
+  border: 1px solid white;
+}
+
+/* Responsividade para telas menores (tablets) */
+@media screen and (max-width: 768px) {
+  .cabecalho {
+    padding: 8px 15px; /* Reduz padding */
+  }
+
+  .logoMarinha {
+    width: 40px; /* Reduz tamanho do logo */
+  }
+
+  .titulo {
+    font-size: 1.2rem; /* Reduz tamanho da fonte */
+  }
+
+  .subCabecalho {
+    top: 48px; /* Ajusta para ficar colado ao cabeçalho - você pode subir ou baixar o subcabeçalho ajustando este valor */
+    padding: 6px 15px; /* Reduz padding */
+  }
+
+  .slogan {
+    font-size: 0.9rem; /* Reduz tamanho da fonte */
+  }
+
+  .acesso {
+    margin-top: 5px;
+    padding: 6px 12px; /* Reduz padding do botão */
+    font-size: 0.8rem; /* Reduz tamanho da fonte */
+  }
+}
+
+/* Responsividade para telas pequenas (celulares) */
+@media screen and (max-width: 480px) {
+  .cabecalho {
+    padding: 5px 10px; /* Reduz ainda mais o padding */
+  }
+
+  .logoMarinha {
+    width: 35px; /* Logo ainda menor */
+  }
+
+  .titulo {
+    font-size: 1rem; /* Fonte menor */
+  }
+
+  .subCabecalho {
+    top: 40px; /* Ajusta para ficar colado ao cabeçalho - você pode subir ou baixar o subcabeçalho ajustando este valor */
+    padding: 5px 10px; /* Reduz padding */
+  }
+
+  .slogan {
+    font-size: 0.8rem; /* Fonte menor */
+  }
+
+  .acesso {
+ 
+    padding: 5px 10px; /* Reduz padding do botão */
+    font-size: 0.7rem; /* Fonte menor */
+  }
+}
+
+/* Garante que o conteúdo principal não seja sobreposto */
+body {
+  margin-top: 100px; /* Espaço para cabeçalho e subcabeçalho fixos */
+}
+
+/* Ajuste do margem do body para responsividade */
+@media screen and (max-width: 768px) {
+  body {
+    margin-top: 80px; /* Menos espaço */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    margin-top: 70px; /* Ainda menos espaço */
+  }
+}

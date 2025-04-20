@@ -1,0 +1,139 @@
+/* Estilização do contêiner principal dos cartões */
+.cards_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Contêiner dos cartões informativos */
+.card_wrapper-informativo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas por padrão */
+  gap: 50px; /* Espaço entre os cartões */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Estilização dos cartões informativos */
+.card-informativo {
+  background-color: #042b3dd7; /* Azul escuro semi-transparente do CSS de inspiração */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease; /* Transição suave para hover */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 100%; /* Ocupa toda a largura da coluna */
+  max-width: 300px; /* Limite máximo de largura */
+  height: 260px; /* Altura fixa */
+ 
+}
+
+/* Efeito hover nos cartões */
+.card-informativo:hover {
+  transform: translateY(-5px); /* Levanta o cartão */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Estilização dos ícones */
+.icons_informativo {
+  width: 80px; /* Tamanho do ícone */
+  height: 80px;
+  object-fit: contain; /* Mantém proporção do ícone */
+  margin-bottom: 10px; /* Espaço abaixo do ícone */
+}
+
+/* Estilização do título do cartão */
+.p_informativo {
+  font-size: 1.2em; /* Tamanho da fonte */
+  font-weight: bold;
+  color: white; /* Texto branco do CSS de inspiração */
+  margin: 10px 0; /* Margens verticais */
+}
+
+/* Estilização do texto descritivo */
+.card-informativo p:not(.p_informativo) {
+  font-size: 0.9em; /* Tamanho da fonte */
+  color: white; /* Texto branco do CSS de inspiração */
+  line-height: 1.5; /* Espaçamento entre linhas */
+  padding: 0 10px; /* Padding lateral para evitar corte */
+}
+
+/* Responsividade para tablets */
+@media screen and (max-width: 1024px) {
+  .card_wrapper-informativo {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 12px;
+  }
+
+  .card-informativo {
+    max-width: 100%; /* Ocupa toda a largura da coluna */
+    height: 240px; /* Reduz altura */
+  }
+
+  .p_informativo {
+    font-size: 1.1em; /* Reduz tamanho da fonte */
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.85em; /* Reduz tamanho da fonte */
+  }
+}
+
+/* Responsividade para celulares */
+@media screen and (max-width: 768px) {
+  .card_wrapper-informativo {
+    grid-template-columns: 1fr; /* 1 coluna */
+    gap: 10px;
+  }
+
+  .card-informativo {
+    max-width: 300px; /* Largura ajustada para centralizar */
+    height: 220px; /* Reduz altura */
+    margin: 0 auto; /* Centraliza o cartão */
+  }
+
+  .icons_informativo {
+    width: 70px; /* Reduz tamanho do ícone */
+    height: 70px;
+  }
+
+  .p_informativo {
+    font-size: 1em; /* Reduz tamanho da fonte */
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.8em; /* Reduz tamanho da fonte */
+  }
+}
+
+/* Responsividade para telas pequenas */
+@media screen and (max-width: 480px) {
+  .card_wrapper-informativo {
+    gap: 8px;
+  }
+
+  .card-informativo {
+    max-width: 280px; /* Mantém largura razoável */
+    height: 200px; /* Reduz altura */
+  }
+
+  .icons_informativo {
+    width: 60px; /* Reduz ainda mais o ícone */
+    height: 60px;
+  }
+
+  .p_informativo {
+    font-size: 0.95em; /* Ajusta tamanho da fonte */
+  }
+
+  .card-informativo p:not(.p_informativo) {
+    font-size: 0.75em; /* Ajusta tamanho da fonte */
+  }
+}

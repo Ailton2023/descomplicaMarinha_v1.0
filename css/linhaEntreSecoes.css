@@ -1,0 +1,28 @@
+/* Estilo para o bloco "Nosso lema" */
+.conteudo-azul {
+    background-color: #042B3D;
+    padding: 0px;
+    height: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .linha {
+     
+    border: none;
+    border-top: 1px solid black;
+    margin: 10px 0;
+  }
+  
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    display: inline-block;
+    background-color: #fafafa;
+    padding: 5px 10px;
+    position: relative;
+    top: -54px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #042B3D;
+  }
+  

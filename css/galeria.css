@@ -1,0 +1,162 @@
+/* Estilização do contêiner principal da galeria */
+.gallery-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  top: 70px;
+  
+}
+
+/* Contêiner da galeria */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Altura fixa para as imagens */
+  overflow: hidden; /* Mantém o corte para bordas arredondadas */
+  border-radius: 20px; /* Adiciona bordas arredondadas ao contêiner */
+  
+
+}
+
+/* Estilização da galeria de imagens */
+.gallery {
+  display: flex;
+  width: 300%; /* Para 3 imagens */
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Estilização das imagens */
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantém proporção e cobre o espaço */
+  flex: 1 0 100%;
+  border-radius: 20px; /* Bordas arredondadas de 20px em todas as direções */
+  
+}
+
+/* Botões de navegação */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contêiner dos controles (play, dots, pause) */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  height: 120px;
+}
+
+/* Estilização dos dots */
+.dot {
+  transform: translateY(-300%);
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #003087; /* Azul-marinho */
+}
+
+/* Botões de play e pause */
+.play-btn, .pause-btn {
+  background-color: #003087;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-bottom: 140px;
+}
+
+.play-btn:hover, .pause-btn:hover {
+  background-color: #005c99;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    height: 300px; /* Reduz altura para tablets */
+    border-radius: 20px; /* Mantém bordas arredondadas */
+  }
+
+  .gallery img {
+    border-radius: 20px; /* Mantém bordas arredondadas nas imagens */
+  }
+
+  .nav-btn {
+    padding: 8px;
+    font-size: 1.2rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .play-btn, .pause-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-container {
+    height: 200px; /* Reduz altura para celulares */
+    border-radius: 20px; /* Mantém bordas arredondadas */
+  }
+
+  .gallery img {
+    border-radius: 20px; /* Mantém bordas arredondadas nas imagens */
+  }
+
+  .nav-btn {
+    padding: 6px;
+    font-size: 1rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .play-btn, .pause-btn {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+}
