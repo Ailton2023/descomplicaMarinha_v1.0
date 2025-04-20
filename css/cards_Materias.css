@@ -106,6 +106,7 @@
 /* Responsividade para telas pequenas */
 @media screen and (max-width: 480px) {
   .card_wrapper {
+    transform: translateY(-15.5%);
     grid-template-columns: repeat(2, 1fr); /* 2 colunas */
     gap: 8px;
     padding: 5px; /* Reduz padding */

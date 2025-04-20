@@ -9,6 +9,7 @@
 }
 
 .linha {
+ 
   border: none;
   border-top: 1px solid black;
   margin: 10px 0;
@@ -48,12 +49,16 @@
 
 /* Responsividade para celulares */
 @media screen and (max-width: 480px) {
+
   .conteudo-azul {
+    transform: translateY(-325%);
+    
     height: 32px; /* Reduz ainda mais a altura */
     padding: 6px 0;
   }
 
   .linha {
+    transform: translateY(-105px);
     margin: 6px 0; /* Reduz margem */
   }
 

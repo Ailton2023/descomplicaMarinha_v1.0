@@ -84,8 +84,9 @@ footer a:hover {
 /* Responsividade para celulares */
 @media screen and (max-width: 480px) {
   footer {
+ 
     padding: 0.8rem 1rem; /* Reduz padding */
-    margin-top: -1rem; /* Ajusta margem */
+    margin-top: -4.0rem; /* Ajusta margem */
     font-size: 0.8rem; /* Tamanho da fonte adequado */
   }
 

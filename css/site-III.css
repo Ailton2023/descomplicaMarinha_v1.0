@@ -1,21 +1,46 @@
 /* Importa a fonte Chakra Petch do Google Fonts com vários pesos (300–700) e variantes itálicas. */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap&font-display=swap');
-body{
+
+body {
   font-family: "Chakra Petch", Arial, sans-serif;
+  margin: 0; /* Remove margens padrão do body para melhor controle */
 }
 
-
 main {
-    width: 100%;
-    max-width: 1800px;
-    margin: 210px auto 0;
-    padding: 0 15px;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #83c7f235;
-    overflow: visible; /* Garante que a galeria não seja cortada */
-    transform: translateY(-2%);
- 
+  width: 100%;
+  max-width: 1800px;
+  margin: 210px auto 0; /* Mantém margem superior fixa, mas ajustável abaixo */
+  padding: 0 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #83c7f235;
+  overflow: visible; /* Garante que a galeria não seja cortada */
+  transform: translateY(-2%);
+  box-sizing: border-box; /* Garante que padding não aumente a largura */
+}
+
+/* Media query para telas menores (tablets e dispositivos móveis) */
+@media screen and (max-width: 1024px) {
+  main {
+    margin-top: 150px; /* Reduz margem superior para telas menores */
+    padding: 0 10px; /* Reduz padding para economizar espaço */
   }
-  
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-top: 100px; /* Margem ainda menor para dispositivos móveis */
+    max-width: 95%; /* Usa quase toda a largura da tela */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+    transform: translateY(0); /* Remove transformação para simplificar */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    margin-top: 50px; /* Margem mínima para telas muito pequenas */
+    padding: 0 5px; /* Padding mínimo */
+    border-radius: 3px; /* Bordas mais suaves em telas pequenas */
+  }
+}

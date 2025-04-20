@@ -136,7 +136,12 @@
 }
 
 @media screen and (max-width: 480px) {
+
+  .gallery-wrapper{
+    transform: translateY(-18%);
+  }
   .gallery-container {
+    
     height: 200px; /* Reduz altura para celulares */
     border-radius: 20px; /* Mantém bordas arredondadas */
   }
@@ -146,17 +151,20 @@
   }
 
   .nav-btn {
+    
     padding: 6px;
     font-size: 1rem;
   }
 
   .dot {
+    transform: translateY(-720%);
     width: 6px;
     height: 6px;
   }
 
   .play-btn, .pause-btn {
-    padding: 5px 8px;
+    transform: translateY(-50%);
+    padding: 3px 5px;
     font-size: 0.8rem;
   }
 }

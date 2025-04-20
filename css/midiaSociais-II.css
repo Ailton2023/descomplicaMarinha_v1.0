@@ -46,13 +46,14 @@
 /* Responsividade para celulares */
 @media screen and (max-width: 480px) {
   .conteinerMidiaSociais-II {
+    transform: translateY(-150%);
     gap: 6px; /* Reduz ainda mais o espaçamento */
     padding: 6px; /* Reduz padding */
   }
 
   .midiaSociais-II img {
-    width: 32px; /* Reduz tamanho dos ícones */
-    height: 32px;
+    width: 42px; /* Reduz tamanho dos ícones */
+    height: 42px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra mais sutil */
   }
 

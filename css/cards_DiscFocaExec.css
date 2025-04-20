@@ -136,6 +136,7 @@
 /* Responsividade para celulares */
 @media screen and (max-width: 480px) {
   .container-cards {
+    transform: translateY(-75%);
     display: flex;
     flex-direction: row; /* Mantém os cartões em linha */
     flex-wrap: nowrap; /* Impede quebra de linha */
