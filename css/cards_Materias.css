@@ -84,40 +84,46 @@
   .card_wrapper {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas */
     gap: 10px;
+    padding: 8px; /* Reduz padding para mais espaço */
   }
 
   .card_apostilha {
-    max-width: 180px; /* Reduz ainda mais a largura */
-    height: 200px; /* Reduz altura */
+    max-width: 160px; /* Reduz largura para caber dois cartões */
+    height: 180px; /* Reduz altura */
   }
 
   .card_apostilha img {
     height: 50%; /* Ajusta altura da imagem */
+    margin-top: 8px; /* Reduz margem */
   }
 
   .card_apostilha p {
-    font-size: 0.85rem; /* Reduz tamanho da fonte */
+    font-size: 0.8rem; /* Reduz tamanho da fonte */
+    padding: 0 8px; /* Reduz padding lateral */
   }
 }
 
 /* Responsividade para telas pequenas */
 @media screen and (max-width: 480px) {
   .card_wrapper {
-    grid-template-columns: 1fr; /* 1 coluna */
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
     gap: 8px;
+    padding: 5px; /* Reduz padding */
   }
 
   .card_apostilha {
-    max-width: 250px; /* Largura ajustada para centralizar */
-    height: 240px; /* Altura ajustada */
+    max-width: 140px; /* Reduz ainda mais a largura */
+    height: 160px; /* Reduz altura */
     margin: 0 auto; /* Centraliza o cartão */
   }
 
   .card_apostilha img {
-    height: 60%; /* Mantém proporção da imagem */
+    height: 50%; /* Ajusta altura da imagem */
+    margin-top: 6px; /* Reduz margem */
   }
 
   .card_apostilha p {
-    font-size: 0.9rem; /* Tamanho da fonte ajustado */
+    font-size: 0.75rem; /* Reduz tamanho da fonte */
+    padding: 0 6px; /* Reduz padding lateral */
   }
 }

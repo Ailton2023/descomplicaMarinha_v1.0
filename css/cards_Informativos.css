@@ -18,7 +18,7 @@
 
 /* Estilização dos cartões informativos */
 .card-informativo {
-  background-color: #042b3dd7; /* Azul escuro semi-transparente do CSS de inspiração */
+  background-color: #042b3dd7; /* Azul escuro semi-transparente */
   border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   text-align: center;
@@ -32,7 +32,6 @@
   width: 100%; /* Ocupa toda a largura da coluna */
   max-width: 300px; /* Limite máximo de largura */
   height: 260px; /* Altura fixa */
- 
 }
 
 /* Efeito hover nos cartões */
@@ -53,14 +52,14 @@
 .p_informativo {
   font-size: 1.2em; /* Tamanho da fonte */
   font-weight: bold;
-  color: white; /* Texto branco do CSS de inspiração */
+  color: white; /* Texto branco */
   margin: 10px 0; /* Margens verticais */
 }
 
 /* Estilização do texto descritivo */
 .card-informativo p:not(.p_informativo) {
   font-size: 0.9em; /* Tamanho da fonte */
-  color: white; /* Texto branco do CSS de inspiração */
+  color: white; /* Texto branco */
   line-height: 1.5; /* Espaçamento entre linhas */
   padding: 0 10px; /* Padding lateral para evitar corte */
 }
@@ -89,51 +88,64 @@
 /* Responsividade para celulares */
 @media screen and (max-width: 768px) {
   .card_wrapper-informativo {
-    grid-template-columns: 1fr; /* 1 coluna */
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 6px; /* Reduz espaço entre cartões */
+    padding: 4px; /* Reduz padding */
   }
 
   .card-informativo {
-    max-width: 300px; /* Largura ajustada para centralizar */
-    height: 220px; /* Reduz altura */
-    margin: 0 auto; /* Centraliza o cartão */
+    max-width: 140px; /* Reduz largura para caber quatro cartões */
+    height: 160px; /* Reduz altura */
+    padding: 8px; /* Reduz padding interno */
   }
 
   .icons_informativo {
-    width: 70px; /* Reduz tamanho do ícone */
-    height: 70px;
+    width: 45px; /* Reduz tamanho do ícone */
+    height: 45px;
+    margin-bottom: 6px; /* Reduz margem */
   }
 
   .p_informativo {
-    font-size: 1em; /* Reduz tamanho da fonte */
+    font-size: 0.85em; /* Reduz tamanho da fonte */
+    margin: 4px 0; /* Reduz margens */
   }
 
   .card-informativo p:not(.p_informativo) {
-    font-size: 0.8em; /* Reduz tamanho da fonte */
+    font-size: 0.65em; /* Reduz tamanho da fonte */
+    padding: 0 4px; /* Reduz padding lateral */
+    line-height: 1.2; /* Ajusta espaçamento */
   }
 }
 
 /* Responsividade para telas pequenas */
 @media screen and (max-width: 480px) {
   .card_wrapper-informativo {
-    gap: 8px;
+    transform: scale(0.80);
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 20px; /* Reduz ainda mais o espaço */
+    padding: 2px; /* Reduz padding */
   }
 
   .card-informativo {
-    max-width: 280px; /* Mantém largura razoável */
-    height: 200px; /* Reduz altura */
+    max-width: 90px; /* Reduz largura para caber quatro cartões */
+    height: 160px; /* Reduz altura */
+    padding: 6px; /* Reduz padding interno */
   }
 
   .icons_informativo {
-    width: 60px; /* Reduz ainda mais o ícone */
-    height: 60px;
+    width: 30px; /* Reduz ainda mais o ícone */
+    height: 30px;
+    margin-bottom: 4px; /* Reduz margem */
   }
 
   .p_informativo {
-    font-size: 0.95em; /* Ajusta tamanho da fonte */
+    font-size: 0.75em; /* Reduz tamanho da fonte */
+    margin: 2px 0; /* Reduz margens */
   }
 
   .card-informativo p:not(.p_informativo) {
-    font-size: 0.75em; /* Ajusta tamanho da fonte */
+    font-size: 0.6em; /* Reduz tamanho da fonte */
+    padding: 0 2px; /* Reduz padding lateral */
+    line-height: 1.1; /* Ajusta espaçamento */
   }
 }

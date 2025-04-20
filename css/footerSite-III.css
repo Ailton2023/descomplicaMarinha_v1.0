@@ -1,14 +1,116 @@
- 
-
 /* Estilização do footer */
 footer {
   background-color: #042B3D; /* Azul característico */
   color: white; /* Texto branco */
   width: 100%; /* Ocupa toda a largura */
-  padding: 10px;
-  transform: translateY(-17%);
+  padding: 1.5rem 2rem; /* Padding relativo para melhor espaçamento */
+  box-sizing: border-box; /* Garante que padding não aumente a largura */
+  position: relative; /* Permite ajustes de posicionamento, se necessário */
+  margin-top: -2rem; /* Substitui translateY para evitar desalinhamento */
+  text-align: center; /* Centraliza o conteúdo */
 }
 
-a{
-  text-decoration: none
+/* Estilização de links apenas dentro do footer */
+footer a {
+  text-decoration: none;
+  color: #a8d4e6; /* Cor clara para links, contrastando com o fundo */
+  transition: color 0.3s ease; /* Transição suave para hover */
+}
+
+footer a:hover {
+  color: #ffffff; /* Branco total ao passar o mouse */
+}
+
+/* Estilização dos textos */
+.texto-01 {
+  font-size: 50px; /* Tamanho grande para desktops */
+  width: 650px; /* Largura fixa */
+  font-weight: bold;
+  box-sizing: border-box; /* Evita overflow */
+}
+
+.texto-02 {
+  font-size: 30px; /* Tamanho médio */
+  margin-top: 60px; /* Espaço superior */
+}
+
+.texto-03 {
+  font-size: 20px; /* Tamanho base */
+}
+
+.texto-04 {
+  background-color: #52DA89; /* Verde característico */
+  font-size: 20px; /* Tamanho base */
+  color: white; /* Texto branco */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  display: inline-block; /* Garante que o fundo respeite o conteúdo */
+}
+
+/* Responsividade para tablets */
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 1rem 1.5rem; /* Reduz padding */
+    margin-top: -1.5rem; /* Ajusta margem */
+    font-size: 0.9rem; /* Tamanho da fonte adequado */
+  }
+
+  footer a {
+    font-size: 0.85rem; /* Reduz tamanho da fonte dos links */
+  }
+
+  .texto-01 {
+    font-size: 36px; /* Reduz tamanho da fonte */
+    width: 80%; /* Usa largura relativa */
+    max-width: 500px; /* Limita largura máxima */
+  }
+
+  .texto-02 {
+    font-size: 24px; /* Reduz tamanho da fonte */
+    margin-top: 40px; /* Reduz margem */
+  }
+
+  .texto-03 {
+    font-size: 18px; /* Reduz tamanho da fonte */
+  }
+
+  .texto-04 {
+    font-size: 18px; /* Reduz tamanho da fonte */
+    padding: 8px; /* Reduz padding */
+    border-radius: 8px; /* Reduz borda arredondada */
+  }
+}
+
+/* Responsividade para celulares */
+@media screen and (max-width: 480px) {
+  footer {
+    padding: 0.8rem 1rem; /* Reduz padding */
+    margin-top: -1rem; /* Ajusta margem */
+    font-size: 0.8rem; /* Tamanho da fonte adequado */
+  }
+
+  footer a {
+    font-size: 0.75rem; /* Reduz tamanho da fonte dos links */
+  }
+
+  .texto-01 {
+    font-size: 20px; /* Ajusta tamanho da fonte */
+    width: 90%; /* Usa quase toda a largura */
+    max-width: 300px; /* Limita largura máxima */
+  }
+
+  .texto-02 {
+    font-size: 14px; /* Ajusta tamanho da fonte */
+    margin-top: 30px; /* Reduz margem */
+  }
+
+  .texto-03 {
+    font-size: 14px; /* Ajusta tamanho da fonte */
+  }
+
+  .texto-04 {
+    font-size: 14px; /* Ajusta tamanho da fonte */
+    padding: 6px; /* Reduz padding */
+    border-radius: 6px; /* Reduz borda arredondada */
+  }
 }

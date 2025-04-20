@@ -1,22 +1,64 @@
 @charset "UTF-8";
-.conteinerMidiaSociais-II{
-    display: flex;
-    justify-content: center;
 
+.conteinerMidiaSociais-II {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+  gap: 10px; /* Substitui margin para espaçamento mais controlado */
+  padding: 10px; /* Adiciona padding para evitar colisão com bordas */
 }
 
-
-.midiaSociais-II img{
-    width: 50px;
-    margin: 10px;
-    border-radius: 100%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
-    box-sizing: border-box;    
+.midiaSociais-II img {
+  width: 50px; /* Tamanho base para desktops */
+  height: 50px; /* Garante proporção com border-radius */
+  border-radius: 100%; /* Ícones circulares */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Sombra suave */
+  box-sizing: border-box;
 }
 
-.midiaSociais-II img:hover{
-    border: 2px solid rgba(135, 31, 31, 0.637);
-    transform: translate(-3px, -3px);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623);
-    transition: transform .3s, border .5s;
-} 
+.midiaSociais-II img:hover {
+  border: 2px solid rgba(135, 31, 31, 0.637); /* Borda vermelha no hover */
+  transform: translate(-3px, -3px); /* Efeito de elevação */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.623); /* Sombra mais forte */
+  transition: transform 0.3s, border 0.5s, box-shadow 0.3s; /* Inclui box-shadow na transição */
+}
+
+/* Responsividade para tablets */
+@media screen and (max-width: 768px) {
+  .conteinerMidiaSociais-II {
+    gap: 8px; /* Reduz espaçamento */
+    padding: 8px; /* Reduz padding */
+  }
+
+  .midiaSociais-II img {
+    width: 40px; /* Reduz tamanho dos ícones */
+    height: 40px;
+    box-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.4); /* Sombra proporcional */
+  }
+
+  .midiaSociais-II img:hover {
+    border: 1.5px solid rgba(135, 31, 31, 0.637); /* Borda mais fina */
+    transform: translate(-2px, -2px); /* Efeito de elevação reduzido */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.623); /* Sombra ajustada */
+  }
+}
+
+/* Responsividade para celulares */
+@media screen and (max-width: 480px) {
+  .conteinerMidiaSociais-II {
+    gap: 6px; /* Reduz ainda mais o espaçamento */
+    padding: 6px; /* Reduz padding */
+  }
+
+  .midiaSociais-II img {
+    width: 32px; /* Reduz tamanho dos ícones */
+    height: 32px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra mais sutil */
+  }
+
+  .midiaSociais-II img:hover {
+    border: 1px solid rgba(135, 31, 31, 0.637); /* Borda ainda mais fina */
+    transform: translate(-1.5px, -1.5px); /* Efeito de elevação mínimo */
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.623); /* Sombra reduzida */
+  }
+}

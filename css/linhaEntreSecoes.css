@@ -1,28 +1,67 @@
 /* Estilo para o bloco "Nosso lema" */
 .conteudo-azul {
-    background-color: #042B3D;
-    padding: 0px;
-    height: 20px;
-    color: white;
-    text-align: center;
+  background-color: #042B3D;
+  padding: 10px 0; /* Adicionado padding vertical para melhor espaçamento */
+  height: 40px; /* Aumentado para acomodar o conteúdo */
+  color: white;
+  text-align: center;
+  box-sizing: border-box; /* Garante que padding não aumente a altura total */
+}
+
+.linha {
+  border: none;
+  border-top: 1px solid black;
+  margin: 10px 0;
+}
+
+#h2_texto_barra-azul,
+#h2_conteudo_ultimas_noticias {
+  display: inline-block;
+  background-color: #fafafa;
+  padding: 5px 10px;
+  position: relative;
+  top: -30px; /* Ajustado para alinhar melhor com a linha */
+  border-radius: 10px;
+  font-size: 20px;
+  color: #042B3D;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionado sombra sutil para destaque */
+}
+
+/* Responsividade para tablets */
+@media screen and (max-width: 768px) {
+  .conteudo-azul {
+    height: 36px; /* Reduz altura */
+    padding: 8px 0;
   }
-  
+
   .linha {
-     
-    border: none;
-    border-top: 1px solid black;
-    margin: 10px 0;
+    margin: 8px 0; /* Reduz margem */
   }
-  
+
   #h2_texto_barra-azul,
   #h2_conteudo_ultimas_noticias {
-    display: inline-block;
-    background-color: #fafafa;
-    padding: 5px 10px;
-    position: relative;
-    top: -54px;
-    border-radius: 10px;
-    font-size: 25px;
-    color: #042B3D;
+    font-size: 18px; /* Reduz tamanho da fonte */
+    padding: 4px 8px;
+    top: -28px; /* Ajusta posição */
   }
-  
+}
+
+/* Responsividade para celulares */
+@media screen and (max-width: 480px) {
+  .conteudo-azul {
+    height: 32px; /* Reduz ainda mais a altura */
+    padding: 6px 0;
+  }
+
+  .linha {
+    margin: 6px 0; /* Reduz margem */
+  }
+
+  #h2_texto_barra-azul,
+  #h2_conteudo_ultimas_noticias {
+    font-size: 10px; /* Reduz tamanho da fonte */
+    padding: 3px 6px;
+    top: -26px; /* Ajusta posição */
+    border-radius: 8px;enharia: 8px; /* Reduz borda arredondada */
+  }
+}
