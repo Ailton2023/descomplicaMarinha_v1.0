@@ -1,0 +1,192 @@
+ 
+main{
+margin: 0;
+padding: 0;  
+}
+
+    
+fieldset{
+    background-color: #F2F4F4;
+    width: 8000px;
+    height: auto;
+    margin: 0px;
+    padding: 3px;
+    border: 2px solid rgba(0, 0, 0, 0.259);
+    border-radius: 10px;
+    
+}
+
+
+h1{
+/*font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+justify-content: center; /* Alinhamento horizontal */
+/*align-items: center;    */ /*Alinhamento vertical */
+ 
+/*text-align: center; 
+background-color:#2E58A2;
+height: 50px;
+font-weight: bolder; 
+color: white;
+margin: auto;
+width: 1780px;
+padding-top: 1px; 
+margin-top: 50px;
+ 
+ 
+margin: auto;
+border-radius: 10px;*/
+border: 2px solid rgba(0, 0, 0, 0.271);
+border-radius: 10px;
+padding: 10px;
+margin-top: 5px;
+margin: auto;
+width: 2980px;
+height: 20px;
+background-color: #2E58A2;
+color: white;
+display: flex;
+justify-content: center; 
+align-items: center;     
+ 
+text-align: center; 
+
+}
+
+.conteiner-mae-OGSA{
+    word-wrap:wrap;
+    width: 3000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 15px;     
+}
+
+/*TÍTULO II ORGANIZAÇÃO CAPÍTULO 1 Disposições Gerais*/
+.conteiner-OGSA-Titulo_II-Organizacao{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 1000px;
+    height: 1035px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 255, 0.055);
+}
+/*TÍTULO II ORGANIZAÇÃO CAPÍTULO 2
+Organização dos Estados-Maiores de Força*/
+.conteiner-OGSA-Titulo_II-Capitulo-II-OrgEstados-MaioresForca{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 1000px;
+    height: 900px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 130px;
+}
+
+/*TÍTULO IV - DEVERES DO PESSOAL - CAPÍTULO 1 - Disposições Gerais*/
+.conteiner-OGSA-Titulo_IV-DeveresPessoal-Cap-I-DisposicoesGerais{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 2000px;
+    height: 940px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 90px;
+}
+
+.conteiner-OGSA-Titulo_IV-DeveresPessoal-Cap-II-DisposicoesGerais{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 2500px;
+    height: 940px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 90px;
+}
+
+.conteiner-deveresRespOFI{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 900px;
+    height: 250px;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 780px;
+}
+
+.conteiner-deveresPrcEspQdoEmb{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 900px;
+    height: 420px;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 610px;
+}
+ 
+.conteiner-deveresPrc{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;   
+    width: 900px;
+    height: 420px;
+    background-color: rgba(0, 0, 255, 0.055);
+    margin-bottom: 610px;
+}
+
+
+ 
+.duasColunas{
+    column-count: 3;
+    column-gap: 2rem;
+   column-rule:5px dashed rgba(0, 0, 0, 0.205);
+    text-align: justify;
+}
+.titulo{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+p.OGSA{ /*p.OGSA*/
+    font-size: 16px;
+    text-align: justify;      
+    display: block;
+    height: 50px;
+    margin-bottom: 0px;
+   
+
+}
+
+p:hover{
+    background-color: rgba(0, 0, 255, 0.409);
+    border-radius: 5px;
+   
+    
+ 
+}
+
+.conteiner{
+    border: 2px solid rgba(0, 0, 0, 0.271);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 30px;
+    width: 1000px;
+    background-color: rgba(0, 0, 255, 0.055);
+}
+
+section{
+    display: inline-block;
+}

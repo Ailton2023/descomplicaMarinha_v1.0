@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+footer{
+    background-color: #2E58A2;
+    color: white;
+    
+    text-align: center;
+    padding: 0px;
+ 
+}
+
+ 
+.conteiner-quatroCards{
+     
+ 
+    width: 1500px;  
+    margin: 0 auto; 
+    display: flex;
+    gap: 40px;
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
+    padding: 10px;
+     
+}
+
+.card-curso{
+ 
+    width: 250px;
+  
+}
+
+.logoTexto{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+ 
+} 
+
+.ptexto-logo{
+     color: white;
+     font-size: 10px;
+     align-items: center;
+
+}
+
+.texto-cards-curso{
+    font-size: 18px;
+    text-align: justify; 
+    color: black;
+         
+}
+
+.texto-cards-curso:hover{
+   font-weight: 500;
+}
+
+.titulo-cards{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.text-cards{
+    font-size: 18px;
+    color: black;
+    text-align: left;
+
+}
+
+.text-cards:hover{
+    font-weight: 500;
+
+}
+
+
+
+
+
+

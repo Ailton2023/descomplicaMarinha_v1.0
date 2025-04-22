@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráficos</title>
+    <link rel="stylesheet" href="css/graficos.css">
+ 
+
+    
+</head>
+<body>
+
+       
+
+   
+
+
+ 
+     <!-- SEU PROGRESSO NAS MATÉRIAS -->
+ 
+        <h1 class="h1Curso" >Escolha o curso e acompanhe seu progresso!</h1>
+
+        <div class="container-cursos" style="gap: 20px;">
+
+            <div class="cursos">
+                <img src="../imagens/OGSA.png" alt="" width="210px">                                        
+                <h1 class="nome_curso">OGSA</h1>
+
+
+                <button onclick="" id="corBotaoEmProducao">Acesse</button>
+            </div>
+
+              <div class="cursos">
+                <img src="../imagens/lideranca.png" alt="" width="190px">  
+
+                  <h1 class="nome_curso" >Liderança</h1>
+                  
+                  <section id="graficos">
+                    
+                    <div class="progress-container">
+                      <progress id="progresso" value="0" max="100"></progress>
+                      <span id="porcentagem">0%</span>
+                    </div>
+                  </section>
+                  <button onclick="" id="corBotaoEmProducao"><a href="../lideranca/capitulo-I.html" target="_blank">Ir para apostila</a></button>
+                </div>
+
+              <div class="cursos">
+                <img src="../imagens/procedimentos.png" alt="" width="190px">
+                           
+                  <h1 class="nome_curso">Procedimentos Marinheiros</h1>
+                  <button onclick="" id="corBotaoEmProducao">Acesse</button>
+              </div>    
+        </div>
+
+        
+        <div class="container-cursos" style="gap: 20px;">
+                                
+            <div class="cursos">
+                <img src="../imagens/justica-disciplina.png" alt="" width="190px">
+                           
+                  <h1 style="font-size: 18px;" class="nome_curso">Justiça e Disciplina na MB</h1>
+                  <button onclick="" id="corBotaoEmProducao" style="cursor: no-drop;">Acesse</button> 
+              </div>
+              <div class="cursos">
+                <img src="../imagens/docAdministrativa.png" alt="" width="190px">
+                           
+                  <h1 style="font-size: 20px;" class="nome_curso">Doc Adm da MB</h1>
+                  <button onclick="" id="corBotaoEmProducao" style="cursor: no-drop;">Acesse</button>
+              </div>
+
+              <div class="cursos">
+                <img src="../imagens/cerimonialMB-II.png" alt="" width="190px">
+                           
+                  <h1 class="nome_curso">Cerimonial da MB</h1>
+                  <button onclick="" id="corBotaoEmProducao" style="cursor: no-drop;">Acesse</button>
+              </div>   
+                                   
+        </div>
+
+        <div class="container-cursos">
+
+            <div class="cursos">
+                <img src="../imagens/cerimonialMB-II.png" alt="" width="190px">
+                           
+                  <h1 class="nome_curso">Legislação militar-naval</h1>
+                  <button onclick="" id="corBotaoEmProducao" style="cursor: no-drop;">Acesse</button>
+            </div> 
+              <div class="cursos" style="visibility: hidden;">
+                <img src="../imagens/lideranca.png" alt="" width="190px">
+                            
+                  <h1 class="nome_curso" >Liderança</h1>
+                  <button onclick="" id="corBotao" >Acesse</button>
+              </div>
+
+              <div class="cursos" style="visibility: hidden;">
+                <img src="../imagens/procedimentos.png" alt="" width="190px">
+                           
+                  <h1 class="nome_curso">Legislação militar-naval</h1>
+                  <button onclick="" id="corBotao" >Acesse</button>
+              </div>                     
+        </div>  
+ 
+
+
+    <script>
+
+      const progressBar = document.getElementById('progresso');
+    const porcentagemDisplay = document.getElementById('porcentagem');
+
+    function atualizarProgresso() {
+      // Recupera a porcentagem do localStorage
+      const porcentagem = localStorage.getItem('porcentagem') || 0;
+      progressBar.value = porcentagem;
+      porcentagemDisplay.textContent = `${porcentagem}%`;
+    }
+
+    // Atualiza ao carregar a página
+    atualizarProgresso();
+
+    // Verifica mudanças no localStorage continuamente (simulação de atualização em tempo real)
+    window.addEventListener('storage', atualizarProgresso);
+        
+    </script>
+
+
+</body>
+</html>
