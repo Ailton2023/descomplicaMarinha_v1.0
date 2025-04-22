@@ -43,6 +43,6 @@ main {
     margin-top: 50px; /* Margem mínima para telas muito pequenas */
     padding: 0 5px; /* Padding mínimo */
     border-radius: 3px; /* Bordas mais suaves em telas pequenas */
-    transform: translateY(-30%);
+
   }
 }

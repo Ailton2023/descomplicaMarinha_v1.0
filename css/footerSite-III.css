@@ -10,6 +10,10 @@ footer {
   text-align: center; /* Centraliza o conteúdo */
 }
 
+.container-footer{
+  display: flex; gap:100px; justify-content: center;
+}
+
 /* Estilização de links apenas dentro do footer */
 footer a {
   text-decoration: none;
@@ -114,4 +118,5 @@ footer a:hover {
     padding: 6px; /* Reduz padding */
     border-radius: 6px; /* Reduz borda arredondada */
   }
+ 
 }
