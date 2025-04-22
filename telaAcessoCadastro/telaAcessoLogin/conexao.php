@@ -1,6 +1,6 @@
 <?php
 // Configurações do banco de dados
-$servidor = "localhost";
+$servidor = "192.168.77.145";
 $usuario = "root";
 $senha = "";
 $banco = "conexao";
