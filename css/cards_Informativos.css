@@ -122,6 +122,8 @@
 
   .cards_container-informativo{
     transform: translateY(-59%);
+    margin-left: 3px; 
+ 
   }
   .card_wrapper-informativo {
   

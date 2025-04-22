@@ -119,4 +119,12 @@ footer a:hover {
     border-radius: 6px; /* Reduz borda arredondada */
   }
  
+  footer{
+    transform: translateY(-0%);
+    
+  }
+
+  main{ 
+    height: 1700px;
+  }
 }
