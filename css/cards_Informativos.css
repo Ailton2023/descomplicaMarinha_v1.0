@@ -122,20 +122,21 @@
 
   .cards_container-informativo{
     transform: translateY(-59%);
-    margin-left: 3px; 
+ 
  
   }
   .card_wrapper-informativo {
-  
+    justify-content: center;
+    align-items: center;
     transform: scale(0.80);
     grid-template-columns: repeat(4, 1fr); /* 4 colunas */
     gap: 20px; /* Reduz ainda mais o espaço */
-    padding: 2px; /* Reduz padding */
+    padding: px; /* Reduz padding */
   }
 
   .card-informativo {
     top: -95px;
-    transform: translateX(-35%);
+    transform: translateX(-5%);
 
     max-width: 90px; /* Reduz largura para caber quatro cartões */
     height: 160px; /* Reduz altura */
