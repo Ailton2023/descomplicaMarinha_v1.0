@@ -215,8 +215,8 @@ img {
 
 
 .nome_curso{
-   font-family: Arial, Helvetica, sans-serif;
-    /*font-family: "Tomorrow", Arial, Helvetica, sans-serif;*/
+
+    font-family: "Tomorrow", Arial, Helvetica, sans-serif;
     font-weight: 200;   
     font-style: normal;
     color: black;

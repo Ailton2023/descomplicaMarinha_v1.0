@@ -259,7 +259,7 @@ body {
 
 /* Estiliza o título do curso */
 .nome_curso {
-    font-size: 18px;
+    font-size: 0px;
     color: #333;
     margin-bottom: 10px;
 }
