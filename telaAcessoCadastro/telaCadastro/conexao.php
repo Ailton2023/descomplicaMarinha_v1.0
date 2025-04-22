@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if (password_verify($senha, $usuario['senha'])) {
                 // Login bem-sucedido, redirecionar
-                header("Location: http://localhost/telaacessocadastro/cabineControle-II/cabineControle.html");
+                header("Location: http://192.168.77.145/telaacessocadastro/cabineControle-II/cabineControle.html");
                 exit();
             } else {
                 echo "<script>alert('Senha incorreta!'); window.history.back();</script>";
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if (password_verify($senha, $usuario['senha'])) {
                     // Login bem-sucedido, redirecionar
-                    header("Location: http://localhost/telaacessocadastro/cabineControle-II/cabineControle.html");
+                    header("Location: http://192.168.77.145/telaacessocadastro/cabineControle-II/cabineControle.html");
                     exit();
                 } else {
                     echo "<script>alert('Senha incorreta!'); window.history.back();</script>";
