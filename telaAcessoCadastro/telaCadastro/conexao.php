@@ -1,110 +1,89 @@
 <?php
-// Configurações do banco de dados
-$servidor = "192.168.77.145";
-$usuario = "root";
-$senha = "";
-$banco = "conexao";
+// Ativar exibição de erros para depuração (remova em produção)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Criar conexão
-$conexao = new mysqli($servidor, $usuario, $senha, $banco);
+try {
+    // Conectar ao banco SQLite
+    $db = new PDO('sqlite:conexao.db');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Verificar conexão
-if ($conexao->connect_error) {
-    die("Falha na conexão: " . $conexao->connect_error);
-}
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Cadastro
+        if (isset($_POST['nome'], $_POST['telefone'], $_POST['email'], $_POST['senha'])) {
+            $nome = trim($_POST['nome']);
+            $telefone = trim($_POST['telefone']);
+            $email = trim($_POST['email']);
+            $senha = trim($_POST['senha']);
 
-// Definir charset
-mysqli_set_charset($conexao, "utf8");
-
-// Verificar se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar se é um cadastro
-    if (isset($_POST['nome']) && isset($_POST['telefone']) && isset($_POST['email']) && isset($_POST['confEmail']) && isset($_POST['senha'])) {
-        // Dados do formulário de cadastro
-        $nome = $conexao->real_escape_string($_POST['nome']);
-        $telefone = $conexao->real_escape_string($_POST['telefone']);
-        $email = $conexao->real_escape_string($_POST['email']);
-        $confEmail = $conexao->real_escape_string($_POST['confEmail']);
-        $senha = trim($_POST['senha']); // Remover espaços extras
-
-        // Validar confirmação de email
-        if ($email !== $confEmail) {
-            echo "<script>alert('Os e-mails não coincidem!'); window.history.back();</script>";
-            exit();
-        }
-
-        // Validar tamanho da senha
-        if (strlen($senha) < 6) {
-            echo "<script>alert('A senha deve ter no mínimo 6 caracteres!'); window.history.back();</script>";
-            exit();
-        }
-
-        // Criptografar a senha
-        $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
-
-        // Verificar se o email já está cadastrado
-        $sql = "SELECT email FROM cadastro WHERE email = '$email'";
-        $resultado = $conexao->query($sql);
-
-        if ($resultado->num_rows > 0) {
-            echo "<script>alert('E-mail já cadastrado!'); window.history.back();</script>";
-            exit();
-        }
-
-        // Inserir dados na tabela cadastro
-        $sql = "INSERT INTO cadastro (nome, telefone, email, senha) VALUES ('$nome', '$telefone', '$email', '$senhaCriptografada')";
-        
-        if ($conexao->query($sql) === TRUE) {
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../telaAcessoLogin/telaAcessoLogin.html';</script>";
-        } else {
-            echo "<script>alert('Erro ao cadastrar: " . $conexao->error . "'); window.history.back();</script>";
-        }
-    }
-    // Verificar se é um login
-    elseif (isset($_POST['email']) && isset($_POST['password'])) {
-        // Dados do formulário de login
-        $email_cpf = $conexao->real_escape_string($_POST['email']);
-        $senha = trim($_POST['password']); // Remover espaços extras
-
-        // Consultar o banco de dados (tentar email primeiro)
-        $sql = "SELECT * FROM cadastro WHERE email = '$email_cpf'";
-        $resultado = $conexao->query($sql);
-
-        if ($resultado->num_rows > 0) {
-            // Usuário encontrado
-            $usuario = $resultado->fetch_assoc();
-            
-            if (password_verify($senha, $usuario['senha'])) {
-                // Login bem-sucedido, redirecionar
-                header("Location: http://192.168.77.145/telaacessocadastro/cabineControle-II/cabineControle.html");
-                exit();
-            } else {
-                echo "<script>alert('Senha incorreta!'); window.history.back();</script>";
+            // Validar email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo json_encode(['error' => 'E-mail inválido']);
+                exit;
             }
-        } else {
-            // Tentar login com CPF (telefone)
-            $sql = "SELECT * FROM cadastro WHERE telefone = '$email_cpf'";
-            $resultado = $conexao->query($sql);
 
-            if ($resultado->num_rows > 0) {
-                $usuario = $resultado->fetch_assoc();
-                
-                if (password_verify($senha, $usuario['senha'])) {
-                    // Login bem-sucedido, redirecionar
-                    header("Location: http://192.168.77.145/telaacessocadastro/cabineControle-II/cabineControle.html");
-                    exit();
-                } else {
-                    echo "<script>alert('Senha incorreta!'); window.history.back();</script>";
-                }
+            // Validar telefone
+            if (!preg_match('/^[0-9]{10,11}$/', $telefone)) {
+                echo json_encode(['error' => 'Telefone inválido']);
+                exit;
+            }
+
+            // Validar senha
+            if (strlen($senha) < 6) {
+                echo json_encode(['error' => 'A senha deve ter no mínimo 6 caracteres']);
+                exit;
+            }
+
+            // Verificar se o email já está cadastrado
+            $stmt = $db->prepare('SELECT COUNT(*) FROM cadastro WHERE email = :email');
+            $stmt->execute(['email' => $email]);
+            if ($stmt->fetchColumn() > 0) {
+                echo json_encode(['error' => 'Este e-mail já está cadastrado']);
+                exit;
+            }
+
+            // Criptografar a senha
+            $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+            // Inserir os dados
+            $stmt = $db->prepare('INSERT INTO cadastro (nome, telefone, email, senha) VALUES (:nome, :telefone, :email, :senha)');
+            $stmt->execute([
+                'nome' => $nome,
+                'telefone' => $telefone,
+                'email' => $email,
+                'senha' => $senhaCriptografada
+            ]);
+
+            echo json_encode(['success' => 'Cadastro realizado com sucesso']);
+            exit;
+        }
+
+        // Login
+        if (isset($_POST['email'], $_POST['password'])) {
+            $email_cpf = trim($_POST['email']);
+            $password = trim($_POST['password']);
+
+            // Tentar login com email
+            $stmt = $db->prepare('SELECT * FROM cadastro WHERE email = :email OR telefone = :telefone');
+            $stmt->execute(['email' => $email_cpf, 'telefone' => $email_cpf]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user && password_verify($password, $user['senha'])) {
+                session_start();
+                $_SESSION['user_id'] = $user['id'];
+                echo json_encode(['success' => 'Login bem-sucedido']);
+                exit;
             } else {
-                echo "<script>alert('E-mail ou CPF não encontrado!'); window.history.back();</script>";
+                echo json_encode(['error' => 'E-mail, CPF ou senha inválidos']);
+                exit;
             }
         }
-    } else {
-        echo "<script>alert('Dados inválidos!'); window.history.back();</script>";
-    }
-}
 
-// Fechar conexão
-$conexao->close();
+        echo json_encode(['error' => 'Dados inválidos']);
+        exit;
+    }
+} catch (PDOException $e) {
+    echo json_encode(['error' => 'Erro no banco: ' . $e->getMessage()]);
+    exit;
+}
 ?>

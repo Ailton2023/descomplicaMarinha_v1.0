@@ -5,17 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Cadastro</title>
     <link rel="stylesheet" href="telaAcessoCadastro.css">
+    <style>
+        /* Estilo para acessibilidade */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        /* Estilo para feedback de carregamento */
+        .botao:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        /* Estilo para mensagens de feedback */
+        .mensagem {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .mensagem.sucesso {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .mensagem.erro {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
 </head>
 <body>
     <section class="conteinerAcessoCadastro">
         <article class="cabecalhoCadastro">
             <h1>Cadastre-se</h1>
             <p>Se preferir, use sua rede social</p>
-            <img src="../icons/logoGoogle.png" alt="">
+            <img src="../icons/logoGoogle.png" alt="Ícone do Google">
             <p>Teremos acesso a seu nome e endereço de e-mail apenas para efetuar seu cadastro.</p>
         </article>
         <hr>
         <form name="cadastro" method="POST" action="../telaAcessoLogin/conexao.php" autocomplete="on" class="formularioCadastro">
+            <div id="mensagemFeedback"></div>
             <div class="campoInput">
                 <label for="pessoa">
                     <img class="iconeInput" src="../icons/pessoa.png" alt="Ícone de pessoa" aria-hidden="true">
@@ -73,39 +107,61 @@
             const botaoCadastro = document.getElementById('botaoCadastro');
             botaoCadastro.disabled = !checkbox.checked;
         }
-        document.forms['cadastro'].addEventListener('submit', (e) => {
+
+        document.forms['cadastro'].addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const botaoCadastro = document.getElementById('botaoCadastro');
+            if (botaoCadastro.disabled) return; // Impede envios duplicados
+
             const email = document.getElementById('email').value;
             const confEmail = document.getElementById('emailConfirmacao').value;
             const senha = document.getElementById('senha').value;
-            const botaoCadastro = document.getElementById('botaoCadastro');
+            const mensagemFeedback = document.getElementById('mensagemFeedback');
+
             // Validação no front-end
             if (email !== confEmail) {
-                alert('Os e-mails não coincidem!');
-                e.preventDefault();
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">Os e-mails não coincidem!</div>';
                 return;
             }
             if (senha.length < 6) {
-                alert('A senha deve ter no mínimo 6 caracteres!');
-                e.preventDefault();
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">A senha deve ter no mínimo 6 caracteres!</div>';
                 return;
             }
+
             // Indicador de carregamento
             botaoCadastro.disabled = true;
             botaoCadastro.textContent = 'Enviando...';
+            mensagemFeedback.innerHTML = '';
+
+            try {
+                const response = await fetch('../telaAcessoLogin/conexao.php', {
+                    method: 'POST',
+                    body: new FormData(document.forms['cadastro'])
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro na requisição: ' + response.statusText);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    mensagemFeedback.innerHTML = '<div class="mensagem sucesso">' + result.success + '</div>';
+                    setTimeout(() => {
+                        window.location.href = '../telaAcessoLogin/telaAcessoLogin.html';
+                    }, 2000);
+                } else {
+                    mensagemFeedback.innerHTML = '<div class="mensagem erro">' + result.error + '</div>';
+                    botaoCadastro.disabled = false;
+                    botaoCadastro.textContent = 'CADASTRAR';
+                }
+            } catch (error) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">Erro ao enviar o formulário: ' + error.message + '</div>';
+                botaoCadastro.disabled = false;
+                botaoCadastro.textContent = 'CADASTRAR';
+            }
         });
     </script>
-    <style>
-        /* Estilo para acessibilidade */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-    </style>
 </body>
 </html>

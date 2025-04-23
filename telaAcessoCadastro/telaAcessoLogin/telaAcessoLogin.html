@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <title>Tela de Acesso</title>
     <link rel="stylesheet" href="telaAcessoLogin.css">
+    <style>
+        /* Estilo para mensagens de feedback */
+        .mensagem {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .mensagem.sucesso {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .mensagem.erro {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        /* Estilo para botão desabilitado */
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <section class="conteinerAcesso">
@@ -15,6 +37,7 @@
         </article>
         <hr>
         <form action="conexao.php" method="post" autocomplete="on" class="formularioLogin">
+            <div id="mensagemFeedback"></div>
             <div class="campoInput">
                 <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
                 <input type="text" id="email" name="email" placeholder="E-mail ou CPF" required>
@@ -41,5 +64,48 @@
             <!-- Rodapé pode ser adicionado aqui -->
         </footer>
     </section>
+    <script>
+        document.querySelector('.formularioLogin').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const botaoEntrar = document.querySelector('.btn');
+            const mensagemFeedback = document.getElementById('mensagemFeedback');
+
+            // Indicador de carregamento
+            botaoEntrar.disabled = true;
+            botaoEntrar.textContent = 'Entrando...';
+            mensagemFeedback.innerHTML = '';
+
+            try {
+                const response = await fetch('conexao.php', {
+                    method: 'POST',
+                    body: new FormData(document.querySelector('.formularioLogin'))
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro na requisição: ' + response.statusText);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    mensagemFeedback.innerHTML = '<div class="mensagem sucesso">' + result.success + '</div>';
+                    setTimeout(() => {
+                        window.location.href = 'http://192.168.77.145/descomplicaMarinha_v1.0/cabineControle-II/cabineControle.html';
+                    }, 2000);
+                } else {
+                    mensagemFeedback.innerHTML = '<div class="mensagem erro">' + result.error + '</div>';
+                    botaoEntrar.disabled = false;
+                    botaoEntrar.textContent = 'Entrar';
+                }
+            } catch (error) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">Erro ao fazer login: ' + error.message + '</div>';
+                botaoEntrar.disabled = false;
+                botaoEntrar.textContent = 'Entrar';
+            }
+        });
+    </script>
 </body>
 </html>
