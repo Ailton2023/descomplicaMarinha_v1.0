@@ -2,10 +2,20 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Acesso</title>
     <link rel="stylesheet" href="telaAcessoLogin.css">
     <style>
-        /* Estilo para mensagens de feedback */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
         .mensagem {
             padding: 10px;
             margin-bottom: 10px;
@@ -20,10 +30,13 @@
             background-color: #f2dede;
             color: #a94442;
         }
-        /* Estilo para botão desabilitado */
         .btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
+        }
+        .btn.loading {
+            opacity: 0.8;
+            cursor: wait;
         }
     </style>
 </head>
@@ -32,78 +45,111 @@
         <article class="loginCabecalho">
             <h1>Entre</h1>
             <p>Se preferir, use sua rede social</p>
-            <img src="../icons/logoGoogle.png" alt="Logo do Google">
+            <img src="../icons/logoGoogle.png" alt="Ícone do Google">
             <p>Teremos acesso a seu nome e endereço de email apenas para conectá-lo.</p>
         </article>
         <hr>
-        <form action="conexao.php" method="post" autocomplete="on" class="formularioLogin">
+        <form action="/telaAcessoCadastro/telaAcessoLogin/conexao.php" method="post" autocomplete="on" class="formularioLogin">
             <div id="mensagemFeedback"></div>
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email">
-                <input type="text" id="email" name="email" placeholder="E-mail ou CPF" required>
+                <label for="email">
+                    <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de email" aria-hidden="true">
+                    <span class="sr-only">E-mail</span>
+                </label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
             <div class="campoInput">
-                <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha">
-                <input type="password" id="password" name="password" placeholder="Senha" required>
+                <label for="password">
+                    <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha" aria-hidden="true">
+                    <span class="sr-only">Senha</span>
+                </label>
+                <input type="password" id="password" name="password" placeholder="Senha" minlength="6" required>
             </div>
             <div class="btn-01">
                 <button type="submit" class="btn">Entrar</button>
             </div>
         </form>
         <hr>
-        <div class="alinhamnmetoTopoBase">
+        <div class="alinhamentoTopoBase">
             <h1>Esqueceu sua senha?</h1>
-            <p><strong>Sem problemas</strong>, <a href="">clique aqui</a> <strong>para recuperar</strong>.</p>
+            <p><strong>Sem problemas</strong>, <a href="#">clique aqui</a> <strong>para recuperar</strong>.</p>
         </div>
         <hr>
         <div class="alinhamentoLados">
-            <h1>Já possui cadastro?</h1>
-            <a href="../telaCadastro/telaAcessoCadastro.html"><p>Cadastre-se!</p></a>
+            <h1>Não possui cadastro?</h1> 
+            <a href="/telaAcessoCadastro/telaCadastro/telaAcessoCadastro.html"><p>Cadastre-se!</p></a>
         </div>
         <footer>
             <!-- Rodapé pode ser adicionado aqui -->
         </footer>
     </section>
     <script>
+        let isSubmitting = false;
+
         document.querySelector('.formularioLogin').addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const botaoEntrar = document.querySelector('.btn');
+            if (botaoEntrar.disabled || isSubmitting) return;
+
+            isSubmitting = true;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const botaoEntrar = document.querySelector('.btn');
             const mensagemFeedback = document.getElementById('mensagemFeedback');
 
-            // Indicador de carregamento
+            // Validações no front-end
+            console.log('Validando dados:', { email, password });
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">Por favor, insira um e-mail válido!</div>';
+                isSubmitting = false;
+                return;
+            }
+            if (password.length < 6) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">A senha deve ter no mínimo 6 caracteres!</div>';
+                isSubmitting = false;
+                return;
+            }
+
+            // Estado de carregamento
             botaoEntrar.disabled = true;
+            botaoEntrar.classList.add('loading');
             botaoEntrar.textContent = 'Entrando...';
             mensagemFeedback.innerHTML = '';
 
             try {
-                const response = await fetch('conexao.php', {
+                const response = await fetch('/telaAcessoCadastro/telaAcessoLogin/conexao.php', {
                     method: 'POST',
                     body: new FormData(document.querySelector('.formularioLogin'))
                 });
 
+                console.log('Resposta recebida:', response);
                 if (!response.ok) {
                     throw new Error('Erro na requisição: ' + response.statusText);
                 }
 
                 const result = await response.json();
+                console.log('Resultado JSON:', result);
 
                 if (result.success) {
                     mensagemFeedback.innerHTML = '<div class="mensagem sucesso">' + result.success + '</div>';
                     setTimeout(() => {
-                        window.location.href = 'http://192.168.77.145/descomplicaMarinha_v1.0/cabineControle-II/cabineControle.html';
+                        window.location.href = '/cabineControle-II/cabineControle.html';
                     }, 2000);
                 } else {
                     mensagemFeedback.innerHTML = '<div class="mensagem erro">' + result.error + '</div>';
                     botaoEntrar.disabled = false;
+                    botaoEntrar.classList.remove('loading');
                     botaoEntrar.textContent = 'Entrar';
                 }
             } catch (error) {
+                console.error('Erro:', error);
                 mensagemFeedback.innerHTML = '<div class="mensagem erro">Erro ao fazer login: ' + error.message + '</div>';
                 botaoEntrar.disabled = false;
+                botaoEntrar.classList.remove('loading');
                 botaoEntrar.textContent = 'Entrar';
+            } finally {
+                isSubmitting = false;
             }
         });
     </script>

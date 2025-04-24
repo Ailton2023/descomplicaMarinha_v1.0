@@ -6,7 +6,6 @@
     <title>Tela de Cadastro</title>
     <link rel="stylesheet" href="telaAcessoCadastro.css">
     <style>
-        /* Estilo para acessibilidade */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -17,12 +16,14 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
-        /* Estilo para feedback de carregamento */
         .botao:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
-        /* Estilo para mensagens de feedback */
+        .botao.loading {
+            opacity: 0.8;
+            cursor: wait;
+        }
         .mensagem {
             padding: 10px;
             margin-bottom: 10px;
@@ -47,8 +48,8 @@
             <img src="../icons/logoGoogle.png" alt="Ícone do Google">
             <p>Teremos acesso a seu nome e endereço de e-mail apenas para efetuar seu cadastro.</p>
         </article>
-        <hr>
-        <form name="cadastro" method="POST" action="../telaAcessoLogin/conexao.php" autocomplete="on" class="formularioCadastro">
+        <hr> 
+        <form name="cadastro" method="POST" action="https://descomplicamarinha.com.br/telaAcessoCadastro/telaCadastro/telaAcessoCadastro.html" autocomplete="on" class="formularioCadastro">
             <div id="mensagemFeedback"></div>
             <div class="campoInput">
                 <label for="pessoa">
@@ -72,13 +73,6 @@
                 <input type="email" name="email" id="email" placeholder="E-mail" required>
             </div>
             <div class="campoInput">
-                <label for="emailConfirmacao">
-                    <img class="iconeInput" src="../icons/e-mail.png" alt="Ícone de e-mail" aria-hidden="true">
-                    <span class="sr-only">Confirmar E-mail</span>
-                </label>
-                <input type="email" name="confEmail" id="emailConfirmacao" placeholder="Confirmar E-mail" required>
-            </div>
-            <div class="campoInput">
                 <label for="senha">
                     <img class="iconeInput" src="../icons/cadeado.png" alt="Ícone de senha" aria-hidden="true">
                     <span class="sr-only">Senha</span>
@@ -98,10 +92,12 @@
         <hr>
         <div class="alinhamentoLados">
             <h1>Já é cadastrado?</h1>
-            <a href="../telaAcessoLogin/telaAcessoLogin.html"><p>É só fazer login!</p></a>
+            <a href="/telaAcessoCadastro/telaAcessoLogin/telaAcessoLogin.html"><p>É só fazer login!</p></a>
         </div>
     </section>
     <script>
+        let isSubmitting = false;
+
         function toggleCadastroButton() {
             const checkbox = document.getElementById('checkboxButtonCadastrar');
             const botaoCadastro = document.getElementById('botaoCadastro');
@@ -112,54 +108,77 @@
             e.preventDefault();
 
             const botaoCadastro = document.getElementById('botaoCadastro');
-            if (botaoCadastro.disabled) return; // Impede envios duplicados
+            if (botaoCadastro.disabled || isSubmitting) return;
 
+            isSubmitting = true;
+            const nome = document.getElementById('pessoa').value;
+            const telefone = document.getElementById('numero').value;
             const email = document.getElementById('email').value;
-            const confEmail = document.getElementById('emailConfirmacao').value;
             const senha = document.getElementById('senha').value;
             const mensagemFeedback = document.getElementById('mensagemFeedback');
 
-            // Validação no front-end
-            if (email !== confEmail) {
-                mensagemFeedback.innerHTML = '<div class="mensagem erro">Os e-mails não coincidem!</div>';
+            // Validações no front-end
+            console.log('Validando dados:', { nome, telefone, email, senha });
+            if (!nome || nome.length < 3) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">O nome deve ter no mínimo 3 caracteres!</div>';
+                isSubmitting = false;
+                return;
+            }
+            if (!/^[0-9]{10,11}$/.test(telefone)) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">O telefone deve ter 10 ou 11 dígitos numéricos!</div>';
+                isSubmitting = false;
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                mensagemFeedback.innerHTML = '<div class="mensagem erro">Por favor, insira um e-mail válido!</div>';
+                isSubmitting = false;
                 return;
             }
             if (senha.length < 6) {
                 mensagemFeedback.innerHTML = '<div class="mensagem erro">A senha deve ter no mínimo 6 caracteres!</div>';
+                isSubmitting = false;
                 return;
             }
 
-            // Indicador de carregamento
+            // Estado de carregamento
             botaoCadastro.disabled = true;
+            botaoCadastro.classList.add('loading');
             botaoCadastro.textContent = 'Enviando...';
             mensagemFeedback.innerHTML = '';
 
             try {
-                const response = await fetch('../telaAcessoLogin/conexao.php', {
+                const response = await fetch('/telaAcessoCadastro/telaAcessoLogin/conexao.php', {
                     method: 'POST',
                     body: new FormData(document.forms['cadastro'])
                 });
 
+                console.log('Resposta recebida:', response);
                 if (!response.ok) {
                     throw new Error('Erro na requisição: ' + response.statusText);
                 }
 
                 const result = await response.json();
+                console.log('Resultado JSON:', result);
 
                 if (result.success) {
                     mensagemFeedback.innerHTML = '<div class="mensagem sucesso">' + result.success + '</div>';
                     setTimeout(() => {
-                        window.location.href = '../telaAcessoLogin/telaAcessoLogin.html';
+                        window.location.href = '/telaAcessoCadastro/telaAcessoLogin/telaAcessoLogin.html';
                     }, 2000);
                 } else {
                     mensagemFeedback.innerHTML = '<div class="mensagem erro">' + result.error + '</div>';
                     botaoCadastro.disabled = false;
+                    botaoCadastro.classList.remove('loading');
                     botaoCadastro.textContent = 'CADASTRAR';
                 }
             } catch (error) {
+                console.error('Erro:', error);
                 mensagemFeedback.innerHTML = '<div class="mensagem erro">Erro ao enviar o formulário: ' + error.message + '</div>';
                 botaoCadastro.disabled = false;
+                botaoCadastro.classList.remove('loading');
                 botaoCadastro.textContent = 'CADASTRAR';
+            } finally {
+                isSubmitting = false;
             }
         });
     </script>
