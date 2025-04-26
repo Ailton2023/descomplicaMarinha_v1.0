@@ -21,3 +21,15 @@ function showContent(contentId) {
 document.addEventListener('DOMContentLoaded', () => {
     showContent('dashboard');
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'toggle-sidebar';
+    toggleButton.textContent = 'Menu';
+    document.body.appendChild(toggleButton);
+
+    const sidebar = document.querySelector('.conteudo');
+    toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
+});

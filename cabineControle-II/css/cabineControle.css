@@ -489,10 +489,16 @@ text-align: center;
         font-size: 14px;
     }
     .main-content {
+      margin-left: -220px;
         padding: 10px;
     }
+
+    .h1Curso{
+        font-size: 8px;
+        margin-left: 230px;
+        width: 600px;
+    }
     .container-cursos {
-      
        
         padding: 10px;
     }

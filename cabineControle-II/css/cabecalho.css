@@ -32,76 +32,87 @@
 
 /* Estilização do cabeçalho */
 .header {
-    background-color: var(--cor7); /* Usando variável em vez de #2E58A2 */
+    background-color: var(--cor7);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /*padding: 0px 0;*/
-    margin-top: 0px;
-    padding: 0px;
-    padding-bottom: 5px;
+    padding: clamp(5px, 1vw, 8px) 0;
     transition: padding 0.3s ease;
 }
 
 /* Container do cabeçalho */
-.container {
+.header-container {
+    /* Usa flexbox para organizar #logo e #nome_curso */
     display: flex;
+    /* Mantém os itens alinhados horizontalmente (side-by-side) */
+    flex-direction: row;
+    /* Alinha os itens à esquerda do container para garantir alinhamento à esquerda ao abrir a página */
     justify-content: flex-start;
+    /* Centraliza os itens verticalmente para alinhamento uniforme */
     align-items: center;
-    padding: 0 15px; /* Mantém um padding mínimo */
+    /* Limita a largura máxima para telas grandes */
+    max-width: 1200px;
+    /* Centraliza o container horizontalmente no header */
+    margin: 0 ;
+    /* Adiciona padding horizontal responsivo */
+    padding: 0 clamp(10px, 2vw, 15px);
+    /* Define um espaço responsivo entre logo e nome_curso */
+    gap: clamp(px, 2vw, 12px);
 }
 
 /* Estilização do logo */
 #logo {
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
 }
 
 #logo img {
-    width: 100px;
+    width: clamp(70px, 10vw, 100px);
     height: auto;
     transition: width 0.3s ease;
 }
 
 /* Estilização do nome do curso */
 #nome_curso {
-    margin-top: 12px;
-    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: left;
+    flex-grow: 1;
 }
 
 /* Estilização do texto do cabeçalho */
-.p_cabecalho { /* Alterado de .p_Cabacalho para consistência com HTML */
+.p_cabecalho {
     font-family: "Chakra Petch", var(--fonte-padrao);
     font-weight: 700;
-    font-size: 18px;
-    color: white;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.354);
-    margin: 5px 0;
-    padding: 0;
+    font-size: clamp(14px, 2.5vw, 18px);
     color: #EF8721;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    margin: 2px 0;
 }
 
 /* Estilização do título principal */
 h1 {
     font-family: "Tomorrow", var(--fonte-padrao);
-    font-size: 24px;
+    font-size: clamp(20px, 3vw, 24px);
     color: white;
     font-weight: bold;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 /* Estilização do h2 */
 h2 {
-    background-color: var(--cor7); /* Usando variável em vez de #0053a6c8 */
+    background-color: var(--cor7);
     font-family: "Tomorrow", var(--fonte-padrao);
     font-weight: 200;
-    color: white; /* Alterado de black para white para legibilidade */
+    color: white;
     text-align: center;
-    padding: 5px;
-    letter-spacing: 2px;
+    padding: clamp(5px, 1vw, 8px);
+    letter-spacing: 1.5px;
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 /* ========================================================================= */
@@ -110,72 +121,78 @@ h2 {
 
 /* Telas até 1024px (tablets grandes) */
 @media (max-width: 1024px) {
-    .container {
-        padding: 0 10px;
+    .header-container {
+        padding: 0 clamp(8px, 1.5vw, 12px);
+        gap: clamp(6px, 1.5vw, 10px);
+        justify-content: flex-start;
     }
     #logo img {
-        width: 90px;
+        width: clamp(60px, 9vw, 90px);
     }
     .p_cabecalho {
-        font-size: 16px;
+        font-size: clamp(12px, 2vw, 16px);
     }
     h1 {
-        font-size: 22px;
-    }
-    #nome_curso {
-        margin-left: 10px;
+        font-size: clamp(18px, 2.5vw, 22px);
     }
 }
 
 /* Telas até 768px (tablets e mobile grande) */
 @media (max-width: 768px) {
     .header {
-        padding: 8px 0;
+        padding: clamp(5px, 1.5vw, 7px) 0;
     }
-    .container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 15px;
-    }
-    #logo {
-        margin-top: 5px;
+    .header-container {
+        flex-direction: row;
+        padding: 0 clamp(8px, 1.5vw, 10px);
+        gap: clamp(5px, 1vw, 8px);
+        justify-content: flex-start;
     }
     #logo img {
-        width: 80px;
-    }
-    #nome_curso {
-        margin-top: 5px;
-        margin-left: 0;
-        text-align: center;
-        width: 100%;
+        width: clamp(50px, 8vw, 70px);
     }
     .p_cabecalho {
-        font-size: 14px;
+        font-size: clamp(10px, 2vw, 12px);
+        text-shadow: 0.75px 0.75px 0.75px rgba(0, 0, 0, 0.25);
     }
     h1 {
-        font-size: 20px;
+        font-size: clamp(16px, 2.5vw, 18px);
     }
 }
 
 /* Telas até 480px (mobile pequeno) */
 @media (max-width: 480px) {
     .header {
-        padding: 5px 0;
+        padding: clamp(4px, 1vw, 6px) 0;
     }
-    .container {
-        padding: 0 10px;
+    .header-container {
+        flex-direction: row;
+        padding: 0 clamp(6px, 1.5vw, 8px);
+        gap: clamp(4px, 1vw, 6px);
+        justify-content: flex-start;
+    }
+    #logo {
+        display: flex;
+        align-items: center;
     }
     #logo img {
-        width: 60px;
+        width: clamp(40px, 10vw, 50px);
+        height: auto;
     }
     #nome_curso {
-        margin-top: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        flex-grow: 1;
     }
     .p_cabecalho {
-        font-size: 12px;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.354); /* Reduzido para melhor legibilidade */
+        font-size: clamp(8px, 2vw, 10px);
+        text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+        margin: 1px 0;
     }
     h1 {
-        font-size: 18px;
+        font-size: clamp(14px, 3vw, 16px);
+        margin: 1px 0;
     }
 }
