@@ -67,6 +67,7 @@ section {
 /* Layout com dois blocos espaçados */
 .ostensivo_CAAML-1202_REV2 {
     display: flex;
+   
     justify-content: space-between;
     padding: 5px;
     width: 100%;
@@ -376,6 +377,11 @@ td{
 
 article{
     margin-bottom: 10px;
+}
+
+
+.img_classIncendio{
+    width: 80px;
 }
 
 /* ========================== */
