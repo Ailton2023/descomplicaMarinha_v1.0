@@ -1,73 +1,71 @@
 @charset "UTF-8";
 
-/* Importação de fontes externas do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* Importação da fonte Chakra Petch (apenas pesos utilizados) */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;700&display=swap');
 
-/* Definição de variáveis CSS para cores e fontes */
+/* Variáveis CSS para cores e fontes */
 :root {
-    --cor0: #F4F6FE;
-    --cor1: #E8F1F2;
-    --cor2: #1B98E0;
-    --cor3: #247BA0;
-    --cor4: #006494;
-    --cor5: #13293D;
-    --cor6: #efba32;
-    --cor7: darkblue;
-    --cor8: black;
-    --cor9: #0068B5;
-    --corVerde0: #c5ebd6;
-    --corVerde1: #83e1ad;
-    --corVerde2: #3ddc84;
-    --corVerde3: #2fa866;
-    --corVerde4: #1a5c37;
-    --corVerde5: #063d1e;
-    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
-    --fonte-destaque: 'Bebas Neue', cursive;
+    --cor0: #F4F6FE; /* Fundo claro */
+    --cor1: #E8F1F2; /* Cinza claro */
+    --cor2: #1B98E0; /* Azul claro */
+    --cor3: #247BA0; /* Azul médio */
+    --cor4: #006494; /* Azul escuro */
+    --cor5: #13293D; /* Azul muito escuro */
+    --cor6: #efba32; /* Amarelo destaque */
+    --cor7: darkblue; /* Azul escuro padrão */
+    --cor8: black; /* Preto */
+    --cor9: #0068B5; /* Azul institucional */
+    --corVerde0: #c5ebd6; /* Verde claro */
+    --corVerde1: #83e1ad; /* Verde médio claro */
+    --corVerde2: #3ddc84; /* Verde vibrante */
+    --corVerde3: #2fa866; /* Verde médio */
+    --corVerde4: #1a5c37; /* Verde escuro */
+    --corVerde5: #063d1e; /* Verde muito escuro */
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif; /* Fonte fallback */
+    --fonte-destaque: 'Chakra Petch', sans-serif; /* Fonte principal */
 }
 
-/* Reset geral e box-sizing consistente */
+/* Reset global para margens, preenchimentos e box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fonte base do documento */
+/* Define a fonte base do documento */
 html {
-    font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+    font-family: var(--fonte-destaque);
 }
 
-/* Estilização do body com cor de fundo e margem */
+/* Estiliza o corpo da página com fundo e margem superior */
 body {
     background-color: #018dde22;
     margin-top: 60px;
 }
 
-/* Centraliza o header */
+/* Centraliza o cabeçalho */
 header {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Estilo padrão das seções */
+/* Estiliza as seções com fundo, bordas e sombra */
 section {
     width: 100%;
     min-width: 300px;
     max-width: 900px;
-    height: auto;
     margin: 5px auto;
-    background-color: rgb(246, 243, 243);
+    background-color: #f6f3f3;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.475);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.475);
     text-align: justify;
 }
 
-/* Layout com dois blocos espaçados */
+/* Layout flex para blocos de cabeçalho */
 .ostensivo_CAAML-1202_REV2 {
     display: flex;
-   
     justify-content: space-between;
     padding: 5px;
     width: 100%;
@@ -75,38 +73,37 @@ section {
     margin: 0 auto;
 }
 
-/* Estilização de blocos como capítulos */
-.capitulos_cbinck {
-    border: 2px solid black;
+/* Estiliza o cabeçalho de capítulos com borda e fundo amarelo */
+.capitulos_apostilha {
+    border: 2px solid var(--cor8);
     border-radius: 10px;
-    background-color: #efba32;
+    background-color: var(--cor6);
     width: 100%;
     margin: 0 auto;
     text-align: center;
     padding: 5px;
 }
 
-/* Título principal */
+/* Estiliza títulos principais */
 h1 {
     letter-spacing: 1px;
     font-weight: bold;
 }
 
-/* Título secundário */
-h2 {
-    margin-top: 15px;
-    margin-bottom: 15px;
+/* Estiliza títulos secundários e terciários */
+h2, h3, h4 {
+    margin: 15px 0;
 }
 
-/* Estilo base dos parágrafos */
+/* Estiliza parágrafos com recuo e espaçamento */
 p {
     text-indent: 45px;
-    line-height: 1.8em;
+    line-height: 1.8;
     margin: 15px;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
-/* Imagens com largura total e centralizadas */
+/* Estiliza imagens para serem responsivas */
 img {
     width: 100%;
     max-width: 100%;
@@ -116,55 +113,77 @@ img {
     border-radius: 5px;
 }
 
-/* Controle de áudio com largura reduzida */
+/* Estiliza controles de áudio */
 audio {
     margin-top: 15px;
-    width: 25%;
+    width: 100%;
+    max-width: 300px;
 }
 
-/* Centraliza descrições de imagens */
+/* Centraliza elementos de áudio */
+.audio-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Estiliza o container de botões */
+.botao-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Estiliza botões dentro do container */
+.botao-container button {
+    background-color: var(--cor9);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Efeito hover nos botões */
+.botao-container button:hover {
+    background-color: var(--cor4);
+}
+
+/* Estiliza descrições de imagens */
 .descriçãoImagens {
     text-align: center;
     margin: 5px 0 10px;
-    word-wrap: break-word;          /* Permite quebrar palavras longas */
-    overflow-wrap: break-word;      /* Garante quebra em navegadores modernos */
-    hyphens: auto;                  /* Hifeniza automaticamente se o idioma permitir */
-    max-width: 100%;                /* Garante que o texto não ultrapasse a largura do container */
-    font-size: 1rem;                /* Tamanho padrão confortável */
-    padding: 0 10px;                /* Espaçamento lateral para evitar texto encostado */
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 0 10px;
 }
 
-/* Destaque em negrito */
-strong {
- 
-}
-
-/* Texto com fundo diferenciado */
+/* Estiliza containers com fundo azul claro */
 .containerTextoFundo {
     background-color: #1b98e01c;
-    border: 0.5px solid #000;
+    border: 0.5px solid var(--cor8);
     border-radius: 10px;
     padding: 10px;
 }
 
-/* Caixa de texto com borda tracejada */
+/* Estiliza caixas de texto com borda tracejada */
 .bordaTexto {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px dashed #000;
+    margin: 10px 0;
+    border: 1px dashed var(--cor8);
     border-radius: 10px;
     width: 90%;
     padding-right: 20px;
 }
 
-/* Centralização com Flexbox */
+/* Centraliza conteúdo com flexbox */
 .centralizarContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Imagem redonda grande com efeito flutuante */
+/* Estiliza imagens redondas grandes */
 .imgRedondaGrande {
     float: left;
     border-radius: 50%;
@@ -175,230 +194,136 @@ strong {
     margin: 10px;
 }
 
-/* Efeito ao passar o mouse na imagem grande */
+/* Efeito hover para imagens redondas grandes */
 .imgRedondaGrande:hover {
     border: 3px solid transparent;
 }
 
-/* Texto ao lado da imagem */
-.textoLadodireitoImagem {
-    text-indent: 0px;
+/* Remove recuo de texto ao lado de imagens */
+.textoLadoDireitoImagem {
+    text-indent: 0;
 }
 
-/* Imagem redonda padrão */
+/* Estiliza imagens redondas padrão */
 .imgRedonda {
     float: left;
-    border-radius: 100%;
+    border-radius: 50%;
     width: 120px;
     height: 120px;
     margin: 10px;
 }
 
-/* Efeito hover */
+/* Efeito hover para imagens redondas */
 .imgRedonda:hover {
     border: 2px solid transparent;
 }
 
-/* Estilo para listas */
+/* Estiliza listas dentro de containers */
+.containerTextoFundo > ul, .containerTextoFundo > ol {
+    margin-left: 25px;
+}
+
+/* Estiliza itens de lista */
 li {
-    list-style-type: square;
-    font-size: 16px;
+    list-style-type: none;
+    font-size: 1rem;
     margin: 5px 0;
+    text-indent: 45px;
+    line-height: 1.8;
+    margin: 15px;
+    font-size: 1.125rem;
 }
 
-/* Margem inferior para áudios com tabela abaixo */
-.audioSemBotaoTabelaAbaixo {
-    margin-bottom: 15px;
-}
-
-/* Bolinha destacada com fundo */
-.bolaRedonda {
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 3px;
-    background-color: darkred;
-    color: white;
-    font-weight: bold;
-}
-
-/* Imagem quadrada */
-.imgQuadrada {
-    width: 120px;
-    float: left;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-/* Texto em caixa alta */
-.caixa-alta {
-    text-transform: uppercase;
-}
-
-/* Imagem com formato quadrado personalizado */
+/* Estiliza imagens quadradas */
 .img-quadrada {
     width: 150px;
     height: 130px;
     border-radius: 15px;
     margin-left: 55px;
-    padding: 0;
 }
 
-.img-quadrada:hover{
-  border: 1px solid black;
+/* Efeito hover para imagens quadradas */
+.img-quadrada:hover {
+    border: 1px solid var(--cor8);
 }
-/* Container com texto ao lado da imagem */
+
+/* Estiliza container de texto com imagem */
 .textoImagem {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Efeito ao passar o mouse nos itens da lista */
+/* Efeito hover para itens de lista */
 .liEfeito:hover {
     background-color: #0067b5dd;
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 0 2px;
 }
 
-/* Lista dentro da caixa de fundo */
-.containerTextoFundo > li {
-    margin-left: 25px;
-}
-
-/* Imagem usada para exemplo */
-.imgExemplo {
-    margin-top: 80px;
-    width: 200px;
-    height: 200px;
-}
-
-
-.icone-prova {
-    display: flex;
-    align-items: center;
-    font-family: Arial, sans-serif; 
-    gap: 10px;
-  }
-  
-  .circulo {
-    background-color:#0068B5;
-    color: white;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 12px;
-  }
-
-  table{
+/* Estiliza tabelas */
+table {
     text-align: center;
     font-weight: bold;
     border-collapse: collapse;
     margin-top: 20px;
-    
+    width: 100%;
+}
 
-  }
-
-.topoTb-Mod-I{
-    background-color: #0068B5;
+/* Estiliza cabeçalhos de tabela */
+.topoTb-Mod-I {
+    background-color: var(--cor9);
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
 }
 
-th{
-    border: 1.5px solid black;
-    padding-top: 5px;
-    padding-bottom: 5px;
-   box-sizing: border-box;
- 
-}
-
-td{
-    border: 1.5px solid black;
+/* Estiliza células de tabela */
+th, td {
+    border: 1.5px solid var(--cor8);
     padding: 5px;
-    letter-spacing: 1px; 
-    box-sizing: border-box;
- 
+    letter-spacing: 1px;
 }
 
-.explicação{
+/* Estiliza texto de explicação */
+.explicação {
     display: block;
-    font-size: 14px;
-    text-align:center;
+    font-size: 0.875rem;
+    text-align: center;
     margin: 0;
     padding: 0;
-     
 }
 
-.container-fig-4-2-4-3{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 200px;
-    margin-right: 200px;
+/* Centraliza figuras */
+.figCentralizada {
+    text-align: center;
 }
 
-.fig-4-2-4-3{
-    width: 200px;
-    height: 300px;
-    margin: 0;
-}
-
-.fig-4-2-4-3:hover{
-    border: 1px solid black; 
-}
-
-.container-fig-4-4-4-5{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
- 
-
-.fig-4-4-4-5{
-    width: 300px;
-    height: 250px;
-    margin: 0;   
-}
- 
-.fig-4-4-4-5:hover{
-   border: 1px solid black; 
-}
-
-article{
+/* Adiciona espaçamento inferior a artigos */
+article {
     margin-bottom: 10px;
 }
 
+/* Media Queries para responsividade */
 
-.img_classIncendio{
-    width: 80px;
-}
-
-/* ========================== */
-/* MEDIA QUERIES - RESPONSIVO */
-/* ========================== */
-
-/* Para telas até 768px */
+/* Telas até 768px */
 @media (max-width: 768px) {
+    /* Ajusta margem superior do corpo */
     body {
         margin-top: 40px;
     }
 
+    /* Reduz padding e tamanho de fonte em seções */
     section {
         padding: 10px;
         font-size: 0.9rem;
     }
 
+    /* Ajusta tamanho de títulos */
     h1 {
         font-size: 1.2rem;
     }
@@ -408,57 +333,62 @@ article{
         margin: 10px 0;
     }
 
+    /* Ajusta parágrafos para telas menores */
     p {
-        text-indent: 20px; /* ALTERAÇÃO: Reduziu recuo para melhor leitura */
+        text-indent: 20px;
         margin: 10px;
-        line-height: 1.6em; /* ALTERAÇÃO: Reduziu altura da linha */
+        line-height: 1.6;
     }
 
+    /* Remove flutuação de imagens em telas pequenas */
     .imgRedondaGrande, .imgRedonda {
-        float: none; /* ALTERAÇÃO: Remove flutuação em telas pequenas */
+        float: none;
         display: block;
         margin: 10px auto;
     }
 
-    .textoLadodioreitoImagem {
+    /* Ajusta texto ao lado de imagens */
+    .textoLadoDireitoImagem {
         margin: 10px 0;
     }
 
+    /* Ajusta largura da borda de texto */
     .bordaTexto {
         width: 100%;
         margin: 15px 0;
     }
 
+    /* Reduz padding do container de texto */
     .containerTextoFundo {
         padding: 8px;
     }
 
+    /* Ajusta largura do áudio */
     audio {
-        width: 100%; /* ALTERAÇÃO: Ajuste total para responsividade */
+        max-width: 100%;
     }
 
+    /* Ajusta tamanho de fonte das descrições */
     .descriçãoImagens {
-        font-size: 0.3rem;          /* ALTERAÇÃO: Reduz levemente o tamanho da fonte em telas pequenas */
-        text-align: justify;        /* ALTERAÇÃO: Alinha o texto justificado para facilitar leitura */
+        font-size: 0.875rem;
+        text-align: justify;
     }
 }
 
-.figCentralizada{
-    text-align: center;
-}
-
-
-/* Para telas até 480px */
+/* Telas até 480px */
 @media (max-width: 480px) {
+    /* Ajusta tamanho de fonte base */
     html {
-        font-size: 30px;
+        font-size: 14px;
     }
 
+    /* Ajusta largura mínima e padding das seções */
     section {
         min-width: 280px;
         padding: 8px;
     }
 
+    /* Reduz tamanho de títulos */
     h1 {
         font-size: 1rem;
     }
@@ -467,31 +397,37 @@ article{
         font-size: 0.95rem;
     }
 
+    /* Ajusta parágrafos */
     p {
-        text-indent: 15px; /* ALTERAÇÃO: Mais recuo reduzido */
+        text-indent: 15px;
         margin: 8px;
     }
 
+    /* Ajusta margens de imagens */
     img {
         margin: 5px auto;
     }
 
+    /* Reduz tamanho de imagens redondas grandes */
     .imgRedondaGrande {
         width: 100px;
         height: 100px;
     }
 
+    /* Reduz tamanho de imagens redondas */
     .imgRedonda {
         width: 60px;
         height: 60px;
     }
 
-    .imgQuadrada {
+    /* Reduz tamanho de imagens quadradas */
+    .img-quadrada {
         width: 100px;
     }
+
+    /* Ajusta tamanho de fonte das descrições */
     .descriçãoImagens {
-        font-size: 0.5rem;          /* ALTERAÇÃO: Reduz levemente o tamanho da fonte em telas pequenas */
-        text-align: justify;        /* ALTERAÇÃO: Alinha o texto justificado para facilitar leitura */
+        font-size: 0.75rem;
+        text-align: justify;
     }
-    
 }
