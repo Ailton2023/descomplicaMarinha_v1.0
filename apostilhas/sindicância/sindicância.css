@@ -64,7 +64,7 @@ section {
 }
 
 /* Layout flex para blocos de cabeçalho */
-.ostensivo_CAAML-1202_REV2 {
+.ostensivo_apostilha {
     display: flex;
     justify-content: space-between;
     padding: 5px;
@@ -160,7 +160,7 @@ audio {
 }
 
 /* Estiliza containers com fundo azul claro */
-.containerTextoFundo {
+.fundoAzul-container {
     background-color: #1b98e01c;
     border: 0.5px solid var(--cor8);
     border-radius: 10px;
