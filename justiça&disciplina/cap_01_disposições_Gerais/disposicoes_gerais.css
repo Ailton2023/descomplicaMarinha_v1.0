@@ -124,7 +124,7 @@ p {
 
 /* Container azul */
 .fundoAzul-container {
-    background-color: #1b98e033;
+    background-color: #DEE9F1;
     border: 1px solid var(--cor8);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
@@ -134,6 +134,15 @@ p {
 .audio-container {
     text-align: center;
     margin: 0px 0;
+}
+
+.fundoAzul-container img{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
 
 /* Media Queries */
