@@ -1,433 +1,236 @@
 @charset "UTF-8";
 
-/* Importação da fonte Chakra Petch (apenas pesos utilizados) */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;700&display=swap');
+/* Importação da fonte Chakra Petch (pesos 400 e 700) */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
-/* Variáveis CSS para cores e fontes */
+/* Variáveis CSS */
 :root {
     --cor0: #F4F6FE; /* Fundo claro */
-    --cor1: #E8F1F2; /* Cinza claro */
-    --cor2: #1B98E0; /* Azul claro */
-    --cor3: #247BA0; /* Azul médio */
-    --cor4: #006494; /* Azul escuro */
-    --cor5: #13293D; /* Azul muito escuro */
+    --cor1: #2E58A2;
     --cor6: #efba32; /* Amarelo destaque */
-    --cor7: darkblue; /* Azul escuro padrão */
     --cor8: black; /* Preto */
     --cor9: #0068B5; /* Azul institucional */
-    --corVerde0: #c5ebd6; /* Verde claro */
-    --corVerde1: #83e1ad; /* Verde médio claro */
-    --corVerde2: #3ddc84; /* Verde vibrante */
-    --corVerde3: #2fa866; /* Verde médio */
-    --corVerde4: #1a5c37; /* Verde escuro */
-    --corVerde5: #063d1e; /* Verde muito escuro */
-    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif; /* Fonte fallback */
     --fonte-destaque: 'Chakra Petch', sans-serif; /* Fonte principal */
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 20px;
+    --border-radius: 10px;
+    --font-size-base: 16px;
 }
 
-/* Reset global para margens, preenchimentos e box-sizing */
+/* Reset global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Define a fonte base do documento */
+/* Fonte base */
 html {
     font-family: var(--fonte-destaque);
+    font-size: var(--font-size-base);
 }
 
-/* Estiliza o corpo da página com fundo e margem superior */
+/* Corpo da página */
 body {
-    background-color: #018dde22;
+    background-color: #018dde33;
     margin-top: 60px;
 }
 
-/* Centraliza o cabeçalho */
+main{
+    margin: auto;
+    width: 900px;
+}
+
+/* Cabeçalho */
 header {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* Estiliza as seções com fundo, bordas e sombra */
+/* Seções */
 section {
     width: 100%;
-    min-width: 300px;
-    max-width: 900px;
-    margin: 5px auto;
-    background-color: #f6f3f3;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.475);
+    max-width: 800px;
+    margin: var(--spacing-sm) auto;
+    background-color: var(--cor0);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: justify;
 }
 
-/* Layout flex para blocos de cabeçalho */
-.ostensivo_apostilha {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-/* Estiliza o cabeçalho de capítulos com borda e fundo amarelo */
+/* Cabeçalho de capítulos */
 .capitulos_apostilha {
     border: 2px solid var(--cor8);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     background-color: var(--cor6);
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 5px;
+    padding: var(--spacing-sm);
 }
 
-/* Estiliza títulos principais */
+/* Cabeçalho e rodapé de metadados */
+.ostensivo_apostilha {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-sm);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ostensivo_apostilha[role="contentinfo"] {
+    margin-top: var(--spacing-md);
+}
+
+/* Títulos */
 h1 {
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    margin: var(--spacing-md) 0;
+}
+
+h2 {
+
     font-weight: bold;
+    font-size: 1.25rem;
+    margin: var(--spacing-md) 0;
 }
 
-/* Estiliza títulos secundários e terciários */
-h2, h3, h4 {
-    margin: 15px 0;
-}
-
-/* Estiliza parágrafos com recuo e espaçamento */
+/* Parágrafos */
 p {
-    text-indent: 45px;
-    line-height: 1.8;
-    margin: 15px;
-    font-size: 1.125rem;
+    text-indent: 0;
+    line-height: 1.8em; 
+    margin: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+    text-align: justify;
+ 
 }
 
-/* Estiliza imagens para serem responsivas */
-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 10px auto;
-    display: block;
-    border-radius: 5px;
+/* Incisos e alíneas */
+.incisos {
+    margin: var(--spacing-sm) var(--spacing-md);
+    padding-left: 15px;
 }
 
-/* Estiliza controles de áudio */
-audio {
-    margin-top: 15px;
-    width: 100%;
-    max-width: 300px;
+.alineas {
+    padding-left: 20px;
+}
+
+/* Container azul */
+.fundoAzul-container {
+    background-color: #DEE9F1;
+    border: 1px solid var(--cor8);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
 }
 
 /* Centraliza elementos de áudio */
 .audio-container {
     text-align: center;
-    margin: 15px 0;
+    margin: 0px 0;
 }
 
-/* Estiliza o container de botões */
-.botao-container {
-    text-align: center;
-    margin: 15px 0;
-}
-
-/* Estiliza botões dentro do container */
-.botao-container button {
-    background-color: var(--cor9);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-/* Efeito hover nos botões */
-.botao-container button:hover {
-    background-color: var(--cor4);
-}
-
-/* Estiliza descrições de imagens */
-.descriçãoImagens {
-    text-align: center;
-    margin: 5px 0 10px;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 0 10px;
-}
-
-/* Estiliza containers com fundo azul claro */
-.fundoAzul-container {
-    background-color: #1b98e01c;
-    border: 0.5px solid var(--cor8);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-/* Estiliza caixas de texto com borda tracejada */
-.bordaTexto {
-    margin: 10px 0;
-    border: 1px dashed var(--cor8);
-    border-radius: 10px;
-    width: 90%;
-    padding-right: 20px;
-}
-
-/* Centraliza conteúdo com flexbox */
-.centralizarContainer {
+.fundoAzul-container img{
+    margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
 }
 
-/* Estiliza imagens redondas grandes */
-.imgRedondaGrande {
-    float: left;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    shape-outside: circle();
-    margin: 10px;
+/* Media Queries */
+
+/* Telas grandes (>1200px) */
+@media (min-width: 1200px) {
+    section, header, .ostensivo_apostilha {
+        max-width: 1100px;
+    }
 }
 
-/* Efeito hover para imagens redondas grandes */
-.imgRedondaGrande:hover {
-    border: 3px solid transparent;
-}
-
-/* Remove recuo de texto ao lado de imagens */
-.textoLadoDireitoImagem {
-    text-indent: 0;
-}
-
-/* Estiliza imagens redondas padrão */
-.imgRedonda {
-    float: left;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin: 10px;
-}
-
-/* Efeito hover para imagens redondas */
-.imgRedonda:hover {
-    border: 2px solid transparent;
-}
-
-/* Estiliza listas dentro de containers */
-.containerTextoFundo > ul, .containerTextoFundo > ol {
-    margin-left: 25px;
-}
-
-/* Estiliza itens de lista */
-li {
-    list-style-type: none;
-    font-size: 1rem;
-    margin: 5px 0;
-    text-indent: 45px;
-    line-height: 1.8;
-    margin: 15px;
-    font-size: 1.125rem;
-}
-
-/* Estiliza imagens quadradas */
-.img-quadrada {
-    width: 150px;
-    height: 130px;
-    border-radius: 15px;
-    margin-left: 55px;
-}
-
-/* Efeito hover para imagens quadradas */
-.img-quadrada:hover {
-    border: 1px solid var(--cor8);
-}
-
-/* Estiliza container de texto com imagem */
-.textoImagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Efeito hover para itens de lista */
-.liEfeito:hover {
-    background-color: #0067b5dd;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    padding: 0 2px;
-}
-
-/* Estiliza tabelas */
-table {
-    text-align: center;
-    font-weight: bold;
-    border-collapse: collapse;
-    margin-top: 20px;
-    width: 100%;
-}
-
-/* Estiliza cabeçalhos de tabela */
-.topoTb-Mod-I {
-    background-color: var(--cor9);
-    color: white;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Estiliza células de tabela */
-th, td {
-    border: 1.5px solid var(--cor8);
-    padding: 5px;
-    letter-spacing: 1px;
-}
-
-/* Estiliza texto de explicação */
-.explicação {
-    display: block;
-    font-size: 0.875rem;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-/* Centraliza figuras */
-.figCentralizada {
-    text-align: center;
-}
-
-/* Adiciona espaçamento inferior a artigos */
-article {
-    margin-bottom: 10px;
-}
-
-/* Media Queries para responsividade */
-
-/* Telas até 768px */
+/* Telas médias (até 768px) */
 @media (max-width: 768px) {
-    /* Ajusta margem superior do corpo */
     body {
-        margin-top: 40px;
+        margin-top: 50px;
     }
 
-    /* Reduz padding e tamanho de fonte em seções */
     section {
-        padding: 10px;
-        font-size: 0.9rem;
+        padding: var(--spacing-md);
     }
 
-    /* Ajusta tamanho de títulos */
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     h2 {
         font-size: 1.1rem;
-        margin: 10px 0;
     }
 
-    /* Ajusta parágrafos para telas menores */
     p {
-        text-indent: 20px;
-        margin: 10px;
-        line-height: 1.6;
+        margin: var(--spacing-sm);
+        font-size: 0.95rem;
     }
 
-    /* Remove flutuação de imagens em telas pequenas */
-    .imgRedondaGrande, .imgRedonda {
-        float: none;
-        display: block;
-        margin: 10px auto;
+    .incisos {
+        padding-left: 12px;
     }
 
-    /* Ajusta texto ao lado de imagens */
-    .textoLadoDireitoImagem {
-        margin: 10px 0;
-    }
-
-    /* Ajusta largura da borda de texto */
-    .bordaTexto {
-        width: 100%;
-        margin: 15px 0;
-    }
-
-    /* Reduz padding do container de texto */
-    .containerTextoFundo {
-        padding: 8px;
-    }
-
-    /* Ajusta largura do áudio */
-    audio {
-        max-width: 100%;
-    }
-
-    /* Ajusta tamanho de fonte das descrições */
-    .descriçãoImagens {
-        font-size: 0.875rem;
-        text-align: justify;
+    .alineas {
+        padding-left: 15px;
     }
 }
 
-/* Telas até 480px */
+/* Telas pequenas (até 480px) */
 @media (max-width: 480px) {
-    /* Ajusta tamanho de fonte base */
     html {
         font-size: 14px;
     }
 
-    /* Ajusta largura mínima e padding das seções */
     section {
-        min-width: 280px;
-        padding: 8px;
+        padding: var(--spacing-sm);
     }
 
-    /* Reduz tamanho de títulos */
     h1 {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     h2 {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
-    /* Ajusta parágrafos */
     p {
-        text-indent: 15px;
-        margin: 8px;
+        margin: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
     }
 
-    /* Ajusta margens de imagens */
-    img {
-        margin: 5px auto;
+    .incisos {
+        padding-left: 10px;
     }
 
-    /* Reduz tamanho de imagens redondas grandes */
-    .imgRedondaGrande {
-        width: 100px;
-        height: 100px;
+    .alineas {
+        padding-left: 12px;
     }
 
-    /* Reduz tamanho de imagens redondas */
-    .imgRedonda {
-        width: 60px;
-        height: 60px;
+    .ostensivo_apostilha, .ostensivo_apostilha[role="contentinfo"] {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Telas muito pequenas (até 320px) */
+@media (max-width: 320px) {
+    section {
+        min-width: 100%;
     }
 
-    /* Reduz tamanho de imagens quadradas */
-    .img-quadrada {
-        width: 100px;
-    }
-
-    /* Ajusta tamanho de fonte das descrições */
-    .descriçãoImagens {
-        font-size: 0.75rem;
-        text-align: justify;
+    p {
+        margin: var(--spacing-xs);
     }
 }

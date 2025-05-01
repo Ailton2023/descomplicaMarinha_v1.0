@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPM</title>
     <link rel="stylesheet" href="ipm.css">
+    <link rel="stylesheet" href="../abaPesquisa/AbaPesquisa.css">
 </head>
 <body>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Pesquisar no manual...">
+        <button onclick="searchContent()">Pesquisar</button>
+        <button onclick="toggleSearchBar()">Ocultar</button>
+    </div>
+
     <!-- Conteúdo Principal -->
     <main>
         <!-- Seção 8.1 -->
@@ -744,6 +753,7 @@
         </section>
 
     </main>
+    <script src="../abaPesquisa/abaPesquisa.js"></script>
 </body>
 </html>
  

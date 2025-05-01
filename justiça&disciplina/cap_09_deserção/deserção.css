@@ -124,7 +124,7 @@ p {
 
 /* Container azul */
 .fundoAzul-container {
-    background-color: #1b98e033;
+    background-color: #DEE9F1;
     border: 1px solid var(--cor8);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
