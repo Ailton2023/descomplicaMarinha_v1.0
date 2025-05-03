@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROLE DE AVARIAS</title>
+    <link rel="stylesheet" href="socorro_externo.css">
+    <link rel="stylesheet" href="../abaPesquisa/AbaPesquisa.css">
+    <link rel="stylesheet" href="../audio/audio.css">
+</head>
+<body>
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Pesquisar no manual...">
+        <button onclick="searchContent()">Pesquisar</button>
+        <button onclick="toggleSearchBar()">Ocultar</button>
+    </div>
+
+    <main>
+        <section>
+            <header class="capitulos_apostilha">
+                <div class="ostensivo_apostilha">
+                    <span>OSTENSIVO</span>
+                    <span>CAAML-1201</span>
+                </div>
+                <h1>CAPÍTULO 8</h1>
+                <h1>CONTROLE DE AVARIAS</h1>
+            </header>
+
+            <h2>8.13 - GRUPO DE SOCORRO EXTERNO (GSE)</h2>
+            <div class="fundoAzul-container">
+                <p>Tem por propósito prestar auxílio de pessoal e/ou material para o combate a quaisquer avarias em outros navios, no porto ou no mar e em instalações de terra.</p>
+                <div class="alineas">
+                    <p>a) O GSE deve ser acionado a bordo pelo Oficial de Serviço no porto ou pelo Oficial de Quarto no passadiço em viagem, ao ser constatada a situação de emergência externa. O grupo, possuindo uma estrutura de reparo de CAv, formará a bordo em local determinado pela Organização Administrativa. O material específico para o GSE deve ser separado de acordo com a Lista de Dotação de Material de CAv da classe do navio elaborado pela DEN, acondicionado em sacos de lona numerados e pelo tipo de avaria a combater. O grupo deve ser capaz de combater incêndios, efetuar escoramento, tamponamento, percintagem e prestar primeiros socorros. O material a ser transportado para a faina deverá ser função do tipo de avaria a combater.</p>
+                    <p>b) Quando muitas unidades navais estiverem reunidas, e não estando a Força sob ameaças, qualquer emergência numa delas determinará a imediata mobilização do socorro externo nas demais. É necessário, nessa situação que haja coordenação de todos esses recursos humanos e de material. O GSE só deve subir a bordo de um navio sinistrado após o mais antigo do grupo haver se apresentado naquele navio e recebido permissão para tal. Assim, os grupos permanecerão à distância do navio a socorrer, pairando ao largo em suas lanchas ou formados no cais, conforme o caso, até que seu efetivo emprego seja determinado.</p>
+                    <p>c) Na ocorrência de um sinistro com o navio atracado ao cais um militar do GSE deverá se dirigir ao navio sinistrado, munido de um PRC, para levantar as reais necessidades de material e pessoal, enquanto o restante do GSE se prepara a bordo.</p>
+                    <p>d) Deve existir um detalhe fixo do GSE para a situação de toda a guarnição a bordo. Em qualquer situação, deverá estar prevista a rendição dos componentes do GSE caso estejam de serviço no horário em que o GSE for acionado. Isto pode ser conseguido, por exemplo, detalhando-se uma equipe titular e outra reserva; ao ser acionado o GSE, as duas equipes comparecem ao reunir; deve ser levada em consideração a análise de postos não vitais, de acordo com a Organização de Combate (OC), que prioritariamente deverão ser desguarnecidos por ocasião do acionamento do GSE. Os grupos, ao se deslocarem de bordo, devem manter comunicação com seu navio.</p>
+                    <p>e) O navio com sinistro a bordo deverá possuir, no portaló ou outra estação conforme a situação, um oficial responsável pela atribuição de prioridades para o emprego a bordo do pessoal e do material enviado pelos GSE. Deve ser considerado prioritário, quando aplicável, o emprego pelo navio sinistrado do GSE dos navios da mesma classe ou tipo. Também deve ser considerado, quando aplicável, a distribuição do pessoal destes grupos no apoio indireto à faina, como, por exemplo, na realização de contenção ou primeiros socorros.</p>
+                    <p>f) O responsável pela faina no navio com sinistro deverá possuir no portaló ou local designado para receber os GSE, um diagrama do navio apresentando os compartimentos e conveses na área do sinistro.</p>
+                </div>
+                <p><strong>COMPOSIÇÃO MÍNIMA/IDEAL DO GSE</strong></p>
+                <table class="tabela-cav">
+                    <thead>
+                        <tr>
+                            <th>FUNÇÃO</th>
+                            <th>NÚMERO DE MILITARES MIN/IDEAL</th>
+                            <th>TIPO DE AVARIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ENCARREGADO</td>
+                            <td>01/01</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>LÍDER DA CENA DE AÇÃO</td>
+                            <td>01/01</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>CONTROLADOR DE MÁSCARA</td>
+                            <td>01/01</td>
+                            <td>INCÊNDIO</td>
+                        </tr>
+                        <tr>
+                            <td>TURMA DE INCÊNDIO</td>
+                            <td>03/04</td>
+                            <td>INCÊNDIO</td>
+                        </tr>
+                        <tr>
+                            <td>TURMA DE BOMBAS</td>
+                            <td>02/03</td>
+                            <td>INCÊNDIO / ALAGAMENTO</td>
+                        </tr>
+                        <tr>
+                            <td>TURMA DE ALAGAMENTO</td>
+                            <td>03/04</td>
+                            <td>ALAGAMENTO</td>
+                        </tr>
+                        <tr>
+                            <td>SINALEIRO</td>
+                            <td>01/01</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>PRIMEIROS SOCORROS</td>
+                            <td>01/01</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>ELETRICISTA</td>
+                            <td>01/01</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>GUARNIÇÃO DA LANCHA</td>
+                            <td>03/03</td>
+                            <td>QUALQUER</td>
+                        </tr>
+                        <tr>
+                            <td>TOTAL</td>
+                            <td>14/16</td>
+                            <td>INCÊNDIO</td>
+                        </tr>
+                        <tr>
+                            <td>TOTAL</td>
+                            <td>13/15</td>
+                            <td>ALAGAMENTO</td>
+                        </tr>
+                    </tbody>
+                    <caption>Tabela 8.3 - Composição do GSE</caption>
+                </table>
+                <p>O Líder da Turma de Incêndio é o responsável pela Câmera de Imagem Térmica.</p>
+                <p>Dois dos militares da Turma de Bombas podem auxiliar em qualquer faina, após a bomba ser colocada em funcionamento (bomba portátil de CBINC ou bomba submersível). O outro militar permanece junto à bomba.</p>
+                <p>Os militares relacionados deverão ser qualificados (Ex: turma de incêndio cursado em CBINC, socorrista cursado em PRISOC) e possuir experiência (Ex: militar exercer a função em reparo de CAv) para a melhor execução de suas tarefas.</p>
+            </div>
+
+            <div class="ostensivo_apostilha" role="contentinfo">
+                <span>OSTENSIVO</span>
+                <span>- 8-26 -</span>
+                <span>REV.2</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="ostensivo_apostilha">
+                <span>OSTENSIVO</span>
+                <span>CAAML-1201</span>
+            </div>
+
+            <h2>8.13 - GRUPO DE SOCORRO EXTERNO (GSE) (Continuação)</h2>
+            <div class="fundoAzul-container">
+                <img src="images/fig_8_3.jpg" alt="Modelo de Papeleta de Controle de Compartimento Não-Ventilado" class="figura">
+                <p><strong>Figura 8.3 – Modelo de Papeleta de Controle de Compartimento Não-Ventilado</strong></p>
+            </div>
+
+            <div class="ostensivo_apostilha" role="contentinfo">
+                <span>OSTENSIVO</span>
+                <span>- 8-27 -</span>
+                <span>REV.2</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="ostensivo_apostilha">
+                <span>OSTENSIVO</span>
+                <span>CAAML-1201</span>
+            </div>
+
+            <div class="fundoAzul-container">
+                <img src="images/fig_8_4_a.jpg" alt="Modelo de Papeleta de Corte e Solda (Frente)" class="figura">
+                <p><strong>Figura 8.4 A – Modelo de Papeleta de Corte e Solda (Frente)</strong></p>
+            </div>
+
+            <div class="ostensivo_apostilha" role="contentinfo">
+                <span>OSTENSIVO</span>
+                <span>- 8-28 -</span>
+                <span>REV.2</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="ostensivo_apostilha">
+                <span>OSTENSIVO</span>
+                <span>CAAML-1201</span>
+            </div>
+
+            <div class="fundoAzul-container">
+                <img src="images/fig_8_4_b.jpg" alt="Modelo de Papeleta de Corte e Solda (Verso)" class="figura">
+                <p><strong>Figura 8.4 B – Modelo de Papeleta de Corte e Solda (Verso)</strong></p>
+                <p><strong>INSTRUÇÕES BÁSICAS</strong></p>
+                <div class="alineas">
+                    <p>1 – Todos os itens da papeleta devem ser rigorosamente preenchidos pelo requisitante e pelo fiel de avarias de serviço. A emissão de uma permissão para serviço de corte e solda sem a definição do trabalho a ser feito e sem a delimitação exata do local poderá ocasionar um incidente grave.</p>
+                    <p>2 – A papeleta de corte e solda será cancelada quando:</p>
+                    <div class="incisos">
+                        <p>– As recomendações nela contidas não estiverem sendo atendidas;</p>
+                        <p>– As condições de segurança do local forem alteradas, surgindo novas situações de risco;</p>
+                        <p>– Em situações de emergência.</p>
+                    </div>
+                </div>
+                <p>HORÁRIO DE TÉRMINO DA FAINA: _____ H ____ MIN</p>
+            </div>
+
+            <div class="ostensivo_apostilha" role="contentinfo">
+                <span>OSTENSIVO</span>
+                <span>- 8-29 -</span>
+                <span>REV.2</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="../abaPesquisa/abaPesquisa.js"></script>
+</body>
+</html>
