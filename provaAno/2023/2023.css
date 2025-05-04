@@ -1,0 +1,240 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farsan&family=Genos:ital,wght@0,100..900;1,100..900&family=Gruppo&family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: "Chakra Petch", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #2E58A2;
+  text-align: center;
+}
+
+h2{
+  color: #2E58A2;
+}
+
+/* Estilo para as questões */
+.question {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: justify;
+}
+
+.question h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Container de opções */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Estilo padrão para os labels dentro das opções */
+.option label {
+  padding: 0.5rem;
+}
+
+/* Cada opção */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.0rem;
+  background-color: #f9f9f9;
+  padding: 0.2rem; 
+  padding-left: 1.0rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+ 
+
+}
+
+.option:hover {
+  background-color: #e0e0e0;
+}
+
+/* Quando uma opção é selecionada: fundo azul (#2E58A2) e fonte branca, mantendo o tamanho */
+.option.selected {
+  background-color: #2E58A2;
+  color: #fff;
+  border-color: #2E58A2;
+}
+.option.selected label {
+  background-color: #2E58A2;
+  color: #fff;
+  display: block;
+  width: 100%;
+  /* Usa o mesmo padding padrão para não aumentar o tamanho */
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* Estilo para o input radio */
+.option input[type="radio"] {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+/* Classe para destacar a alternativa errada sem alterar o tamanho */
+.wrong {
+  background-color: red !important;
+  border: 2px solid black !important;
+  color: #fff !important;
+}
+.wrong label {
+  background-color: red !important;
+  color: #fff !important;
+  /* Usa o mesmo padding padrão */
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* Botão "Mostrar Solução" para cada questão */
+.show-solution-btn {
+  background-color: #2E58A2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.show-solution-btn:hover {
+  background-color: #1a3a6b;
+}
+.show-solution-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* A área da solução (inicialmente oculta) */
+.solution {
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.solution-box {
+  border: 2px solid #000000;
+  padding: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.solution-box legend {
+  padding: 0 0.5rem;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+
+.solution-text {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 10px;
+  border: 1px white solid;
+  border-radius: px;
+}
+
+/* Botão de submeter */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#submit-btn {
+  background-color: #2E58A2;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#submit-btn:hover {
+  background-color: #1a3a6b;
+}
+
+/* Estilo para o certificado (aparece após submeter) */
+#certificate {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 3px solid #2E58A2; /* Borda aplicada ao certificado */
+  border-radius: 15px;
+  background: #fdfdfd;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+#certificate h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2E58A2;
+}
+
+#certificate p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0.5rem 0;
+ 
+}
+
+/* Utilitário para esconder elementos */
+.hidden {
+  display: none;
+}
+
+#maiuscula{
+  text-transform: uppercase; 
+}
+
+
+#corazul{
+  background-color: #2e58a245;
+}
+
+#cinza{
+  background-color: #cccccc97;
+}
+
+#vermelho{
+  color: red;
+}
+
