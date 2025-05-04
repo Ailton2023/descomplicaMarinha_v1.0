@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha de Controle de Estudos Semanal - Disciplinas da Marinha</title>
+    <link rel="stylesheet" href="anexo-A.html">
+    <link rel="stylesheet" href="../abaPesquisa/AbaPesquisa.css">
+    <link rel="stylesheet" href="../audio/audio.css">
+    <style>
+        .fundoAzul-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .fundoAzul-container th, .fundoAzul-container td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            vertical-align: middle; /* Centralização vertical geral */
+        }
+        .fundoAzul-container th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        .fundoAzul-container select {
+            width: 100%;
+            padding: 5px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .fundoAzul-container .horario-column {
+            width: 120px;
+            background-color: #007bff; /* Mesmo azul das outras colunas */
+            color: white; /* Texto branco para contraste */
+            text-align: center; /* Centralização horizontal */
+            vertical-align: middle; /* Centralização vertical */
+        }
+        .fundoAzul-container .horario-column input[type="text"].horario-input {
+            width: 100%;
+            max-width: 100%;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+            text-align: center; /* Centralização horizontal */
+            line-height: 20px; /* Ajuste para centralização vertical */
+            background-color: white; /* Fundo branco para o input */
+            color: black; /* Texto preto para legibilidade */
+        }
+        .fundoAzul-container input.invalid {
+            border: 2px solid red;
+        }
+        /* Cores suaves por disciplina para opções de disciplinas e tópicos */
+        .disciplina-2-1-1-option { background-color: #e6f0ff; } /* Azul claro */
+        .disciplina-2-1-2-option { background-color: #e6ffe6; } /* Verde claro */
+        .disciplina-2-1-3-option { background-color: #fff8e6; } /* Amarelo claro */
+        .disciplina-2-1-4-option { background-color: #ffe6e6; } /* Rosa claro */
+        .disciplina-2-1-5-option { background-color: #ffefe6; } /* Laranja claro */
+        .disciplina-2-1-6-option { background-color: #f0e6ff; } /* Roxo claro */
+        .disciplina-2-1-7-option { background-color: #e6ffff; } /* Ciano claro */
+        .disciplina-2-1-8-option { background-color: #f0f0f0; } /* Cinza claro */
+        .fundoAzul-container tr:hover {
+            background-color: #d0d0d0; /* Hover mais escuro */
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <header class="capitulos_apostilha">
+                <div class="ostensivo_apostilha">
+                    <span>OSTENSIVO</span>
+                    <span>SGM-105</span>
+                </div>
+                <h1>PLANILHA DE CONTROLE DE ESTUDOS SEMANAL</h1>
+                <h1>DISCIPLINAS DA MARINHA</h1>
+            </header>
+
+            <div class="fundoAzul-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="horario-column">Horários</th>
+                            <th>Segunda</th>
+                            <th>Terça</th>
+                            <th>Quarta</th>
+                            <th>Quinta</th>
+                            <th>Sexta</th>
+                            <th>Sábado</th>
+                            <th>Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="08:00-09:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="09:00-10:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="10:00-11:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="11:00-12:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="14:00-15:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="15:00-16:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Seleaione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="16:00-17:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="horario-column"><input type="text" class="horario-input" value="17:00-18:00" placeholder="HH:MM-HH:MM" title="Digite no formato HH:MM-HH:MM" oninput="validateHorario(this)"></td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="disciplina-select" onchange="updateTopicSelect(this)">
+                                    <option value="">Selecione uma Disciplina</option>
+                                </select>
+                                <select class="topic-select" onchange="updateSubtopicSelect(this)">
+                                    <option value="">Selecione um Tópico</option>
+                                </select>
+                                <select class="subtopic-select">
+                                    <option value="">Selecione um Subtópico</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Dados de disciplinas, tópicos e subtópicos
+        const disciplinas = [
+            {
+                id: "2.1.1",
+                name: "Ordenança Geral para o Serviço da Armada",
+                topicos: [
+                    { name: "Organização", subtemas: ["Introdução à Organização", "Conceitos Básicos de Organização", "Aplicações Práticas de Organização"] },
+                    { name: "Deveres do Pessoal", subtemas: ["Introdução aos Deveres do Pessoal", "Conceitos Básicos de Deveres", "Aplicações Práticas de Deveres"] },
+                    { name: "Deveres dos Oficiais em outros cargos e encargos colaterais", subtemas: ["Introdução aos Deveres Colaterais", "Conceitos Básicos de Encargos", "Aplicações Práticas de Encargos"] },
+                    { name: "Serviço de Oficiais", subtemas: ["Introdução ao Serviço de Oficiais", "Conceitos Básicos de Serviço", "Aplicações Práticas de Serviço"] },
+                    { name: "Atributos dos Oficiais e Praças", subtemas: ["Introdução aos Atributos", "Conceitos Básicos de Atributos", "Aplicações Práticas de Atributos"] },
+                    { name: "Tradições Navais", subtemas: ["Introdução às Tradições Navais", "Conceitos Básicos de Tradições", "Aplicações Práticas de Tradições"] },
+                    { name: "Tratamento verbal e escrito", subtemas: ["Introdução ao Tratamento", "Conceitos Básicos de Comunicação", "Aplicações Práticas de Comunicação"] }
+                ]
+            },
+            {
+                id: "2.1.2",
+                name: "Liderança",
+                topicos: [
+                    { name: "Elementos conceituais de liderança", subtemas: ["Propósito", "Chefia e Liderança", "Aspectos Fundamentais da Liderança", "Estilos de Liderança", "Seleção de Estilos de Liderança", "Fatores da Liderança", "Atributos de um Líder", "Níveis de Liderança"] },
+                    { name: "O exercício da liderança pelo pessoal da MB", subtemas: ["Propósito", "Considerações Gerais", "A Ética Militar Naval", "Exercício da Liderança pelos Militares da MB", "Expedição de Ordens e Delegação de Autoridade", "Aplicação da Liderança nas Relações Extra-MB", "Avaliação do Exercício da Liderança", "Disposições Complementares"] },
+                    { name: "Principais atributos de um líder", subtemas: ["Exemplo", "Integridade Ética", "Humildade", "Competência Profissional", "Determinação", "Entusiasmo", "Capacidade Decisória", "Autoconfiança", "Autocontrole", "Flexibilidade", "Altruísmo", "Respeito", "Capacidade de Relacionamento Interpessoal", "Comunicação", "Iniciativa", "Senso de Justiça"] },
+                    { name: "Juramento à Bandeira e Rosa das Virtudes", subtemas: ["Honra", "Lealdade", "Iniciativa", "Cooperação", "Espírito de Sacrifício", "Zelo", "Coragem", "Ordem", "Fidelidade", "“Fogo Sagrado”", "Tenacidade", "Decisão", "Abnegação", "Espírito Militar", "Disciplina", "Patriotismo"] },
+                    { name: "Orientação sobre expedição de ordens", subtemas: ["Introdução à Expedição de Ordens", "Conceitos Básicos de Ordens", "Aplicações Práticas de Ordens"] }
+                ]
+            },
+            {
+                id: "2.1.3",
+                name: "Procedimentos Marinheiros",
+                topicos: [
+                    { name: "Embarcações miúdas", subtemas: ["Introdução às Embarcações", "Conceitos Básicos de Embarcações", "Aplicações Práticas de Embarcações"] },
+                    { name: "Segurança da Tripulação a bordo", subtemas: ["Introdução à Segurança", "Conceitos Básicos de Segurança", "Aplicações Práticas de Segurança"] },
+                    { name: "Incêndio", subtemas: ["Introdução a Incêndios", "Conceitos Básicos de Combate a Incêndios", "Aplicações Práticas de Combate"] },
+                    { name: "Agentes extintores", subtemas: ["Introdução aos Agentes Extintores", "Conceitos Básicos de Extintores", "Aplicações Práticas de Extintores"] },
+                    { name: "Extintores portáteis", subtemas: ["Introdução aos Extintores Portáteis", "Conceitos Básicos de Uso", "Aplicações Práticas de Uso"] },
+                    { name: "Organização de Combate do CAv", subtemas: ["Introdução à Organização de Combate", "Conceitos Básicos de Combate", "Aplicações Práticas de Combate"] },
+                    { name: "Organização Administrativa do CAv", subtemas: ["Introdução à Organização Administrativa", "Conceitos Básicos Administrativos", "Aplicações Práticas Administrativas"] },
+                    { name: "Grupo de Socorro Externo", subtemas: ["Introdução ao Socorro Externo", "Conceitos Básicos de Socorro", "Aplicações Práticas de Socorro"] }
+                ]
+            },
+            {
+                id: "2.1.4",
+                name: "Justiça e Disciplina na MB",
+                topicos: [
+                    { name: "Disposições Gerais", subtemas: ["Introdução às Disposições", "Conceitos Básicos de Disposições", "Aplicações Práticas de Disposições"] },
+                    { name: "Sindicância", subtemas: ["Introdução à Sindicância", "Conceitos Básicos de Sindicância", "Aplicações Práticas de Sindicância"] },
+                    { name: "Inquérito Policial Militar", subtemas: ["Introdução ao Inquérito", "Conceitos Básicos de Inquérito", "Aplicações Práticas de Inquérito"] },
+                    { name: "Deserção", subtemas: ["Introdução à Deserção", "Conceitos Básicos de Deserção", "Aplicações Práticas de Deserção"] },
+                    { name: "Prisão em flagrante", subtemas: ["Introdução à Prisão", "Conceitos Básicos de Prisão", "Aplicações Práticas de Prisão"] },
+                    { name: "Execução Penal", subtemas: ["Introdução à Execução Penal", "Conceitos Básicos de Execução", "Aplicações Práticas de Execução"] }
+                ]
+            },
+            {
+                id: "2.1.5",
+                name: "Plano Estratégico da Marinha (PEM-2040)",
+                topicos: [
+                    { name: "Ambiente Operacional", subtemas: ["Introdução ao Ambiente", "Conceitos Básicos do Ambiente", "Aplicações Práticas do Ambiente"] },
+                    { name: "Ameaças", subtemas: ["Introdução às Ameaças", "Conceitos Básicos de Ameaças", "Aplicações Práticas de Ameaças"] },
+                    { name: "Conceito Estratégico Marítimo-Naval", subtemas: ["Introdução ao Conceito Estratégico", "Conceitos Básicos Estratégicos", "Aplicações Práticas Estratégicas"] },
+                    { name: "Mapa Estratégico da Marinha", subtemas: ["Introdução ao Mapa Estratégico", "Conceitos Básicos do Mapa", "Aplicações Práticas do Mapa"] },
+                    { name: "Ações Estratégicas Navais", subtemas: ["Introdução às Ações Estratégicas", "Conceitos Básicos de Ações", "Aplicações Práticas de Ações"] }
+                ]
+            },
+            {
+                id: "2.1.6",
+                name: "Documentação Administrativa na MB",
+                topicos: [
+                    { name: "Documentos", subtemas: ["Documento", "Grupos de Documentos", "Documentos Administrativos (DA)", "Informações Gerais"] },
+                    { name: "Classificação dos Documentos Administrativos", subtemas: ["Introdução à Classificação", "Conceitos Básicos de Classificação", "Aplicações Práticas de Classificação"] },
+                    { name: "Gestão de Documentos", subtemas: ["Introdução à Gestão", "Conceitos Básicos de Gestão", "Aplicações Práticas de Gestão"] },
+                    { name: "Documentos Digitais", subtemas: ["Introdução aos Documentos Digitais", "Conceitos Básicos de Digitalização", "Aplicações Práticas de Digitalização"] },
+                    { name: "Tipos dos Documentos Administrativos na MB", subtemas: ["Introdução aos Tipos de Documentos", "Conceitos Básicos de Tipos", "Aplicações Práticas de Tipos"] }
+                ]
+            },
+            {
+                id: "2.1.7",
+                name: "Cerimonial da Marinha do Brasil",
+                topicos: [
+                    { name: "Considerações Gerais", subtemas: ["Introdução ao Cerimonial", "Conceitos Básicos do Cerimonial", "Aplicações Práticas do Cerimonial"] },
+                    { name: "Bandeiras", subtemas: ["Introdução às Bandeiras", "Conceitos Básicos de Bandeiras", "Aplicações Práticas de Bandeiras"] },
+                    { name: "Salvas", subtemas: ["Introdução às Salvas", "Conceitos Básicos de Salvas", "Aplicações Práticas de Salvas"] },
+                    { name: "Visitas", subtemas: ["Introdução às Visitas", "Conceitos Básicos de Visitas", "Aplicações Práticas de Visitas"] },
+                    { name: "Honras aos Oficiais de Marinha", subtemas: ["Introdução às Honras", "Conceitos Básicos de Honras", "Aplicações Práticas de Honras"] },
+                    { name: "Honras às Autoridades Civis e às Militares não Pertencentes à MB", subtemas: ["Introdução às Honras Civis", "Conceitos Básicos de Honras Civis", "Aplicações Práticas de Honras Civis"] },
+                    { name: "Datas Festivas", subtemas: ["Introdução às Datas Festivas", "Conceitos Básicos de Datas", "Aplicações Práticas de Datas"] },
+                    { name: "Honras às Nações e Autoridades Estrangeiras", subtemas: ["Introdução às Honras Estrangeiras", "Conceitos Básicos de Honras Estrangeiras", "Aplicações Práticas de Honras Estrangeiras"] },
+                    { name: "Honras Fúnebres", subtemas: ["Introdução às Honras Fúnebres", "Conceitos Básicos de Honras Fúnebres", "Aplicações Práticas de Honras Fúnebres"] },
+                    { name: "Características das Bandeiras", subtemas: ["Introdução às Características", "Conceitos Básicos de Características", "Aplicações Práticas de Características"] },
+                    { name: "Disposição das Bandeiras, Flâmulas e Pavilhões", subtemas: ["Introdução à Disposição", "Conceitos Básicos de Disposição", "Aplicações Práticas de Disposição"] },
+                    { name: "Resumo histórico", subtemas: ["Introdução ao Resumo Histórico", "Conceitos Básicos Históricos", "Aplicações Práticas Históricas"] }
+                ]
+            },
+            {
+                id: "2.1.8",
+                name: "Legislação Militar-Naval/Civil",
+                topicos: [
+                    { name: "Das obrigações e dos deveres dos Militares", subtemas: ["Introdução às Obrigações", "Conceitos Básicos de Obrigações", "Aplicações Práticas de Obrigações"] },
+                    { name: "Dos direitos e das prerrogativas dos Militares", subtemas: ["Introdução aos Direitos", "Conceitos Básicos de Direitos", "Aplicações Práticas de Direitos"] },
+                    { name: "Das contravenções disciplinares", subtemas: ["Introdução às Contravenções", "Conceitos Básicos de Contravenções", "Aplicações Práticas de Contravenções"] },
+                    { name: "Das penas disciplinares", subtemas: ["Introdução às Penas", "Conceitos Básicos de Penas", "Aplicações Práticas de Penas"] },
+                    { name: "Da parte, prisão imediata e recursos", subtemas: ["Introdução à Prisão", "Conceitos Básicos de Prisão", "Aplicações Práticas de Prisão"] }
+                ]
+            }
+        ];
+
+        // Função para inicializar os menus suspensos de disciplinas
+        function initializeDisciplinaSelects() {
+            const disciplinaSelects = document.querySelectorAll('.disciplina-select');
+            disciplinaSelects.forEach(select => {
+                disciplinas.forEach(disciplina => {
+                    const option = document.createElement('option');
+                    option.value = disciplina.id;
+                    option.textContent = disciplina.name;
+                    option.className = `disciplina-${disciplina.id}-option`;
+                    select.appendChild(option);
+                });
+            });
+        }
+
+        // Função para atualizar o menu de tópicos com base na disciplina selecionada
+        function updateTopicSelect(disciplinaSelect) {
+            const topicSelect = disciplinaSelect.nextElementSibling;
+            const subtopicSelect = topicSelect.nextElementSibling;
+            const selectedDisciplina = disciplinaSelect.value;
+
+            // Limpa os menus de tópicos e subtópicos
+            topicSelect.innerHTML = '<option value="">Selecione um Tópico</option>';
+            subtopicSelect.innerHTML = '<option value="">Selecione um Subtópico</option>';
+
+            // Encontra os tópicos correspondentes à disciplina selecionada
+            const disciplina = disciplinas.find(d => d.id === selectedDisciplina);
+            if (disciplina && disciplina.topicos) {
+                disciplina.topicos.forEach(topico => {
+                    const option = document.createElement('option');
+                    option.value = topico.name;
+                    option.textContent = topico.name;
+                    option.className = `disciplina-${disciplina.id}-option`;
+                    topicSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Função para atualizar o menu de subtópicos com base no tópico selecionado
+        function updateSubtopicSelect(topicSelect) {
+            const subtopicSelect = topicSelect.nextElementSibling;
+            const selectedTopic = topicSelect.value;
+            const disciplinaSelect = topicSelect.previousElementSibling;
+            const selectedDisciplina = disciplinaSelect.value;
+
+            // Limpa o menu de subtópicos
+            subtopicSelect.innerHTML = '<option value="">Selecione um Subtópico</option>';
+
+            // Encontra os subtemas correspondentes ao tópico selecionado
+            const disciplina = disciplinas.find(d => d.id === selectedDisciplina);
+            if (disciplina && disciplina.topicos) {
+                const topico = disciplina.topicos.find(t => t.name === selectedTopic);
+                if (topico && topico.subtemas) {
+                    topico.subtemas.forEach(subtema => {
+                        const option = document.createElement('option');
+                        option.value = subtema;
+                        option.textContent = subtema;
+                        subtopicSelect.appendChild(option);
+                    });
+                }
+            }
+        }
+
+        // Função para validar o formato do horário (HH:MM-HH:MM)
+        function validateHorario(input) {
+            const horarioMaterials = /^\d{2}:\d{2}-\d{2}:\d{2}$/;
+            if (horarioRegex.test(input.value)) {
+                input.classList.remove('invalid');
+            } else {
+                input.classList.add('invalid');
+            }
+        }
+
+        // Inicializa os menus de disciplinas ao carregar a página
+        window.onload = initializeDisciplinaSelects;
+    </script>
+</body>
+</html>

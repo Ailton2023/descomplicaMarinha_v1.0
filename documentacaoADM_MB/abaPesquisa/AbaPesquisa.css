@@ -1,0 +1,397 @@
+@charset "UTF-8";
+
+/* Importação da fonte Chakra Petch (pesos 400 e 700) */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+/* Variáveis CSS */
+:root {
+    --cor0: #F4F6FE; /* Fundo claro */
+    --cor1: #2E58A2;
+    --cor6: #efba32; /* Amarelo destaque */
+    --cor8: black; /* Preto */
+    --cor9: #0068B5; /* Azul institucional */
+    --fonte-destaque: 'Chakra Petch', sans-serif; /* Fonte principal */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --border-radius: 0.625rem;
+    --font-size-base: 1rem;
+    --transition: all 0.3s ease;
+}
+
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte base */
+html {
+    font-family: var(--fonte-destaque);
+    font-size: clamp(14px, 2.5vw, 16px);
+    scroll-behavior: smooth;
+}
+
+/* Corpo da página */
+body {
+    background-color: #018dde33;
+    transition: var(--transition);
+}
+
+/* Main content */
+main {
+    margin: 0 auto;
+    width: min(90%, 900px);
+    margin-top: 4.5rem; /* Ajustado para a altura da search-bar */
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Seções */
+section {
+    width: 100%;
+    max-width: 800px;
+    margin: var(--spacing-sm) auto;
+    background-color: var(--cor0);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+    transition: var(--transition);
+}
+
+/* Cabeçalho de capítulos */
+.capitulos_apostilha {
+    border: 2px solid var(--cor8);
+    border-radius: var(--border-radius);
+    background-color: var(--cor6);
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-sm);
+}
+
+/* Cabeçalho e rodapé de metadados */
+.ostensivo_apostilha {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: var(--spacing-sm);
+}
+
+.ostensivo_apostilha[role="contentinfo"] {
+    margin-top: var(--spacing-md);
+}
+
+/* Títulos */
+h1 {
+    font-weight: 700;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    letter-spacing: 0.5px;
+    margin: var(--spacing-md) 0;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    margin: var(--spacing-md) 0;
+}
+
+/* Parágrafos */
+p {
+    text-indent: 0;
+    line-height: 1.8;
+    margin: var(--spacing-sm) var(--spacing-md);
+    font-size: clamp(0.9rem, 2.8vw, 1rem);
+    text-align: justify;
+}
+
+/* Incisos e alíneas */
+.incisos {
+    margin: var(--spacing-sm) var(--spacing-md);
+    padding-left: 1rem;
+}
+
+.alineas {
+    padding-left: 1.25rem;
+}
+
+/* Container azul */
+.fundoAzul-container {
+    background-color: #DEE9F1;
+    border: 1px solid var(--cor8);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+/* Centraliza elementos de áudio */
+.audio-container {
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.fundoAzul-container img {
+    max-width: 100%;
+    height: auto;
+    margin: var(--spacing-sm) auto;
+    display: block;
+}
+
+/* Search bar */
+.search-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(70%, 85vw, 90%);
+    max-width: min(900px, 90%);
+    height: clamp(2.5rem, 8vw, 3.5rem);
+    padding: clamp(0.3rem, 1vw, 0.5rem);
+    background-color: var(--cor0);
+    border-bottom: 2px solid #ccc;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.2rem, 0.8vw, 0.4rem);
+}
+
+.search-bar.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-bar input[type="text"] {
+    width: clamp(50%, 55vw, 60%);
+    padding: clamp(0.2rem, 0.8vw, 0.4rem);
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-family: var(--fonte-destaque);
+}
+
+.search-bar button {
+    padding: clamp(0.2rem, 0.8vw, 0.4rem) clamp(0.3rem, 1vw, 0.5rem);
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    background-color: var(--cor9);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: var(--fonte-destaque);
+    transition: var(--transition);
+    white-space: nowrap;
+    min-width: 15%;
+}
+
+.search-bar button:hover {
+    background-color: var(--cor1);
+}
+
+/* Highlight */
+.highlight {
+    background-color: var(--cor6);
+    font-weight: bold;
+}
+
+/* Media Queries */
+
+/* Telas muito grandes (>1400px) */
+@media (min-width: 1400px) {
+    main, section, header, .ostensivo_apostilha {
+        max-width: 1200px;
+    }
+
+    .search-bar {
+        width: clamp(80%, 85vw, 90%);
+        max-width: 1000px;
+        height: 4rem;
+    }
+}
+
+/* Telas grandes (>1000px) */
+@media (min-width: 1000px) {
+    main, section, header, .ostensivo_apostilha {
+        max-width: 1000px;
+    }
+
+    .search-bar {
+        width: clamp(80%, 85vw, 90%);
+        max-width: 900px;
+    }
+}
+
+/* Telas médias (até 768px) */
+@media (max-width: 768px) {
+    body {
+        margin-top: 3rem;
+    }
+
+    main {
+        width: 95%;
+        margin-top: 3.5rem;
+    }
+
+    .search-bar {
+        width: clamp(80%, 90vw, 95%);
+        max-width: 95%;
+        height: clamp(2.2rem, 7vw, 3rem);
+        padding: clamp(0.2rem, 0.8vw, 0.4rem);
+        gap: clamp(0.15rem, 0.6vw, 0.3rem);
+    }
+
+    .search-bar input[type="text"] {
+        width: clamp(50%, 60vw, 65%);
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+    }
+
+    .search-bar button {
+        padding: clamp(0.15rem, 0.6vw, 0.3rem) clamp(0.2rem, 0.8vw, 0.4rem);
+        font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+        min-width: 18%;
+    }
+
+    section {
+        max-width: 95%;
+        padding: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+    }
+
+    h2 {
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+    }
+
+    p {
+        margin: var(--spacing-sm);
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    }
+
+    .incisos {
+        padding-left: 0.75rem;
+    }
+
+    .alineas {
+        padding-left: 0.9rem;
+    }
+}
+
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+    html {
+        font-size: clamp(12px, 3.5vw, 14px);
+    }
+
+    body {
+        margin-top: 2.5rem;
+    }
+
+    main {
+        width: 98%;
+        margin-top: 2.8rem;
+    }
+
+    .search-bar {
+        width: clamp(85%, 95vw, 98%);
+        max-width: 98%;
+        height: clamp(1.8rem, 6vw, 2.2rem);
+        padding: clamp(0.15rem, 0.6vw, 0.3rem);
+        gap: clamp(0.1rem, 0.5vw, 0.2rem);
+        flex-wrap: nowrap;
+    }
+
+    .search-bar input[type="text"] {
+        width: clamp(45%, 50vw, 55%);
+        font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+    }
+
+    .search-bar button {
+        padding: clamp(0.1rem, 0.5vw, 0.2rem) clamp(0.15rem, 0.6vw, 0.3rem);
+        font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+        min-width: 20%;
+    }
+
+    section {
+        padding: var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: clamp(1rem, 3.2vw, 1.1rem);
+    }
+
+    h2 {
+        font-size: clamp(0.9rem, 2.8vw, 1rem);
+    }
+
+    p {
+        margin: var(--spacing-xs) var(--spacing-sm);
+        font-size: clamp(0.8rem, 2.3vw, 0.9rem);
+    }
+
+    .incisos {
+        padding-left: 0.6rem;
+    }
+
+    .alineas {
+        padding-left: 0.75rem;
+    }
+
+    .ostensivo_apostilha, .ostensivo_apostilha[role="contentinfo"] {
+        justify-content: space-between;
+        text-align: center;
+    }
+}
+
+/* Telas muito pequenas (até 320px) */
+@media (max-width: 320px) {
+    main, section {
+        width: 100%;
+        margin: 0;
+        margin-top: 2.5rem;
+    }
+
+    .search-bar {
+        width: clamp(90%, 98vw, 100%);
+        max-width: 100%;
+        height: clamp(1.6rem, 5.5vw, 2rem);
+        padding: clamp(0.1rem, 0.5vw, 0.2rem);
+        gap: clamp(0.05rem, 0.4vw, 0.15rem);
+    }
+
+    .search-bar input[type="text"] {
+        width: clamp(40%, 45vw, 50%);
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+    }
+
+    .search-bar button {
+        padding: clamp(0.05rem, 0.4vw, 0.15rem) clamp(0.1rem, 0.5vw, 0.2rem);
+        font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+        min-width: 22%;
+    }
+
+    p {
+        margin: var(--spacing-xs);
+    }
+
+    .fundoAzul-container {
+        padding: var(--spacing-sm);
+    }
+}

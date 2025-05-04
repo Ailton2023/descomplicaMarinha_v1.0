@@ -1,0 +1,71 @@
+/* Variáveis CSS (reutilizadas para consistência) */
+:root {
+    --cor0: #F4F6FE; /* Fundo claro */
+    --spacing-sm: 0.75rem;
+}
+
+/* Centraliza elementos de áudio */
+.audio-container {
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.audio-container audio {
+    width: clamp(80%, 90vw, 100%);
+    max-width: 600px;
+    height: clamp(2rem, 8vw, 2.5rem);
+    border-radius: 0.25rem;
+}
+
+/* Estiliza os controles de áudio para navegadores WebKit */
+.audio-container audio::-webkit-media-controls-panel {
+    background-color: var(--cor0);
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+}
+
+.audio-container audio::-webkit-media-controls-play-button,
+.audio-container audio::-webkit-media-controls-volume-slider {
+    transform: scale(0.9);
+}
+
+/* Media Queries */
+
+/* Telas médias (até 768px) */
+@media (max-width: 768px) {
+    .audio-container audio {
+        width: clamp(70%, 85vw, 90%);
+        height: clamp(1.8rem, 7vw, 2.2rem);
+    }
+
+    .audio-container audio::-webkit-media-controls-play-button,
+    .audio-container audio::-webkit-media-controls-volume-slider {
+        transform: scale(0.8);
+    }
+}
+
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+    .audio-container audio {
+        width: clamp(65%, 80vw, 85%);
+        height: clamp(1.6rem, 6vw, 2rem);
+    }
+
+    .audio-container audio::-webkit-media-controls-play-button,
+    .audio-container audio::-webkit-media-controls-volume-slider {
+        transform: scale(0.7);
+    }
+}
+
+/* Telas muito pequenas (até 320px) */
+@media (max-width: 320px) {
+    .audio-container audio {
+        width: clamp(60%, 75vw, 80%);
+        height: clamp(1.4rem, 5.5vw, 1.8rem);
+    }
+
+    .audio-container audio::-webkit-media-controls-play-button,
+    .audio-container audio::-webkit-media-controls-volume-slider {
+        transform: scale(0.6);
+    }
+}
