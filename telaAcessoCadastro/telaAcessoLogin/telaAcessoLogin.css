@@ -131,3 +131,78 @@ hr {
 .alinhamentoLados a:hover {
     text-decoration: underline;
 }
+
+ /* Media Queries for Smaller Screens */
+ @media (max-width: 600px) {
+    .conteinerAcesso {
+        width: 95%;       
+        padding: 4%;
+        font-size: 0.9rem;
+    }
+
+    .loginCabecalho img {
+        width: 12%;
+        max-width: 50px;
+    }
+
+    .campoInput input {
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .iconeInput {
+        width: 20px;
+        height: 20px;
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .alinhamentoLados h1 {
+        font-size: 0.9rem;
+    }
+
+    hr {
+        margin: 4% 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .conteinerAcesso {
+        width: 80%;
+       
+        padding: 3%;
+        font-size: 0.85rem;
+    }
+
+    .loginCabecalho img {
+        width: 10%;
+        max-width: 45px;
+    }
+
+    .campoInput {
+        gap: 8px;
+    }
+
+    .campoInput input {
+        height: 32px;
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .alinhamentoLados {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .alinhamentoLados h1, .alinhamentoLados a {
+        font-size: 0.85rem;
+    }
+}

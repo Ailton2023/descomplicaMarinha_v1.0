@@ -1,21 +1,464 @@
 <!DOCTYPE html>
-<html lang="pt-br"> <!-- Ajustado para português, como sugerido antes -->
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma EaD Descomplica Marinha, especializada em Conhecimento Militar Naval (CMN).">
     <title>Descomplica Marinha</title>
     <link rel="icon" href="imagens/icons8-livro-50.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/cabineControle.css">
-    <link rel="stylesheet" href="css/cabecalho.css">
-    <link rel="stylesheet" href="css/footercabineControle.css">
-    <link rel="stylesheet" href="css/cursos.css">
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+      /* CSS Variables */
+:root {
+    --cor0: #F4F6FE;
+    --cor1: #E8F1F2;
+    --cor2: #1B98E0;
+    --cor3: #247BA0;
+    --cor4: #006494;
+    --cor5: #13293D;
+    --cor6: #0068B5;
+    --cor7: #0054A6;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Tomorrow', sans-serif;
+    --fonte-cabecalho: 'Chakra Petch', sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML and Body */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: var(--fonte-padrao);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background-color: var(--cor7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: clamp(5px, 1vw, 8px) 0;
+    flex-shrink: 0;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 0 0 clamp(10px, 2vw, 15px);
+    padding: 0;
+    gap: clamp(8px, 2vw, 12px);
+}
+
+#logo img {
+    width: clamp(60px, 10vw, 90px);
+    height: auto;
+}
+
+#nome_curso {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.p_cabecalho {
+    font-family: var(--fonte-cabecalho);
+    font-weight: 700;
+    font-size: clamp(12px, 2.5vw, 16px);
+    color: #EF8721;
+    margin: 2px 0;
+}
+
+h1 {
+    font-family: var(--fonte-destaque);
+    font-size: clamp(18px, 3vw, 22px);
+    color: white;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: clamp(80px, 15vw, 100px);
+}
+
+.painel {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.conteudo {
+    width: 18%;
+    min-width: clamp(150px, 15vw, 200px);
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding: clamp(10px, 2vw, 15px);
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block !important; /* Força a exibição do conteúdo ativo */
+}
+
+.container-cursos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.cursos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 100%;
+    max-width: clamp(180px, 25vw, 200px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cursos:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cursos img {
+    width: clamp(100px, 20vw, 180px);
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.nome_curso {
+    font-size: clamp(12px, 2vw, 16px);
+    color: #333;
+    margin-bottom: 8px;
+}
+
+button#corBotaoEmProducao, .botao {
+    padding: 8px;
+    background-color: var(--cor4);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: clamp(100px, 15vw, 140px);
+    transition: background-color 0.3s;
+    font-size: clamp(10px, 1.8vw, 14px);
+}
+
+button#corBotaoEmProducao:hover, .botao:hover {
+    background-color: #002366;
+}
+
+.h1Curso {
+    font-family: var(--fonte-destaque);
+    font-size: clamp(14px, 2.5vw, 20px);
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.dashboard img {
+    width: clamp(200px, 45vw, 450px);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Sidebar (Central de Conteúdo) */
+.container-central-conteudo {
+    border: 2px solid rgba(0, 0, 0, 0.193);
+    background-color: #2e58a217;
+    padding: clamp(10px, 2vw, 15px);
+    flex-grow: 1;
+    overflow-y: auto;
+    font-family: var(--fonte-destaque);
+}
+
+.container-dados {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+.container-dados:hover {
+    background-color: #e6e6e6;
+}
+
+.icon-wrapper img {
+    width: clamp(25px, 5vw, 30px);
+    height: clamp(25px, 5vw, 30px);
+    margin-right: 10px;
+}
+
+.p_texto {
+    font-size: clamp(10px, 1.8vw, 14px);
+    color: #333;
+    margin: 0;
+}
+
+.p_texto:hover {
+    background-color: #2e58a23c;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor7);
+    color: white;
+    width: 100%;
+    padding: clamp(0.8rem, 1.5vw, 1.2rem) clamp(0.8rem, 1.5vw, 1.5rem);
+    box-sizing: border-box;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.container-footer {
+    display: flex;
+    gap: clamp(15px, 4vw, 50px);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer a {
+    text-decoration: none;
+    color: #a8d4e6;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+.texto-01 {
+    font-size: clamp(20px, 4vw, 40px);
+    width: 100%;
+    max-width: 650px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.texto-02 {
+    font-size: clamp(14px, 2.5vw, 24px);
+    margin-top: clamp(15px, 3vw, 40px);
+}
+
+.texto-03 {
+    font-size: clamp(12px, 2vw, 18px);
+}
+
+.texto-04 {
+    background-color: #52DA89;
+    font-size: clamp(12px, 2vw, 18px);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 768px) {
+    .painel {
+        flex-direction: column;
+    }
+
+    .conteudo {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        display: none;
+        width: 100%;
+        padding: clamp(8px, 1.5vw, 12px);
+    }
+
+    .painel.content-active .main-content {
+        display: block;
+    }
+
+    .container-central-conteudo {
+        padding: clamp(8px, 1.5vw, 12px);
+        min-height: 100vh;
+    }
+
+    .h1Curso {
+        font-size: clamp(12px, 2.3vw, 18px);
+    }
+
+    .cursos {
+        max-width: clamp(160px, 22vw, 180px);
+    }
+
+    .cursos img {
+        width: clamp(80px, 18vw, 160px);
+    }
+
+    button#corBotaoEmProducao, .botao {
+        width: clamp(80px, 12vw, 120px);
+        font-size: clamp(9px, 1.6vw, 12px);
+    }
+
+    .icon-wrapper img {
+        width: clamp(20px, 4vw, 25px);
+        height: clamp(20px, 4vw, 25px);
+    }
+
+    .p_texto {
+        font-size: clamp(9px, 1.6vw, 12px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: clamp(3px, 0.8vw, 5px) 0;
+    }
+
+    .header-container {
+        padding: 0 clamp(6px, 1.2vw, 10px);
+    }
+
+    #logo img {
+        width: clamp(40px, 10vw, 60px);
+    }
+
+    .p_cabecalho {
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+
+    h1 {
+        font-size: clamp(14px, 2.5vw, 18px);
+    }
+
+    main {
+        padding-top: clamp(60px, 12vw, 80px);
+    }
+
+    .conteudo {
+        min-width: clamp(100px, 15vw, 150px);
+    }
+
+    .main-content {
+        padding: clamp(6px, 1.2vw, 10px);
+    }
+
+    .h1Curso {
+        font-size: clamp(10px, 2vw, 16px);
+    }
+
+    .cursos {
+        max-width: clamp(140px, 20vw, 160 symposium;
+    }
+
+    .cursos img {
+        width: clamp(70px, 16vw, 140px);
+    }
+
+    button#corBotaoEmProducao, .botao {
+        width: clamp(70px, 10vw, 100px);
+        font-size: clamp(8px, 1.5vw, 11px);
+    }
+
+    .dashboard img {
+        width: clamp(150px, 40vw, 300px);
+    }
+
+    .container-central-conteudo {
+        padding: clamp(6px, 1.2vw, 10px);
+    }
+
+    .icon-wrapper img {
+        width: clamp(18px, 3.5vw, 22px);
+        height: clamp(18px, 3.5vw, 22px);
+    }
+
+    .p_texto {
+        font-size: clamp(8px, 1.5vw, 11px);
+    }
+
+    footer {
+        padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.5rem, 1vw, 1rem);
+        font-size: 0.8rem;
+    }
+
+    footer a {
+        font-size: 0.75rem;
+    }
+
+    .texto-01 {
+        font-size: clamp(16px, 3.5vw, 28px);
+        max-width: 300px;
+    }
+
+    .texto-02 {
+        font-size: clamp(10px, 2.3vw, 18px);
+        margin-top: clamp(8px, 2vw, 20px);
+    }
+
+    .texto-03 {
+        font-size: clamp(9px, 1.8vw, 14px);
+    }
+
+    .texto-04 {
+        font-size: clamp(9px, 1.8vw, 14px);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .container-footer {
+        gap: 8px;
+    }
+}
+    </style>
 </head>
 <body>
-    <!-- Fixed Header -->
+    <!-- Header -->
     <header class="header">
-        <div class="container header-container">
+        <div class="header-container">
             <div id="logo">
                 <a href="../site.html" target="_blank">
                     <img src="imagens/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
@@ -31,222 +474,186 @@
 
     <main>
         <div class="painel">
-            <!-- Central de Conteúdo (Sidebar) -->
+            <!-- Sidebar -->
             <div class="conteudo">
                 <div class="container-central-conteudo">
                     <h2>Central de Conteúdo</h2>
                     <nav class="sidebar-nav">
                         <ul class="sidebar-list">
-
-                            <li class="container-dados">                                   
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/controleCronograma.png" alt="Cronograma">
                                 </div>
                                 <a href="#" onclick="showContent('bonoDia')">
                                     <p class="p_texto">Bono do dia</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">                                   
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/controleCronograma.png" alt="Cronograma">
                                 </div>
                                 <a href="#" onclick="showContent('bonos')">
                                     <p class="p_texto">Bono Especial</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">                                   
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/controleCronograma.png" alt="Calendário de Eventos">
                                 </div>
                                 <a href="#" onclick="showContent('calendário')">
                                     <p class="p_texto">Calendário de eventos</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">                                   
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/controleCronograma.png" alt="Cronograma">
                                 </div>
                                 <a href="#" onclick="showContent('content1')">
                                     <p class="p_texto">Seu Progresso nas Matérias</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">                                   
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/programaBibliografia.png" alt="Programa e Bibliografia">
                                 </div>
                                 <a href="#" onclick="showContent('programaBibliografia')">
                                     <p class="p_texto">Acesse seu Programa e Bibliografia</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/programaBibliografia.png" alt="Fichamentos">
                                 </div>
                                 <a href="#" onclick="showContent('content3')">
                                     <p class="p_texto">Fichamentos</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/programaBibliografia.png" alt="Áudios">
                                 </div>
                                 <a href="#" onclick="showContent('content4')">
                                     <p class="p_texto">Áudios</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/programaBibliografia.png" alt="Provas por Ano">
                                 </div>
                                 <a href="#" onclick="showContent('content5')">
                                     <p class="p_texto">Provas CA-AA-AFN por Ano</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Provas por Matéria">
                                 </div>
                                 <a href="#" onclick="showContent('content6')">
                                     <p class="p_texto">Provas CA-AA-AFN por Matéria</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Planilha de Estudos">
                                 </div>
                                 <a href="#" onclick="showContent('content7')">
                                     <p class="p_texto">Planilha de Estudos</p>
                                 </a>
-                            </li> 
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Progresso Automático">
                                 </div>
                                 <a href="#" onclick="showContent('content8')">
                                     <p class="p_texto">Progresso Automático</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Publicações">
                                 </div>
                                 <a href="#" onclick="showContent('Publicações')">
                                     <p class="p_texto">Apostilhas</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Publicações">
                                 </div>
                                 <a href="#" onclick="showContent('normas')">
                                     <p class="p_texto">Normas/Publicações</p>
                                 </a>
-                            </li> 
-
-                            <li class="container-dados">  
+                            </li>
+                            <li class="container-dados">
                                 <div class="icon-wrapper">
                                     <img src="icons/audio.png" alt="Catálogo">
                                 </div>
                                 <a href="#" onclick="showContent('catalogo')">
                                     <p class="p_texto">Catálogo</p>
                                 </a>
-                            </li> 
+                            </li>
                         </ul>
                     </nav>
-                </div> 
+                </div>
             </div>
-            
-            <div class="main-content"> 
 
-                <div id="dashboard" class="content active dashboard ">
-                  
-                    <img src="imagens/ciaw.jpg" alt="">
-                    <h1 class="h1Curso">CA-AA/AFN - 2025</h1>
-                </div> 
-
+            <!-- Main Content -->
+            <div class="main-content">
                 <div id="bonoDia" class="content">
                     <h1 class="h1Curso">Escolha o bono e acesse o conteúdo!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../imagens/boletim_ordens_noticias.jpg" alt="Bono"> 
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../imagens/boletim_ordens_noticias.jpg" alt="Bono">
                             <h1 class="nome_curso">Boletim de Ordens e Notícias</h1>
-                            <a href="https://bono.marinha.mil.br/internet" target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div> 
+                            <a href="https://bono.marinha.mil.br/internet" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
                     </div>
-                </div> 
+                </div>
 
                 <div id="bonos" class="content">
                     <h1 class="h1Curso">Escolha o bono e acesse o conteúdo!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
                             <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
-                            <h1 class="nome_curso" style="font-size: 14;">30OUT2023</h1>
-                            <h1 class="nome_curso">CA-AA</h1> 
+                            <h1 class="nome_curso">30OUT2023</h1>
+                            <h1 class="nome_curso">CA-AA</h1>
                             <h1 class="nome_curso">PROVA DE TÍTULOS</h1>
-                            <a href="../bonos-2025/BONO-AA-PROVAS DE TÍTULO.pdf" target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>   
-
-                      
+                            <a href="../bonos-2025/BONO-AA-PROVAS DE TÍTULO.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../bonos-2025/bono.png" alt="Bono">
-                            <h1 class="nome_curso" >13/02/2025</h1>
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
+                            <h1 class="nome_curso">13/02/2025</h1>
                             <h1 class="nome_curso">CA-AA/AFN - 2025 (CPA)</h1>
-                            <h1 class="nome_curso">Abertura de Inscrições</h1> 
-                             
-                            <a href="bonos-2025/BONO-AUT-Insc-CA-AA_2025.pdf"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
+                            <h1 class="nome_curso">Abertura de Inscrições</h1>
+                            <a href="bonos-2025/BONO-AUT-Insc-CA-AA_2025.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
-                        <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../bonos-2025/bono.png" alt="Bono">
-                            <h1 class="nome_curso" >21/02/2025</h1>
-                            <h1 class="nome_curso" >CA-AA/AFN - 2025 (CFN)</h1>
-                            <h1 class="nome_curso">Abertura de Inscrições</h1> 
-                             
-                            <a href="bonos-2025/BONO N° 7 do CPesFN.pdf"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>
-
                         <div class="cursos">
                             <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
-                            <h1 class="nome_curso" >Nº 34 16ABR2025</h1> 
-                            <h1 class="nome_curso" >CA-AA/AFN - 2025</h1>
-                            <h1 class="nome_curso" >CPP - Parecer Favorável</h1> 
-                             
-                            <a href="bonos-2025/Bono-Especial-n-34-2025.pdf"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
+                            <h1 class="nome_curso">21/02/2025</h1>
+                            <h1 class="nome_curso">CA-AA/AFN - 2025 (CFN)</h1>
+                            <h1 class="nome_curso">Abertura de Inscrições</h1>
+                            <a href="bonos-2025/BONO N° 7 do CPesFN.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-                        
                         <div class="cursos">
                             <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
-                           
-                             
-                            <a href="#"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
+                            <h1 class="nome_curso">Nº 34 16ABR2025</h1>
+                            <h1 class="nome_curso">CA-AA/AFN - 2025</h1>
+                            <h1 class="nome_curso">CPP - Parecer Favorável</h1>
+                            <a href="bonos-2025/Bono-Especial-n-34-2025.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
-                        <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
-                         
-                             
-                            <a href="#"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>
-                     
                     </div>
-                </div> 
+                </div>
 
                 <div id="calendário" class="content">
                     <h1 class="h1Curso">Atenção ao calendário!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
                             <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../calendarioEvenos/cronograma.png" alt="Bono">
-                      
                             <h1 class="nome_curso">CALENDÁRIO DE EVENTOS</h1>
-                            <a href="../calendarioEvenos/calendario.html"  target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>  
+                            <a href="../calendarioEvenos/calendario.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
                     </div>
-                </div> 
+                </div>
 
                 <div id="content1" class="content">
                     <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
@@ -259,22 +666,20 @@
                         <div class="cursos">
                             <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
-                            <a href="controleProgramaLiderança.html" target="_blank" class="botao" id="corBotaoEmProducao">Acesse</a>
+                            <a href="controleProgramaLiderança.html" target="_blank" class="botao">Acesse</a>
                         </div>
                         <div class="cursos">
                             <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros">
                             <h1 class="nome_curso">Procedimentos Marinheiros</h1>
                             <a href="pg_acesso_pmn.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>  
-                        
+                        </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Procedimentos Marinheiros">
+                            <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="pg_acesso_lideranca.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
                     </div>
-                </div> 
+                </div>
 
                 <div id="programaBibliografia" class="content">
                     <iframe src="../programaBibliografia/dpf/Programa e Bibliografia.pdf" width="100%" height="930px"></iframe>
@@ -282,50 +687,55 @@
                     <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
                 </div>
 
-
                 <div id="content3" class="content">
                     <h1 class="h1Curso">Escolha o curso e acesse seu fichamento!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
                             <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
-                            <a href="../lideranca/fichamentos/lideranca/fichamentosPaginaAcesso.html" class="botao" id="corBotaoEmProducao">Acesse</a>
+                            <a href="../lideranca/fichamentos/lideranca/fichamentosPaginaAcesso.html" class="botao">Acesse</a>
                         </div>
                     </div>
-                </div>  
+                </div>
+
                 <div id="content4" class="content">
                     <h1 class="h1Curso">Escolha o curso e acesse o áudio!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
                             <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
-                            <a href="../audios/audios.html" class="botao" id="corBotaoEmProducao">Acesse</a>
+                            <a href="../audios/audios.html" class="botao">Acesse</a>
                         </div>
                     </div>
                 </div>
+
                 <div id="content5" class="content">
                     <iframe src="../escolhaAno/escolhaAno.html" width="100%" height="930px"></iframe>
                     <h2>Bono de ALT da Data da Prova</h2>
                     <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
                 </div>
+
                 <div id="content6" class="content">
                     <h1 class="h1Curso">Escolha a matéria e acesse as questões de prova!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
                             <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
-                            <a href="../escolhaAnoMateria/escolhaAnoMateria.html" class="botao" id="corBotaoEmProducao">Acesse</a>
+                            <a href="../escolhaAnoMateria/escolhaAnoMateria.html" class="botao">Acesse</a>
                         </div>
                     </div>
                 </div>
+
                 <div id="content7" class="content">
-                    <iframe src="../planilhaEstudos/planilhaEstudos.html" width="100%" height="1000px"></iframe>   
+                    <iframe src="../planilhaEstudos/planilhaEstudos.html" width="100%" height="1000px"></iframe>
                 </div>
+
                 <div id="content8" class="content">
-                    <iframe src="../cabineControle-II/graficos.html" width="100%" height="1000px"></iframe>   
+                    <iframe src="../cabineControle-II/graficos.html" width="100%" height="1000px"></iframe>
                 </div>
+
                 <div id="catalogo" class="content">
-                    <iframe src="../catalogo/catalogo.html" width="100%" height="1000px"></iframe>   
+                    <iframe src="../catalogo/catalogo.html" width="100%" height="1000px"></iframe>
                 </div>
 
                 <div id="Publicações" class="content">
@@ -336,44 +746,38 @@
                             <h1 class="nome_curso">Cerimonial</h1>
                             <a href="pg_acesso_cerimonial.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-                  
                         <div class="cursos">
                             <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros">
                             <h1 class="nome_curso">Procedimentos Marinheiros</h1>
                             <a href="pg_acesso_pmn.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
-                        </div> 
-
+                        </div>
                         <div class="cursos">
-                            <img src="../imagens/justica-disciplina.png" alt="Procedimentos Marinheiros">
+                            <img src="../imagens/justica-disciplina.png" alt="Justiça e Disciplina">
                             <h1 class="nome_curso">Justiça e Disciplina</h1>
-                            <a href="pg_acesso_justica_disciplina.html" target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>   
-
+                            <a href="pg_acesso_justica_disciplina.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
                         <div class="cursos">
                             <img src="../imagens/lideranca.png" alt="Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="pg_acesso_lideranca.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="NODAM">
                             <h1 class="nome_curso">NODAM</h1>
                             <a href="pg_acesso_nodam.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Legislação">
                             <h1 class="nome_curso">LEGISLAÇÃO MILITAR-NAVAL/CIVIL</h1>
                             <a href="pg_acesso_legislacao-miltar-naval-civil.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
-
                         <div class="cursos">
-                            <img src="../imagens/OGSA.png" alt="Liderança">
+                            <img src="../imagens/OGSA.png" alt="OGSA">
                             <h1 class="nome_curso">OGSA</h1>
                             <a href="pg_acesso_ogsa.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>  
+                </div>
 
                 <div id="normas" class="content">
                     <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
@@ -381,83 +785,74 @@
                         <div class="cursos">
                             <img src="../imagens/OGSA.png" alt="DGPM-104 Rev-8">
                             <h1 class="nome_curso">DGPM-104 Rev-8</h1>
-                            <p>
-                                Capítulo 5 da DGPM-104 (8ª Rev.)
-                            </p>
-                            <a href="../publicacoes/DGPM-104_Rev-8.pdf" target="_blank"> <button id="corBotaoEmProducao">Acesse</button></a>
+                            <p>Capítulo 5 da DGPM-104 (8ª Rev.)</p>
+                            <a href="../publicacoes/DGPM-104_Rev-8.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="DGPM-307 Rev-4">
                             <h1 class="nome_curso">DGPM-307 Rev-4</h1>
-                            <p>
-                                 Capítulo 10 da DGPM-307 (4ª Rev.)
-                            </p>
-                            <a href="../publicacoes/DGPM-307-REV4-MOD-1.PDF" target="_blank" class="botao" id="corBotaoEmProducao">Acesse</a>
+                            <p>Capítulo 10 da DGPM-307 (4ª Rev.)</p>
+                            <a href="../publicacoes/DGPM-307-REV4-MOD-1.PDF" target="_blank" class="botao">Acesse</a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros">
+                            <img src="../imagens/procedimentos.png" alt="DEnsM-3001 Rev-1">
                             <h1 class="nome_curso">DEnsM-3001 REV-1</h1>
                             <a href="../publicacoes/DEnsM-3001-REV-1.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
-                        </div>     
+                        </div>
                     </div>
-                </div>  
-
-
+                </div>
             </div>
         </div>
     </main>
-                 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="conteiner-cards footer-conteiner">
-            <section class="conteiner-quatroCards">
-                <article class="card-curso footer-card" style="padding-right: 100px;">
-                    <div class="logoTexto">
-                        <img src="../imagensFooter/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
-                        <div class="footer-text">
-                            <p class="ptexto-logo">Seu curso on-line</p>
-                            <h3 class="footer-title">Descomplica Marinha</h3>
-                            <p class="ptexto-logo">A âncora dos seus estudos</p>
-                        </div>        
-                    </div>
-                    <p class="texto-cards-curso">Estude on-line em qualquer lugar e acesse apostilhas e exercícios elaborados de modo eficiente para você conquistar sua aprovação.</p>
-                </article> 
-                <article class="card-curso footer-card">  
-                    <h3 class="titulo-cards">Institucional</h3>
-                    <ul class="footer-list">
-                        <li class="text-cards">Quem somos</li>
-                        <li class="text-cards">Política de privacidade</li>
-                        <li class="text-cards">Termos de uso</li>
-                    </ul>
-                </article> 
-                <article class="card-curso footer-card">  
-                    <h3 class="titulo-cards">Suporte</h3>
-                    <ul class="footer-list">
-                        <li class="text-cards">Fale conosco</li>
-                        <li class="text-cards">Início</li>
-                        <li class="text-cards">Pacotes e cursos</li>
-                        <li class="text-cards">Embaixadores</li>
-                        <li class="text-cards">Portal</li>
-                        <li class="text-cards">Baixe o app</li>
-                        <li class="text-cards">Ajuda</li>            
-                    </ul>
-                </article>  
-                <article class="card-curso footer-card">  
-                    <h3 class="titulo-cards">Cursos</h3>
-                    <ul class="footer-list">
-                        <li class="text-cards">Ordenança Geral para o Serviço da Armada</li>
-                        <li class="text-cards">Liderança</li>
-                        <li class="text-cards">Procedimentos Marinheiros</li>
-                        <li class="text-cards">Justiça e Disciplina na MB</li>
-                        <li class="text-cards">Documentação Administrativa na MB</li>
-                        <li class="text-cards">Cerimonial da Marinha do Brasil</li>
-                        <li class="text-cards">Legislação Militar-Naval</li>                              
-                    </ul>
-                </article> 
-            </section>      
+
+    <!-- Footer with contact information -->
+    <footer>
+        <div class="container-footer">
+            <div>
+                <p class="texto-01">ESTÁ COM ALGUMA DÚVIDA OU PRECISA DE AJUDA?</p>
+            </div>
+            <div>
+                <p class="texto-02">Fale com o time do Teorema Militar imediatamente.</p>
+                <p class="texto-03">Atendimento por Whatsapp.</p>
+                <div>
+                    <a class="texto-04" href="https://chat.whatsapp.com/Dj5j9iClg5RGwCfJA0lDEo" target="_blank">Clique aqui para iniciar uma conversa</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+   
+<script>
+    // Função para alternar a visibilidade do conteúdo e rolar para o main-content em telas menores
+    function showContent(contentId) {
+        // Remove todas as classes .active de todos os conteúdos
+        document.querySelectorAll('.content').forEach(content => {
+            content.classList.remove('active');
+        });
     
-    <script src="js/conteudoLado.js"></script>
+        // Adiciona .active apenas ao conteúdo selecionado
+        const selectedContent = document.getElementById(contentId);
+        if (selectedContent) {
+            selectedContent.classList.add('active');
+        }
+    
+        // Em telas menores, gerencia a exibição do main-content
+        if (window.innerWidth <= 768) {
+            const painel = document.querySelector('.painel');
+            painel.classList.add('content-active'); // Exibe main-content
+            // Rola suavemente para o topo do main-content
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    
+    // Inicializa a página sem conteúdos ativos
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.content').forEach(content => {
+            content.classList.remove('active');
+        });
+        // Opcional: Define um conteúdo inicial, se desejar
+        // showContent('bonoDia');
+    });
+    </script>
 </body>
 </html>
