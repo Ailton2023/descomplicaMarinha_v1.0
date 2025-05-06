@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do Programa de Justiça e Disciplina na MB</title>
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Root Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--fonte-destaque);
+            background-color: var(--cor0);
+            color: var(--cor5);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 2.5rem;
+            color: var(--cor4);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 1.8rem;
+            color: var(--cor3);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--cor1);
+            margin: 10px 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Chapter/Article */
+        .chapter {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-list {
+            list-style: none;
+            max-height: 400px; /* Fixed height for scrollable content */
+            overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+            padding-right: 10px; /* Space for scrollbar */
+        }
+
+        /* Custom Scrollbar Styling */
+        .chapter-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chapter-list::-webkit-scrollbar-track {
+            background: var(--cor1);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb {
+            background: var(--cor2);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb:hover {
+            background: var(--cor6);
+        }
+
+        .chapter-list li {
+            margin: 10px 0;
+        }
+
+        .chapter-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .chapter-list input[type="checkbox"] {
+            accent-color: var(--cor2);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: relative;
+            height: 24px;
+            background: var(--cor1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--cor2), var(--cor6));
+            width: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Progress Section */
+        .global-progress {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Reset Button */
+        #reset-progress {
+            background: var(--cor4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--fonte-destaque);
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+
+        #reset-progress:hover {
+            background: var(--cor3);
+        }
+
+        #reset-progress:focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .chapter-list {
+                max-height: 300px; /* Adjust height for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Justiça e Disciplina na MB</h1>
+    </header>
+    <main class="container">
+        <section class="global-progress" role="region" aria-labelledby="global-progress-title">
+            <h2 id="global-progress-title">Progresso Geral</h2>
+            <button id="reset-progress">Redefinir Progresso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-global"></div>
+                <span class="progress-label" id="label-global">0%</span>
+            </div>
+        </section>
+
+        <article class="chapter" id="capituloI" role="region" aria-labelledby="capituloI-title">
+            <h2 id="capituloI-title">Capítulo 1: Disposições Gerais</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.1" aria-label="Conceitos"><span>1.1 - Conceitos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.2.1" aria-label="Estrutura Básica do Poder Judiciário"><span>1.2.1 - Estrutura Básica do Poder Judiciário</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.2.2" aria-label="Competência"><span>1.2.2 - Competência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.2.3" aria-label="Sistema de Assessoria Jurídica Consultiva da Marinha"><span>1.2.3 - Sistema de Assessoria Jurídica Consultiva da Marinha</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.2.4" aria-label="Atividades de Polícia Judiciária Militar"><span>1.2.4 - Atividades de Polícia Judiciária Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.1" aria-label="Do Militar"><span>1.3.1 - Do Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.2" aria-label="Autoridades Competentes"><span>1.3.2 - Autoridades Competentes</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.3" aria-label="Agregação"><span>1.3.3 - Agregação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.4" aria-label="Afastamento do Exercício de Cargo ou de Desempenho de Funções do Militar Condenado"><span>1.3.4 - Afastamento do Exercício de Cargo ou de Desempenho de Funções do Militar Condenado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.5" aria-label="Afastamento do Desempenho de Funções de Militar Não Agregado"><span>1.3.5 - Afastamento do Desempenho de Funções de Militar Não Agregado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.6" aria-label="Competência"><span>1.3.6 - Competência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.7" aria-label="O Afastamento do Militar da Organização Militar"><span>1.3.7 - O Afastamento do Militar da Organização Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.8" aria-label="Reversão"><span>1.3.8 - Reversão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.9" aria-label="A Data da Reversão"><span>1.3.9 - A Data da Reversão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.10" aria-label="Quanto à Promoção"><span>1.3.10 - Quanto à Promoção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.11" aria-label="Quanto a Cursos"><span>1.3.11 - Quanto a Cursos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.12" aria-label="Proibição de Movimentação com Mudança de Sede"><span>1.3.12 - Proibição de Movimentação com Mudança de Sede</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.13" aria-label="Restrições à Exclusão do Serviço Ativo"><span>1.3.13 - Restrições à Exclusão do Serviço Ativo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.14" aria-label="Contagem do Tempo de Serviço"><span>1.3.14 - Contagem do Tempo de Serviço</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.15" aria-label="O Ressarcimento de Direitos"><span>1.3.15 - O Ressarcimento de Direitos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.16" aria-label="Concomitância entre Inquérito/Processo Penal, Militar/Comum e Procedimento Administrativo para Apuração de Contravenção Disciplinar"><span>1.3.16 - Concomitância entre Inquérito/Processo Penal, Militar/Comum e Procedimento Administrativo para Apuração de Contravenção Disciplinar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.17" aria-label="Dos Procedimentos Adotados para os Candidatos Sub Judice"><span>1.3.17 - Dos Procedimentos Adotados para os Candidatos Sub Judice</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.18" aria-label="Dos Atos Administrativos"><span>1.3.18 - Dos Atos Administrativos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.19" aria-label="Das Solenidades"><span>1.3.19 - Das Solenidades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.20" aria-label="Dos Procedimentos Internos dos Estabelecimentos de Ensino"><span>1.3.20 - Dos Procedimentos Internos dos Estabelecimentos de Ensino</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3.21" aria-label="Do Adicional de Habilitação"><span>1.3.21 - Do Adicional de Habilitação</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloI"></div>
+                <span class="progress-label" id="label-capituloI">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloIII" role="region" aria-labelledby="capituloIII-title">
+            <h2 id="capituloIII-title">Capítulo 3: Sindicância</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.1" aria-label="Sindicância"><span>3.1 - Sindicância</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.2" aria-label="Competência da Autoridade Nomeante"><span>3.2 - Competência da Autoridade Nomeante</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.3" aria-label="Designação do Encarregado"><span>3.3 - Designação do Encarregado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.4" aria-label="Designação do Escrivão"><span>3.4 - Designação do Escrivão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.5" aria-label="Termo de Compromisso"><span>3.5 - Termo de Compromisso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.6" aria-label="Atribuição do Sigilo"><span>3.6 - Atribuição do Sigilo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.7" aria-label="Comunicações"><span>3.7 - Comunicações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.8" aria-label="Atribuições do Encarregado"><span>3.8 - Atribuições do Encarregado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.9" aria-label="Convocação do Militar ou Civil"><span>3.9 - Convocação do Militar ou Civil</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.10" aria-label="Escrivão"><span>3.10 - Escrivão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.11" aria-label="Denominações"><span>3.11 - Denominações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.12" aria-label="Defensor"><span>3.12 - Defensor</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.13" aria-label="Ordem da Oitiva"><span>3.13 - Ordem da Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.14" aria-label="Termos da Oitiva"><span>3.14 - Termos da Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.15" aria-label="Precatória"><span>3.15 - Precatória</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.16" aria-label="Oitiva"><span>3.16 - Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.17" aria-label="Depoimento do Analfabeto e do Cego"><span>3.17 - Depoimento do Analfabeto e do Cego</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.18" aria-label="Depoimento do Estrangeiro ou Surdo ou Mudo"><span>3.18 - Depoimento do Estrangeiro ou Surdo ou Mudo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.19" aria-label="Qualificação do Ofendido/Sindicado/Testemunha"><span>3.19 - Qualificação do Ofendido/Sindicado/Testemunha</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.20" aria-label="Compromisso"><span>3.20 - Compromisso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.21" aria-label="Recusa de Assinatura"><span>3.21 - Recusa de Assinatura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.22" aria-label="Confissão"><span>3.22 - Confissão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.23" aria-label="Acareação"><span>3.23 - Acareação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.24" aria-label="Impressões Dactiloscópicas"><span>3.24 - Impressões Dactiloscópicas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.25" aria-label="Fotografias"><span>3.25 - Fotografias</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.26" aria-label="Procedimento dos Exames Periciais"><span>3.26 - Procedimento dos Exames Periciais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.27" aria-label="Peritos"><span>3.27 - Peritos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.28" aria-label="Requisição de Diligências e Exames"><span>3.28 - Requisição de Diligências e Exames</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.29" aria-label="Laudo de Exame Pericial"><span>3.29 - Laudo de Exame Pericial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.30" aria-label="Formulação de Quesitos"><span>3.30 - Formulação de Quesitos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.31" aria-label="Avaliação Direta e Indireta"><span>3.31 - Avaliação Direta e Indireta</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.32" aria-label="Reconhecimento de Pessoas e Objetos"><span>3.32 - Reconhecimento de Pessoas e Objetos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.33" aria-label="Ocorrência Fora da Jurisdição Militar"><span>3.33 - Ocorrência Fora da Jurisdição Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.34" aria-label="Laudo de Exame Cadavérico"><span>3.34 - Laudo de Exame Cadavérico</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.35" aria-label="Termo de Reconhecimento de Cadáver"><span>3.35 - Termo de Reconhecimento de Cadáver</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.36" aria-label="Buscas Domiciliares"><span>3.36 - Buscas Domiciliares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.37" aria-label="Prazos para Conclusão e Prorrogação"><span>3.37 - Prazos para Conclusão e Prorrogação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.38" aria-label="Relatório"><span>3.38 - Relatório</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.39" aria-label="Solução"><span>3.39 - Solução</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.40" aria-label="Remessa da Sindicância e Arquivamento dos Autos"><span>3.40 - Remessa da Sindicância e Arquivamento dos Autos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.41" aria-label="Conhecimento dos Autos pelo Advogado"><span>3.41 - Conhecimento dos Autos pelo Advogado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.42" aria-label="Conhecimento dos Autos pelos Interessados"><span>3.42 - Conhecimento dos Autos pelos Interessados</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIII" value="3.43" aria-label="Falecimento"><span>3.43 - Falecimento</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloIII"></div>
+                <span class="progress-label" id="label-capituloIII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloVIII" role="region" aria-labelledby="capituloVIII-title">
+            <h2 id="capituloVIII-title">Capítulo 8: Inquérito Policial Militar</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.1" aria-label="Inquérito Policial Militar (IPM)"><span>8.1 - Inquérito Policial Militar (IPM)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.2" aria-label="Competência da Autoridade Nomeante"><span>8.2 - Competência da Autoridade Nomeante</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.3" aria-label="Designação do Encarregado"><span>8.3 - Designação do Encarregado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.4" aria-label="Designação do Escrivão"><span>8.4 - Designação do Escrivão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.5" aria-label="Termo de Compromisso"><span>8.5 - Termo de Compromisso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.6" aria-label="Atribuição do Sigilo"><span>8.6 - Atribuição do Sigilo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.7" aria-label="Comunicações"><span>8.7 - Comunicações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.8" aria-label="Atribuições do Encarregado"><span>8.8 - Atribuições do Encarregado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.9" aria-label="Convocação de Militar ou Civil"><span>8.9 - Convocação de Militar ou Civil</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.10" aria-label="Escrivão"><span>8.10 - Escrivão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.11" aria-label="Denominações"><span>8.11 - Denominações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.12" aria-label="Defensor"><span>8.12 - Defensor</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.13" aria-label="Ordem da Oitiva"><span>8.13 - Ordem da Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.14" aria-label="Termos da Oitiva"><span>8.14 - Termos da Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.15" aria-label="Precatória"><span>8.15 - Precatória</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.16" aria-label="Oitiva"><span>8.16 - Oitiva</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.17" aria-label="Depoimento do Analfabeto e do Cego"><span>8.17 - Depoimento do Analfabeto e do Cego</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.18" aria-label="Depoimento do Estrangeiro ou Surdo ou Mudo"><span>8.18 - Depoimento do Estrangeiro ou Surdo ou Mudo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.19" aria-label="Qualificação do Ofendido/Indiciado/Testemunha"><span>8.19 - Qualificação do Ofendido/Indiciado/Testemunha</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.20" aria-label="Compromisso"><span>8.20 - Compromisso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.21" aria-label="Recusa de Assinatura"><span>8.21 - Recusa de Assinatura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.22" aria-label="Confissão"><span>8.22 - Confissão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.23" aria-label="Acareação"><span>8.23 - Acareação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.24" aria-label="Providência Preliminar da Detenção de Indiciado"><span>8.24 - Providência Preliminar da Detenção de Indiciado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.25" aria-label="Crime Propriamente Militar"><span>8.25 - Crime Propriamente Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.26" aria-label="Crime Impropriamente Militar"><span>8.26 - Crime Impropriamente Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.27" aria-label="Procedimento dos Exames Periciais"><span>8.27 - Procedimento dos Exames Periciais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.28" aria-label="Peritos"><span>8.28 - Peritos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.29" aria-label="Requisição de Diligências e Exames"><span>8.29 - Requisição de Diligências e Exames</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.30" aria-label="Laudo de Exame Pericial"><span>8.30 - Laudo de Exame Pericial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.31" aria-label="Formulação de Quesitos"><span>8.31 - Formulação de Quesitos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.32" aria-label="Exame de Corpo de Delito"><span>8.32 - Exame de Corpo de Delito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.33" aria-label="Avaliação Direta e Indireta"><span>8.33 - Avaliação Direta e Indireta</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.34" aria-label="Reconhecimento de Pessoas e Objetos"><span>8.34 - Reconhecimento de Pessoas e Objetos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.35" aria-label="Ocorrência Fora da Jurisdição Militar"><span>8.35 - Ocorrência Fora da Jurisdição Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.36" aria-label="Laudo de Exame Cadavérico"><span>8.36 - Laudo de Exame Cadavérico</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.37" aria-label="Termo de Reconhecimento de Cadáver"><span>8.37 - Termo de Reconhecimento de Cadáver</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.38" aria-label="Buscas Domiciliares"><span>8.38 - Buscas Domiciliares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.39" aria-label="Apreensão e Restituição dos Bens"><span>8.39 - Apreensão e Restituição dos Bens</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.40" aria-label="Violação de Sigilo"><span>8.40 - Violação de Sigilo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.41" aria-label="Identificação do Indiciado"><span>8.41 - Identificação do Indiciado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.42" aria-label="Prazos para Conclusão e Prorrogação"><span>8.42 - Prazos para Conclusão e Prorrogação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.43" aria-label="Relatório"><span>8.43 - Relatório</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.44" aria-label="Solução"><span>8.44 - Solução</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.45" aria-label="Remessa de IPM"><span>8.45 - Remessa de IPM</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.46" aria-label="Conhecimento dos Autos pelo Advogado"><span>8.46 - Conhecimento dos Autos pelo Advogado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.47" aria-label="Conhecimento dos Autos pelos Interessados"><span>8.47 - Conhecimento dos Autos pelos Interessados</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.48" aria-label="IPM Oriundo de Sindicância"><span>8.48 - IPM Oriundo de Sindicância</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.49" aria-label="Indiciado Preso"><span>8.49 - Indiciado Preso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloVIII" value="8.50" aria-label="Falecimento"><span>8.50 - Falecimento</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloVIII"></div>
+                <span class="progress-label" id="label-capituloVIII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloIX" role="region" aria-labelledby="capituloIX-title">
+            <h2 id="capituloIX-title">Capítulo 9: Deserção</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.1" aria-label="Ocorrência"><span>9.1 - Ocorrência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.2" aria-label="Contagem da Ausência"><span>9.2 - Contagem da Ausência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.3" aria-label="Consumação da Deserção Especial"><span>9.3 - Consumação da Deserção Especial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.4" aria-label="Parte de Ausência"><span>9.4 - Parte de Ausência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.5" aria-label="Providências Decorrentes"><span>9.5 - Providências Decorrentes</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.6" aria-label="Providências para Localização e Retorno do Ausente à OM"><span>9.6 - Providências para Localização e Retorno do Ausente à OM</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.7" aria-label="Parte de Deserção - Prazo para a Consumação da Deserção"><span>9.7 - Parte de Deserção - Prazo para a Consumação da Deserção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.8" aria-label="Encaminhamento da Parte de Deserção"><span>9.8 - Encaminhamento da Parte de Deserção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.9" aria-label="Lavratura do Termo de Deserção"><span>9.9 - Lavratura do Termo de Deserção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.10" aria-label="Deserção Especial"><span>9.10 - Deserção Especial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.11" aria-label="Comunicação da Deserção"><span>9.11 - Comunicação da Deserção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.12" aria-label="Exclusão do Serviço Ativo e Agregação"><span>9.12 - Exclusão do Serviço Ativo e Agregação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.13" aria-label="Desligamento do Militar sem Estabilidade"><span>9.13 - Desligamento do Militar sem Estabilidade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.14" aria-label="Espólio"><span>9.14 - Espólio</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.15" aria-label="Solicitação de Captura"><span>9.15 - Solicitação de Captura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.16" aria-label="Transferência para Prisão Militar"><span>9.16 - Transferência para Prisão Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.17" aria-label="Inspeção de Saúde"><span>9.17 - Inspeção de Saúde</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.18" aria-label="Reinclusão/Reversão"><span>9.18 - Reinclusão/Reversão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.19" aria-label="Comunicação"><span>9.19 - Comunicação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.20" aria-label="Ofício de Apresentação"><span>9.20 - Ofício de Apresentação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.21" aria-label="Remessa da IPD e Outros Documentos"><span>9.21 - Remessa da IPD e Outros Documentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.22" aria-label="Composição da IPD"><span>9.22 - Composição da IPD</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.23" aria-label="Assentamentos do Militar"><span>9.23 - Assentamentos do Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.24" aria-label="Impressão Dactiloscópica"><span>9.24 - Impressão Dactiloscópica</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.25" aria-label="Bens da Fazenda Nacional"><span>9.25 - Bens da Fazenda Nacional</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.26" aria-label="Conclusão da IPD"><span>9.26 - Conclusão da IPD</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloIX" value="9.27" aria-label="Restauração do Termo de Deserção"><span>9.27 - Restauração do Termo de Deserção</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloIX"></div>
+                <span class="progress-label" id="label-capituloIX">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloX" role="region" aria-labelledby="capituloX-title">
+            <h2 id="capituloX-title">Capítulo 10: Prisão em Flagrante</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.1" aria-label="Conceito"><span>10.1 - Conceito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.2" aria-label="Lavratura dos Autos"><span>10.2 - Lavratura dos Autos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.3" aria-label="Crimes Permanentes"><span>10.3 - Crimes Permanentes</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.4" aria-label="Crimes Propriamente Militares"><span>10.4 - Crimes Propriamente Militares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.5" aria-label="Medidas Preliminares"><span>10.5 - Medidas Preliminares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.6" aria-label="Prisão"><span>10.6 - Prisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.7" aria-label="Insubordinação ou Desacato"><span>10.7 - Insubordinação ou Desacato</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.8" aria-label="Captura"><span>10.8 - Captura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.9" aria-label="Designação do Escrivão"><span>10.9 - Designação do Escrivão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.10" aria-label="Designação do Escrivão Ad Hoc"><span>10.10 - Designação do Escrivão Ad Hoc</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.11" aria-label="Atribuição do Sigilo"><span>10.11 - Atribuição do Sigilo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.12" aria-label="Mensagem"><span>10.12 - Mensagem</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.13" aria-label="Qualificação do Depoente"><span>10.13 - Qualificação do Depoente</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.14" aria-label="Compromisso de Dizer a Verdade"><span>10.14 - Compromisso de Dizer a Verdade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.15" aria-label="Depoimentos"><span>10.15 - Depoimentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.16" aria-label="Depoimento do Analfabeto"><span>10.16 - Depoimento do Analfabeto</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.17" aria-label="Depoimento do Estrangeiro e do Deficiente Físico"><span>10.17 - Depoimento do Estrangeiro e do Deficiente Físico</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.18" aria-label="Recusa da Assinatura"><span>10.18 - Recusa da Assinatura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.19" aria-label="Confissão"><span>10.19 - Confissão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.20" aria-label="Acareação"><span>10.20 - Acareação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.21" aria-label="Nota de Culpa"><span>10.21 - Nota de Culpa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.22" aria-label="Transferência de Prisão ou Local de Custódia"><span>10.22 - Transferência de Prisão ou Local de Custódia</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.23" aria-label="Exames Periciais"><span>10.23 - Exames Periciais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.24" aria-label="Peritos"><span>10.24 - Peritos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.25" aria-label="Requisição de Diligências e Exames"><span>10.25 - Requisição de Diligências e Exames</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.26" aria-label="Laudo de Exame Pericial"><span>10.26 - Laudo de Exame Pericial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.27" aria-label="Formulação de Quesitos"><span>10.27 - Formulação de Quesitos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.28" aria-label="Exame de Corpo de Delito"><span>10.28 - Exame de Corpo de Delito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.29" aria-label="Avaliação Direta e Indireta"><span>10.29 - Avaliação Direta e Indireta</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.30" aria-label="Homologação dos Laudos"><span>10.30 - Homologação dos Laudos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.31" aria-label="Reconhecimento de Pessoas e Objetos"><span>10.31 - Reconhecimento de Pessoas e Objetos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.32" aria-label="Conclusão"><span>10.32 - Conclusão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.33" aria-label="Remessa"><span>10.33 - Remessa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloX" value="10.34" aria-label="Disposições Finais"><span>10.34 - Disposições Finais</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloX"></div>
+                <span class="progress-label" id="label-capituloX">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloXI" role="region" aria-labelledby="capituloXI-title">
+            <h2 id="capituloXI-title">Capítulo 11: Execução Penal</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.1" aria-label="Propósito"><span>11.1 - Propósito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.2" aria-label="Espécies de Prisão"><span>11.2 - Espécies de Prisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.3" aria-label="Captura de Militares"><span>11.3 - Captura de Militares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.4" aria-label="Prerrogativa dos Militares"><span>11.4 - Prerrogativa dos Militares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.5" aria-label="Responsabilidade sobre a Execução Penal na MB"><span>11.5 - Responsabilidade sobre a Execução Penal na MB</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.6" aria-label="Prisão de Civil"><span>11.6 - Prisão de Civil</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.7" aria-label="Formalidades para Recolhimento de Presos"><span>11.7 - Formalidades para Recolhimento de Presos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.8" aria-label="Escolta dos Presos"><span>11.8 - Escolta dos Presos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.9" aria-label="Comunicação da Prisão"><span>11.9 - Comunicação da Prisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.10" aria-label="Uso de Algemas"><span>11.10 - Uso de Algemas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.11" aria-label="Uso de Armamento"><span>11.11 - Uso de Armamento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.12" aria-label="Direitos do Preso"><span>11.12 - Direitos do Preso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.13" aria-label="Separação entre os Presos"><span>11.13 - Separação entre os Presos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.14" aria-label="Direitos dos Presos à Disposição da Justiça"><span>11.14 - Direitos dos Presos à Disposição da Justiça</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.15" aria-label="Penas Privativas de Liberdade"><span>11.15 - Penas Privativas de Liberdade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.16" aria-label="Deficiência Mental e Medidas de Segurança"><span>11.16 - Deficiência Mental e Medidas de Segurança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.17" aria-label="Regimes Prisionais e Progressão"><span>11.17 - Regimes Prisionais e Progressão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.18" aria-label="Presídio da Marinha"><span>11.18 - Presídio da Marinha</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.19" aria-label="Preso Disciplinar Recolhido ao Presídio da Marinha"><span>11.19 - Preso Disciplinar Recolhido ao Presídio da Marinha</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.20" aria-label="Visitas ao Preso"><span>11.20 - Visitas ao Preso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.21" aria-label="Visita Íntima"><span>11.21 - Visita Íntima</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloXI" value="11.22" aria-label="Disposições Finais"><span>11.22 - Disposições Finais</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloXI"></div>
+                <span class="progress-label" id="label-capituloXI">0%</span>
+            </div>
+        </article>
+    </main>
+    <script>
+        // Utility function to query elements
+        const $ = (selector, context = document) => context.querySelectorAll(selector);
+
+        // Function to save progress to localStorage
+        function saveProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+                localStorage.setItem(`progress-${section}`, JSON.stringify(checkedStates));
+            } catch (e) {
+                console.warn('localStorage não disponível:', e);
+            }
+        }
+
+        // Function to load progress from localStorage
+        function loadProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const savedStates = JSON.parse(localStorage.getItem(`progress-${section}`)) || [];
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = savedStates[index] || false;
+                });
+            } catch (e) {
+                console.warn('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Function to update progress bar
+        function updateProgressBar(section) {
+            const checkboxes = $(`.checkbox[data-section="${section}"]`);
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const progressBar = document.getElementById(`progress-${section}`);
+            const progressLabel = document.getElementById(`label-${section}`);
+            
+            if (progressBar && progressLabel) {
+                progressBar.style.width = `${percentage}%`;
+                progressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Function to update global progress
+        function updateGlobalProgress() {
+            const allCheckboxes = $('.checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const total = allCheckboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const globalProgressBar = document.getElementById('progress-global');
+            const globalProgressLabel = document.getElementById('label-global');
+            
+            if (globalProgressBar && globalProgressLabel) {
+                globalProgressBar.style.width = `${percentage}%`;
+                globalProgressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize progress for all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = ['capituloI', 'capituloIII', 'capituloVIII', 'capituloIX', 'capituloX', 'capituloXI'];
+            
+            sections.forEach(section => {
+                loadProgress(section);
+                updateProgressBar(section);
+
+                $(`.checkbox[data-section="${section}"]`).forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        updateProgressBar(section);
+                        saveProgress(section);
+                        updateGlobalProgress();
+                    });
+                    // Enable keyboard navigation
+                    checkbox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            });
+            updateGlobalProgress();
+
+            // Reset progress button
+            const resetButton = document.getElementById('reset-progress');
+            if (resetButton) {
+                resetButton.addEventListener('click', () => {
+                    if (confirm('Deseja redefinir todo o progresso?')) {
+                        sections.forEach(section => {
+                            localStorage.removeItem(`progress-${section}`);
+                            $(`.checkbox[data-section="${section}"]`).forEach(cb => {
+                                cb.checked = false;
+                                cb.dispatchEvent(new Event('change'));
+                            });
+                            updateProgressBar(section);
+                        });
+                        updateGlobalProgress();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

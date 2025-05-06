@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manual de Controle de Avarias e Embarcações Miúdas da Marinha do Brasil, cobrindo organização, combate a incêndios, agentes extintores, extintores portáteis, socorro externo e procedimentos administrativos.">
+    <meta name="keywords" content="Controle de Avarias, Embarcações Miúdas, Marinha do Brasil, CAAML-1201, CAAML-1202, CAAML-703, incêndio, agentes extintores, extintores portáteis, socorro externo">
+    <title>Controle de Avarias e Embarcações Miúdas na MB</title>
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Root Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--fonte-destaque);
+            background-color: var(--cor0);
+            color: var(--cor5);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 2.5rem;
+            color: var(--cor4);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 1.8rem;
+            color: var(--cor3);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--cor1);
+            margin: 10px 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Chapter/Article */
+        .chapter {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* Custom Scrollbar Styling */
+        .chapter-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chapter-list::-webkit-scrollbar-track {
+            background: var(--cor1);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb {
+            background: var(--cor2);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb:hover {
+            background: var(--cor6);
+        }
+
+        .chapter-list li {
+            margin: 10px 0;
+        }
+
+        .chapter-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .chapter-list input[type="checkbox"] {
+            accent-color: var(--cor2);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: relative;
+            height: 24px;
+            background: var(--cor1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--cor2), var(--cor6));
+            width: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Progress Section */
+        .global-progress {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Reset Button */
+        #reset-progress {
+            background: var(--cor4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--fonte-destaque);
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+
+        #reset-progress:hover {
+            background: var(--cor3);
+        }
+
+        #reset-progress:focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .chapter-list {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Controle de Avarias e Embarcações Miúdas na MB</h1>
+    </header>
+    <main class="container">
+        <section class="global-progress" role="region" aria-labelledby="global-progress-title">
+            <h2 id="global-progress-title">Progresso Geral</h2>
+            <button id="reset-progress">Redefinir Progresso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-global"></div>
+                <span class="progress-label" id="label-global">0%</span>
+            </div>
+        </section>
+
+        <article class="chapter" id="capitulo2_1201" role="region" aria-labelledby="capitulo2_1201-title">
+            <h2 id="capitulo2_1201-title">Capítulo 2: Organização do CAv (CAAML-1201)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.2.2" aria-label="Controles"><span>2.2.2 - Controles (Eletrônicas e Operacionais)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.1" aria-label="Propósito do CAv"><span>2.3.1 - Propósito do CAv</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.2" aria-label="Atribuições do CAv"><span>2.3.2 - Atribuições do CAv</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.3" aria-label="Estações do CAv"><span>2.3.3 - Estações do CAv</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.4" aria-label="Composição do Reparo"><span>2.3.4 - Composição do Reparo – Turmas de Reparo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.5" aria-label="Distribuição do Pessoal"><span>2.3.5 - Distribuição básica do pessoal por funções</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.3.6" aria-label="Turma de Ataque Rápido"><span>2.3.6 - Turma de Ataque Rápido no mar (TAR)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.1" aria-label="Encarregado do CAv"><span>2.4.1 - Encarregado do CAv</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.2" aria-label="Imediato"><span>2.4.2 - Imediato</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.3" aria-label="Fiel de CAv do Navio"><span>2.4.3 - Fiel de CAv do Navio</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.4" aria-label="Encarregado de Divisão"><span>2.4.4 - Encarregado de Divisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.5" aria-label="Fiel de CAv da Divisão"><span>2.4.5 - Fiel de CAv da Divisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.6" aria-label="Oficial de Serviço"><span>2.4.6 - Oficial de Serviço</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1201" value="2.4.7" aria-label="Grupo de CAv de Serviço"><span>2.4.7 - Grupo de CAv de Serviço</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo2_1201"></div>
+                <span class="progress-label" id="label-capitulo2_1201">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo8_1201" role="region" aria-labelledby="capitulo8_1201-title">
+            <h2 id="capitulo8_1201-title">Capítulo 8: Grupo de Socorro Externo (CAAML-1201)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo8_1201" value="8.13" aria-label="Grupo de Socorro Externo"><span>8.13 - Grupo de Socorro Externo (GSE)</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo8_1201"></div>
+                <span class="progress-label" id="label-capitulo8_1201">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo2_1202" role="region" aria-labelledby="capitulo2_1202-title">
+            <h2 id="capitulo2_1202-title">Capítulo 2: Incêndio (CAAML-1202)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.1" aria-label="Definição"><span>2.1 - Definição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.2.1" aria-label="Fase Inicial"><span>2.2.1 - Fase Inicial</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.2.2" aria-label="Fase de Desenvolvimento"><span>2.2.2 - Fase de Desenvolvimento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.2.3" aria-label="Incêndio Desenvolvido"><span>2.2.3 - Incêndio Desenvolvido</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.2.4" aria-label="Fase de Queda de Intensidade"><span>2.2.4 - Fase de Queda de Intensidade e Backdraft</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.3" aria-label="Principais Causas de Incêndio"><span>2.3 - Principais Causas de Incêndio</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.4.1" aria-label="Abafamento"><span>2.4.1 - Abafamento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.4.2" aria-label="Resfriamento"><span>2.4.2 - Resfriamento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.4.3" aria-label="Isolamento"><span>2.4.3 - Isolamento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.4.4" aria-label="Quebra da Reação em Cadeia"><span>2.4.4 - Quebra da Reação em Cadeia</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.5.1" aria-label="Incêndio Classe A"><span>2.5.1 - Incêndio Classe A</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.5.2" aria-label="Incêndio Classe B"><span>2.5.2 - Incêndio Classe B</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.5.3" aria-label="Incêndio Classe C"><span>2.5.3 - Incêndio Classe C</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.5.4" aria-label="Incêndio Classe D"><span>2.5.4 - Incêndio Classe D</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.5.5" aria-label="Incêndio Classe K"><span>2.5.5 - Incêndio Classe K</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.6" aria-label="Medidas Preventivas"><span>2.6 - Medidas Preventivas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.7" aria-label="Redução de Riscos nas Praças de Máquinas"><span>2.7 - Redução de Riscos nas Praças de Máquinas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.8" aria-label="Perigos em Período de Reparo"><span>2.8 - Perigos Adicionais em Período de Reparo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2_1202" value="2.9" aria-label="Perigos em Combate"><span>2.9 - Perigos Adicionais em Combate</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo2_1202"></div>
+                <span class="progress-label" id="label-capitulo2_1202">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo3_1202" role="region" aria-labelledby="capitulo3_1202-title">
+            <h2 id="capitulo3_1202-title">Capítulo 3: Agentes Extintores (CAAML-1202)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.1" aria-label="Definição"><span>3.1 - Definição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.2" aria-label="Água"><span>3.2 - Água</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.3" aria-label="Espuma"><span>3.3 - Espuma</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.4" aria-label="Vapor"><span>3.4 - Vapor</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.5" aria-label="Gás Carbônico"><span>3.5 - Gás Carbônico (CO2)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.6" aria-label="Compostos Halogenados"><span>3.6 - Compostos Halogenados</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.7" aria-label="Compostos Halocarbonados"><span>3.7 - Compostos Halocarbonados</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.8.1" aria-label="Pó Químico Seco"><span>3.8.1 - Pó Químico Seco</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.8.2" aria-label="Solução Aquosa de Pó Químico"><span>3.8.2 - Solução Aquosa de Pó Químico (APC)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3_1202" value="3.9" aria-label="Quadro Resumo de Agentes Extintores"><span>3.9 - Quadro Resumo de Agentes Extintores</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo3_1202"></div>
+                <span class="progress-label" id="label-capitulo3_1202">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo4_1202" role="region" aria-labelledby="capitulo4_1202-title">
+            <h2 id="capitulo4_1202-title">Capítulo 4: Extintores Portáteis (CAAML-1202)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.1" aria-label="Generalidades"><span>4.1 - Generalidades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.2" aria-label="Extintores de Água Pressurizada"><span>4.2 - Extintores de Água Pressurizada</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.3" aria-label="Extintores de Espuma Mecânica Pressurizada"><span>4.3 - Extintores de Espuma Mecânica Pressurizada</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.4" aria-label="Extintores de Dióxido de Carbono"><span>4.4 - Extintores de Dióxido de Carbono (CO2)</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.5" aria-label="Extintores de Pó Químico Pressurizado"><span>4.5 - Extintores de Pó Químico Pressurizado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.6" aria-label="Extintores de Halon"><span>4.6 - Extintores de Halon</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.7" aria-label="Extintores de Pó Químico Seco para Metais Combustíveis"><span>4.7 - Extintores de Pó Químico Seco para Metais Combustíveis</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.8" aria-label="Extintores Classe K"><span>4.8 - Extintores Classe K</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.9.1" aria-label="Carreta de Água"><span>4.9.1 - Carreta de Água</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.9.2" aria-label="Carreta de Espuma Mecânica"><span>4.9.2 - Carreta de Espuma Mecânica</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.9.3" aria-label="Carreta de Pó Químico Seco"><span>4.9.3 - Carreta de Pó Químico Seco</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.9.4" aria-label="Carreta de Gás Carbônico"><span>4.9.4 - Carreta de Gás Carbônico</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.10.1" aria-label="Inspeção"><span>4.10.1 - Inspeção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.10.2" aria-label="Manutenção"><span>4.10.2 - Manutenção</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.11" aria-label="Observações Gerais"><span>4.11 - Observações Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.12" aria-label="Identificação dos Extintores Portáteis"><span>4.12 - Identificação dos Extintores Portáteis</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4_1202" value="4.13" aria-label="Distribuição dos Extintores Portáteis"><span>4.13 - Distribuição dos Extintores Portáteis</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo4_1202"></div>
+                <span class="progress-label" id="label-capitulo4_1202">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo1_703" role="region" aria-labelledby="capitulo1_703-title">
+            <h2 id="capitulo1_703-title">Capítulo 1: Embarcações Miúdas (CAAML-703)</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.1" aria-label="Generalidades"><span>1.1 - Generalidades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.2" aria-label="Classificação das Embarcações Miúdas"><span>1.2 - Classificação das Embarcações Miúdas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.3" aria-label="Propulsão"><span>1.3 - Propulsão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.4" aria-label="Palamenta das Embarcações"><span>1.4 - Palamenta das Embarcações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.5" aria-label="Cuidados com o Equipamento"><span>1.5 - Cuidados com o Equipamento das Embarcações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.6.1" aria-label="Tipos de Turcos"><span>1.6.1 - Tipos de Turcos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.7" aria-label="Arriar uma Embarcação"><span>1.7 - Arriar uma Embarcação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.8.1" aria-label="Uso do Leme"><span>1.8.1 - Uso do Leme</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.8.2" aria-label="Manobrando em Mar Aberto"><span>1.8.2 - Manobrando em Mar Aberto</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.8.3" aria-label="Atracação"><span>1.8.3 - Atracação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.8.4" aria-label="Desatracação"><span>1.8.4 - Desatracação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.9" aria-label="Içar uma Embarcação"><span>1.9 - Içar uma Embarcação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.10" aria-label="Observações Complementares"><span>1.10 - Observações Complementares</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1_703" value="1.11" aria-label="Comunicações"><span>1.11 - Comunicações</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo1_703"></div>
+                <span class="progress-label" id="label-capitulo1_703">0%</span>
+            </div>
+        </article>
+    </main>
+    <script>
+        // Utility function to query elements
+        const $ = (selector, context = document) => context.querySelectorAll(selector);
+
+        // Function to save progress to localStorage
+        function saveProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+                localStorage.setItem(`progress-${section}`, JSON.stringify(checkedStates));
+            } catch (e) {
+                console.warn('localStorage não disponível:', e);
+            }
+        }
+
+        // Function to load progress from localStorage
+        function loadProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const savedStates = JSON.parse(localStorage.getItem(`progress-${section}`)) || [];
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = savedStates[index] || false;
+                });
+            } catch (e) {
+                console.warn('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Function to update progress bar
+        function updateProgressBar(section) {
+            const checkboxes = $(`.checkbox[data-section="${section}"]`);
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const progressBar = document.getElementById(`progress-${section}`);
+            const progressLabel = document.getElementById(`label-${section}`);
+            
+            if (progressBar && progressLabel) {
+                progressBar.style.width = `${percentage}%`;
+                progressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Function to update global progress
+        function updateGlobalProgress() {
+            const allCheckboxes = $('.checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const total = allCheckboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const globalProgressBar = document.getElementById('progress-global');
+            const globalProgressLabel = document.getElementById('label-global');
+            
+            if (globalProgressBar && globalProgressLabel) {
+                globalProgressBar.style.width = `${percentage}%`;
+                globalProgressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize progress for all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = ['capitulo2_1201', 'capitulo8_1201', 'capitulo2_1202', 'capitulo3_1202', 'capitulo4_1202', 'capitulo1_703'];
+            
+            sections.forEach(section => {
+                loadProgress(section);
+                updateProgressBar(section);
+
+                $(`.checkbox[data-section="${section}"]`).forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        updateProgressBar(section);
+                        saveProgress(section);
+                        updateGlobalProgress();
+                    });
+                    // Enable keyboard navigation
+                    checkbox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            });
+            updateGlobalProgress();
+
+            // Reset progress button
+            const resetButton = document.getElementById('reset-progress');
+            if (resetButton) {
+                resetButton.addEventListener('click', () => {
+                    if (confirm('Deseja redefinir todo o progresso?')) {
+                        sections.forEach(section => {
+                            localStorage.removeItem(`progress-${section}`);
+                            $(`.checkbox[data-section="${section}"]`).forEach(cb => {
+                                cb.checked = false;
+                                cb.dispatchEvent(new Event('change'));
+                            });
+                            updateProgressBar(section);
+                        });
+                        updateGlobalProgress();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

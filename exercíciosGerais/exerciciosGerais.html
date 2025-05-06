@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário Aprova Marinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #1a2e5b;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .filters select {
+            padding: 8px;
+            border: 1px solid #1a2e5b;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #1a2e5b;
+            font-size: 14px;
+        }
+        .question-container {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        .option input {
+            margin: 0;
+        }
+        .option label {
+            cursor: pointer;
+        }
+        .solution-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1a2e5b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .solution-btn:hover {
+            background-color: #2a3e7b;
+        }
+        .solution {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e6f3ff;
+            border-left: 4px solid #1a2e5b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://via.placeholder.com/40x40.png?text=Logo" alt="Logo Aprova Marinha">
+        <h1>Aprova Marinha</h1>
+    </div>
+
+    <div class="filters">
+        <select id="topicSelect" onchange="updateSubtopics()">
+            <option value="">Tópico</option>
+            <option value="ordenanca">Ordenança Geral para o Serviço da Armada</option>
+            <option value="plano-estrategico">Plano Estratégico</option>
+            <option value="lideranca">Liderança</option>
+            <option value="procedimentos-marinheiros">Procedimentos Marinheiros</option>
+            <option value="justica-disciplina">Justiça e Disciplina na MB</option>
+            <option value="pem-2040">Plano Estratégico da Marinha (PEM-2040)</option>
+            <option value="documentacao-administrativa">Documentação Administrativa na MB</option>
+            <option value="cerimonial-marinha">Cerimonial da Marinha do Brasil</option>
+            <option value="legislacao-militar-naval">Legislação Militar-Naval/Civil</option>
+        </select>
+        <select id="subtopicSelect">
+            <option value="">Subtema</option>
+        </select>
+        <select>
+            <option>Dificuldade</option>
+            <option>Fácil</option>
+            <option>Médio</option>
+            <option>Difícil</option>
+        </select>
+        <select>
+            <option>Aprova Marinha</option>
+        </select>
+        <select>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+        </select>
+        <select>
+            <option>Estado</option>
+        </select>
+    </div>
+
+    <div class="question-container">
+        <div class="question-text">
+            <strong>1.</strong> De acordo com o Plano Estratégico da Marinha, julgue as afirmativas a seguir se verdadeiras (V) ou falsas (F):
+            <br><br>
+            1. (...) A pirataria no Atlântico Sul, especialmente no Golfo da Guiné, impacta diretamente a política externa brasileira.<br>
+            2. (...) A ameaça de presença de uma potência naval rival no Atlântico Sul tem relevância apenas em conflitos armados.<br>
+            3. (...) A ZOPACAS é um fórum internacional voltado à valorização da diplomacia naval no entorno estratégico brasileiro.<br>
+            4. (...) A biopirataria envolve apenas o roubo de espécies da fauna e flora para fins científicos.
+        </div>
+
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="question1" id="optionA">
+                <label for="optionA">A) V – V – V – F</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="question1" id="optionB">
+                <label for="optionB">B) V – F – V – V</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="question1" id="optionC">
+                <label for="optionC">C) V – F – F – F</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="question1" id="optionD">
+                <label for="optionD">D) F – F – V – F</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="question1" id="optionE">
+                <label for="optionE">E) V – F – V – F</label>
+            </div>
+        </div>
+
+        <button class="solution-btn" onclick="toggleSolution()">Mostrar solução</button>
+
+        <div class="solution" id="solution">
+            A resposta correta é: <strong>E) V – F – V – F</strong><br><br>
+            <strong>Explicação:</strong><br>
+            1. Verdadeira – A pirataria no Golfo da Guiné afeta o comércio e a segurança marítima, impactando a política externa brasileira.<br>
+            2. Falsa – A presença de uma potência naval rival no Atlântico Sul tem relevância não só em conflitos, mas também em tempos de paz.<br>
+            3. Verdadeira – A ZOPACAS (Zona de Paz e Cooperação do Atlântico Sul) promove a diplomacia naval no entorno estratégico brasileiro.<br>
+            4. Falsa – A biopirataria não se limita a fins científicos; também pode envolver exploração comercial de recursos genéticos.
+        </div>
+    </div>
+
+    <script>
+        const subtopics = {
+            ordenanca: [
+                "Organização",
+                "Deveres do Pessoal",
+                "Deveres dos Oficiais em outros cargos e encargos colaterais",
+                "Serviço de Oficiais",
+                "Atributos dos Oficiais e Praças",
+                "Tradições Navais",
+                "Tratamento verbal e escrito"
+            ],
+            "plano-estrategico": [],
+            lideranca: [
+                "Elementos conceituais de liderança",
+                "O exercício da liderança pelo pessoal da MB",
+                "Principais atributos de um líder",
+                "Juramento à Bandeira e Rosa das Virtudes",
+                "Orientação sobre expedição de ordens"
+            ],
+            "procedimentos-marinheiros": [
+                "Embarcações miúdas",
+                "Segurança da Tripulação a bordo",
+                "Incêndio",
+                "Agentes extintores",
+                "Extintores portáteis",
+                "Organização de Combate do CAv",
+                "Organização Administrativa do CAv",
+                "Grupo de Socorro Externo"
+            ],
+            "justica-disciplina": [
+                "Disposições Gerais",
+                "Sindicância",
+                "Inquérito Policial Militar",
+                "Deserção",
+                "Prisão em flagrante",
+                "Execução Penal"
+            ],
+            "pem-2040": [
+                "Ambiente Operacional",
+                "Ameaças",
+                "Conceito Estratégico Marítimo-Naval",
+                "Mapa Estratégico da Marinha",
+                "Ações Estratégicas Navais"
+            ],
+            "documentacao-administrativa": [
+                "Documentos",
+                "Classificação dos Documentos Administrativos",
+                "Gestão de Documentos",
+                "Documentos Digitais",
+                "Tipos dos Documentos Administrativos na MB"
+            ],
+            "cerimonial-marinha": [
+                "Considerações Gerais",
+                "Bandeiras",
+                "Salvas",
+                "Visitas",
+                "Honras aos Oficiais de Marinha",
+                "Honras às Autoridades Civis e às Militares não Pertencentes à MB",
+                "Datas Festivas",
+                "Honras às Nações e Autoridades Estrangeiras",
+                "Honras Fúnebres",
+                "Características das Bandeiras",
+                "Disposição das Bandeiras, Flâmulas e Pavilhões",
+                "Resumo histórico"
+            ],
+            "legislacao-militar-naval": [
+                "Das obrigações e dos deveres dos Militares",
+                "Dos direitos e das prerrogativas dos Militares",
+                "Das contravenções disciplinares",
+                "Das penas disciplinares",
+                "Da parte, prisão imediata e recursos"
+            ]
+        };
+
+        function updateSubtopics() {
+            const topicSelect = document.getElementById("topicSelect");
+            const subtopicSelect = document.getElementById("subtopicSelect");
+            const selectedTopic = topicSelect.value;
+
+            subtopicSelect.innerHTML = '<option value="">Subtema</option>';
+
+            if (selectedTopic && subtopics[selectedTopic]) {
+                subtopics[selectedTopic].forEach(subtopic => {
+                    const option = document.createElement("option");
+                    option.value = subtopic.toLowerCase().replace(/\s/g, "-");
+                    option.textContent = subtopic;
+                    subtopicSelect.appendChild(option);
+                });
+            }
+        }
+
+        function toggleSolution() {
+            const solution = document.getElementById("solution");
+            if (solution.style.display === "block") {
+                solution.style.display = "none";
+                document.querySelector(".solution-btn").textContent = "Mostrar solução";
+            } else {
+                solution.style.display = "block";
+                document.querySelector(".solution-btn").textContent = "Ocultar solução";
+            }
+        }
+    </script>
+</body>
+</html>

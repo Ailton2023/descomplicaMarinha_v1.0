@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do Programa de Cerimonial da Marinha do Brasil</title>
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Root Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--fonte-destaque);
+            background-color: var(--cor0);
+            color: var(--cor5);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 2.5rem;
+            color: var(--cor4);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 1.8rem;
+            color: var(--cor3);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--cor1);
+            margin: 10px 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Chapter/Article */
+        .chapter {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-list li {
+            margin: 10px 0;
+        }
+
+        .chapter-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .chapter-list input[type="checkbox"] {
+            accent-color: var(--cor2);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: relative;
+            height: 24px;
+            background: var(--cor1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--cor2), var(--cor6));
+            width: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Progress Section */
+        .global-progress {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Reset Button */
+        #reset-progress {
+            background: var(--cor4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--fonte-destaque);
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+
+        #reset-progress:hover {
+            background: var(--cor3);
+        }
+
+        #reset-progress:focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cerimonial da Marinha do Brasil</h1>
+    </header>
+    <main class="container">
+        <section class="global-progress" role="region" aria-labelledby="global-progress-title">
+            <h2 id="global-progress-title">Progresso Geral</h2>
+            <button id="reset-progress">Redefinir Progresso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-global"></div>
+                <span class="progress-label" id="label-global">0%</span>
+            </div>
+        </section>
+
+        <article class="chapter" id="tituloI" role="region" aria-labelledby="tituloI-title">
+            <h2 id="tituloI-title">Título I: Considerações Gerais</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloI" value="cap1" aria-label="Capítulo 1: Propósito e Conceituação Básica"><span>Capítulo 1: Propósito e Conceituação Básica</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloI"></div>
+                <span class="progress-label" id="label-tituloI">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloII" role="region" aria-labelledby="tituloII-title">
+            <h2 id="tituloII-title">Título II: Bandeiras</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap1" aria-label="Capítulo 1: Generalidades"><span>Capítulo 1: Generalidades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap2" aria-label="Capítulo 2: Bandeira Nacional"><span>Capítulo 2: Bandeira Nacional</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap3" aria-label="Capítulo 3: Bandeiras-Distintivos"><span>Capítulo 3: Bandeiras-Distintivos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap4" aria-label="Capítulo 4: Bandeiras-Insígnias"><span>Capítulo 4: Bandeiras-Insígnias</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap5" aria-label="Capítulo 5: Sinais de Barroso"><span>Capítulo 5: Sinais de Barroso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloII" value="cap6" aria-label="Capítulo 6: Embandeiramento"><span>Capítulo 6: Embandeiramento</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloII"></div>
+                <span class="progress-label" id="label-tituloII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloIII" role="region" aria-labelledby="tituloIII-title">
+            <h2 id="tituloIII-title">Título III: Salvas</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIII" value="cap1" aria-label="Capítulo 1: Regras Gerais"><span>Capítulo 1: Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIII" value="cap2" aria-label="Capítulo 2: Salvas a Autoridades Brasileiras"><span>Capítulo 2: Salvas a Autoridades Brasileiras</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloIII"></div>
+                <span class="progress-label" id="label-tituloIII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloIV" role="region" aria-labelledby="tituloIV-title">
+            <h2 id="tituloIV-title">Título IV: Visitas</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIV" value="cap1" aria-label="Capítulo 1: Visitas Oficiais"><span>Capítulo 1: Visitas Oficiais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIV" value="cap2" aria-label="Capítulo 2: Visitas Não Anunciadas"><span>Capítulo 2: Visitas Não Anunciadas</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloIV"></div>
+                <span class="progress-label" id="label-tituloIV">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloV" role="region" aria-labelledby="tituloV-title">
+            <h2 id="tituloV-title">Título V: Honras aos Oficiais de Marinha</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloV" value="cap1" aria-label="Capítulo 1: Regras Gerais"><span>Capítulo 1: Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloV" value="cap2" aria-label="Capítulo 2: Honras nas Visitas"><span>Capítulo 2: Honras nas Visitas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloV" value="cap3" aria-label="Capítulo 3: Honras no Curso Ordinário do Serviço"><span>Capítulo 3: Honras no Curso Ordinário do Serviço</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloV" value="cap4" aria-label="Capítulo 4: Posse de Oficiais de Marinha"><span>Capítulo 4: Posse de Oficiais de Marinha</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloV"></div>
+                <span class="progress-label" id="label-tituloV">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloVI" role="region" aria-labelledby="tituloVI-title">
+            <h2 id="tituloVI-title">Título VI: Honras às Autoridades Civis e Militares não Pertencentes à MB</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVI" value="cap1" aria-label="Capítulo 1: Regras Gerais"><span>Capítulo 1: Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVI" value="cap2" aria-label="Capítulo 2: Honras ao Presidente da República"><span>Capítulo 2: Honras ao Presidente da República</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVI" value="cap3" aria-label="Capítulo 3: Honras Especiais às Autoridades Civis e Militares"><span>Capítulo 3: Honras Especiais às Autoridades Civis e Militares</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloVI"></div>
+                <span class="progress-label" id="label-tituloVI">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloVII" role="region" aria-labelledby="tituloVII-title">
+            <h2 id="tituloVII-title">Título VII: Datas Festivas</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVII" value="cap1" aria-label="Capítulo 1: Conceituação"><span>Capítulo 1: Conceituação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVII" value="cap2" aria-label="Capítulo 2: Honras nas Datas Festivas"><span>Capítulo 2: Honras nas Datas Festivas</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloVII"></div>
+                <span class="progress-label" id="label-tituloVII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloVIII" role="region" aria-labelledby="tituloVIII-title">
+            <h2 id="tituloVIII-title">Título VIII: Honras às Nações e Autoridades Estrangeiras</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVIII" value="cap1" aria-label="Capítulo 1: Regras Gerais"><span>Capítulo 1: Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVIII" value="cap2" aria-label="Capítulo 2: Salvas à Terra e Autoridades"><span>Capítulo 2: Salvas à Terra e Autoridades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloVIII" value="cap3" aria-label="Capítulo 3: Honras nas Visitas"><span>Capítulo 3: Honras nas Visitas</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloVIII"></div>
+                <span class="progress-label" id="label-tituloVIII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="tituloIX" role="region" aria-labelledby="tituloIX-title">
+            <h2 id="tituloIX-title">Título IX: Honras Fúnebres</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIX" value="cap1" aria-label="Capítulo 1: Regras Gerais"><span>Capítulo 1: Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIX" value="cap2" aria-label="Capítulo 2: Falecimento de Autoridades"><span>Capítulo 2: Falecimento de Autoridades oridades</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="tituloIX" value="cap3" aria-label="Capítulo 3: Falecimento de Militares Inativos"><span>Capítulo 3: Falecimento de Militares Inativos</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-tituloIX"></div>
+                <span class="progress-label" id="label-tituloIX">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="apendiceI" role="region" aria-labelledby="apendiceI-title">
+            <h2 id="apendiceI-title">Apêndice I: Características das Bandeiras</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="apendiceI" value="caracteristicas" aria-label="Características das Bandeiras"><span>Características das Bandeiras</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-apendiceI"></div>
+                <span class="progress-label" id="label-apendiceI">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="apendiceIII" role="region" aria-labelledby="apendiceIII-title">
+            <h2 id="apendiceIII-title">Apêndice III: Resumo Histórico</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="apendiceIII" value="resumo" aria-label="Resumo Histórico"><span>Resumo Histórico</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-apendiceIII"></div>
+                <span class="progress-label" id="label-apendiceIII">0%</span>
+            </div>
+        </article>
+    </main>
+    <script>
+        // Utility function to query elements
+        const $ = (selector, context = document) => context.querySelectorAll(selector);
+
+        // Function to save progress to localStorage
+        function saveProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+                localStorage.setItem(`progress-${section}`, JSON.stringify(checkedStates));
+            } catch (e) {
+                console.warn('localStorage não disponível:', e);
+            }
+        }
+
+        // Function to load progress from localStorage
+        function loadProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const savedStates = JSON.parse(localStorage.getItem(`progress-${section}`)) || [];
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = savedStates[index] || false;
+                });
+            } catch (e) {
+                console.warn('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Function to update progress bar
+        function updateProgressBar(section) {
+            const checkboxes = $(`.checkbox[data-section="${section}"]`);
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const progressBar = document.getElementById(`progress-${section}`);
+            const progressLabel = document.getElementById(`label-${section}`);
+            
+            if (progressBar && progressLabel) {
+                progressBar.style.width = `${percentage}%`;
+                progressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Function to update global progress
+        function updateGlobalProgress() {
+            const allCheckboxes = $('.checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const total = allCheckboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const globalProgressBar = document.getElementById('progress-global');
+            const globalProgressLabel = document.getElementById('label-global');
+            
+            if (globalProgressBar && globalProgressLabel) {
+                globalProgressBar.style.width = `${percentage}%`;
+                globalProgressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize progress for all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = ['tituloI', 'tituloII', 'tituloIII', 'tituloIV', 'tituloV', 'tituloVI', 'tituloVII', 'tituloVIII', 'tituloIX', 'apendiceI', 'apendiceIII'];
+            
+            sections.forEach(section => {
+                loadProgress(section);
+                updateProgressBar(section);
+
+                $(`.checkbox[data-section="${section}"]`).forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        updateProgressBar(section);
+                        saveProgress(section);
+                        updateGlobalProgress();
+                    });
+                    // Enable keyboard navigation
+                    checkbox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            });
+            updateGlobalProgress();
+
+            // Reset progress button
+            const resetButton = document.getElementById('reset-progress');
+            if (resetButton) {
+                resetButton.addEventListener('click', () => {
+                    if (confirm('Deseja redefinir todo o progresso?')) {
+                        sections.forEach(section => {
+                            localStorage.removeItem(`progress-${section}`);
+                            $(`.checkbox[data-section="${section}"]`).forEach(cb => {
+                                cb.checked = false;
+                                cb.dispatchEvent(new Event('change'));
+                            });
+                            updateProgressBar(section);
+                        });
+                        updateGlobalProgress();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

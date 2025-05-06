@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do Programa de Liderança</title>
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Root Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--fonte-destaque);
+            background-color: var(--cor0);
+            color: var(--cor5);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 2.5rem;
+            color: var(--cor4);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 1.8rem;
+            color: var(--cor3);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--cor1);
+            margin: 10px 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Chapter/Article */
+        .chapter {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-list li {
+            margin: 10px 0;
+        }
+
+        .chapter-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .chapter-list input[type="checkbox"] {
+            accent-color: var(--cor2);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: relative;
+            height: 24px;
+            background: var(--cor1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--cor2), var(--cor6));
+            width: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Progress Section */
+        .global-progress {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Reset Button */
+        #reset-progress {
+            background: var(--cor4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--fonte-destaque);
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+
+        #reset-progress:hover {
+            background: var(--cor3);
+        }
+
+        #reset-progress:focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Liderança</h1>
+    </header>
+    <main class="container">
+        <section class="global-progress" role="region" aria-labelledby="global-progress-title">
+            <h2 id="global-progress-title">Progresso Geral</h2>
+            <button id="reset-progress">Redefinir Progresso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-global"></div>
+                <span class="progress-label" id="label-global">0%</span>
+            </div>
+        </section>
+
+        <article class="chapter" id="capituloI" role="region" aria-labelledby="capituloI-title">
+            <h2 id="capituloI-title">Capítulo 1: Elementos Conceituais de Liderança</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.1" aria-label="Propósito"><span>1.1 - Propósito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.2" aria-label="Chefia e Liderança"><span>1.2 - Chefia e Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.3" aria-label="Aspectos Fundamentais da Liderança"><span>1.3 - Aspectos Fundamentais da Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.4" aria-label="Estilos de Liderança"><span>1.4 - Estilos de Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.5" aria-label="Seleção de Estilos de Liderança"><span>1.5 - Seleção de Estilos de Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.6" aria-label="Fatores da Liderança"><span>1.6 - Fatores da Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.7" aria-label="Atributos de um Líder"><span>1.7 - Atributos de um Líder</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloI" value="1.8" aria-label="Níveis de Liderança"><span>1.8 - Níveis de Liderança</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloI"></div>
+                <span class="progress-label" id="label-capituloI">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capituloII" role="region" aria-labelledby="capituloII-title">
+            <h2 id="capituloII-title">Capítulo 2: O Exercício da Liderança pelo Pessoal da MB</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.1" aria-label="Propósito"><span>2.1 - Propósito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.2" aria-label="Considerações Gerais"><span>2.2 - Considerações Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.3" aria-label="A Ética Militar Naval"><span>2.3 - A Ética Militar Naval</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.4" aria-label="Exercício da Liderança pelos Militares da MB"><span>2.4 - Exercício da Liderança pelos Militares da MB</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.5" aria-label="Expedição de Ordens e Delegação de Autoridade"><span>2.5 - Expedição de Ordens e Delegação de Autoridade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.6" aria-label="Aplicação da Liderança nas Relações Extra-MB"><span>2.6 - Aplicação da Liderança nas Relações Extra-MB</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.7" aria-label="Avaliação do Exercício da Liderança"><span>2.7 - Avaliação do Exercício da Liderança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capituloII" value="2.8" aria-label="Disposições Complementares"><span>2.8 - Disposições Complementares</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capituloII"></div>
+                <span class="progress-label" id="label-capituloII">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="anexo-A" role="region" aria-labelledby="anexo-A-title">
+            <h2 id="anexo-A-title">Anexo A: Principais Atributos de um Líder</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="1" aria-label="Exemplo"><span>1 - Exemplo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="2" aria-label="Integridade Ética"><span>2 - Integridade Ética</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="3" aria-label="Humildade"><span>3 - Humildade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="4" aria-label="Competência Profissional"><span>4 - Competência Profissional</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="5" aria-label="Determinação"><span>5 - Determinação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="6" aria-label="Entusiasmo"><span>6 - Entusiasmo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="7" aria-label="Capacidade Decisória"><span>7 - Capacidade Decisória</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="8" aria-label="Autoconfiança"><span>8 - Autoconfiança</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="9" aria-label="Autocontrole"><span>9 - Autocontrole</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="10" aria-label="Flexibilidade"><span>10 - Flexibilidade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="11" aria-label="Altruísmo"><span>11 - Altruísmo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="12" aria-label="Respeito"><span>12 - Respeito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="13" aria-label="Capacidade de Relacionamento Interpessoal"><span>13 - Capacidade de Relacionamento Interpessoal</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="14" aria-label="Comunicação"><span>14 - Comunicação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="15" aria-label="Iniciativa"><span>15 - Iniciativa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-A" value="16" aria-label="Senso de Justiça"><span>16 - Senso de Justiça</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-anexo-A"></div>
+                <span class="progress-label" id="label-anexo-A">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="anexo-B" role="region" aria-labelledby="anexo-B-title">
+            <h2 id="anexo-B-title">Anexo B: Juramento à Bandeira e Rosa das Virtudes</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="anexo-B" value="concluido" aria-label="Concluído"><span>Concluído</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-anexo-B"></div>
+                <span class="progress-label" id="label-anexo-B">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="rosaVirtudes" role="region" aria-labelledby="rosaVirtudes-title">
+            <h2 id="rosaVirtudes-title">Rosa das Virtudes: Valores da Marinha</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="honra" aria-label="Honra"><span>Honra</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="lealdade" aria-label="Lealdade"><span>Lealdade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="iniciativa" aria-label="Iniciativa"><span>Iniciativa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="cooperacao" aria-label="Cooperação"><span>Cooperação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="espirito-sacrificio" aria-label="Espírito de Sacrifício"><span>Espírito de Sacrifício</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="zelo" aria-label="Zelo"><span>Zelo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="coragem" aria-label="Coragem"><span>Coragem</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="ordem" aria-label="Ordem"><span>Ordem</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="fidelidade" aria-label="Fidelidade"><span>Fidelidade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="fogo-sagrado" aria-label="Fogo Sagrado"><span>“Fogo Sagrado”</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="tenacidade" aria-label="Tenacidade"><span>Tenacidade</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="decisao" aria-label="Decisão"><span>Decisão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="abnegacao" aria-label="Abnegação"><span>Abnegação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="espirito-militar" aria-label="Espírito Militar"><span>Espírito Militar</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="disciplina" aria-label="Disciplina"><span>Disciplina</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="rosaVirtudes" value="patriotismo" aria-label="Patriotismo"><span>Patriotismo</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-rosaVirtudes"></div>
+                <span class="progress-label" id="label-rosaVirtudes">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="anexoC" role="region" aria-labelledby="anexoC-title">
+            <h2 id="anexoC-title">Anexo C: Orientações sobre Expedição de Ordens</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="anexoC" value="concluido" aria-label="Concluído"><span>Concluído</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-anexoC"></div>
+                <span class="progress-label" id="label-anexoC">0%</span>
+            </div>
+        </article>
+    </main>
+    <script>
+        // Utility function to query elements
+        const $ = (selector, context = document) => context.querySelectorAll(selector);
+
+        // Function to save progress to localStorage
+        function saveProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+                localStorage.setItem(`progress-${section}`, JSON.stringify(checkedStates));
+            } catch (e) {
+                console.warn('localStorage não disponível:', e);
+            }
+        }
+
+        // Function to load progress from localStorage
+        function loadProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const savedStates = JSON.parse(localStorage.getItem(`progress-${section}`)) || [];
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = savedStates[index] || false;
+                });
+            } catch (e) {
+                console.warn('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Function to update progress bar
+        function updateProgressBar(section) {
+            const checkboxes = $(`.checkbox[data-section="${section}"]`);
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const progressBar = document.getElementById(`progress-${section}`);
+            const progressLabel = document.getElementById(`label-${section}`);
+            
+            if (progressBar && progressLabel) {
+                progressBar.style.width = `${percentage}%`;
+                progressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Function to update global progress
+        function updateGlobalProgress() {
+            const allCheckboxes = $('.checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const total = allCheckboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const globalProgressBar = document.getElementById('progress-global');
+            const globalProgressLabel = document.getElementById('label-global');
+            
+            if (globalProgressBar && globalProgressLabel) {
+                globalProgressBar.style.width = `${percentage}%`;
+                globalProgressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize progress for all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = ['capituloI', 'capituloII', 'anexo-A', 'anexo-B', 'rosaVirtudes', 'anexoC'];
+            
+            sections.forEach(section => {
+                loadProgress(section);
+                updateProgressBar(section);
+
+                $(`.checkbox[data-section="${section}"]`).forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        updateProgressBar(section);
+                        saveProgress(section);
+                        updateGlobalProgress();
+                    });
+                    // Enable keyboard navigation
+                    checkbox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            });
+            updateGlobalProgress();
+
+            // Reset progress button
+            const resetButton = document.getElementById('reset-progress');
+            if (resetButton) {
+                resetButton.addEventListener('click', () => {
+                    if (confirm('Deseja redefinir todo o progresso?')) {
+                        sections.forEach(section => {
+                            localStorage.removeItem(`progress-${section}`);
+                            $(`.checkbox[data-section="${section}"]`).forEach(cb => {
+                                cb.checked = false;
+                                cb.dispatchEvent(new Event('change'));
+                            });
+                            updateProgressBar(section);
+                        });
+                        updateGlobalProgress();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+ 

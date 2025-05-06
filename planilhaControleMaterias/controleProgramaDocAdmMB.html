@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle do Manual SGM-105 - Documentação Administrativa na MB</title>
+    <style>
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Root Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--fonte-destaque);
+            background-color: var(--cor0);
+            color: var(--cor5);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 2.5rem;
+            color: var(--cor4);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 1.8rem;
+            color: var(--cor3);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--cor1);
+            margin: 10px 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Chapter/Article */
+        .chapter {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-5px);
+        }
+
+        .chapter-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .chapter-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chapter-list::-webkit-scrollbar-track {
+            background: var(--cor1);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb {
+            background: var(--cor2);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb:hover {
+            background: var(--cor6);
+        }
+
+        .chapter-list li {
+            margin: 10px 0;
+        }
+
+        .chapter-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .chapter-list input[type="checkbox"] {
+            accent-color: var(--cor2);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: relative;
+            height: 24px;
+            background: var(--cor1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--cor2), var(--cor6));
+            width: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Progress Section */
+        .global-progress {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Reset Button */
+        #reset-progress {
+            background: var(--cor4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: var(--fonte-destaque);
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+
+        #reset-progress:hover {
+            background: var(--cor3);
+        }
+
+        #reset-progress:focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .chapter-list {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentação Administrativa na MB - SGM-105</h1>
+    </header>
+
+    <main class="container">
+        <section class="global-progress" role="region" aria-labelledby="global-progress-title">
+            <h2 id="global-progress-title">Progresso Geral</h2>
+            <button id="reset-progress">Redefinir Progresso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-global"></div>
+                <span class="progress-label" id="label-global">0%</span>
+            </div>
+        </section>
+
+        <article class="chapter" id="capitulo1" role="region" aria-labelledby="capitulo1-title">
+            <h2 id="capitulo1-title">Capítulo 1: Documentos</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.1" aria-label="1.1 Documento"><span>1.1 - Documento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.2" aria-label="1.2 Grupos de Documentos"><span>1.2 - Grupos de Documentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.3" aria-label="1.3 Documentos Administrativos"><span>1.3 - Documentos Administrativos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.3.1" aria-label="1.3.1 DA Normativos"><span>1.3.1 - DA Normativos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.3.2" aria-label="1.3.2 DA de Correspondência"><span>1.3.2 - DA de Correspondência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.3.3" aria-label="1.3.3 DA Declaratórios"><span>1.3.3 - DA Declaratórios</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo1" value="1.4" aria-label="1.4 Informações Gerais"><span>1.4 - Informações Gerais</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo1"></div>
+                <span class="progress-label" id="label-capitulo1">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo2" role="region" aria-labelledby="capitulo2-title">
+            <h2 id="capitulo2-title">Capítulo 2: Classificação dos Documentos Administrativos</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.1" aria-label="2.1 Classificações"><span>2.1 - Classificações</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.1.1" aria-label="2.1.1 Âmbito"><span>2.1.1 - Âmbito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.1.2" aria-label="2.1.2 Precedência"><span>2.1.2 - Precedência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.1.3" aria-label="2.1.3 Acesso"><span>2.1.3 - Acesso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.2" aria-label="2.2 Reprodução de DA Sigiloso"><span>2.2 - Reprodução de DA Sigiloso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.3" aria-label="2.3 Extratos de DA Sigiloso"><span>2.3 - Extratos de DA Sigiloso</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.4" aria-label="2.4 Anexos Sigilosos"><span>2.4 - Anexos Sigilosos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.5" aria-label="2.5 Termo de Classificação de Informação"><span>2.5 - Termo de Classificação de Informação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.6" aria-label="2.6 Desclassificação e Reavaliação"><span>2.6 - Desclassificação e Reavaliação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.6.1" aria-label="2.6.1 Divulgação da Desclassificação"><span>2.6.1 - Divulgação da Desclassificação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.6.2" aria-label="2.6.2 Desclassificação por Retirada de Anexo"><span>2.6.2 - Desclassificação por Retirada de Anexo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.6.3" aria-label="2.6.3 Elevação do Grau de Sigilo"><span>2.6.3 - Elevação do Grau de Sigilo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo2" value="2.7" aria-label="2.7 Produção de Documentos Sigilosos"><span>2.7 - Produção de Documentos Sigilosos</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo2"></div>
+                <span class="progress-label" id="label-capitulo2">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo3" role="region" aria-labelledby="capitulo3-title">
+            <h2 id="capitulo3-title">Capítulo 3: Gestão de Documentos</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3" value="3.1" aria-label="3.1 Tramitação de Documentos"><span>3.1 - Tramitação de Documentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3" value="3.2" aria-label="3.2 Arquivamento de Documentos"><span>3.2 - Arquivamento de Documentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3" value="3.3" aria-label="3.3 Controle no SiGDEM"><span>3.3 - Controle no SiGDEM</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3" value="3.4" aria-label="3.4 Monitoramento e Auditoria"><span>3.4 - Monitoramento e Auditoria</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo3" value="3.5" aria-label="3.5 Treinamento e Capacitação"><span>3.5 - Treinamento e Capacitação</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo3"></div>
+                <span class="progress-label" id="label-capitulo3">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo4" role="region" aria-labelledby="capitulo4-title">
+            <h2 id="capitulo4-title">Capítulo 4: Documentos Digitais</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.1" aria-label="4.1 Definição"><span>4.1 - Definição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.2" aria-label="4.2 SiGDEM"><span>4.2 - SiGDEM</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.3" aria-label="4.3 Correio Eletrônico"><span>4.3 - Correio Eletrônico</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.4" aria-label="4.4 Assinatura Eletrônica"><span>4.4 - Assinatura Eletrônica</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.4.1" aria-label="4.4.1 Certificado Digital"><span>4.4.1 - Certificado Digital</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.4.2" aria-label="4.4.2 Formato de Arquivo Digital"><span>4.4.2 - Formato de Arquivo Digital</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.5" aria-label="4.5 Autenticação Digital"><span>4.5 - Autenticação Digital</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.6" aria-label="4.6 Elaboração do DA Digital"><span>4.6 - Elaboração do DA Digital</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.7" aria-label="4.7 Trâmite"><span>4.7 - Trâmite</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo4" value="4.8" aria-label="4.8 Segurança"><span>4.8 - Segurança</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo4"></div>
+                <span class="progress-label" id="label-capitulo4">0%</span>
+            </div>
+        </article>
+
+        <article class="chapter" id="capitulo5" role="region" aria-labelledby="capitulo5-title">
+            <h2 id="capitulo5-title">Capítulo 5: Tipos de Documentos Administrativos na MB</h2>
+            <hr>
+            <ul class="chapter-list">
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.1" aria-label="5.1 Instrução Normativa"><span>5.1 - Instrução Normativa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.1.1" aria-label="5.1.1 Instrução Normativa Conjunta"><span>5.1.1 - Instrução Normativa Conjunta</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.2" aria-label="5.2 Instrução Permanente"><span>5.2 - Instrução Permanente</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.2.1" aria-label="5.2.1 Elaboração"><span>5.2.1 - Elaboração</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.3" aria-label="5.3 Norma Permanente"><span>5.3 - Norma Permanente</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.4" aria-label="5.4 Ordem Interna"><span>5.4 - Ordem Interna</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.5" aria-label="5.5 Portaria"><span>5.5 - Portaria</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.5.1" aria-label="5.5.1 Portaria Normativa"><span>5.5.1 - Portaria Normativa</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.5.2" aria-label="5.5.2 Delegação de Competência"><span>5.5.2 - Delegação de Competência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.5.3" aria-label="5.5.3 Portaria de Caráter Normativo"><span>5.5.3 - Portaria de Caráter Normativo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.5.4" aria-label="5.5.4 Portarias de Pessoal"><span>5.5.4 - Portarias de Pessoal</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.6" aria-label="5.6 Carta"><span>5.6 - Carta</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.7" aria-label="5.7 Circular"><span>5.7 - Circular</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.7.1" aria-label="5.7.1 Regras Gerais"><span>5.7.1 - Regras Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.8" aria-label="5.8 Comunicação Padronizada"><span>5.8 - Comunicação Padronizada</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.8.1" aria-label="5.8.1 Utilização"><span>5.8.1 - Utilização</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9" aria-label="5.9 Comunicação Padronizada de Processos Judiciais"><span>5.9 - Comunicação Padronizada de Processos Judiciais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9.1" aria-label="5.9.1 Texto"><span>5.9.1 - Texto</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9.2" aria-label="5.9.2 Assinatura"><span>5.9.2 - Assinatura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9.3" aria-label="5.9.3 Cópias"><span>5.9.3 - Cópias</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9.4" aria-label="5.9.4 Autorização"><span>5.9.4 - Autorização</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.9.5" aria-label="5.9.5 Delegação de Competência"><span>5.9.5 - Delegação de Competência</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.10" aria-label="5.10 Despacho"><span>5.10 - Despacho</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.10.1" aria-label="5.10.1 Utilização"><span>5.10.1 - Utilização</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.10.2" aria-label="5.10.2 Expediente"><span>5.10.2 - Expediente</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.11" aria-label="5.11 Despacho Decisório"><span>5.11 - Despacho Decisório</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.12" aria-label="5.12 Memorando"><span>5.12 - Memorando</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.13" aria-label="5.13 Ofício"><span>5.13 - Ofício</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.14" aria-label="5.14 Ofício Externo"><span>5.14 - Ofício Externo</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.15" aria-label="5.15 Requerimento"><span>5.15 - Requerimento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.15.1" aria-label="5.15.1 Encaminhamento"><span>5.15.1 - Encaminhamento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.15.2" aria-label="5.15.2 Conhecimento"><span>5.15.2 - Conhecimento</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.15.3" aria-label="5.15.3 Novos Documentos"><span>5.15.3 - Novos Documentos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.15.4" aria-label="5.15.4 Restituição"><span>5.15.4 - Restituição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.16" aria-label="5.16 Atestado"><span>5.16 - Atestado</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.17" aria-label="5.17 Certidão"><span>5.17 - Certidão</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.18" aria-label="5.18 Curriculum Vitae"><span>5.18 - Curriculum Vitae</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.18.1" aria-label="5.18.1 Propósito"><span>5.18.1 - Propósito</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.18.2" aria-label="5.18.2 Normas Gerais"><span>5.18.2 - Normas Gerais</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.18.3" aria-label="5.18.3 Normas Específicas"><span>5.18.3 - Normas Específicas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.18.4" aria-label="5.18.4 Local, Data e Assinatura"><span>5.18.4 - Local, Data e Assinatura</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.19" aria-label="5.19 Ordem do Dia"><span>5.19 - Ordem do Dia</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.20" aria-label="5.20 Ordem de Serviço"><span>5.20 - Ordem de Serviço</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21" aria-label="5.21 Parecer"><span>5.21 - Parecer</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.1" aria-label="5.21.1 Composição"><span>5.21.1 - Composição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.2" aria-label="5.21.2 Pareceres da CJACM"><span>5.21.2 - Pareceres da CJACM</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.3" aria-label="5.21.3 Pareceres sobre Proposições Legislativas"><span>5.21.3 - Pareceres sobre Proposições Legislativas</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.4" aria-label="5.21.4 Orientações sobre Pareceres"><span>5.21.4 - Orientações sobre Pareceres</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.5" aria-label="5.21.5 Emissão de Pareceres"><span>5.21.5 - Emissão de Pareceres</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.6" aria-label="5.21.6 Composição"><span>5.21.6 - Composição</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.7" aria-label="5.21.7 Parecer por Mensagem"><span>5.21.7 - Parecer por Mensagem</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.8" aria-label="5.21.8 Consultas Extra-MB"><span>5.21.8 - Consultas Extra-MB</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.9" aria-label="5.21.9 Requerimentos de Informação"><span>5.21.9 - Requerimentos de Informação</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.21.10" aria-label="5.21.10 Prazos"><span>5.21.10 - Prazos</span></label></li>
+                <li><label><input type="checkbox" class="checkbox" data-section="capitulo5" value="5.22" aria-label="5.22 Termo"><span>5.22 - Termo</span></label></li>
+            </ul>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-capitulo5"></div>
+                <span class="progress-label" id="label-capitulo5">0%</span>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Utility function to query elements
+        const $ = (selector, context = document) => context.querySelectorAll(selector);
+
+        // Function to save progress to localStorage
+        function saveProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+                localStorage.setItem(`progress-${section}`, JSON.stringify(checkedStates));
+            } catch (e) {
+                console.warn('localStorage não disponível:', e);
+            }
+        }
+
+        // Function to load progress from localStorage
+        function loadProgress(section) {
+            try {
+                const checkboxes = $(`.checkbox[data-section="${section}"]`);
+                const savedStates = JSON.parse(localStorage.getItem(`progress-${section}`)) || [];
+                checkboxes.forEach((cb, index) => {
+                    cb.checked = savedStates[index] || false;
+                });
+            } catch (e) {
+                console.warn('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Function to update progress bar
+        function updateProgressBar(section) {
+            const checkboxes = $(`.checkbox[data-section="${section}"]`);
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const progressBar = document.getElementById(`progress-${section}`);
+            const progressLabel = document.getElementById(`label-${section}`);
+            
+            if (progressBar && progressLabel) {
+                progressBar.style.width = `${percentage}%`;
+                progressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Function to update global progress
+        function updateGlobalProgress() {
+            const allCheckboxes = $('.checkbox');
+            const checkedCount = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            const total = allCheckboxes.length;
+            const percentage = total ? Math.round((checkedCount / total) * 100) : 0;
+
+            const globalProgressBar = document.getElementById('progress-global');
+            const globalProgressLabel = document.getElementById('label-global');
+            
+            if (globalProgressBar && globalProgressLabel) {
+                globalProgressBar.style.width = `${percentage}%`;
+                globalProgressLabel.textContent = `${percentage}%`;
+            }
+        }
+
+        // Initialize progress for all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = ['capitulo1', 'capitulo2', 'capitulo3', 'capitulo4', 'capitulo5'];
+            
+            sections.forEach(section => {
+                loadProgress(section);
+                updateProgressBar(section);
+
+                $(`.checkbox[data-section="${section}"]`).forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        updateProgressBar(section);
+                        saveProgress(section);
+                        updateGlobalProgress();
+                    });
+                    checkbox.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            });
+            updateGlobalProgress();
+
+            // Reset progress button
+            const resetButton = document.getElementById('reset-progress');
+            if (resetButton) {
+                resetButton.addEventListener('click', () => {
+                    if (confirm('Deseja redefinir todo o progresso?')) {
+                        sections.forEach(section => {
+                            localStorage.removeItem(`progress-${section}`);
+                            $(`.checkbox[data-section="${section}"]`).forEach(cb => {
+                                cb.checked = false;
+                                cb.dispatchEvent(new Event('change'));
+                            });
+                            updateProgressBar(section);
+                        });
+                        updateGlobalProgress();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

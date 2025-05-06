@@ -8,74 +8,151 @@
     <link rel="stylesheet" href="../abaPesquisa/AbaPesquisa.css">
     <link rel="stylesheet" href="../audio/audio.css">
     <style>
-        .fundoAzul-container table {
+        /* Consolidated Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* CSS Variables */
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--cor7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: clamp(5px, 1vw, 8px) 0;
+            flex-shrink: 0;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 0 0 clamp(10px, 2vw, 15px);
+            padding: 0;
+            gap: clamp(8px, 2vw, 12px);
+        }
+
+        #logo img {
+            width: clamp(60px, 10vw, 90px);
+            height: auto;
+        }
+
+        #nome_curso {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .p_cabecalho {
+            font-family: var(--fonte-cabecalho);
+            font-weight: 700;
+            font-size: clamp(12px, 2.5vw, 16px);
+            color: #EF8721;
+            margin: 2px 0;
+        }
+
+        h1 {
+            font-family: var(--fonte-destaque);
+            font-size: clamp(18px, 3vw, 22px);
+            color: white;
+            font-weight: bold;
+            margin: 2px 0;
+        }
+
+        .text-container table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 120px 0; /* Aumentado margin-top de 20px para 60px */
             font-size: 14px;
         }
-        .fundoAzul-container th, .fundoAzul-container td {
+        .text-container th, .text-container td {
             border: 1px solid #ccc;
             padding: 8px;
             text-align: left;
         }
-        .fundoAzul-container th {
+        .text-container th {
             background-color: #007bff;
             color: white;
             font-weight: bold;
         }
-        .fundoAzul-container .study-checkbox, .fundoAzul-container .subtopic-checkbox {
+        .text-container .study-checkbox, .text-container .subtopic-checkbox {
             transform: scale(1.2);
             margin: 0 auto;
             display: block;
         }
-        .fundoAzul-container .progress {
+        .text-container .progress {
             font-weight: bold;
             color: #28a745;
         }
         /* Cores suaves por disciplina */
         .disciplina-2-1-1 {
-            background-color: #e6f0ff; /* Azul claro */
+            background-color: #e6f0ff91; /* Azul claro */
         }
         .disciplina-2-1-2 {
-            background-color: #e6ffe6; /* Verde claro */
+            background-color: #cccccc70; /* Verde claro */
         }
         .disciplina-2-1-3 {
-            background-color: #fff8e6; /* Amarelo claro */
+            background-color: #e6f0ff91; /* Amarelo claro */
         }
         .disciplina-2-1-4 {
-            background-color: #ffe6e6; /* Rosa claro */
+            background-color: #cccccc70; /* Rosa claro */
         }
         .disciplina-2-1-5 {
-            background-color: #ffefe6; /* Laranja claro */
+            background-color: #e6f0ff91; /* Laranja claro */
         }
         .disciplina-2-1-6 {
-            background-color: #f0e6ff; /* Roxo claro */
+            background-color: #cccccc70; /* Roxo claro */
         }
         .disciplina-2-1-7 {
-            background-color: #e6ffff; /* Ciano claro */
+            background-color: #e6f0ff91; /* Ciano claro */
         }
         .disciplina-2-1-8 {
-            background-color: #f0f0f0; /* Cinza claro */
+            background-color: #cccccc70; /* Cinza claro */
         }
-        .fundoAzul-container tr:hover {
-            background-color: #d0d0d0; /* Hover mais escuro */
+        .text-container tr:hover {
+            background-color: #e6f0ff; /* Hover mais escuro */
         }
     </style>
 </head>
 <body>
     <main>
         <section>
-            <header class="capitulos_apostilha">
-                <div class="ostensivo_apostilha">
-                    <span>OSTENSIVO</span>
-                    <span>SGM-105</span>
+            <header class="header">
+                <div class="header-container">
+                    <div id="logo">
+                        <a href="../site.html" target="_blank">
+                            <img src="../imagens/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
+                        </a>
+                    </div>
+                    <div id="nome_curso">
+                        <p class="p_cabecalho">Seu curso on-line</p>
+                        <h1>Descomplica Marinha</h1>
+                        <p class="p_cabecalho">A âncora dos seus estudos</p>
+                    </div>
                 </div>
-                <h1>PLANILHA DE CONTROLE DE ESTUDOS</h1>
-                <h1>DISCIPLINAS DA MARINHA</h1>
             </header>
+ 
 
-            <div class="fundoAzul-container">
+            <div class="text-container">
+              
                 <table>
                     <thead>
                         <tr>
@@ -131,7 +208,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.2 LIDERANÇA -->
                         <tr class="disciplina-2-1-2">
                             <td rowspan="5">2.1.2 Liderança</td>
@@ -164,7 +240,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.3 PROCEDIMENTOS MARINHEIROS -->
                         <tr class="disciplina-2-1-3">
                             <td rowspan="8">2.1.3 Procedimentos Marinheiros</td>
@@ -215,7 +290,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.4 JUSTIÇA E DISCIPLINA NA MB -->
                         <tr class="disciplina-2-1-4">
                             <td rowspan="6">2.1.4 Justiça e Disciplina na MB</td>
@@ -254,7 +328,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.5 PLANO ESTRATÉGICO DA MARINHA (PEM-2040) -->
                         <tr class="disciplina-2-1-5">
                             <td rowspan="5">2.1.5 Plano Estratégico da Marinha (PEM-2040)</td>
@@ -287,7 +360,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.6 DOCUMENTAÇÃO ADMINISTRATIVA NA MB -->
                         <tr class="disciplina-2-1-6">
                             <td rowspan="5">2.1.6 Documentação Administrativa na MB</td>
@@ -320,7 +392,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.7 CERIMONIAL DA MARINHA DO BRASIL -->
                         <tr class="disciplina-2-1-7">
                             <td rowspan="12">2.1.7 Cerimonial da Marinha do Brasil</td>
@@ -395,7 +466,6 @@
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
-
                         <!-- 2.1.8 LEGISLAÇÃO MILITAR-NAVAL/CIVIL -->
                         <tr class="disciplina-2-1-8">
                             <td rowspan="5">2.1.8 Legislação Militar-Naval/Civil</td>
