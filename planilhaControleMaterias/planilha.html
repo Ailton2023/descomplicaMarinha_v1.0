@@ -26,6 +26,19 @@
             --fonte-cabecalho: 'Chakra Petch', sans-serif;
         }
 
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-padrao);
+            background-color: var(--cor1);
+            padding-top: clamp(80px, 15vw, 100px); /* Espaço para cabeçalho fixo */
+        }
+
         /* Header */
         .header {
             background-color: var(--cor7);
@@ -77,58 +90,165 @@
             margin: 2px 0;
         }
 
+        /* Segundo cabeçalho */
+        .capitulos_apostilha {
+            text-align: center;
+            padding: clamp(20px, 4vw, 30px);
+            background-color: var(--cor5);
+            color: white;
+        }
+
+        .ostensivo_apostilha {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .ostensivo_apostilha span {
+            font-family: var(--fonte-cabecalho);
+            font-size: clamp(12px, 2.5vw, 16px);
+            font-weight: 600;
+        }
+
+        .capitulos_apostilha h1 {
+            font-size: clamp(20px, 4vw, 24px);
+            margin: 5px 0;
+        }
+
+        /* Tabela */
+        .text-container {
+            max-width: 1200px;
+            margin: 120px auto; /* Mantido margin-top de 120px */
+            padding: 0 clamp(10px, 2vw, 15px);
+            overflow-x: auto; /* Rolagem horizontal em telas pequenas */
+        }
+
         .text-container table {
             width: 100%;
             border-collapse: collapse;
-            margin: 120px 0; /* Aumentado margin-top de 20px para 60px */
             font-size: 14px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .text-container th, .text-container td {
+
+        .text-container th,
+        .text-container td {
             border: 1px solid #ccc;
             padding: 8px;
             text-align: left;
+            vertical-align: middle;
         }
+
         .text-container th {
             background-color: #007bff;
             color: white;
             font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-        .text-container .study-checkbox, .text-container .subtopic-checkbox {
+
+        .text-container .study-checkbox,
+        .text-container .subtopic-checkbox {
             transform: scale(1.2);
             margin: 0 auto;
             display: block;
         }
+
         .text-container .progress {
             font-weight: bold;
             color: #28a745;
         }
+
         /* Cores suaves por disciplina */
-        .disciplina-2-1-1 {
-            background-color: #e6f0ff91; /* Azul claro */
-        }
-        .disciplina-2-1-2 {
-            background-color: #cccccc70; /* Verde claro */
-        }
-        .disciplina-2-1-3 {
-            background-color: #e6f0ff91; /* Amarelo claro */
-        }
-        .disciplina-2-1-4 {
-            background-color: #cccccc70; /* Rosa claro */
-        }
-        .disciplina-2-1-5 {
-            background-color: #e6f0ff91; /* Laranja claro */
-        }
-        .disciplina-2-1-6 {
-            background-color: #cccccc70; /* Roxo claro */
-        }
-        .disciplina-2-1-7 {
-            background-color: #e6f0ff91; /* Ciano claro */
-        }
-        .disciplina-2-1-8 {
-            background-color: #cccccc70; /* Cinza claro */
-        }
+        .disciplina-2-1-1 { background-color: #e6f0ff91; }
+        .disciplina-2-1-2 { background-color: #cccccc70; }
+        .disciplina-2-1-3 { background-color: #e6f0ff91; }
+        .disciplina-2-1-4 { background-color: #cccccc70; }
+        .disciplina-2-1-5 { background-color: #e6f0ff91; }
+        .disciplina-2-1-6 { background-color: #cccccc70; }
+        .disciplina-2-1-7 { background-color: #e6f0ff91; }
+        .disciplina-2-1-8 { background-color: #cccccc70; }
+
         .text-container tr:hover {
-            background-color: #e6f0ff; /* Hover mais escuro */
+            background-color: #e6f0ff;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row; /* Mantém logo e texto à esquerda */
+                align-items: flex-start;
+            }
+
+            #logo img {
+                width: clamp(40px, 10vw, 60px);
+            }
+
+            .p_cabecalho {
+                font-size: clamp(10px, 2vw, 14px);
+            }
+
+            h1 {
+                font-size: clamp(16px, 2.8vw, 20px);
+            }
+
+            .capitulos_apostilha {
+                padding: clamp(15px, 3vw, 20px);
+            }
+
+            .capitulos_apostilha h1 {
+                font-size: clamp(18px, 3.5vw, 22px);
+            }
+
+            .ostensivo_apostilha {
+                gap: 15px;
+            }
+
+            .text-container table {
+                font-size: clamp(12px, 1.8vw, 13px);
+            }
+
+            .text-container th,
+            .text-container td {
+                padding: clamp(6px, 1vw, 7px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            #nome_curso {
+                align-items: flex-start;
+            }
+
+            .capitulos_apostilha h1 {
+                font-size: clamp(16px, 3vw, 20px);
+            }
+
+            .ostensivo_apostilha {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .text-container {
+                margin: clamp(80px, 10vw, 100px) auto; /* Ajuste leve para telas pequenas */
+                padding: 0 5px;
+            }
+
+            .text-container table {
+                font-size: clamp(10px, 1.6vw, 12px);
+            }
+
+            .text-container th,
+            .text-container td {
+                padding: clamp(4px, 0.8vw, 6px);
+            }
         }
     </style>
 </head>
@@ -149,10 +269,17 @@
                     </div>
                 </div>
             </header>
- 
+
+            <header class="capitulos_apostilha">
+                <div class="ostensivo_apostilha">
+                    <span>OSTENSIVO</span>
+                    <span>SGM-105</span>
+                </div>
+                <h1>PLANILHA DE CONTROLE DE ESTUDOS</h1>
+                <h1>DISCIPLINAS DA MARINHA</h1>
+            </header>
 
             <div class="text-container">
-              
                 <table>
                     <thead>
                         <tr>
@@ -168,43 +295,43 @@
                         <tr class="disciplina-2-1-1">
                             <td rowspan="7">2.1.1 Ordenança Geral para o Serviço da Armada</td>
                             <td>Organização</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Organização')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Deveres do Pessoal</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Deveres do Pessoal')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Deveres dos Oficiais em outros cargos e encargos colaterais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Deveres dos Oficiais em outros cargos e encargos colaterais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Serviço de Oficiais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Serviço de Oficiais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Atributos dos Oficiais e Praças</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Atributos dos Oficiais e Praças')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Tradições Navais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Tradições Navais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-1">
                             <td>Tratamento verbal e escrito</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Tratamento verbal e escrito')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -212,31 +339,31 @@
                         <tr class="disciplina-2-1-2">
                             <td rowspan="5">2.1.2 Liderança</td>
                             <td>Elementos conceituais de liderança</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Elementos conceituais de liderança')"></td>
+                            <td><a href="controleProgramaLiderança.html" target="_blank"><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-2">
                             <td>O exercício da liderança pelo pessoal da MB</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('O exercício da liderança pelo pessoal da MB')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-2">
                             <td>Principais atributos de um líder</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Principais atributos de um líder')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-2">
                             <td>Juramento à Bandeira e Rosa das Virtudes</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Juramento à Bandeira e Rosa das Virtudes')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-2">
                             <td>Orientação sobre expedição de ordens</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Orientação sobre expedição de ordens')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -244,49 +371,49 @@
                         <tr class="disciplina-2-1-3">
                             <td rowspan="8">2.1.3 Procedimentos Marinheiros</td>
                             <td>Embarcações miúdas</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Embarcações miúdas')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Segurança da Tripulação a bordo</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Segurança da Tripulação a bordo')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Incêndio</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Incêndio')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Agentes extintores</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Agentes extintores')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Extintores portáteis</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Extintores portáteis')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Organização de Combate do CAv</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Organização de Combate do CAv')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Organização Administrativa do CAv</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Organização Administrativa do CAv')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-3">
                             <td>Grupo de Socorro Externo</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Grupo de Socorro Externo')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -294,37 +421,37 @@
                         <tr class="disciplina-2-1-4">
                             <td rowspan="6">2.1.4 Justiça e Disciplina na MB</td>
                             <td>Disposições Gerais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Disposições Gerais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-4">
                             <td>Sindicância</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Sindicância')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-4">
                             <td>Inquérito Policial Militar</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Inquérito Policial Militar')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-4">
                             <td>Deserção</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Deserção')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-4">
                             <td>Prisão em flagrante</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Prisão em flagrante')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-4">
                             <td>Execução Penal</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Execução Penal')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -332,31 +459,31 @@
                         <tr class="disciplina-2-1-5">
                             <td rowspan="5">2.1.5 Plano Estratégico da Marinha (PEM-2040)</td>
                             <td>Ambiente Operacional</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Ambiente Operacional')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-5">
                             <td>Ameaças</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Ameaças')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-5">
                             <td>Conceito Estratégico Marítimo-Naval</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Conceito Estratégico Marítimo-Naval')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-5">
                             <td>Mapa Estratégico da Marinha</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Mapa Estratégico da Marinha')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-5">
                             <td>Ações Estratégicas Navais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Ações Estratégicas Navais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -364,31 +491,31 @@
                         <tr class="disciplina-2-1-6">
                             <td rowspan="5">2.1.6 Documentação Administrativa na MB</td>
                             <td>Documentos</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Documentos')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-6">
                             <td>Classificação dos Documentos Administrativos</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Classificação dos Documentos Administrativos')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-6">
                             <td>Gestão de Documentos</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Gestão de Documentos')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-6">
                             <td>Documentos Digitais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Documentos Digitais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-6">
                             <td>Tipos dos Documentos Administrativos na MB</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Tipos dos Documentos Administrativos na MB')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -396,73 +523,73 @@
                         <tr class="disciplina-2-1-7">
                             <td rowspan="12">2.1.7 Cerimonial da Marinha do Brasil</td>
                             <td>Considerações Gerais</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Considerações Gerais')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Bandeiras</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Bandeiras')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Salvas</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Salvas')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Visitas</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Visitas')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Honras aos Oficiais de Marinha</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Honras aos Oficiais de Marinha')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Honras às Autoridades Civis e às Militares não Pertencentes à MB</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Honras às Autoridades Civis e às Militares não Pertencentes à MB')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Datas Festivas</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Datas Festivas')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Honras às Nações e Autoridades Estrangeiras</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Honras às Nações e Autoridades Estrangeiras')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Honras Fúnebres</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Honras Fúnebres')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Características das Bandeiras</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Características das Bandeiras')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Disposição das Bandeiras, Flâmulas e Pavilhões</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Disposição das Bandeiras, Flâmulas e Pavilhões')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-7">
                             <td>Resumo histórico</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Resumo histórico')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -470,31 +597,31 @@
                         <tr class="disciplina-2-1-8">
                             <td rowspan="5">2.1.8 Legislação Militar-Naval/Civil</td>
                             <td>Das obrigações e dos deveres dos Militares</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Das obrigações e dos deveres dos Militares')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-8">
                             <td>Dos direitos e das prerrogativas dos Militares</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Dos direitos e das prerrogativas dos Militares')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-8">
                             <td>Das contravenções disciplinares</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Das contravenções disciplinares')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-8">
                             <td>Das penas disciplinares</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Das penas disciplinares')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
                         <tr class="disciplina-2-1-8">
                             <td>Da parte, prisão imediata e recursos</td>
-                            <td><input type="checkbox" class="subtopic-checkbox" onclick="openSubtopicPage('Da parte, prisão imediata e recursos')"></td>
+                            <td><a href=""><input type="checkbox" class="subtopic-checkbox"></a></td>
                             <td><input type="checkbox" class="study-checkbox"></td>
                             <td></td>
                         </tr>
@@ -519,11 +646,6 @@
             const completedTopics = Array.from(checkboxes).filter(cb => cb.checked).length;
             const progressPercent = Math.round((completedTopics / totalTopics) * 100);
             document.getElementById('total-progress').textContent = `${progressPercent}%`;
-        }
-
-        // Função para abrir a página de subtemas
-        function openSubtopicPage(topic) {
-            window.location.href = `subtopic_details.html?topic=${encodeURIComponent(topic)}`;
         }
 
         // Adiciona evento de mudança a cada checkbox de conclusão
