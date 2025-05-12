@@ -3,680 +3,671 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planilha de Controle de Estudos - Disciplinas da Marinha</title>
-    <link rel="stylesheet" href="anexo-A.html">
-    <link rel="stylesheet" href="../abaPesquisa/AbaPesquisa.css">
-    <link rel="stylesheet" href="../audio/audio.css">
+    <title>Prova Marina</title>
     <style>
-        /* Consolidated Google Fonts import */
-        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        /* CSS Variables */
-        :root {
-            --cor0: #F4F6FE;
-            --cor1: #E8F1F2;
-            --cor2: #1B98E0;
-            --cor3: #247BA0;
-            --cor4: #006494;
-            --cor5: #13293D;
-            --cor6: #0068B5;
-            --cor7: #0054A6;
-            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
-            --fonte-destaque: 'Tomorrow', sans-serif;
-            --fonte-cabecalho: 'Chakra Petch', sans-serif;
-        }
-
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: var(--fonte-padrao);
-            background-color: var(--cor1);
-            padding-top: clamp(80px, 15vw, 100px); /* Espaço para cabeçalho fixo */
-        }
-
-        /* Header */
-        .header {
-            background-color: var(--cor7);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: clamp(5px, 1vw, 8px) 0;
-            flex-shrink: 0;
-        }
-
-        .header-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 0 0 clamp(10px, 2vw, 15px);
-            padding: 0;
-            gap: clamp(8px, 2vw, 12px);
-        }
-
-        #logo img {
-            width: clamp(60px, 10vw, 90px);
-            height: auto;
-        }
-
-        #nome_curso {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Fundo branco para o corpo */
+            color: #ffffff; /* Texto branco por padrão */
+            padding-top: 60px; /* Espaço para o header fixo */
             display: flex;
             flex-direction: column;
-            text-align: left;
+            align-items: center; /* Centralizar horizontalmente */
+            justify-content: center; /* Centralizar verticalmente */
+            min-height: 100vh; /* Garantir altura mínima para centralização vertical */
         }
-
-        .p_cabecalho {
-            font-family: var(--fonte-cabecalho);
-            font-weight: 700;
-            font-size: clamp(12px, 2.5vw, 16px);
-            color: #EF8721;
-            margin: 2px 0;
-        }
-
-        h1 {
-            font-family: var(--fonte-destaque);
-            font-size: clamp(18px, 3vw, 22px);
-            color: white;
-            font-weight: bold;
-            margin: 2px 0;
-        }
-
-        /* Segundo cabeçalho */
-        .capitulos_apostilha {
-            text-align: center;
-            padding: clamp(20px, 4vw, 30px);
-            background-color: var(--cor5);
-            color: white;
-        }
-
-        .ostensivo_apostilha {
+        .header {
+            background-color: #1a2a44; /* Azul escuro do topo */
+            padding: 20px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 10px;
-        }
-
-        .ostensivo_apostilha span {
-            font-family: var(--fonte-cabecalho);
-            font-size: clamp(12px, 2.5vw, 16px);
-            font-weight: 600;
-        }
-
-        .capitulos_apostilha h1 {
-            font-size: clamp(20px, 4vw, 24px);
-            margin: 5px 0;
-        }
-
-        /* Tabela */
-        .text-container {
-            max-width: 1200px;
-            margin: 120px auto;
-            padding: 0 clamp(10px, 2vw, 15px);
-            overflow-x: auto;
-        }
-
-        .text-container table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .text-container th,
-        .text-container td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-            vertical-align: middle;
-        }
-
-        .text-container th {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            position: sticky;
+            align-items: center;
+            justify-content: center; /* Centralizar o título no header */
+            width: 100%; /* Garantir que o header ocupe toda a largura */
+            position: fixed; /* Fixar o header no topo */
             top: 0;
-            z-index: 10;
+            left: 0;
+            z-index: 1000; /* Garantir que o header fique acima do conteúdo */
         }
-
-        .text-container .study-checkbox,
-        .text-container .subtopic-checkbox {
-            transform: scale(1.2);
-            margin: 0 auto;
-            display: block;
-        }
-
-        .text-container .progress {
+        .header span {
+            font-size: 24px;
             font-weight: bold;
-            color: #28a745;
         }
-
-        /* Estilo para links dos subtemas */
-        .subtopic-link {
-            text-decoration: none;
-            color: inherit;
+        .container {
+            background-color: #ffffff; /* Fundo branco para o conteúdo */
+            color: #000000; /* Texto preto no fundo branco */
+            padding: 20px;
+            width: 90%; /* Aumentar a largura para caber o texto */
+            max-width: 1200px; /* Aumentar o max-width para caber todo o texto */
+            margin: 20px auto; /* Centralizar horizontalmente */
+            border: 2px solid #1a2a44; /* Borda azul escura */
+            border-radius: 10px; /* Borda arredondada */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centralizar conteúdo interno */
         }
-
-        /* Cores suaves por disciplina */
-        .disciplina-2-1-1 { background-color: #e6f0ff91; }
-        .disciplina-2-1-2 { background-color: #cccccc70; }
-        .disciplina-2-1-3 { background-color: #e6f0ff91; }
-        .disciplina-2-1-4 { background-color: #cccccc70; }
-        .disciplina-2-1-5 { background-color: #e6f0ff91; }
-        .disciplina-2-1-6 { background-color: #cccccc70; }
-        .disciplina-2-1-7 { background-color: #e6f0ff91; }
-        .disciplina-2-1-8 { background-color: #cccccc70; }
-
-        .text-container tr:hover {
-            background-color: #e6f0ff;
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center; /* Centralizar os filtros */
+            flex-wrap: wrap; /* Permitir que os selects quebrem linha em telas menores */
+            width: 100%; /* Garantir que os filtros ocupem toda a largura disponível */
         }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-
-            #logo img {
-                width: clamp(40px, 10vw, 60px);
-            }
-
-            .p_cabecalho {
-                font-size: clamp(10px, 2vw, 14px);
-            }
-
-            h1 {
-                font-size: clamp(16px, 2.8vw, 20px);
-            }
-
-            .capitulos_apostilha {
-                padding: clamp(15px, 3vw, 20px);
-            }
-
-            .capitulos_apostilha h1 {
-                font-size: clamp(18px, 3.5vw, 22px);
-            }
-
-            .ostensivo_apostilha {
-                gap: 15px;
-            }
-
-            .text-container table {
-                font-size: clamp(12px, 1.8vw, 13px);
-            }
-
-            .text-container th,
-            .text-container td {
-                padding: clamp(6px, 1vw, 7px);
-            }
+        .filters select {
+            padding: 8px;
+            border: 1px solid #cccccc; /* Borda cinza clara */
+            border-radius: 5px;
+            background-color: #ffffff; /* Fundo branco dos dropdowns */
+            color: #333333; /* Texto cinza escuro */
+            font-size: 14px;
+            cursor: pointer;
         }
-
-        @media (max-width: 480px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px;
-            }
-
-            #nome_curso {
-                align-items: flex-start;
-            }
-
-            .capitulos_apostilha h1 {
-                font-size: clamp(16px, 3vw, 20px);
-            }
-
-            .ostensivo_apostilha {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .text-container {
-                margin: clamp(80px, 10vw, 100px) auto;
-                padding: 0 5px;
-            }
-
-            .text-container table {
-                font-size: clamp(10px, 1.6vw, 12px);
-            }
-
-            .text-container th,
-            .text-container td {
-                padding: clamp(4px, 0.8vw, 6px);
-            }
+        .question {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: justify; /* Justificar o texto da questão */
+            width: 100%; /* Garantir que a questão ocupe toda a largura disponível */
+            max-width: 1000px; /* Ajustar para caber textos longos */
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center; /* Centralizar as opções */
+            width: 100%; /* Garantir que as opções ocupem toda a largura disponível */
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%; /* Aumentar a largura para caber o texto */
+            max-width: 1000px; /* Ajustar para caber textos longos */
+            justify-content: flex-start; /* Alinhar o conteúdo à esquerda dentro do bloco centralizado */
+            text-align: justify; /* Justificar o texto das opções */
+        }
+        .option input[type="radio"] {
+            margin-right: 5px;
+        }
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            justify-content: center; /* Centralizar os botões */
+        }
+        .nav-button, .solution-button {
+            padding: 10px 20px;
+            background-color: #4267b2; /* Mesma cor para todos os botões */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .nav-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .solution-button::before {
+            content: "👁️"; /* Ícone de olho */
+            margin-right: 5px;
+        }
+        .solution {
+            display: none; /* Inicialmente oculto */
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0; /* Fundo cinza claro para destacar */
+            border-radius: 5px;
+            color: #000000;
+            text-align: justify; /* Justificar o texto da solução */
+            width: 100%; /* Garantir que a solução ocupe toda a largura disponível */
+            max-width: 1000px; /* Ajustar para caber textos longos */
+        }
+        .solution .correct {
+            color: #28a745; /* Verde para a alternativa correta */
+            font-weight: bold;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center; /* Manter o feedback centralizado */
+        }
+        .correct-feedback {
+            color: #28a745; /* Verde para resposta correta */
+        }
+        .incorrect-feedback {
+            color: #ff5c5c; /* Vermelho para resposta incorreta */
         }
     </style>
 </head>
 <body>
-    <main>
-        <section>
-            <header class="header">
-                <div class="header-container">
-                    <div id="logo">
-                        <a href="../site.html" target="_blank">
-                            <img src="../imagens/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
-                        </a>
-                    </div>
-                    <div id="nome_curso">
-                        <p class="p_cabecalho">Seu curso on-line</p>
-                        <h1>Descomplica Marinha</h1>
-                        <p class="p_cabecalho">A âncora dos seus estudos</p>
-                    </div>
-                </div>
-            </header>
+    <div class="header">
+        <!-- O logo seria uma imagem, mas como não posso gerar imagens, deixo como texto -->
+        <span>APROVA MARINHA</span>
+    </div>
 
-            <header class="capitulos_apostilha">
-                <div class="ostensivo_apostilha">
-                    <span>OSTENSIVO</span>
-                    <span>SGM-105</span>
-                </div>
-                <h1>PLANILHA DE CONTROLE DE ESTUDOS</h1>
-                <h1>DISCIPLINAS DA MARINHA</h1>
-            </header>
+    <div class="container">
+        <div class="filters">
+            <select id="topicSelect" onchange="updateSubtopics(); updateQuestion();">
+                <option>Tópico</option>
+                <option>Ordenança Geral para o Serviço da Armada</option>
+                <option>Liderança</option>
+                <option>Procedimentos</option>
+                <option>Justiça e Disciplina na MB</option>
+                <option>Plano Estratégico da Marinha (PEM-2040)</option>
+                <option>Documentação Administrativa na MB</option>
+                <option>Cerimonial da Marinha do Brasil</option>
+                <option>Legislação Militar-Naval/Civil</option>
+            </select>
+            <select id="subtopicSelect" onchange="updateSubsubtopics(); updateQuestion();">
+                <option>Subtópico</option>
+            </select>
+            <select id="subsubtopicSelect" onchange="updateQuestion()">
+                <option>Sub-subtema</option>
+            </select>
+            <select id="difficultySelect" onchange="updateQuestion()">
+                <option>Dificuldade</option>
+                <option>Fácil</option>
+                <option>Média</option>
+                <option>Difícil</option>
+            </select>
+            <select>
+                <option>Aprova Marinha</option>
+            </select>
+            <select>
+                <option>2025</option>
+            </select>
+            <select>
+                <option>Estado</option>
+            </select>
+        </div>
 
-            <div class="text-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Disciplina</th>
-                            <th>Tópico</th>
-                            <th>Subtópicos</th>
-                            <th>Concluído</th>
-                            <th>Progresso (%)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 2.1.1 ORDENANÇA GERAL PARA O SERVIÇO DA ARMADA -->
-                        <tr class="disciplina-2-1-1">
-                            <td rowspan="7">2.1.1 Ordenança Geral para o Serviço da Armada</td>
-                            <td>Organização</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Deveres do Pessoal</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Deveres dos Oficiais em outros cargos e encargos colaterais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Serviço de Oficiais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Atributos dos Oficiais e Praças</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Tradições Navais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-1">
-                            <td>Tratamento verbal e escrito</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.2 LIDERANÇA -->
-                        <tr class="disciplina-2-1-2">
-                            <td rowspan="5">2.1.2 Liderança</td>
-                            <td>Elementos conceituais de liderança</td>
-                            <td><a href="../planilhaControleMaterias/controleProgramaLiderança.html" target="_blank" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-2">
-                            <td>O exercício da liderança pelo pessoal da MB</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-2">
-                            <td>Principais atributos de um líder</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-2">
-                            <td>Juramento à Bandeira e Rosa das Virtudes</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-2">
-                            <td>Orientação sobre expedição de ordens</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.3 PROCEDIMENTOS MARINHEIROS -->
-                        <tr class="disciplina-2-1-3">
-                            <td rowspan="8">2.1.3 Procedimentos Marinheiros</td>
-                            <td>Embarcações miúdas</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Segurança da Tripulação a bordo</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Incêndio</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Agentes extintores</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Extintores portáteis</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Organização de Combate do CAv</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Organização Administrativa do CAv</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-3">
-                            <td>Grupo de Socorro Externo</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.4 JUSTIÇA E DISCIPLINA NA MB -->
-                        <tr class="disciplina-2-1-4">
-                            <td rowspan="6">2.1.4 Justiça e Disciplina na MB</td>
-                            <td>Disposições Gerais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-4">
-                            <td>Sindicância</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-4">
-                            <td>Inquérito Policial Militar</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-4">
-                            <td>Deserção</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-4">
-                            <td>Prisão em flagrante</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-4">
-                            <td>Execução Penal</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.5 PLANO ESTRATÉGICO DA MARINHA (PEM-2040) -->
-                        <tr class="disciplina-2-1-5">
-                            <td rowspan="5">2.1.5 Plano Estratégico da Marinha (PEM-2040)</td>
-                            <td>Ambiente Operacional</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-5">
-                            <td>Ameaças</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-5">
-                            <td>Conceito Estratégico Marítimo-Naval</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-5">
-                            <td>Mapa Estratégico da Marinha</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-5">
-                            <td>Ações Estratégicas Navais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.6 DOCUMENTAÇÃO ADMINISTRATIVA NA MB -->
-                        <tr class="disciplina-2-1-6">
-                            <td rowspan="5">2.1.6 Documentação Administrativa na MB</td>
-                            <td>Documentos</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-6">
-                            <td>Classificação dos Documentos Administrativos</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-6">
-                            <td>Gestão de Documentos</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-6">
-                            <td>Documentos Digitais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-6">
-                            <td>Tipos dos Documentos Administrativos na MB</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.7 CERIMONIAL DA MARINHA DO BRASIL -->
-                        <tr class="disciplina-2-1-7">
-                            <td rowspan="12">2.1.7 Cerimonial da Marinha do Brasil</td>
-                            <td>Considerações Gerais</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Bandeiras</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Salvas</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Visitas</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Honras aos Oficiais de Marinha</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Honras às Autoridades Civis e às Militares não Pertencentes à MB</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Datas Festivas</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Honras às Nações e Autoridades Estrangeiras</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Honras Fúnebres</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Características das Bandeiras</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Disposição das Bandeiras, Flâmulas e Pavilhões</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-7">
-                            <td>Resumo histórico</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <!-- 2.1.8 LEGISLAÇÃO MILITAR-NAVAL/CIVIL -->
-                        <tr class="disciplina-2-1-8">
-                            <td rowspan="5">2.1.8 Legislação Militar-Naval/Civil</td>
-                            <td>Das obrigações e dos deveres dos Militares</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-8">
-                            <td>Dos direitos e das prerrogativas dos Militares</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-8">
-                            <td>Das contravenções disciplinares</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-8">
-                            <td>Das penas disciplinares</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="disciplina-2-1-8">
-                            <td>Da parte, prisão imediata e recursos</td>
-                            <td><a href="" class="subtopic-link"><input type="checkbox" class="subtopic-checkbox"></a></td>
-                            <td><input type="checkbox" class="study-checkbox"></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4"><strong>Progresso Total:</strong></td>
-                            <td id="total-progress" class="progress">0%</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-    </main>
+        <div class="question" id="question">
+            <p>Selecione um tópico, subtema, sub-subtema e dificuldade para exibir uma questão.</p>
+        </div>
 
-    <script src="../abaPesquisa/abaPesquisa.js"></script>
+        <div class="options" id="options">
+        </div>
+
+        <div class="navigation">
+            <button class="solution-button" onclick="toggleSolution()">Mostrar solução</button>
+            <button class="nav-button" onclick="previousQuestion()" disabled>Anterior</button>
+            <button class="nav-button" onclick="nextQuestion()" disabled>Próxima</button>
+        </div>
+
+        <div class="solution" id="solution">
+        </div>
+    </div>
+
     <script>
-        // Função para calcular e atualizar o progresso total
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.study-checkbox');
-            const totalTopics = checkboxes.length; // Total de tópicos (53)
-            const completedTopics = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const progressPercent = Math.round((completedTopics / totalTopics) * 100);
-            document.getElementById('total-progress').textContent = `${progressPercent}%`;
-        }
+        // Objeto que mapeia tópicos para seus subtemas
+        const subtopicsByTopic = {
+            "Ordenança Geral para o Serviço da Armada": [
+                "Organização",
+                "Deveres do Pessoal",
+                "Deveres dos Oficiais em outros cargos e encargos colaterais",
+                "Serviço de Oficiais",
+                "Atributos dos Oficiais e Praças",
+                "Tradições Navais",
+                "Tratamento verbal e escrito"
+            ],
+            "Liderança": [
+                "Elementos conceituais de liderança",
+                "O exercício da liderança pelo pessoal da MB",
+                "Principais atributos de um líder",
+                "Juramento à Bandeira e Rosa das Virtudes",
+                "Orientação sobre expedição de ordens"
+            ],
+            "Procedimentos": [
+                "Marinheiros",
+                "Embarcações miúdas",
+                "Segurança da Tripulação a bordo",
+                "Incêndio",
+                "Agentes extintores",
+                "Extintores portáteis",
+                "Organização de Combate do CAv",
+                "Organização Administrativa do CAv",
+                "Grupo de Socorro Externo"
+            ],
+            "Justiça e Disciplina na MB": [
+                "Disposições Gerais",
+                "Sindicância",
+                "Inquérito Policial Militar",
+                "Deserção",
+                "Prisão em flagrante",
+                "Execução Penal"
+            ],
+            "Plano Estratégico da Marinha (PEM-2040)": [
+                "Ambiente Operacional",
+                "Ameaças",
+                "Conceito Estratégico Marítimo-Naval",
+                "Mapa Estratégico da Marinha",
+                "Ações Estratégicas Navais"
+            ],
+            "Documentação Administrativa na MB": [
+                "Documentos",
+                "Classificação dos Documentos Administrativos",
+                "Gestão de Documentos",
+                "Documentos Digitais",
+                "Tipos dos Documentos Administrativos na MB"
+            ],
+            "Cerimonial da Marinha do Brasil": [
+                "Considerações Gerais",
+                "Bandeiras",
+                "Salvas",
+                "Visitas",
+                "Honras aos Oficiais de Marinha",
+                "Honras às Autoridades Civis e às Militares não Pertencentes à MB",
+                "Datas Festivas",
+                "Honras às Nações e Autoridades Estrangeiras",
+                "Honras Fúnebres",
+                "Características das Bandeiras",
+                "Disposição das Bandeiras, Flâmulas e Pavilhões",
+                "Resumo histórico"
+            ],
+            "Legislação Militar-Naval/Civil": [
+                "Das obrigações e dos deveres dos Militares",
+                "Dos direitos e das prerrogativas dos Militares",
+                "Das contravenções disciplinares",
+                "Das penas disciplinares",
+                "Da parte, prisão imediata e recursos"
+            ]
+        };
 
-        // Adiciona evento de mudança a cada checkbox de conclusão
-        document.querySelectorAll('.study-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', updateProgress);
-        });
+        // Objeto que mapeia subtemas para seus sub-subtemas
+        const subsubtopicsBySubtopic = {
+            "Elementos conceituais de liderança": [
+                "Chefia e Liderança",
+                "Aspectos Fundamentais da Liderança",
+                "Estilos de Liderança",
+                "Seleção de Estilos de Liderança",
+                "Fatores da Liderança",
+                "Atributos de um Líder",
+                "Níveis de Liderança"
+            ]
+        };
 
-        // Garante redirecionamento ao clicar nos checkboxes de subtemas
-        document.querySelectorAll('.subtopic-link .subtopic-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('click', function(event) {
-                const link = this.closest('.subtopic-link');
-                if (link && link.href) {
-                    event.preventDefault(); // Impede comportamento padrão do checkbox
-                    const target = link.getAttribute('target');
-                    if (target === '_blank') {
-                        window.open(link.href, '_blank');
-                    } else {
-                        window.location.href = link.href;
+        // Objeto que mapeia questões por tópico, subtema, sub-subtema e dificuldade
+        const questions = {
+            "Liderança": {
+                "Elementos conceituais de liderança": {
+                    "Chefia e Liderança": {
+                        "Fácil": [
+                            {
+                                question: "De acordo com o EMA-137, é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.",
+                                options: [
+                                    "(A) O exercício do cargo",
+                                    "(B) O exercício da mestrança",
+                                    "(C) O exercício da liderança",
+                                    "(D) O exercício da chefia",
+                                    "(E) O exercício do comando"
+                                ],
+                                correctAnswer: "D",
+                                solution: "A alternativa correta é: <span class='correct'>(D)</span><br><strong>Explicação:</strong> Segundo o EMA-137, o trecho “é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado” refere-se diretamente ao <strong>exercício da chefia</strong> (Capítulo 1, 1.2). O texto define explicitamente que esse conjunto de ações e decisões é o que caracteriza a chefia, que está associada à autoridade formal decorrente da função e do posto ou graduação do mais antigo."
+                            },
+                            {
+                                question: "De acordo com o EMA-137, no desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber:",
+                                options: [
+                                    "(A) “chefe” e o de “condutor de homens”",
+                                    "(B) “chefe” e o de “líder”",
+                                    "(C) “líder” e o de “mais antigo”",
+                                    "(D) “superior” e o de “mais antigo”",
+                                    "(E) “condutor de homens” e o de “líder”"
+                                ],
+                                correctAnswer: "A",
+                                solution: "A alternativa correta é: <span class='correct'>(A)</span><br><strong>Explicação:</strong> O EMA-137 afirma explicitamente que “os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de ‘chefe’ e o de ‘condutor de homens’” (Capítulo 1, 1.2). O papel de “chefe” está ligado à autoridade formal e à responsabilidade de conduzir o setor, enquanto o papel de “condutor de homens” reflete a capacidade de influenciar e inspirar os subordinados, que o texto associa ao atributo de líder."
+                            },
+                            {
+                                question: "De acordo com o EMA-137, prevalece a autoridade advinda da responsabilidade atribuída à função, associada com aquela decorrente de seu posto ou graduação, à qual passaremos a definir, genericamente, como chefia. De qual papel estamos falando:",
+                                options: [
+                                    "(A) Chefe",
+                                    "(B) Condutor de homens",
+                                    "(C) Líder",
+                                    "(D) Mais antigo",
+                                    "(E) Comandante"
+                                ],
+                                correctAnswer: "A",
+                                solution: "A alternativa correta é: <span class='correct'>(A)</span><br><strong>Explicação:</strong> Segundo o EMA-137, o trecho “prevalece a autoridade advinda da responsabilidade atribuída à função, associada com aquela decorrente de seu posto ou graduação, à qual passaremos a definir, genericamente, como chefia” refere-se diretamente ao papel de <strong>chefe</strong> (Capítulo 1, 1.2). O texto especifica que os mais antigos desempenham dois papéis funcionais: o de “chefe” e o de “condutor de homens”. Em relação ao primeiro papel, o de chefe, o EMA-137 destaca que ele é caracterizado pela autoridade formal decorrente da função e do posto ou graduação, sendo genericamente definido como chefia."
+                            },
+                            {
+                                question: "De acordo com o EMA-137, identifica-se um estreito relacionamento com o atributo de líder. Neste contexto, fica ressaltada a importância da capacidade individual dos mais antigos em influenciarem e inspirarem os seus subordinados. De qual papel estamos falando:",
+                                options: [
+                                    "(A) Chefe",
+                                    "(B) Condutor de homens",
+                                    "(C) Chefe de Departamento",
+                                    "(D) Mais antigo",
+                                    "(E) Comandante"
+                                ],
+                                correctAnswer: "B",
+                                solution: "A alternativa correta é: <span class='correct'>(B)</span><br><strong>Explicação:</strong> Segundo o EMA-137, o trecho “identifica-se um estreito relacionamento com o atributo de líder. Neste contexto, fica ressaltada a importância da capacidade individual dos mais antigos em influenciarem e inspirarem os seus subordinados” refere-se ao papel de <strong>condutor de homens</strong> (Capítulo 1, 1.2). O texto especifica que os mais antigos desempenham dois papéis funcionais: o de “chefe” e o de “condutor de homens”, e que o segundo papel, o de condutor de homens, está diretamente relacionado ao atributo de líder, que envolve influenciar e inspirar os subordinados."
+                            },
+
+
+                            {
+                                question: "De acordo com o EMA-137, caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança:",
+                                options: [
+                                    "(A) são processos alternativos e sim, simultâneos e complementares.",
+                                    "(B) não são processos alternativos e sim, simultâneos e opostos.",
+                                    "(C) são processos alternativos e complementares.",
+                                    "(D) não são processos alternativos e sim, simultâneos e complementares.",
+                                    "(E) são processos alternativos, e também simultâneos e complementares."
+                                ],
+                                correctAnswer: "D",
+                                solution: "A alternativa correta é: <span class='correct'>(D)</span><br><strong>Explicação:</strong> O EMA-137 afirma that “caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares” (Capítulo 1, 1.2). A alternativa (D) reflete exatamente essa afirmação."
+                            },
+
+
+
+
+
+
+
+
+                            {
+                                question: "QUESTÃO 05<br>Acordo o EMA-137, a liderança deve ser entendida como a processo ______________ e ____________ de aprendizado, o qual, desenvolvido nos cursos de carreira e no dia a dia das OM, trará não só evidentes benefícios às organizações, como também contribuirá para o sucesso profissional individual de cada militar.",
+                                options: [
+                                    "(A) Simultâneo e correlato",
+                                    "(B) Dinâmico e progressivo",
+                                    "(C) Simultâneos e complementares",
+                                    "(D) Dinâmico e complementar",
+                                    "(E) Simultâneo e progressivo"
+                                ],
+                                correctAnswer: "B",
+                                solution: "A alternativa correta é: <span class='correct'>(B)</span><br><strong>Explicação:</strong> Segundo o EMA-137, o texto afirma que “a liderança deve ser entendida como um processo dinâmico e progressivo de aprendizado, o qual, desenvolvido nos cursos de carreira e no dia a dia das OM, trará não só evidentes benefícios às organizações, como também contribuirá para o sucesso profissional individual de cada militar” (Capítulo 1, 1.2). Os termos “dinâmico” e “progressivo” são usados diretamente no texto para descrever o processo de aprendizado da liderança."
+                            },
+                            {
+                                question: "QUESTÃO 06<br>De acordo com o EMA-137, no desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber:",
+                                options: [
+                                    "(A) o de “chefe” e o de “mestre”",
+                                    "(B) o de “líder” e o de “mestre”",
+                                    "(C) o de “líder” e o de “chefe de departamento”",
+                                    "(D) o de “chefe” e o de “comandante”",
+                                    "(E) o de “chefe” e o de “condutor de homens”"
+                                ],
+                                correctAnswer: "E",
+                                solution: "A alternativa correta é: <span class='correct'>(E)</span><br><strong>Explicação:</strong> O EMA-137 afirma explicitamente que “os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de ‘chefe’ e o de ‘condutor de homens’” (Capítulo 1, 1.2). O papel de “chefe” está ligado à autoridade formal e à responsabilidade de conduzir o setor, enquanto o papel de “condutor de homens” reflete a capacidade de influenciar e inspirar os subordinados, que o texto associa ao atributo de líder."
+                            },
+                            {
+                                question: "QUESTÃO 07<br>Segundo o EMA-137, coloque F(falso) ou V(verdadeiro) nas sentenças a seguir, em relação a chefia e liderança, assinalando em seguida a opção correta.<br>(  ) O exercício da chefia, é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.<br>(  ) No desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de “chefe” e o de “comandante”.<br>(  ) Caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão.<br>(  ) Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois CHEFIA e LIDERANÇA não são processos alternativos e sim, simultâneos e complementares.<br>(  ) A liderança deve ser entendida como um processo DINÂMICO e PROGRESSIVO de aprendizado, o qual, desenvolvido nos cursos de carreira e no dia a dia das OM, trará não só evidentes benefícios às organizações, como também contribuirá para o sucesso profissional individual de cada militar.<br>(  ) O contínuo desenvolvimento das qualidades dos militares da MB como líderes deverá ser objeto de atenta e permanente atenção, a ser trabalhada, conjuntamente, pelo militar e, prioritariamente, por cada OM.",
+                                options: [
+                                    "(A) (V) (F) (V) (V) (V) (F)",
+                                    "(B) (F) (F) (V) (V) (F) (F)",
+                                    "(C) (V) (V) (V) (V) (V) (V)",
+                                    "(D) (F) (F) (V) (V) (V) (F)",
+                                    "(E) (V) (V) (V) (V) (V) (F)"
+                                ],
+                                correctAnswer: "A",
+                                solution: "A alternativa correta é: <span class='correct'>(A)</span><br><strong>Explicação:</strong> Vamos analisar cada afirmativa com base no EMA-137:<br>- (V) O exercício da chefia, é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado: Verdadeiro. Essa é uma citação direta do EMA-137, que define o exercício da chefia como o conjunto de ações e decisões do mais antigo para conduzir o setor (Capítulo 1, 1.2).<br>- (F) No desempenho de suas funções, os mais antigos, normalmente, desempenham dois papéis funcionais, a saber: o de “chefe” e o de “comandante”: Falso. O EMA-137 especifica que os dois papéis funcionais são “chefe” e “condutor de homens” (Capítulo 1, 1.2).<br>- (V) Caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão: Verdadeiro. O EMA-137 afirma que comandar é exercer a chefia e a liderança (Capítulo 1, 1.2).<br>- (V) Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois CHEFIA e LIDERANÇA não são processos alternativos e sim, simultâneos e complementares: Verdadeiro. Essa é uma citação direta do EMA-137 (Capítulo 1, 1.2).<br>- (V) A liderança deve ser entendida como um processo DINÂMICO e PROGRESSIVO de aprendizado, o qual, desenvolvido nos cursos de carreira e no dia a dia das OM, trará não só evidentes benefícios às organizações, como também contribuirá para o sucesso profissional individual de cada militar: Verdadeiro. O EMA-137 afirma that “a liderança deve ser entendida como um processo dinâmico e progressivo de aprendizado” (Capítulo 1, 1.2).<br>- (F) O contínuo desenvolvimento das qualidades dos militares da MB como líderes deverá ser objeto de atenta e permanente atenção, a ser trabalhada, conjuntamente, pelo militar e, prioritariamente, por cada OM: Falso. O EMA-137 diz que esse desenvolvimento deve ser trabalhado “pela instituição e, prioritariamente, por cada militar”, não “por cada OM” (Capítulo 1, 1.2)."
+                            },
+                         
+                            {
+                                question: "QUESTÃO 09<br>De acordo com o EMA-137, condutor de pessoas com capacidade de influenciar e inspirar:",
+                                options: [
+                                    "(A) Chefe",
+                                    "(B) Líder",
+                                    "(C) Comandante",
+                                    "(D) Mais antigo",
+                                    "(E) Condutor"
+                                ],
+                                correctAnswer: "B",
+                                solution: "A alternativa correta é: <span class='correct'>(B)</span><br><strong>Explicação:</strong> Segundo o EMA-137, o papel de “condutor de homens” é descrito como tendo “um estreito relacionamento com o atributo de líder”, e nesse contexto, “fica ressaltada a importância da capacidade individual dos mais antigos em influenciarem e inspirarem os seus subordinados” (Capítulo 1, 1.2). A questão, ao mencionar “condutor de pessoas com capacidade de influenciar e inspirar”, está se referindo ao atributo de líder, que é associado ao papel de “condutor de homens”. Portanto, a resposta correta é “líder”, que é o atributo destacado no texto."
+                            },
+                            {
+                                question: "QUESTÃO 10<br>Caracterizados esses dois atributos do ______________, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares.",
+                                options: [
+                                    "(A) Chefe",
+                                    "(B) Líder",
+                                    "(C) Comandante",
+                                    "(D) Mais antigo",
+                                    "(E) Condutor"
+                                ],
+                                correctAnswer: "C",
+                                solution: "A alternativa correta é: <span class='correct'>(C)</span><br><strong>Explicação:</strong> O EMA-137 afirma that “caracterizados esses dois atributos do comandante, o de chefe e o de líder, pode-se afirmar que comandar é exercer a chefia e a liderança, a fim de conduzir eficazmente a organização no cumprimento da missão. Sendo o exercício do comando um processo abrangente, a divisão ora apresentada será utilizada para efeito de uma melhor compreensão do tema em lide, pois chefia e liderança não são processos alternativos e sim, simultâneos e complementares” (Capítulo 1, 1.2). O termo que completa a lacuna é “comandante”, pois o texto refere-se aos atributos do comandante, que exerce o comando combinando chefia e liderança."
+                            }
+                        ],
+                        "Difícil": [
+                            {
+                                question: "QUESTÃO 04<br>Segundo o EMA-137, marque a opção CORRETA quanto às afirmativas abaixo relacionadas.<br>I - Com respeito ao papel de condutor de homens, identifica-se um estreito relacionamento com o atributo de chefe.<br>II - Chefia e liderança não são processos alternativos e sim, simultâneos e complementares.<br>III - Os melhores resultados no tocante à liderança ocorrem quando ela é desenvolvida, não sendo impositiva. O exercício da chefia, é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.<br>IV - A liderança deve be entendida como um processo dinâmico e progressivo de aprendizado.<br>V - O contínuo desenvolvimento das qualidades dos militares da MB como líderes deverá be objeto de atenta e permanente atenção, a ser trabalhada, conjuntamente, pela instituição e, prioritariamente, por cada militar.<br>VI - O exercício da liderança, é entendido pelo conjunto de ações e decisões tomadas pelo mais antigo, com autoridade para tal, na sua esfera de competência, a fim de conduzir de forma integrada o setor que lhe é confiado.",
+                                options: [
+                                    "(A) As afirmativas I, II e IV estão corretas",
+                                    "(B) As afirmativas III, IV, V e VI estão corretas",
+                                    "(C) As afirmativas II, III, IV e V estão corretas",
+                                    "(D) As afirmativas V e VI estão corretas",
+                                    "(E) As afirmativas I, II, III, IV, V e VI estão corretas"
+                                ],
+                                correctAnswer: "C",
+                                solution: "A alternativa correta é: <span class='correct'>(C)</span><br><strong>Explicação:</strong> Vamos analisar cada afirmativa com base no EMA-137:<br>- I - Falso. O EMA-137 afirma that o papel de “condutor de homens” está relacionado ao atributo de <strong>líder</strong>, não ao atributo de chefe (Capítulo 1, 1.2).<br>- II - Verdadeiro. O texto do EMA-137 especifica that “chefia e liderança não são processos alternativos e sim, simultâneos e complementares” (Capítulo 1, 1.2).<br>- III - Verdadeiro. A primeira parte da afirmativa é consistente com a ideia de that a liderança é um processo dinâmico e progressivo de aprendizado (Capítulo 1, 1.2), que se desenvolve ao longo do tempo, não sendo impositiva. A segunda parte é uma citação direta do EMA-137 sobre o exercício da chefia (Capítulo 1, 1.2).<br>- IV - Verdadeiro. O EMA-137 afirma that “a liderança deve ser entendida como um processo dinâmico e progressivo de aprendizado” (Capítulo 1, 1.2). Nota: Há um erro de digitação no enunciado (“be” em vez de “ser”), mas a afirmativa está correta no contexto.<br>- V - Verdadeiro. O EMA-137 menciona that “o contínuo desenvolvimento das qualidades dos militares da MB como líderes deverá ser objeto de atenta e permanente atenção, a ser trabalhada, conjuntamente, pela instituição e, prioritariamente, por cada militar” (Capítulo 1, 1.2). Há outro erro de digitação (“be” em vez de “ser”), mas a afirmativa está correta.<br>- VI - Falso. Essa descrição se refere ao <strong>exercício da chefia</strong>, não da liderança (Capítulo 1, 1.2). Liderança é definida como um processo de influenciar pessoas voluntariamente (Capítulo 1, 1.3).<br>Portanto, as afirmativas II, III, IV e V estão corretas."
+                            }
+                        ]
+                    },
+                    "Aspectos Fundamentais da Liderança": {
+                        "Média": [
+                            {
+                                question: "QUESTÃO 54<br>De acordo com os aspectos sociológicos descritos no EMA-137, qual é um efeito positivo do conflito em um grupo?",
+                                options: [
+                                    "(A) Aumenta a desagregação e o ressentimento entre os membros.",
+                                    "(B) Obriga o grupo a se autocriticar e rever posições, revitalizando valores.",
+                                    "(C) Elimina a necessidade de cooperação dentro do grupo.",
+                                    "(D) Reduz a produtividade ao focar em rivalidades internas.",
+                                    "(E) Impede o líder de exercer influência sobre os subordinados."
+                                ],
+                                correctAnswer: "B",
+                                solution: "A alternativa correta é: <span class='correct'>(B)</span><br><strong>Explicação:</strong> O EMA-137 destaca that “doses regulares de conflito de posições podem ter efeito integrador dentro do grupo”, forçando a revisão de posições e revitalização de valores (Capítulo 1, 1.3.3)."
+                            }
+                        ]
+                    },
+                    "Estilos de Liderança": {
+                        "Média": [
+                            {
+                                question: "QUESTÃO 53<br>Conforme o EMA-137, qual é uma vantagem do estilo de liderança participativa?",
+                                options: [
+                                    "(A) Permite ao líder tomar decisões rápidas sem consultar os subordinados.",
+                                    "(B) Garante a obediência rígida dos subordinados por meio de disciplina formal.",
+                                    "(C) Promove a satisfação pessoal e o sentimento de contribuição dos subordinados.",
+                                    "(D) Elimina a necessidade de engajamento técnico-profissional do líder.",
+                                    "(E) Reduz a autoridade do líder para evitar conflitos no grupo."
+                                ],
+                                correctAnswer: "C",
+                                solution: "A alternativa correta é: <span class='correct'>(C)</span><br><strong>Explicação:</strong> O EMA-137 menciona that, na liderança participativa, “em se obtendo sucesso, a satisfação pessoal e o sentimento de contribuição por parte dos subordinados são fatores that permitem uma realimentação positiva do processo” (Capítulo 1, 1.4.2)."
+                            }
+                        ],
+                        "Difícil": [
+                            {
+                                question: "QUESTÃO 55<br>Com base nos estilos de liderança descritos no EMA-137, qual é a principal diferença entre a liderança transformacional e a liderança transacional?",
+                                options: [
+                                    "(A) A liderança transformacional foca na obediência formal, enquanto a transacional foca na criatividade dos subordinados.",
+                                    "(B) A liderança transformacional eleva a motivação e moral dos subordinados, enquanto a transacional oferece recompensas econômicas ou psicológicas em troca de esforço.",
+                                    "(C) A liderança transformacional é centralizadora, enquanto a transacional é participativa.",
+                                    "(D) A liderança transformacional é orientada para tarefas, enquanto a transacional é orientada para relacionamentos.",
+                                    "(E) A liderança transformacional evita mudanças, enquanto a transacional estimula a inovação no grupo."
+                                ],
+                                correctAnswer: "B",
+                                solution: "A alternativa correta é: <span class='correct'>(B)</span><br><strong>Explicação:</strong> O EMA-137 descreve a liderança transformacional como um estilo that eleva “líderes e seguidores a níveis mais altos de motivação e moral” (Capítulo 1, 1.4.4), enquanto a liderança transacional “oferece recompensas de natureza econômica ou psicológica, em troca de esforço” (Capítulo 1, 1.4.5)."
+                            }
+                        ]
                     }
                 }
-            });
-        });
+            }
+        };
 
-        // Inicializa o progresso ao carregar a página
-        updateProgress();
+        let currentQuestionData = null; // Variável para armazenar a questão atual
+        let currentQuestionIndex = 0; // Índice da questão atual
+        let currentQuestionList = null; // Lista de questões do nível de dificuldade atual
+
+        function updateSubtopics() {
+            const topicSelect = document.getElementById('topicSelect');
+            const subtopicSelect = document.getElementById('subtopicSelect');
+            const subsubtopicSelect = document.getElementById('subsubtopicSelect');
+            const selectedTopic = topicSelect.value;
+
+            // Limpar os dropdowns de subtemas e sub-subtemas
+            subtopicSelect.innerHTML = '<option>Subtópico</option>';
+            subsubtopicSelect.innerHTML = '<option>Sub-subtema</option>';
+
+            // Se um tópico válido for selecionado, preencher com os subtemas correspondentes
+            if (selectedTopic !== "Tópico" && subtopicsByTopic[selectedTopic]) {
+                const subtopics = subtopicsByTopic[selectedTopic];
+                subtopics.forEach(subtopic => {
+                    const option = document.createElement('option');
+                    option.textContent = subtopic;
+                    subtopicSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateSubsubtopics() {
+            const subtopicSelect = document.getElementById('subtopicSelect');
+            const subsubtopicSelect = document.getElementById('subsubtopicSelect');
+            const selectedSubtopic = subtopicSelect.value;
+
+            // Limpar o dropdown de sub-subtemas
+            subsubtopicSelect.innerHTML = '<option>Sub-subtema</option>';
+
+            // Se um subtema válido for selecionado, preencher com os sub-subtemas correspondentes
+            if (selectedSubtopic !== "Subtópico" && subsubtopicsBySubtopic[selectedSubtopic]) {
+                const subsubtopics = subsubtopicsBySubtopic[selectedSubtopic];
+                subsubtopics.forEach(subsubtopic => {
+                    const option = document.createElement('option');
+                    option.textContent = subsubtopic;
+                    subsubtopicSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateQuestion() {
+            const topicSelect = document.getElementById('topicSelect');
+            const subtopicSelect = document.getElementById('subtopicSelect');
+            const subsubtopicSelect = document.getElementById('subsubtopicSelect');
+            const difficultySelect = document.getElementById('difficultySelect');
+            const questionDiv = document.getElementById('question');
+            const optionsDiv = document.getElementById('options');
+            const solutionDiv = document.getElementById('solution');
+            const prevButton = document.querySelector('.nav-button[onclick="previousQuestion()"]');
+            const nextButton = document.querySelector('.nav-button[onclick="nextQuestion()"]');
+
+            const selectedTopic = topicSelect.value;
+            const selectedSubtopic = subtopicSelect.value;
+            const selectedSubsubtopic = subsubtopicSelect.value;
+            const selectedDifficulty = difficultySelect.value;
+
+            // Limpar a questão, opções e solução
+            questionDiv.innerHTML = '<p>Selecione um tópico, subtema, sub-subtema e dificuldade para exibir uma questão.</p>';
+            optionsDiv.innerHTML = '';
+            solutionDiv.innerHTML = '';
+            solutionDiv.style.display = 'none'; // Ocultar a solução
+            currentQuestionData = null;
+            currentQuestionIndex = 0;
+            currentQuestionList = null;
+            prevButton.disabled = true;
+            nextButton.disabled = true;
+
+            // Verificar se há uma questão correspondente à seleção
+            if (
+                selectedTopic !== "Tópico" &&
+                selectedSubtopic !== "Subtópico" &&
+                selectedSubsubtopic !== "Sub-subtema" &&
+                selectedDifficulty !== "Dificuldade" &&
+                questions[selectedTopic] &&
+                questions[selectedTopic][selectedSubtopic] &&
+                questions[selectedTopic][selectedSubtopic][selectedSubsubtopic] &&
+                questions[selectedTopic][selectedSubtopic][selectedSubsubtopic][selectedDifficulty]
+            ) {
+                currentQuestionList = questions[selectedTopic][selectedSubtopic][selectedSubsubtopic][selectedDifficulty];
+                displayQuestion(currentQuestionIndex);
+                // Habilitar ou desabilitar botões de navegação
+                prevButton.disabled = currentQuestionList.length <= 1;
+                nextButton.disabled = currentQuestionList.length <= 1;
+            } else {
+                questionDiv.innerHTML = '<p>Nenhuma questão disponível para este tópico/subtema/sub-subtema. Estamos na fase de teste, apenas questões de "Elementos conceituais de liderança" estão disponíveis.</p>';
+            }
+        }
+
+        function displayQuestion(index) {
+            const questionDiv = document.getElementById('question');
+            const optionsDiv = document.getElementById('options');
+            const solutionDiv = document.getElementById('solution');
+
+            currentQuestionData = currentQuestionList[index];
+
+            // Exibir a questão
+            questionDiv.innerHTML = `<p>${currentQuestionData.question}</p>`;
+
+            // Exibir as opções com botões de rádio
+            optionsDiv.innerHTML = '';
+            currentQuestionData.options.forEach((option, idx) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                const radioInput = document.createElement('input');
+                radioInput.type = 'radio';
+                radioInput.name = 'answer';
+                radioInput.value = String.fromCharCode(65 + idx); // A, B, C, D, E
+                const label = document.createElement('label');
+                label.textContent = option;
+                optionDiv.appendChild(radioInput);
+                optionDiv.appendChild(label);
+                optionsDiv.appendChild(optionDiv);
+            });
+
+            // Preparar a solução (mas não exibi-la ainda)
+            solutionDiv.innerHTML = currentQuestionData.solution;
+            solutionDiv.style.display = 'none'; // Ocultar a solução
+        }
+
+        function previousQuestion() {
+            if (!currentQuestionList) return;
+            currentQuestionIndex = (currentQuestionIndex - 1 + currentQuestionList.length) % currentQuestionList.length;
+            displayQuestion(currentQuestionIndex);
+        }
+
+        function nextQuestion() {
+            if (!currentQuestionList) return;
+            currentQuestionIndex = (currentQuestionIndex + 1) % currentQuestionList.length;
+            displayQuestion(currentQuestionIndex);
+        }
+
+        function toggleSolution() {
+            const solutionDiv = document.getElementById('solution');
+            const button = document.querySelector('.solution-button');
+            const radioButtons = document.getElementsByName('answer');
+
+            if (solutionDiv.style.display === 'none' || solutionDiv.style.display === '') {
+                // Verificar a resposta selecionada
+                let selectedAnswer = null;
+                for (const radio of radioButtons) {
+                    if (radio.checked) {
+                        selectedAnswer = radio.value;
+                        break;
+                    }
+                }
+
+                // Adicionar feedback
+                let feedback = '';
+                if (selectedAnswer) {
+                    if (selectedAnswer === currentQuestionData.correctAnswer) {
+                        feedback = '<div class="feedback correct-feedback">Resposta correta!</div>';
+                    } else {
+                        feedback = '<div class="feedback incorrect-feedback">Resposta incorreta.</div>';
+                    }
+                } else {
+                    feedback = '<div class="feedback incorrect-feedback">Nenhuma resposta selecionada.</div>';
+                }
+
+                // Adicionar o feedback antes da solução
+                solutionDiv.innerHTML = feedback + currentQuestionData.solution;
+
+                // Exibir a solução
+                solutionDiv.style.display = 'block';
+                button.textContent = 'Esconder solução';
+            } else {
+                solutionDiv.style.display = 'none';
+                button.textContent = 'Mostrar solução';
+            }
+        }
     </script>
 </body>
 </html>

@@ -67,8 +67,9 @@ body {
     font-weight: 600;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     color: #000;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.1rem;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 /* Estilo dos botões */

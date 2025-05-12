@@ -1,0 +1,44 @@
+.mural {
+    width: 200px;
+    height: 400px;
+    background-color: #e92d2d;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+}
+.sidebar {
+    width: 20px;
+    height: 100%;
+    background-color: #4CAF50;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.content {
+    flex: 1;
+    padding: 10px;
+    margin-left: 20px;
+    overflow-y: auto;
+}
+.content h2 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: white; /* Alterado para branco */
+}
+.content .ul-mural {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.content .li-mural {
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: white; /* Alterado para branco */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+.content .li-mural:last-child {
+    border-bottom: none;
+}

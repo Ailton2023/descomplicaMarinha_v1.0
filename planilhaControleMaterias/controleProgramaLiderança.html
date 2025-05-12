@@ -91,6 +91,28 @@
 
         .chapter-list {
             list-style: none;
+            max-height: 300px; /* Altura máxima para rolagem */
+            overflow-y: auto; /* Barra de rolagem vertical */
+            padding-right: 10px; /* Espaço para a barra de rolagem */
+        }
+
+        /* Estilização da barra de rolagem (WebKit) */
+        .chapter-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chapter-list::-webkit-scrollbar-track {
+            background: var(--cor1);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb {
+            background: var(--cor2);
+            border-radius: 4px;
+        }
+
+        .chapter-list::-webkit-scrollbar-thumb:hover {
+            background: var(--cor7);
         }
 
         .chapter-list li {
@@ -182,6 +204,25 @@
 
             h2 {
                 font-size: 1.5rem;
+            }
+
+            .chapter-list {
+                max-height: 250px; /* Altura reduzida para telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-list {
+                max-height: 200px; /* Altura ainda menor para telas pequenas */
+            }
+
+            .chapter-list label {
+                font-size: 0.9rem;
+            }
+
+            .chapter-list input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>

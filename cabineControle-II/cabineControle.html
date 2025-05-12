@@ -6,462 +6,961 @@
     <meta name="description" content="Plataforma EaD Descomplica Marinha, especializada em Conhecimento Militar Naval (CMN).">
     <title>Descomplica Marinha</title>
     <link rel="icon" href="imagens/icons8-livro-50.png" type="image/x-icon">
+ 
     <style>
-        /* Consolidated Google Fonts import */
         @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-      /* CSS Variables */
-:root {
-    --cor0: #F4F6FE;
-    --cor1: #E8F1F2;
-    --cor2: #1B98E0;
-    --cor3: #247BA0;
-    --cor4: #006494;
-    --cor5: #13293D;
-    --cor6: #0068B5;
-    --cor7: #0054A6;
-    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
-    --fonte-destaque: 'Tomorrow', sans-serif;
-    --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        :root {
+            --cor0: #F4F6FE;
+            --cor1: #E8F1F2;
+            --cor2: #1B98E0;
+            --cor3: #247BA0;
+            --cor4: #006494;
+            --cor5: #13293D;
+            --cor6: #0068B5;
+            --cor7: #0054A6;
+            --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+            --fonte-destaque: 'Tomorrow', sans-serif;
+            --fonte-cabecalho: 'Chakra Petch', sans-serif;
+        }
+
+       /*GALERIA*/
+       /* Estilização do contêiner principal da galeria */
+.gallery-wrapper {
+  width: 50%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  top: -20px;
+  
 }
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* HTML and Body */
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    font-family: var(--fonte-padrao);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Header */
-.header {
-    background-color: var(--cor7);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: clamp(5px, 1vw, 8px) 0;
-    flex-shrink: 0;
-}
-
-.header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 0 0 clamp(10px, 2vw, 15px);
-    padding: 0;
-    gap: clamp(8px, 2vw, 12px);
-}
-
-#logo img {
-    width: clamp(60px, 10vw, 90px);
-    height: auto;
-}
-
-#nome_curso {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.p_cabecalho {
-    font-family: var(--fonte-cabecalho);
-    font-weight: 700;
-    font-size: clamp(12px, 2.5vw, 16px);
-    color: #EF8721;
-    margin: 2px 0;
-}
-
-h1 {
-    font-family: var(--fonte-destaque);
-    font-size: clamp(18px, 3vw, 22px);
-    color: white;
-    font-weight: bold;
-    margin: 2px 0;
-}
-
-/* Main Content */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding-top: clamp(80px, 15vw, 100px);
-}
-
-.painel {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-}
-
-.conteudo {
-    width: 18%;
-    min-width: clamp(150px, 15vw, 200px);
-    background-color: #f9f9f9;
-    border-right: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    flex: 1;
-    padding: clamp(10px, 2vw, 15px);
-}
-
-.content {
-    display: none;
-}
-
-.content.active {
-    display: block !important; /* Força a exibição do conteúdo ativo */
-}
-
-.container-cursos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    padding: 10px;
-}
-
-.cursos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    width: 100%;
-    max-width: clamp(180px, 25vw, 200px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cursos:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.cursos img {
-    width: clamp(100px, 20vw, 180px);
-    height: auto;
-    margin-bottom: 8px;
-}
-
-.nome_curso {
-    font-size: clamp(12px, 2vw, 16px);
-    color: #333;
-    margin-bottom: 8px;
-}
-
-button#corBotaoEmProducao, .botao {
-    padding: 8px;
-    background-color: var(--cor4);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: clamp(100px, 15vw, 140px);
-    transition: background-color 0.3s;
-    font-size: clamp(10px, 1.8vw, 14px);
-}
-
-button#corBotaoEmProducao:hover, .botao:hover {
-    background-color: #002366;
-}
-
-.h1Curso {
-    font-family: var(--fonte-destaque);
-    font-size: clamp(14px, 2.5vw, 20px);
-    color: #333;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.dashboard img {
-    width: clamp(200px, 45vw, 450px);
-    display: block;
+/*GALERIA*/
+/* Estilização do contêiner principal da galeria */
+.gallery-wrapper {
+    width: 50%;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
 }
 
-/* Sidebar (Central de Conteúdo) */
-.container-central-conteudo {
-    border: 2px solid rgba(0, 0, 0, 0.193);
-    background-color: #2e58a217;
-    padding: clamp(10px, 2vw, 15px);
-    flex-grow: 1;
-    overflow-y: auto;
-    font-family: var(--fonte-destaque);
+/* Contêiner da galeria */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporção para manter consistência visual */
+    overflow: hidden;
+    border-radius: 15px;
 }
 
-.container-dados {
+/* Estilização da galeria de imagens */
+.gallery {
     display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilização das imagens */
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex: 1 0 100%;
+    border-radius: 15px;
+}
+
+/* Botões de navegação */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contêiner dos controles (play, dots, pause) */
+.dots-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 8px;
+    padding: 10px 0;
+    min-height: 50px;
+}
+
+/* Estilização dos dots */
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.container-dados:hover {
-    background-color: #e6e6e6;
+.dot.active {
+    background-color: #003087; /* Azul-marinho */
 }
 
-.icon-wrapper img {
-    width: clamp(25px, 5vw, 30px);
-    height: clamp(25px, 5vw, 30px);
-    margin-right: 10px;
-}
-
-.p_texto {
-    font-size: clamp(10px, 1.8vw, 14px);
-    color: #333;
-    margin: 0;
-}
-
-.p_texto:hover {
-    background-color: #2e58a23c;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Footer */
-footer {
-    background-color: var(--cor7);
-    color: white;
-    width: 100%;
-    padding: clamp(0.8rem, 1.5vw, 1.2rem) clamp(0.8rem, 1.5vw, 1.5rem);
-    box-sizing: border-box;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.container-footer {
-    display: flex;
-    gap: clamp(15px, 4vw, 50px);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-footer a {
-    text-decoration: none;
-    color: #a8d4e6;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
+/* Botões de play e pause */
+.play-btn, .pause-btn {
+    background-color: #003087;
     color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
 }
 
-.texto-01 {
-    font-size: clamp(20px, 4vw, 40px);
-    width: 100%;
-    max-width: 650px;
-    font-weight: bold;
-    box-sizing: border-box;
+.play-btn {
+    margin-right: 5px;
 }
 
-.texto-02 {
-    font-size: clamp(14px, 2.5vw, 24px);
-    margin-top: clamp(15px, 3vw, 40px);
+.play-btn:hover, .pause-btn:hover {
+    background-color: #005c99;
 }
 
-.texto-03 {
-    font-size: clamp(12px, 2vw, 18px);
-}
-
-.texto-04 {
-    background-color: #52DA89;
-    font-size: clamp(12px, 2vw, 18px);
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
-    display: inline-block;
-}
-
-/* Ajustes para telas menores */
+/* Responsividade */
 @media screen and (max-width: 768px) {
-    .painel {
-        flex-direction: column;
+    .gallery-wrapper {
+        width: 70%;
+        padding: 15px 0;
     }
 
-    .conteudo {
-        width: 100%;
-        min-width: 100%;
-        height: auto;
+    .gallery-container {
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
     }
 
-    .main-content {
-        display: none;
-        width: 100%;
-        padding: clamp(8px, 1.5vw, 12px);
+    .gallery img {
+        border-radius: 12px;
     }
 
-    .painel.content-active .main-content {
-        display: block;
+    .nav-btn {
+        padding: 8px;
+        font-size: 1.2rem;
     }
 
-    .container-central-conteudo {
-        padding: clamp(8px, 1.5vw, 12px);
-        min-height: 100vh;
+    .dot {
+        width: 8px;
+        height: 8px;
     }
 
-    .h1Curso {
-        font-size: clamp(12px, 2.3vw, 18px);
+    .play-btn, .pause-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
     }
 
-    .cursos {
-        max-width: clamp(160px, 22vw, 180px);
-    }
-
-    .cursos img {
-        width: clamp(80px, 18vw, 160px);
-    }
-
-    button#corBotaoEmProducao, .botao {
-        width: clamp(80px, 12vw, 120px);
-        font-size: clamp(9px, 1.6vw, 12px);
-    }
-
-    .icon-wrapper img {
-        width: clamp(20px, 4vw, 25px);
-        height: clamp(20px, 4vw, 25px);
-    }
-
-    .p_texto {
-        font-size: clamp(9px, 1.6vw, 12px);
+    .dots-container {
+        min-height: 40px;
+        padding: 8px 0;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .header {
-        padding: clamp(3px, 0.8vw, 5px) 0;
+    .gallery-wrapper {
+        width: 90%;
+        padding: 10px 0;
+        margin-top: 10px;
     }
 
-    .header-container {
-        padding: 0 clamp(6px, 1.2vw, 10px);
+    .gallery-container {
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
     }
 
-    #logo img {
-        width: clamp(40px, 10vw, 60px);
+    .gallery img {
+        border-radius: 10px;
     }
 
-    .p_cabecalho {
-        font-size: clamp(9px, 1.8vw, 12px);
+    .nav-btn {
+        padding: 6px;
+        font-size: 1rem;
     }
 
-    h1 {
-        font-size: clamp(14px, 2.5vw, 18px);
+    .dot {
+        width: 6px;
+        height: 6px;
+        margin: 0 3px;
     }
 
-    main {
-        padding-top: clamp(60px, 12vw, 80px);
-    }
-
-    .conteudo {
-        min-width: clamp(100px, 15vw, 150px);
-    }
-
-    .main-content {
-        padding: clamp(6px, 1.2vw, 10px);
-    }
-
-    .h1Curso {
-        font-size: clamp(10px, 2vw, 16px);
-    }
-
-    .cursos {
-        max-width: clamp(140px, 20vw, 160 symposium;
-    }
-
-    .cursos img {
-        width: clamp(70px, 16vw, 140px);
-    }
-
-    button#corBotaoEmProducao, .botao {
-        width: clamp(70px, 10vw, 100px);
-        font-size: clamp(8px, 1.5vw, 11px);
-    }
-
-    .dashboard img {
-        width: clamp(150px, 40vw, 300px);
-    }
-
-    .container-central-conteudo {
-        padding: clamp(6px, 1.2vw, 10px);
-    }
-
-    .icon-wrapper img {
-        width: clamp(18px, 3.5vw, 22px);
-        height: clamp(18px, 3.5vw, 22px);
-    }
-
-    .p_texto {
-        font-size: clamp(8px, 1.5vw, 11px);
-    }
-
-    footer {
-        padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.5rem, 1vw, 1rem);
+    .play-btn, .pause-btn {
+        padding: 5px 8px;
         font-size: 0.8rem;
     }
 
-    footer a {
-        font-size: 0.75rem;
-    }
-
-    .texto-01 {
-        font-size: clamp(16px, 3.5vw, 28px);
-        max-width: 300px;
-    }
-
-    .texto-02 {
-        font-size: clamp(10px, 2.3vw, 18px);
-        margin-top: clamp(8px, 2vw, 20px);
-    }
-
-    .texto-03 {
-        font-size: clamp(9px, 1.8vw, 14px);
-    }
-
-    .texto-04 {
-        font-size: clamp(9px, 1.8vw, 14px);
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    .container-footer {
-        gap: 8px;
+    .dots-container {
+        min-height: 30px;
+        padding: 6px 0;
+        gap: 5px;
+        flex-wrap: wrap;
     }
 }
+
+@media screen and (max-width: 320px) {
+    .gallery-wrapper {
+        width: 95%;
+        padding: 8px 0;
+        margin-top: 5px;
+    }
+
+    .gallery-container {
+        aspect-ratio: 4 / 3; /* Proporção ajustada para telas muito pequenas */
+        border-radius: 8px;
+    }
+
+    .gallery img {
+        border-radius: 8px;
+    }
+
+    .nav-btn {
+        padding: 5px;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 5px;
+        height: 5px;
+        margin: 0 2px;
+    }
+
+    .play-btn, .pause-btn {
+        padding: 4px 6px;
+        font-size: 0.7rem;
+    }
+
+    .dots-container {
+        min-height: 25px;
+        padding: 5px 0;
+        gap: 3px;
+    }
+}
+/*GALERIA*/
+        /* Mural */
+        .mural {
+            width: 280px;
+            height: 400px;
+            background-color: var(--cor1);
+            border: 1px solid var(--cor3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: relative;
+            z-index: 10;
+            border-radius: 8px;
+        }
+        .mural .sidebar {
+            width: 20px;
+            height: 100%;
+            background-color: var(--cor4);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .mural .mural-content {
+            flex: 1;
+            padding: 15px;
+            margin-left: 20px;
+            background-color: var(--cor0);
+            overflow-y: auto;
+        }
+        .mural .mural-content h2 {
+            font-family: var(--fonte-cabecalho);
+            font-size: 18px;
+            margin: 0 0 15px 0;
+            text-align: center;
+            color: white;
+            background-color: var(--cor7);
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .mural .mural-content .ul-mural {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mural .mural-content .li-mural {
+            font-family: var(--fonte-destaque);
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: var(--cor5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0px;
+            line-height: 1.4;
+            border: 1px solid #006494;
+            border-radius: 5px;
+            background-color: #EBF9FD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            padding: 5px;
+        }
+        .mural .mural-content .li-mural:last-child {
+            border-bottom: none;
+        }
+
+        /* Retângulo de contagem */
+        .rectangle {
+            margin-top: 50px;
+            width: 210px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--cor4), var(--cor6));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: var(--fonte-cabecalho);
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .rectangle .countdown-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .rectangle .countdown-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .rectangle:hover{
+            border: 3px solid black;
+        }
+        
+        .container-mural {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: var(--fonte-padrao);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: var(--cor7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: clamp(5px, 1vw, 8px) 0;
+            flex-shrink: 0;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 0 0 clamp(10px, 2vw, 15px);
+            padding: 0;
+            gap: clamp(8px, 2vw, 12px);
+        }
+
+        #logo img {
+            width: clamp(60px, 10vw, 90px);
+            height: auto;
+        }
+
+        #nome_curso {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .p_cabecalho {
+            font-family: var(--fonte-cabecalho);
+            font-weight: 700;
+            font-size: clamp(12px, 2.5vw, 16px);
+            color: #EF8721;
+            margin: 2px 0;
+        }
+
+        h1 {
+            font-family: var(--fonte-destaque);
+            font-size: clamp(18px, 3vw, 22px);
+            color: white;
+            font-weight: bold;
+            margin: 2px 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-top: clamp(80px, 15vw, 100px);
+        }
+
+        .painel {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        .conteudo {
+            width: 18%;
+            min-width: clamp(120px, 12vw, 180px);
+            background-color: #f9f9f9;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: clamp(10px, 2vw, 15px);
+            overflow-y: auto;
+            max-height: calc(100vh - clamp(80px, 15vw, 100px) - 60px);
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        /* Layout da página inicial */
+        #pagina_Inicial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .container-cursos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .cursos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            width: 100%;
+            max-width: clamp(180px, 25vw, 200px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cursos:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .cursos img {
+            width: clamp(100px, 20vw, 180px);
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        .nome_curso {
+            font-size: clamp(12px, 2vw, 16px);
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        button#corBotaoEmProducao, .botao {
+            padding: 8px;
+            background-color: var(--cor4);
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: clamp(100px, 15vw, 140px);
+            transition: background-color 0.3s;
+            font-size: clamp(10px, 1.8vw, 14px);
+        }
+
+        button#corBotaoEmProducao:hover, .botao:hover {
+            background-color: #002366;
+        }
+
+        .h1Curso {
+            font-family: var(--fonte-destaque);
+            font-size: clamp(14px, 2.5vw, 20px);
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .dashboard img {
+            width: clamp(200px, 45vw, 450px);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .container-central-conteudo {
+            border: 2px solid rgba(0, 0, 0, 0.193);
+            background-color: #2e58a217;
+            padding: clamp(10px, 2vw, 15px);
+            flex-grow: 1;
+            overflow-y: auto;
+            font-family: var(--fonte-destaque);
+        }
+
+        .container-dados {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .container-dados:hover {
+            background-color: #e6e6e6;
+        }
+
+        .icon-wrapper img {
+            width: clamp(25px, 5vw, 30px);
+            height: clamp(25px, 5vw, 30px);
+            margin-right: 10px;
+        }
+
+        .p_texto {
+            font-size: clamp(10px, 1.8vw, 14px);
+            color: #333;
+            margin: 0;
+        }
+
+        .p_texto:hover {
+            background-color: #2e58a23c;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer {
+            background-color: var(--cor7);
+            color: white;
+            width: 100%;
+            padding: clamp(0.8rem, 1.5vw, 1.2rem) clamp(0.8rem, 1.5vw, 1.5rem);
+            box-sizing: border-box;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .container-footer {
+            display: flex;
+            gap: clamp(15px, 4vw, 50px);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #a8d4e6;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        .texto-01 {
+            font-size: clamp(20px, 4vw, 40px);
+            width: 100%;
+            max-width: 650px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .texto-02 {
+            font-size: clamp(14px, 2.5vw, 24px);
+            margin-top: clamp(15px, 3vw, 40px);
+        }
+
+        .texto-03 {
+            font-size: clamp(12px, 2vw, 18px);
+        }
+
+        .texto-04 {
+            background-color: #52DA89;
+            font-size: clamp(12px, 2vw, 18px);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        iframe {
+            border: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: clamp(3px, 0.8vw, 6px) 0; /* Reduz o padding do header */
+            }
+
+            .header-container {
+                flex-direction: row; /* Mantém o layout em linha, mas ajusta o espaço */
+                gap: clamp(5px, 1vw, 8px);
+                margin: 0 clamp(5px, 1vw, 10px); /* Reduz a margem lateral */
+                align-items: center;
+            }
+
+            #logo img {
+                width: clamp(40px, 8vw, 60px); /* Reduz o tamanho do logo */
+            }
+
+            #nome_curso {
+                flex-direction: column;
+            }
+
+            .p_cabecalho {
+                font-size: clamp(10px, 2vw, 14px); /* Reduz o tamanho da fonte */
+            }
+
+            h1 {
+                font-size: clamp(14px, 2.5vw, 18px); /* Reduz o tamanho do título */
+            }
+
+            main {
+                padding-top: clamp(60px, 12vw, 80px); /* Reduz o padding-top para caber melhor */
+            }
+
+            .painel {
+                flex-direction: column; /* Empilha a barra lateral e o conteúdo principal */
+            }
+
+            .conteudo {
+                width: 100%;
+                min-width: 100%;
+                height: auto;
+            }
+
+            .container-central-conteudo {
+                padding: clamp(6px, 1vw, 10px); /* Reduz o padding */
+                min-height: auto; /* Remove a restrição de altura mínima */
+            }
+
+            .container-central-conteudo h2 {
+                font-size: clamp(14px, 2.5vw, 18px); /* Reduz o tamanho do título */
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .container-dados {
+                gap: 8px; /* Reduz o espaço entre ícone e texto */
+                padding: 6px; /* Reduz o padding */
+            }
+
+            .icon-wrapper img {
+                width: clamp(18px, 4vw, 24px); /* Reduz o tamanho dos ícones */
+                height: clamp(18px, 4vw, 24px);
+            }
+
+            .p_texto {
+                font-size: clamp(12px, 1.5vw, 14px); /* Ajusta o tamanho da fonte */
+            }
+
+            .main-content {
+                display: none;
+                width: 100%;
+                padding: clamp(6px, 1vw, 10px); /* Reduz o padding */
+                overflow-y: auto;
+                max-height: calc(100vh - clamp(60px, 12vw, 80px) - 60px); /* Ajusta a altura máxima */
+            }
+
+            .painel.content-active .main-content {
+                display: block;
+            }
+
+            #pagina_Inicial {
+                padding: 10px; /* Reduz o padding */
+                gap: 10px; /* Reduz o espaço entre elementos */
+            }
+
+            .container-mural {
+                flex-direction: column; /* Empilha o rectangle e o mural */
+                align-items: center;
+                gap: 10px; /* Reduz o espaço entre os elementos */
+            }
+
+            .rectangle {
+                width: 100%; /* Faz o retângulo ocupar a largura total */
+                max-width: 280px; /* Limita a largura máxima */
+                height: 150px; /* Reduz a altura */
+                font-size: 20px; /* Reduz o tamanho da fonte */
+                padding: 10px; /* Reduz o padding */
+            }
+
+            .rectangle .countdown-title {
+                font-size: 18px; /* Reduz o tamanho da fonte */
+                margin-bottom: 8px;
+            }
+
+            .rectangle .countdown-value {
+                font-size: 22px; /* Reduz o tamanho da fonte */
+            }
+
+            .mural {
+                width: 100%; /* Faz o mural ocupar a largura total */
+                max-width: 280px; /* Limita a largura máxima */
+                height: 350px; /* Reduz a altura */
+            }
+
+            .mural .mural-content h2 {
+                font-size: 16px; /* Reduz o tamanho do título */
+                padding: 6px;
+            }
+
+            .mural .mural-content .li-mural {
+                font-size: 12px; /* Reduz o tamanho da fonte */
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+            }
+
+            .h1Curso {
+                font-size: clamp(12px, 2vw, 16px); /* Reduz o tamanho do título */
+                margin-bottom: 10px;
+            }
+
+            .cursos {
+                max-width: clamp(140px, 20vw, 160px); /* Reduz a largura máxima */
+                padding: 0.8rem; /* Reduz o padding */
+            }
+
+            .cursos img {
+                width: clamp(80px, 18vw, 140px); /* Reduz o tamanho da imagem */
+            }
+
+            .nome_curso {
+                font-size: clamp(10px, 1.8vw, 14px); /* Reduz o tamanho da fonte */
+                margin-bottom: 6px;
+            }
+
+            button#corBotaoEmProducao, .botao {
+                width: clamp(80px, 12vw, 100px); /* Reduz a largura do botão */
+                font-size: clamp(8px, 1.5vw, 12px); /* Reduz o tamanho da fonte */
+                padding: 6px; /* Reduz o padding */
+            }
+
+            iframe {
+                width: 100%; /* Garante que o iframe ocupe a largura total */
+                height: 600px; /* Reduz a altura do iframe para caber melhor */
+            }
+
+            footer {
+                padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.5rem, 1vw, 1rem); /* Reduz o padding */
+            }
+
+            .container-footer {
+                gap: 6px; /* Reduz o espaço entre os elementos */
+                flex-direction: column; /* Empilha os elementos do footer */
+                align-items: center;
+            }
+
+            .texto-01 {
+                font-size: clamp(14px, 3vw, 24px); /* Reduz o tamanho da fonte */
+                max-width: 280px; /* Reduz a largura máxima */
+            }
+
+            .texto-02 {
+                font-size: clamp(10px, 2vw, 16px); /* Reduz o tamanho da fonte */
+                margin-top: clamp(6px, 1.5vw, 12px);
+            }
+
+            .texto-03, .texto-04 {
+                font-size: clamp(8px, 1.5vw, 12px); /* Reduz o tamanho da fonte */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header-container {
+                flex-direction: row; /* Mantém em linha, mas ajusta o espaço */
+                gap: clamp(4px, 0.8vw, 6px);
+                margin: 0 clamp(4px, 0.8vw, 8px);
+            }
+
+            #logo img {
+                width: clamp(35px, 7vw, 50px); /* Reduz ainda mais o tamanho do logo */
+            }
+
+            .p_cabecalho {
+                font-size: clamp(8px, 1.8vw, 12px); /* Reduz mais o tamanho da fonte */
+            }
+
+            h1 {
+                font-size: clamp(12px, 2.2vw, 16px); /* Reduz mais o tamanho do título */
+            }
+
+            main {
+                padding-top: clamp(50px, 10vw, 70px); /* Reduz ainda mais o padding-top */
+            }
+
+            .container-central-conteudo {
+                padding: clamp(4px, 0.8vw, 8px); /* Reduz mais o padding */
+            }
+
+            .container-central-conteudo h2 {
+                font-size: clamp(12px, 2vw, 16px); /* Reduz mais o tamanho do título */
+                margin-bottom: 8px;
+            }
+
+            .container-dados {
+                gap: 6px; /* Reduz ainda mais o espaço */
+                padding: 4px; /* Reduz ainda mais o padding */
+            }
+
+            .icon-wrapper img {
+                width: clamp(16px, 3.5vw, 20px); /* Reduz mais o tamanho dos ícones */
+                height: clamp(16px, 3.5vw, 20px);
+            }
+
+            .p_texto {
+                font-size: clamp(10px, 1.3vw, 12px); /* Reduz mais o tamanho da fonte */
+            }
+
+            .main-content {
+                padding: clamp(4px, 0.8vw, 8px); /* Reduz mais o padding */
+                max-height: calc(100vh - clamp(50px, 10vw, 70px) - 50px); /* Ajusta a altura máxima */
+            }
+
+            .rectangle {
+                max-width: 260px; /* Reduz mais a largura máxima */
+                height: 120px; /* Reduz mais a altura */
+                font-size: 18px; /* Reduz mais o tamanho da fonte */
+                padding: 8px; /* Reduz mais o padding */
+            }
+
+            .rectangle .countdown-title {
+                font-size: 16px; /* Reduz mais o tamanho da fonte */
+                margin-bottom: 6px;
+            }
+
+            .rectangle .countdown-value {
+                font-size: 20px; /* Reduz mais o tamanho da fonte */
+            }
+
+            .mural {
+                max-width: 260px; /* Reduz mais a largura máxima */
+                height: 300px; /* Reduz mais a altura */
+            }
+
+            .mural .mural-content h2 {
+                font-size: 14px; /* Reduz mais o tamanho do título */
+                padding: 5px;
+            }
+
+            .mural .mural-content .li-mural {
+                font-size: 11px; /* Reduz mais o tamanho da fonte */
+                margin-bottom: 6px;
+                padding-bottom: 6px;
+            }
+
+            .h1Curso {
+                font-size: clamp(10px, 1.8vw, 14px); /* Reduz mais o tamanho do título */
+                margin-bottom: 8px;
+            }
+
+            .cursos {
+                max-width: clamp(120px, 18vw, 140px); /* Reduz mais a largura máxima */
+                padding: 0.6rem; /* Reduz mais o padding */
+            }
+
+            .cursos img {
+                width: clamp(70px, 16vw, 120px); /* Reduz mais o tamanho da imagem */
+            }
+
+            .nome_curso {
+                font-size: clamp(9px, 1.6vw, 12px); /* Reduz mais o tamanho da fonte */
+                margin-bottom: 5px;
+            }
+
+            button#corBotaoEmProducao, .botao {
+                width: clamp(70px, 10vw, 90px); /* Reduz mais a largura do botão */
+                font-size: clamp(7px, 1.3vw, 10px); /* Reduz mais o tamanho da fonte */
+                padding: 5px; /* Reduz mais o padding */
+            }
+
+            iframe {
+                height: 500px; /* Reduz mais a altura do iframe */
+            }
+
+            .texto-01 {
+                font-size: clamp(12px, 2.5vw, 20px); /* Reduz mais o tamanho da fonte */
+                max-width: 240px; /* Reduz mais a largura máxima */
+            }
+
+            .texto-02 {
+                font-size: clamp(9px, 1.8vw, 14px); /* Reduz mais o tamanho da fonte */
+                margin-top: clamp(5px, 1vw, 10px);
+            }
+
+            .texto-03, .texto-04 {
+                font-size: clamp(7px, 1.3vw, 10px); /* Reduz mais o tamanho da fonte */
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-container">
             <div id="logo">
-                <a href="../site.html" target="_blank">
-                    <img src="imagens/ancora_nova-100px.png" alt="Logo Descomplica Marinha">
+                <a href="#" onclick="showContent('pagina_Inicial')" aria-label="Ir para a Página Inicial">
+                    <img src="imagens/ancora_nova-100px.png" alt="Logo do Descomplica Marinha">
                 </a>
             </div>
             <div id="nome_curso">
@@ -474,121 +973,144 @@ footer a:hover {
 
     <main>
         <div class="painel">
-            <!-- Sidebar -->
             <div class="conteudo">
                 <div class="container-central-conteudo">
                     <h2>Central de Conteúdo</h2>
-                    <nav class="sidebar-nav">
+                    <nav class="sidebar-nav" role="navigation" aria-label="Menu de navegação do conteúdo">
                         <ul class="sidebar-list">
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/controleCronograma.png" alt="Cronograma">
+                                    <img src="icons/apostilas.png" alt="Ícone de página inicial">
                                 </div>
-                                <a href="#" onclick="showContent('bonoDia')">
-                                    <p class="p_texto">Bono do dia</p>
+                                <a href="#" onclick="showContent('pagina_Inicial')" aria-label="Acessar Página Inicial" tabindex="0">
+                                    <p class="p_texto">Página Inicial</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/controleCronograma.png" alt="Cronograma">
+                                    <img src="icons/controleCronograma.png" alt="Ícone de cronograma">
                                 </div>
-                                <a href="#" onclick="showContent('bonos')">
+                                <a href="#" onclick="showContent('bonoDia')" aria-label="Acessar Bono do Dia" tabindex="0">
+                                    <p class="p_texto">Bono do Dia</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/controleCronograma.png" alt="Ícone de bono especial">
+                                </div>
+                                <a href="#" onclick="showContent('bonos')" aria-label="Acessar Bono Especial" tabindex="0">
                                     <p class="p_texto">Bono Especial</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/controleCronograma.png" alt="Calendário de Eventos">
+                                    <img src="icons/controleCronograma.png" alt="Ícone de calendário">
                                 </div>
-                                <a href="#" onclick="showContent('calendário')">
-                                    <p class="p_texto">Calendário de eventos</p>
+                                <a href="#" onclick="showContent('calendário')" aria-label="Acessar Calendário de Eventos" tabindex="0">
+                                    <p class="p_texto">Calendário de Eventos</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/controleCronograma.png" alt="Cronograma">
+                                    <img src="icons/controleCronograma.png" alt="Ícone de planilha">
                                 </div>
-                                <a href="#" onclick="showContent('content1')">
-                                    <p class="p_texto">Seu Progresso nas Matérias</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/programaBibliografia.png" alt="Programa e Bibliografia">
-                                </div>
-                                <a href="#" onclick="showContent('programaBibliografia')">
-                                    <p class="p_texto">Acesse seu Programa e Bibliografia</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/programaBibliografia.png" alt="Fichamentos">
-                                </div>
-                                <a href="#" onclick="showContent('content3')">
-                                    <p class="p_texto">Fichamentos</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/programaBibliografia.png" alt="Áudios">
-                                </div>
-                                <a href="#" onclick="showContent('content4')">
-                                    <p class="p_texto">Áudios</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/programaBibliografia.png" alt="Provas por Ano">
-                                </div>
-                                <a href="#" onclick="showContent('content5')">
-                                    <p class="p_texto">Provas CA-AA-AFN por Ano</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Provas por Matéria">
-                                </div>
-                                <a href="#" onclick="showContent('content6')">
-                                    <p class="p_texto">Provas CA-AA-AFN por Matéria</p>
-                                </a>
-                            </li>
-                            <li class="container-dados">
-                                <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Planilha de Estudos">
-                                </div>
-                                <a href="#" onclick="showContent('content7')">
+                                <a href="#" onclick="showContent('planilha')" aria-label="Acessar Planilha de Estudos" tabindex="0">
                                     <p class="p_texto">Planilha de Estudos</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Progresso Automático">
+                                    <img src="icons/controleCronograma.png" alt="Ícone de progresso">
                                 </div>
-                                <a href="#" onclick="showContent('content8')">
+                                <a href="#" onclick="showContent('content1')" aria-label="Acessar Progresso nas Matérias" tabindex="0">
+                                    <p class="p_texto">Seu Progresso nas Matérias</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/programaBibliografia.png" alt="Ícone de bibliografia">
+                                </div>
+                                <a href="#" onclick="showContent('programaBibliografia')" aria-label="Acessar Programa e Bibliografia" tabindex="0">
+                                    <p class="p_texto">Acesse seu Programa e Bibliografia</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/programaBibliografia.png" alt="Ícone de fichamentos">
+                                </div>
+                                <a href="#" onclick="showContent('content3')" aria-label="Acessar Fichamentos" tabindex="0">
+                                    <p class="p_texto">Fichamentos</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/programaBibliografia.png" alt="Ícone de áudios">
+                                </div>
+                                <a href="#" onclick="showContent('content4')" aria-label="Acessar Áudios" tabindex="0">
+                                    <p class="p_texto">Áudios</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/programaBibliografia.png" alt="Ícone de provas por ano">
+                                </div>
+                                <a href="#" onclick="showContent('content5')" aria-label="Acessar Provas por Ano" tabindex="0">
+                                    <p class="p_texto">Provas CA-AA-AFN por Ano</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/audio.png" alt="Ícone de provas por matéria">
+                                </div>
+                                <a href="#" onclick="showContent('content6')" aria-label="Acessar Provas por Matéria" tabindex="0">
+                                    <p class="p_texto">Provas CA-AA-AFN por Matéria</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/audio.png" alt="Ícone de planilha de estudos">
+                                </div>
+                                <a href="#" onclick="showContent('content7')" aria-label="Acessar Planilha de Estudos" tabindex="0">
+                                    <p class="p_texto">Planilha de Estudos</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/audio.png" alt="Ícone de progresso automático">
+                                </div>
+                                <a href="#" onclick="showContent('content8')" aria-label="Acessar Progresso Automático" tabindex="0">
                                     <p class="p_texto">Progresso Automático</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Publicações">
+                                    <img src="icons/audio.png" alt="Ícone de apostilhas">
                                 </div>
-                                <a href="#" onclick="showContent('Publicações')">
+                                <a href="#" onclick="showContent('Publicações')" aria-label="Acessar Apostilhas" tabindex="0">
                                     <p class="p_texto">Apostilhas</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Publicações">
+                                    <img src="icons/audio.png" alt="Ícone de normas">
                                 </div>
-                                <a href="#" onclick="showContent('normas')">
+                                <a href="#" onclick="showContent('normas')" aria-label="Acessar Normas e Publicações" tabindex="0">
                                     <p class="p_texto">Normas/Publicações</p>
                                 </a>
                             </li>
                             <li class="container-dados">
                                 <div class="icon-wrapper">
-                                    <img src="icons/audio.png" alt="Catálogo">
+                                    <img src="icons/audio.png" alt="Ícone de controle de avarias">
                                 </div>
-                                <a href="#" onclick="showContent('catalogo')">
+                                <a href="#" onclick="showContent('controleAvarias')" aria-label="Acessar Controle de Avarias" tabindex="0">
+                                    <p class="p_texto">Controle de Avarias</p>
+                                </a>
+                            </li>
+                            <li class="container-dados">
+                                <div class="icon-wrapper">
+                                    <img src="icons/audio.png" alt="Ícone de catálogo">
+                                </div>
+                                <a href="#" onclick="showContent('catalogo')" aria-label="Acessar Catálogo" tabindex="0">
                                     <p class="p_texto">Catálogo</p>
                                 </a>
                             </li>
@@ -597,215 +1119,290 @@ footer a:hover {
                 </div>
             </div>
 
-            <!-- Main Content -->
             <div class="main-content">
-                <div id="bonoDia" class="content">
+                <section id="pagina_Inicial" class="content">
+                    <div class="container-mural">
+
+                        <!--Relógio-->
+                        <div class="rectangle" id="countdown">
+                            <span class="countdown-title">Tempo - Prova</span>
+                            <span class="countdown-value">Calculando...</span>
+                        </div>
+                        <!--Relógio-->
+
+                        <!-- Image gallery section -->
+                            <section class="gallery-wrapper" aria-label="Galeria de imagens">
+                                <div class="gallery-container">
+                                    <div class="gallery">
+                                        <img src="../imagens/banner01.png" alt="Imagem de cerimônia militar">
+                                        <img src="../imagens/banner02.png" alt="Imagem de cerimonial da Marinha">
+                                        <img src="../imagens/banner03.png" alt="Imagem de navios da Marinha">
+                                        <img src="../imagens/banner04.png" alt="Imagem de navios da Marinha">
+                                    </div>
+                                    <!-- Navigation buttons -->
+                                    <button class="nav-btn prev-btn" aria-label="Imagem anterior"><</button>
+                                    <button class="nav-btn next-btn" aria-label="Próxima imagem">></button>
+                                </div>
+                                <!-- Dots and controls -->
+                                <div class="dots-container" id="dotsWrapper" role="navigation" aria-label="Indicadores da galeria">
+                                    <!-- Dots inserted via JS -->
+                                </div>
+                                <div class="dots-container" role="navigation" aria-label="Controles de reprodução">
+                                    <button class="play-btn" aria-label="Iniciar reprodução automática">▶</button>
+                                    <button class="pause-btn" aria-label="Pausar reprodução automática">⏸</button>
+                                </div>
+                            </section>
+                        <!-- Image gallery section -->
+
+
+
+
+                        <!--MURAL-->
+                        <div class="mural">
+                            <div class="sidebar"></div>
+                            <div class="mural-content">
+                                <h2>Mural de Informações</h2>
+                                <ul class="ul-mural">
+                                    <li class="li-mural">13/02/2025br<br>Abertura de Inscrições CA-AA/AFN (CPA)</li>
+                                    <li class="li-mural">21/02/2025<br>Abertura de Inscrições CA-AA/AFN (CFN)</li>
+                                    <li class="li-mural">02/05/2025<br>Prazo Final para Cancelamento de Inscrições</li>
+                                    <li class="li-mural">10/05/2025<br>Dia da Prova Escrita (Conhecimentos Gerais e Militar-Naval)</li>
+                                    <li class="li-mural">16/04/2025<br>Divulgação do Parecer Favorável (CPP)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--MURAL-->
+                    </div>
+                </section>
+
+                <section id="bonoDia" class="content">
                     <h1 class="h1Curso">Escolha o bono e acesse o conteúdo!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../imagens/boletim_ordens_noticias.jpg" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../imagens/boletim_ordens_noticias.jpg" alt="Imagem do Boletim de Ordens e Notícias">
                             <h1 class="nome_curso">Boletim de Ordens e Notícias</h1>
                             <a href="https://bono.marinha.mil.br/internet" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="bonos" class="content">
+                <section id="bonos" class="content">
                     <h1 class="h1Curso">Escolha o bono e acesse o conteúdo!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Imagem do Bono Especial 30OUT2023">
                             <h1 class="nome_curso">30OUT2023</h1>
                             <h1 class="nome_curso">CA-AA</h1>
                             <h1 class="nome_curso">PROVA DE TÍTULOS</h1>
                             <a href="../bonos-2025/BONO-AA-PROVAS DE TÍTULO.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Imagem do Bono 13FEV2025">
                             <h1 class="nome_curso">13/02/2025</h1>
                             <h1 class="nome_curso">CA-AA/AFN - 2025 (CPA)</h1>
                             <h1 class="nome_curso">Abertura de Inscrições</h1>
                             <a href="bonos-2025/BONO-AUT-Insc-CA-AA_2025.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Imagem do Bono 21FEV2025">
                             <h1 class="nome_curso">21/02/2025</h1>
                             <h1 class="nome_curso">CA-AA/AFN - 2025 (CFN)</h1>
                             <h1 class="nome_curso">Abertura de Inscrições</h1>
                             <a href="bonos-2025/BONO N° 7 do CPesFN.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="bonos-2025/bono.png" alt="Imagem do Bono 16ABR2025">
                             <h1 class="nome_curso">Nº 34 16ABR2025</h1>
                             <h1 class="nome_curso">CA-AA/AFN - 2025</h1>
                             <h1 class="nome_curso">CPP - Parecer Favorável</h1>
                             <a href="bonos-2025/Bono-Especial-n-34-2025.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="calendário" class="content">
+                <section id="planilha" class="content">
+                    <h1 class="h1Curso">Siga sua grade de estudos!</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../calendarioEvenos/cronograma.png" alt="Imagem do Calendário de Eventos">
+                            <h1 class="nome_curso">PLANILHA DE ESTUDOS</h1>
+                            <a href="../planilhaControleMaterias/planilha.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="calendário" class="content">
                     <h1 class="h1Curso">Atenção ao calendário!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../calendarioEvenos/cronograma.png" alt="Bono">
+                            <img style="width: 150px; height: 100px; margin-bottom: 0;" src="../calendarioEvenos/cronograma.png" alt="Imagem do Calendário de Eventos">
                             <h1 class="nome_curso">CALENDÁRIO DE EVENTOS</h1>
                             <a href="../calendarioEvenos/calendario.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="content1" class="content">
+                <section id="content1" class="content">
                     <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/cerimonialMB-II.png" alt="OGSA">
+                            <img src="../imagens/cerimonialMB-II.png" alt="Imagem representativa do curso de Cerimonial">
                             <h1 class="nome_curso">Cerimonial</h1>
                             <a href="pg_acesso_cerimonial.html"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do curso de Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="controleProgramaLiderança.html" target="_blank" class="botao">Acesse</a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros">
+                            <img src="../imagens/procedimentos.png" alt="Imagem representativa do curso de Procedimentos Marinheiros">
                             <h1 class="nome_curso">Procedimentos Marinheiros</h1>
                             <a href="pg_acesso_pmn.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do curso de Liderança (alternativo)">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="pg_acesso_lideranca.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="programaBibliografia" class="content">
-                    <iframe src="../programaBibliografia/dpf/Programa e Bibliografia.pdf" width="100%" height="930px"></iframe>
+                <section id="programaBibliografia" class="content">
+                    <iframe src="../programaBibliografia/dpf/Programa e Bibliografia.pdf" width="100%" height="930px" title="Programa e Bibliografia"></iframe>
                     <h2>Bono de ALT da Data da Prova</h2>
                     <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
-                </div>
+                </section>
 
-                <div id="content3" class="content">
+                <section id="content3" class="content">
                     <h1 class="h1Curso">Escolha o curso e acesse seu fichamento!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do fichamento de Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="../lideranca/fichamentos/lideranca/fichamentosPaginaAcesso.html" class="botao">Acesse</a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="content4" class="content">
+                <section id="content4" class="content">
                     <h1 class="h1Curso">Escolha o curso e acesse o áudio!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa dos áudios de Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="../audios/audios.html" class="botao">Acesse</a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="content5" class="content">
-                    <iframe src="../escolhaAno/escolhaAno.html" width="100%" height="930px"></iframe>
+                <section id="content5" class="content">
+                    <iframe src="../escolhaAno/escolhaAno.html" width="100%" height="930px" title="Provas por Ano"></iframe>
                     <h2>Bono de ALT da Data da Prova</h2>
                     <p>Dia 27/10/24 - Prova Escrita Objetiva de Conhecimentos Gerais e Militar-Naval e Redação.</p>
-                </div>
+                </section>
 
-                <div id="content6" class="content">
+                <section id="content6" class="content">
                     <h1 class="h1Curso">Escolha a matéria e acesse as questões de prova!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa das provas de Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="../escolhaAnoMateria/escolhaAnoMateria.html" class="botao">Acesse</a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="content7" class="content">
-                    <iframe src="../planilhaEstudos/planilhaEstudos.html" width="100%" height="1000px"></iframe>
-                </div>
+                <section id="content7" class="content">
+                    <iframe src="../planilhaEstudos/planilhaEstudos.html" width="100%" height="1000px" title="Planilha de Estudos"></iframe>
+                </section>
 
-                <div id="content8" class="content">
-                    <iframe src="../cabineControle-II/graficos.html" width="100%" height="1000px"></iframe>
-                </div>
+                <section id="content8" class="content">
+                    <iframe src="../cabineControle-II/graficos.html" width="100%" height="1000px" title="Progresso Automático"></iframe>
+                </section>
 
-                <div id="catalogo" class="content">
-                    <iframe src="../catalogo/catalogo.html" width="100%" height="1000px"></iframe>
-                </div>
+                <section id="catalogo" class="content">
+                    <iframe src="../catalogo/catalogo.html" width="100%" height="1000px" title="Catálogo"></iframe>
+                </section>
 
-                <div id="Publicações" class="content">
+                <section id="Publicações" class="content">
                     <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/cerimonialMB-II.png" alt="OGSA">
+                            <img src="../imagens/cerimonialMB-II.png" alt="Imagem representativa do curso de Cerimonial">
                             <h1 class="nome_curso">Cerimonial</h1>
                             <a href="pg_acesso_cerimonial.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/procedimentos.png" alt="Procedimentos Marinheiros">
+                            <img src="../imagens/procedimentos.png" alt="Imagem representativa do curso de Procedimentos Marinheiros">
                             <h1 class="nome_curso">Procedimentos Marinheiros</h1>
                             <a href="pg_acesso_pmn.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/justica-disciplina.png" alt="Justiça e Disciplina">
+                            <img src="../imagens/justica-disciplina.png" alt="Imagem representativa do curso de Justiça e Disciplina">
                             <h1 class="nome_curso">Justiça e Disciplina</h1>
                             <a href="pg_acesso_justica_disciplina.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Liderança">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do curso de Liderança">
                             <h1 class="nome_curso">Liderança</h1>
                             <a href="pg_acesso_lideranca.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="NODAM">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do curso de NODAM">
                             <h1 class="nome_curso">NODAM</h1>
                             <a href="pg_acesso_nodam.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="Legislação">
-                            <h1 class="nome_curso">LEGISLAÇÃO MILITAR-NAVAL/CIVIL</h1>
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa do curso de Legislação">
+                            <h1 class="nome_curso">Legislação Militar-Naval/Civil</h1>
                             <a href="pg_acesso_legislacao-miltar-naval-civil.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/OGSA.png" alt="OGSA">
+                            <img src="../imagens/OGSA.png" alt="Imagem representativa do curso de OGSA">
                             <h1 class="nome_curso">OGSA</h1>
                             <a href="pg_acesso_ogsa.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div id="normas" class="content">
+                <section id="normas" class="content">
                     <h1 class="h1Curso">Escolha o curso e acompanhe seu progresso!</h1>
                     <div class="container-cursos">
                         <div class="cursos">
-                            <img src="../imagens/OGSA.png" alt="DGPM-104 Rev-8">
+                            <img src="../imagens/OGSA.png" alt="Imagem representativa da DGPM-104 Rev-8">
                             <h1 class="nome_curso">DGPM-104 Rev-8</h1>
                             <p>Capítulo 5 da DGPM-104 (8ª Rev.)</p>
                             <a href="../publicacoes/DGPM-104_Rev-8.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/lideranca.png" alt="DGPM-307 Rev-4">
+                            <img src="../imagens/lideranca.png" alt="Imagem representativa da DGPM-307 Rev-4">
                             <h1 class="nome_curso">DGPM-307 Rev-4</h1>
                             <p>Capítulo 10 da DGPM-307 (4ª Rev.)</p>
                             <a href="../publicacoes/DGPM-307-REV4-MOD-1.PDF" target="_blank" class="botao">Acesse</a>
                         </div>
                         <div class="cursos">
-                            <img src="../imagens/procedimentos.png" alt="DEnsM-3001 Rev-1">
-                            <h1 class="nome_curso">DEnsM-3001 REV-1</h1>
+                            <img src="../imagens/procedimentos.png" alt="Imagem representativa da DEnsM-3001 Rev-1">
+                            <h1 class="nome_curso">DEnsM-3001 Rev-1</h1>
                             <a href="../publicacoes/DEnsM-3001-REV-1.pdf" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section id="controleAvarias" class="content">
+                    <h1 class="h1Curso">Acesse o conteúdo de Controle de Avarias</h1>
+                    <div class="container-cursos">
+                        <div class="cursos">
+                            <img src="../imagens/procedimentos.png" alt="Imagem representativa do curso de Controle de Avarias">
+                            <h1 class="nome_curso">Controle de Avarias</h1>
+                            <a href="controle_avarias.html" target="_blank"><button id="corBotaoEmProducao">Acesse</button></a>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
 
-    <!-- Footer with contact information -->
     <footer>
         <div class="container-footer">
             <div>
@@ -821,38 +1418,110 @@ footer a:hover {
         </div>
     </footer>
 
-   
-<script>
-    // Função para alternar a visibilidade do conteúdo e rolar para o main-content em telas menores
+    <script>
+    // Função para exibir uma seção específica com base no ID fornecido
     function showContent(contentId) {
-        // Remove todas as classes .active de todos os conteúdos
-        document.querySelectorAll('.content').forEach(content => {
-            content.classList.remove('active');
-        });
-    
-        // Adiciona .active apenas ao conteúdo selecionado
-        const selectedContent = document.getElementById(contentId);
-        if (selectedContent) {
+        try {
+            // Encontrar a seção correspondente ao ID fornecido
+            const selectedContent = document.getElementById(contentId);
+            if (!selectedContent) {
+                console.error(`Content ID ${contentId} not found`);
+                return;
+            }
+
+            // Remover a classe 'active' de todas as seções .content para garantir que apenas uma seção esteja visível
+            const allContents = document.querySelectorAll('.content');
+            allContents.forEach(content => {
+                content.classList.remove('active');
+                console.log(`Classe 'active' removida de ${content.id}`);
+            });
+
+            // Adicionar a classe 'active' à seção selecionada para exibi-la
             selectedContent.classList.add('active');
-        }
-    
-        // Em telas menores, gerencia a exibição do main-content
-        if (window.innerWidth <= 768) {
+            console.log(`Classe 'active' adicionada a ${contentId}`);
+
+            // Forçar a atualização do estilo display
+            allContents.forEach(content => {
+                if (content.classList.contains('active')) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+
+            // Destacar o item de navegação ativo e manter todos os itens visíveis
+            const navItems = document.querySelectorAll('.container-dados');
+            navItems.forEach((item, index) => {
+                item.style.display = 'flex';
+                item.style.backgroundColor = item.querySelector('a').getAttribute('onclick').includes(`showContent('${contentId}')`) ? '#e6e6e6' : '';
+            });
+
+            // Salvar o contentId ativo no localStorage para persistência
+            localStorage.setItem('activeContent', contentId);
+
+            // Lidar com a visualização em dispositivos móveis
             const painel = document.querySelector('.painel');
-            painel.classList.add('content-active'); // Exibe main-content
-            // Rola suavemente para o topo do main-content
-            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 768) {
+                painel.classList.add('content-active');
+                document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                painel.classList.remove('content-active');
+            }
+        } catch (error) {
+            console.error('Error in showContent:', error);
         }
     }
-    
-    // Inicializa a página sem conteúdos ativos
+
+    // Inicializar a página quando o DOM estiver completamente carregado
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.content').forEach(content => {
+        // Forçar a exibição inicial apenas para 'pagina_Inicial'
+        const allContents = document.querySelectorAll('.content');
+        allContents.forEach(content => {
             content.classList.remove('active');
+            content.style.display = 'none';
         });
-        // Opcional: Define um conteúdo inicial, se desejar
-        // showContent('bonoDia');
+        const initialContent = document.getElementById('pagina_Inicial');
+        if (initialContent) {
+            initialContent.classList.add('active');
+            initialContent.style.display = 'block';
+            console.log("Inicializando com pagina_Inicial ativa");
+        }
+
+        // Mostrar todos os itens de navegação inicialmente e destacar 'Página Inicial'
+        const navItems = document.querySelectorAll('.container-dados');
+        navItems.forEach((item, index) => {
+            item.style.display = 'flex';
+            item.style.backgroundColor = index === 0 ? '#e6e6e6' : '';
+        });
+
+ // Função para atualizar a contagem regressiva exibida em pagina_Inicial
+function updateCountdown() {
+    const examDate = new Date('2025-10-26T00:00:00');
+    const today = new Date();
+    const timeDiff = examDate - today;
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    const countdownElement = document.getElementById('countdown')?.querySelector('.countdown-value');
+    if (countdownElement) {
+        if (daysLeft < 0) {
+            countdownElement.textContent = 'A prova já ocorreu!';
+        } else if (daysLeft === 0) {
+            countdownElement.textContent = 'Hoje é o dia da prova!';
+        } else if (daysLeft < 30) {
+            countdownElement.textContent = `${daysLeft} dia${daysLeft === 1 ? '' : 's'}`;
+        } else {
+            const monthsLeft = Math.floor(daysLeft / 30);
+            const remainingDays = daysLeft % 30;
+            countdownElement.textContent = `${monthsLeft} mês${monthsLeft === 1 ? '' : 'es'}${remainingDays > 0 ? ` e ${remainingDays} dia${remainingDays === 1 ? '' : 's'}` : ''}`;
+        }
+    }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000 * 60 * 60 * 24);
     });
     </script>
+
+       <script src="../js/galeria.js"></script>
 </body>
 </html>
