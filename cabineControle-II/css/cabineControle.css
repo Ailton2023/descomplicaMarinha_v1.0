@@ -267,7 +267,7 @@ body {
 /* Estiliza o botão de ação */
 button#corBotaoEmProducao {
     padding: 10px;
-    background-color: #003087;
+    background-color: #875100;
     color: white;
     border: none;
     cursor: pointer;
@@ -444,6 +444,7 @@ button#corBotaoEmProducao a {
     .container-cursos {
         flex-direction: column; /* Empilha os cursos verticalmente */
         align-items: center;
+        
     }
     .cursos {
         max-width: 100%; /* Ocupa a largura total disponível */
